@@ -13,14 +13,17 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import net.lberrymage.accrescent.data.MetadataFetcherImpl
-import net.lberrymage.accrescent.data.MetadataRemoteDataSource
 import net.lberrymage.accrescent.data.MetadataRepository
 import net.lberrymage.accrescent.ui.theme.AccrescentTheme
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @Inject
+    lateinit var metadataRepository: MetadataRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -32,7 +35,7 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        DisplayButton()
+                        DisplayButton(metadataRepository)
                     }
                 }
             }
@@ -41,31 +44,19 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun DisplayButton() {
+fun DisplayButton(metadataRepository: MetadataRepository) {
     val scope = rememberCoroutineScope()
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         var displayText by remember { mutableStateOf("") }
 
         Button(onClick = {
-            val metadataFetcher = MetadataFetcherImpl()
-            val metadataRemoteDataSource = MetadataRemoteDataSource(metadataFetcher)
-            val metadataRepository = MetadataRepository(metadataRemoteDataSource)
-
-            scope.launch { displayText = metadataRepository.fetchLatestMetadata().data }
-        }) {
-            Text("Refresh")
-        }
+            scope.launch {
+                displayText = metadataRepository.fetchLatestMetadata().data
+            }
+        }) { Text("Refresh") }
         if (displayText.isNotEmpty()) {
             Text(displayText)
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    AccrescentTheme {
-        DisplayButton()
     }
 }

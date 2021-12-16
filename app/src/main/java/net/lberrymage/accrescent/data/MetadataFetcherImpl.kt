@@ -3,9 +3,10 @@ package net.lberrymage.accrescent.data
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
 import java.net.URL
+import javax.inject.Inject
 import javax.net.ssl.HttpsURLConnection
 
-class MetadataFetcherImpl : MetadataFetcher {
+class MetadataFetcherImpl @Inject constructor() : MetadataFetcher {
     private val connection =
         URL(REPOSITORY_URL + METADATA_PATH).openConnection() as HttpsURLConnection
 

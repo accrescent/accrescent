@@ -1,5 +1,7 @@
 package net.lberrymage.accrescent.data
 
-class MetadataRepository(private val metadataRemoteDataSource: MetadataRemoteDataSource) {
+import javax.inject.Inject
+
+class MetadataRepository @Inject constructor(private val metadataRemoteDataSource: MetadataRemoteDataSource) {
     suspend fun fetchLatestMetadata(): Metadata = metadataRemoteDataSource.fetchLatestMetadata()
 }

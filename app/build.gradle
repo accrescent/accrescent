@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
+    id 'dagger.hilt.android.plugin'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -55,5 +57,7 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
     implementation 'androidx.activity:activity-compose:1.4.0'
+    implementation "com.google.dagger:hilt-android:$hilt_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
 }
