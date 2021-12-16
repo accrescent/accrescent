@@ -6,4 +6,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Accrescent"
-include ':app'
+include(":app")
