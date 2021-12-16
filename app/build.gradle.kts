@@ -53,15 +53,15 @@ dependencies {
     val hiltVersion: String by rootProject.extra
     val lifecycleVersion: String by rootProject.extra
 
-    implementation("androidx.core:core-ktx:1.7.0")
+    implementation("androidx.activity:activity-compose:1.4.0")
     implementation("androidx.appcompat:appcompat:1.4.0")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.compose.ui:ui:$composeVersion")
     implementation("androidx.compose.material:material:$composeVersion")
+    implementation("androidx.compose.ui:ui:$composeVersion")
     implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
+    implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion")
-    implementation("androidx.activity:activity-compose:1.4.0")
+    implementation("com.google.android.material:material:1.4.0")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
     kapt("com.google.dagger:hilt-compiler:$hiltVersion")
