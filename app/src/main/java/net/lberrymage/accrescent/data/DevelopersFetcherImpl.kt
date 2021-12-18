@@ -6,11 +6,11 @@ import java.net.URL
 import javax.inject.Inject
 import javax.net.ssl.HttpsURLConnection
 
-class MetadataFetcherImpl @Inject constructor() : MetadataFetcher {
+class DevelopersFetcherImpl @Inject constructor() : DevelopersFetcher {
     private val connection =
-        URL(REPOSITORY_URL + METADATA_PATH).openConnection() as HttpsURLConnection
+        URL(REPOSITORY_URL + DEVELOPERS_PATH).openConnection() as HttpsURLConnection
 
-    override suspend fun fetchLatestMetadata(): Metadata {
+    override suspend fun fetchLatestDevelopers(): Developer {
         connection.connect()
 
         val data = connection.inputStream
@@ -27,11 +27,11 @@ class MetadataFetcherImpl @Inject constructor() : MetadataFetcher {
 
         val json = JSONObject(outBuf.toString())
 
-        return Metadata(json.getString("data"))
+        return Developer(json.getString("username"), json.getString("public_key"))
     }
 
     companion object {
         const val REPOSITORY_URL = "https://staging.lberrymage.net"
-        const val METADATA_PATH = "/metadata.json"
+        const val DEVELOPERS_PATH = "/developers.json"
     }
 }

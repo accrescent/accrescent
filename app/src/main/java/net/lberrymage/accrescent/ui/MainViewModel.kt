@@ -7,21 +7,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import net.lberrymage.accrescent.data.MetadataRepository
+import net.lberrymage.accrescent.data.DeveloperRepository
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor() : ViewModel() {
     @Inject
-    lateinit var metadataRepository: MetadataRepository
+    lateinit var developerRepository: DeveloperRepository
 
-    var metadataText by mutableStateOf("")
+    var publicKey by mutableStateOf("")
         private set
 
-    fun refreshMetadata() {
+    fun refreshDevelopers() {
         viewModelScope.launch {
-            val metadata = metadataRepository.fetchLatestMetadata()
-            metadataText = metadata.data
+            val developer = developerRepository.fetchLatestDevelopers()
+            publicKey = developer.publicKey
         }
     }
 }

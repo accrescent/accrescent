@@ -40,9 +40,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DisplayButton(viewModel: MainViewModel = viewModel()) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Button(onClick = { viewModel.refreshMetadata() }) { Text("Refresh") }
-        if (viewModel.metadataText.isNotEmpty()) {
-            Text(viewModel.metadataText)
+        Button(onClick = { viewModel.refreshDevelopers() }) { Text("Refresh") }
+        if (viewModel.publicKey.isNotEmpty()) {
+            Text(viewModel.publicKey)
         }
     }
 }
