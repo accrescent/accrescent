@@ -2,6 +2,7 @@ buildscript {
     val composeVersion by extra("1.0.5")
     val hiltVersion by extra("2.40.5")
     val lifecycleVersion by extra("2.4.0")
+    val roomVersion by extra("2.3.0")
 
     repositories {
         google()

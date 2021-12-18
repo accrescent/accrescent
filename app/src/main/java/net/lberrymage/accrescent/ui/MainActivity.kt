@@ -11,6 +11,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -39,10 +41,12 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun DisplayButton(viewModel: MainViewModel = viewModel()) {
+    val publicKey by viewModel.anonymousPublicKey.collectAsState("")
+
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Button(onClick = { viewModel.refreshDevelopers() }) { Text("Refresh") }
-        if (viewModel.publicKey.isNotEmpty()) {
-            Text(viewModel.publicKey)
+        if (!publicKey.isNullOrEmpty()) {
+            Text(publicKey!!)
         }
     }
 }

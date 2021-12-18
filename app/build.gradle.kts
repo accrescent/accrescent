@@ -20,6 +20,12 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
     }
 
     buildTypes {
@@ -52,6 +58,7 @@ android {
 dependencies {
     val hiltVersion: String by rootProject.extra
     val lifecycleVersion: String by rootProject.extra
+    val roomVersion: String by rootProject.extra
 
     implementation("androidx.activity:activity-compose:1.4.0")
     implementation("androidx.compose.material:material:$composeVersion")
@@ -59,8 +66,12 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    implementation("androidx.room:room-runtime:$roomVersion")
     implementation("com.google.android.material:material:1.4.0")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
     kapt("com.google.dagger:hilt-compiler:$hiltVersion")
 }

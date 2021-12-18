@@ -1,8 +1,5 @@
 package net.lberrymage.accrescent.ui
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -11,17 +8,13 @@ import net.lberrymage.accrescent.data.DeveloperRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor() : ViewModel() {
-    @Inject
-    lateinit var developerRepository: DeveloperRepository
-
-    var publicKey by mutableStateOf("")
-        private set
+class MainViewModel @Inject constructor(private val developerRepository: DeveloperRepository) :
+    ViewModel() {
+    val anonymousPublicKey = developerRepository.getPublicKey("anonymous")
 
     fun refreshDevelopers() {
         viewModelScope.launch {
-            val developer = developerRepository.fetchLatestDevelopers()
-            publicKey = developer.publicKey
+            developerRepository.fetchLatestDevelopers()
         }
     }
 }

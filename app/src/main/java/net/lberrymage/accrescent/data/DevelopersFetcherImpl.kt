@@ -10,7 +10,7 @@ class DevelopersFetcherImpl @Inject constructor() : DevelopersFetcher {
     private val connection =
         URL(REPOSITORY_URL + DEVELOPERS_PATH).openConnection() as HttpsURLConnection
 
-    override suspend fun fetchLatestDevelopers(): Developer {
+    override suspend fun fetchLatestDevelopers(): List<Developer> {
         connection.connect()
 
         val data = connection.inputStream
@@ -27,7 +27,7 @@ class DevelopersFetcherImpl @Inject constructor() : DevelopersFetcher {
 
         val json = JSONObject(outBuf.toString())
 
-        return Developer(json.getString("username"), json.getString("public_key"))
+        return listOf(Developer(0, json.getString("username"), json.getString("public_key")))
     }
 
     companion object {
