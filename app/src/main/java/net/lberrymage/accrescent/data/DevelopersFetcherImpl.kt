@@ -1,6 +1,7 @@
 package net.lberrymage.accrescent.data
 
-import org.json.JSONObject
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 import java.io.ByteArrayOutputStream
 import java.net.URL
 import javax.inject.Inject
@@ -25,9 +26,7 @@ class DevelopersFetcherImpl @Inject constructor() : DevelopersFetcher {
 
         connection.disconnect()
 
-        val json = JSONObject(outBuf.toString())
-
-        return listOf(Developer(json.getString("username"), json.getString("public_key")))
+        return Json.decodeFromString(outBuf.toString())
     }
 
     companion object {

@@ -3,6 +3,7 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.5.31"
 }
 
 val composeVersion: String by rootProject.extra
@@ -70,6 +71,7 @@ dependencies {
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("com.google.android.material:material:1.4.0")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1")
     debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
