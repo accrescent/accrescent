@@ -27,7 +27,7 @@ class DevelopersFetcherImpl @Inject constructor() : DevelopersFetcher {
 
         val json = JSONObject(outBuf.toString())
 
-        return listOf(Developer(0, json.getString("username"), json.getString("public_key")))
+        return listOf(Developer(json.getString("username"), json.getString("public_key")))
     }
 
     companion object {

@@ -2,18 +2,12 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "3dba54c1cc390ed2b07943edd3fe0b46",
+    "identityHash": "4b4f2e00ca3cdb5920ee1971b5f9c606",
     "entities": [
       {
         "tableName": "developers",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT NOT NULL, `public_key` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`username` TEXT NOT NULL, `public_key` TEXT NOT NULL, PRIMARY KEY(`username`))",
         "fields": [
-          {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
           {
             "fieldPath": "username",
             "columnName": "username",
@@ -29,37 +23,18 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "id"
+            "username"
           ],
-          "autoGenerate": true
+          "autoGenerate": false
         },
-        "indices": [
-          {
-            "name": "index_developers_username",
-            "unique": true,
-            "columnNames": [
-              "username"
-            ],
-            "orders": [],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_developers_username` ON `${TABLE_NAME}` (`username`)"
-          },
-          {
-            "name": "index_developers_public_key",
-            "unique": true,
-            "columnNames": [
-              "public_key"
-            ],
-            "orders": [],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_developers_public_key` ON `${TABLE_NAME}` (`public_key`)"
-          }
-        ],
+        "indices": [],
         "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3dba54c1cc390ed2b07943edd3fe0b46')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4b4f2e00ca3cdb5920ee1971b5f9c606')"
     ]
   }
 }
