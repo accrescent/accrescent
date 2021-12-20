@@ -11,7 +11,7 @@ class DevelopersFetcherImpl @Inject constructor() : DevelopersFetcher {
     private val connection =
         URL(REPOSITORY_URL + DEVELOPERS_PATH).openConnection() as HttpsURLConnection
 
-    override suspend fun fetchLatestDevelopers(): List<Developer> {
+    override fun fetchLatestDevelopers(): List<Developer> {
         connection.connect()
 
         val data = connection.inputStream
