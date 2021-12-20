@@ -73,5 +73,9 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
-    kapt("com.google.dagger:hilt-compiler:$hiltVersion")
+    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+}
+
+kapt {
+    correctErrorTypes = true
 }
