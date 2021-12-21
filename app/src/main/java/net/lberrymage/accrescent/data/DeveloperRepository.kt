@@ -9,6 +9,7 @@ class DeveloperRepository @Inject constructor(
     suspend fun fetchLatestDevelopers() {
         val developers = developersRemoteDataSource.fetchLatestDevelopers()
         developersLocalDataSource.saveDevelopers(*developers.toTypedArray())
+        developersLocalDataSource.deleteRemovedDevelopers(developers.map { it.username })
     }
 
     fun getPublicKey(username: String) = developersLocalDataSource.getPublicKey(username)

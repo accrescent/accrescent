@@ -13,4 +13,7 @@ interface DeveloperDao {
 
     @Query("SELECT public_key FROM developers WHERE username = :username")
     fun getPublicKey(username: String): Flow<String?>
+
+    @Query("DELETE FROM developers WHERE username NOT IN (:usernamesToKeep)")
+    suspend fun deleteRemoved(usernamesToKeep: List<String>)
 }

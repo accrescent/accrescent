@@ -7,4 +7,7 @@ class DevelopersLocalDataSource @Inject constructor(private val developersDao: D
         developersDao.insertDevelopers(*developers)
 
     fun getPublicKey(username: String) = developersDao.getPublicKey(username)
+
+    suspend fun deleteRemovedDevelopers(usernamesToKeep: List<String>) =
+        developersDao.deleteRemoved(usernamesToKeep)
 }
