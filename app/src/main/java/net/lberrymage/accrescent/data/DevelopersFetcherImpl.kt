@@ -24,6 +24,7 @@ class DevelopersFetcherImpl @Inject constructor() : DevelopersFetcher {
             bytes = data.read(buf)
         }
 
+        outBuf.close()
         connection.disconnect()
 
         return Json.decodeFromString(outBuf.toString())
