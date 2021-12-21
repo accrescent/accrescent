@@ -8,10 +8,10 @@ import javax.inject.Inject
 import javax.net.ssl.HttpsURLConnection
 
 class DevelopersFetcherImpl @Inject constructor() : DevelopersFetcher {
-    private val connection =
-        URL(REPOSITORY_URL + DEVELOPERS_PATH).openConnection() as HttpsURLConnection
-
     override fun fetchLatestDevelopers(): List<Developer> {
+        val connection =
+            URL(REPOSITORY_URL + DEVELOPERS_PATH).openConnection() as HttpsURLConnection
+
         connection.connect()
 
         val data = connection.inputStream
