@@ -73,6 +73,7 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.7.1")
     implementation("com.google.android.material:material:1.4.0")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
+    implementation("org.bouncycastle:bcprov-jdk15to18:1.70")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1")
     debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
