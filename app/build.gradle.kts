@@ -75,7 +75,6 @@ dependencies {
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1")
     debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
-    annotationProcessor("androidx.room:room-compiler:$roomVersion")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     kapt("androidx.room:room-compiler:$roomVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
