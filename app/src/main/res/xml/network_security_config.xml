@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config>
+        <domain includeSubdomains="true">staging.lberrymage.net</domain>
+        <pin-set>
+            <!-- Let's Encrypt cert -->
+            <pin digest="SHA-256">++xOmG/9tv0uQzuvLH9g0rYaJc6aldMNMVdSQZQrWhM=</pin>
+        </pin-set>
+    </domain-config>
+</network-security-config>
