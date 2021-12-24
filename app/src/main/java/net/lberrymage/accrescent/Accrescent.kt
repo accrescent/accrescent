@@ -7,7 +7,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import dagger.hilt.android.HiltAndroidApp
-import net.lberrymage.accrescent.workers.RefreshDevelopersWorker
+import net.lberrymage.accrescent.workers.RefreshRepoDataWorker
 import java.time.Duration
 import javax.inject.Inject
 
@@ -21,7 +21,7 @@ class Accrescent : Application(), Configuration.Provider {
         WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork(
             "REFRESH_DEVELOPERS",
             ExistingPeriodicWorkPolicy.KEEP,
-            PeriodicWorkRequestBuilder<RefreshDevelopersWorker>(Duration.ofHours(4)).build()
+            PeriodicWorkRequestBuilder<RefreshRepoDataWorker>(Duration.ofHours(4)).build()
         )
     }
 

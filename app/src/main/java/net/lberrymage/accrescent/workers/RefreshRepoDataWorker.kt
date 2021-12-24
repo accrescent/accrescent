@@ -6,17 +6,17 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
-import net.lberrymage.accrescent.data.DeveloperRepository
+import net.lberrymage.accrescent.data.RepoDataRepository
 
 @HiltWorker
-class RefreshDevelopersWorker @AssistedInject constructor(
+class RefreshRepoDataWorker @AssistedInject constructor(
     @Assisted context: Context,
     @Assisted workerParams: WorkerParameters,
-    private val developerRepository: DeveloperRepository,
+    private val repoDataRepository: RepoDataRepository,
 ) : CoroutineWorker(context, workerParams) {
     override suspend fun doWork(): Result {
         try {
-            developerRepository.fetchLatestDevelopers()
+            repoDataRepository.fetchLatestRepoData()
         } catch (e: Exception) {
             return Result.retry()
         }
