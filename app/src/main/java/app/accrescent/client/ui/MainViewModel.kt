@@ -1,10 +1,10 @@
-package net.lberrymage.accrescent.ui
+package app.accrescent.client.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import app.accrescent.client.data.RepoDataRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import net.lberrymage.accrescent.data.RepoDataRepository
 import javax.inject.Inject
 
 @HiltViewModel

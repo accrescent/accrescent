@@ -1,12 +1,12 @@
-package net.lberrymage.accrescent.workers
+package app.accrescent.client.workers
 
 import android.content.Context
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import app.accrescent.client.data.RepoDataRepository
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
-import net.lberrymage.accrescent.data.RepoDataRepository
 
 @HiltWorker
 class RefreshRepoDataWorker @AssistedInject constructor(

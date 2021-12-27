@@ -1,4 +1,4 @@
-package net.lberrymage.accrescent.di
+package app.accrescent.client.di
 
 import android.content.Context
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory

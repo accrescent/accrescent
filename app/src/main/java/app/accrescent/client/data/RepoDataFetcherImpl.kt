@@ -1,8 +1,8 @@
-package net.lberrymage.accrescent.data
+package app.accrescent.client.data
 
+import app.accrescent.client.util.verifySignature
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import net.lberrymage.accrescent.util.verifySignature
 import java.io.ByteArrayOutputStream
 import java.net.URL
 import java.security.GeneralSecurityException

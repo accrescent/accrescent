@@ -1,4 +1,4 @@
-package net.lberrymage.accrescent
+package app.accrescent.client
 
 import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory
@@ -6,8 +6,8 @@ import androidx.work.Configuration
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
+import app.accrescent.client.workers.RefreshRepoDataWorker
 import dagger.hilt.android.HiltAndroidApp
-import net.lberrymage.accrescent.workers.RefreshRepoDataWorker
 import java.time.Duration
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package net.lberrymage.accrescent.ui.theme
+package app.accrescent.client.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

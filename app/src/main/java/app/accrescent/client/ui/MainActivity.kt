@@ -1,4 +1,4 @@
-package net.lberrymage.accrescent.ui
+package app.accrescent.client.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,8 +16,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import app.accrescent.client.ui.theme.AccrescentTheme
 import dagger.hilt.android.AndroidEntryPoint
-import net.lberrymage.accrescent.ui.theme.AccrescentTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

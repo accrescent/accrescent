@@ -1,13 +1,13 @@
-package net.lberrymage.accrescent.di
+package app.accrescent.client.di
 
 import android.content.Context
 import androidx.room.Room
+import app.accrescent.client.data.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import net.lberrymage.accrescent.data.AppDatabase
 import javax.inject.Singleton
 
 @Module

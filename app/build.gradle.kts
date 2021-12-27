@@ -12,7 +12,7 @@ android {
     compileSdk = 31
 
     defaultConfig {
-        applicationId = "net.lberrymage.accrescent"
+        applicationId = "app.accrescent.client"
         minSdk = 31
         targetSdk = 31
         versionCode = 1

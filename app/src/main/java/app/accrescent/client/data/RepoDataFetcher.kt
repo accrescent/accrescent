@@ -1,4 +1,4 @@
-package net.lberrymage.accrescent.data
+package app.accrescent.client.data
 
 interface RepoDataFetcher {
     fun fetchLatestRepoData(): RepoData

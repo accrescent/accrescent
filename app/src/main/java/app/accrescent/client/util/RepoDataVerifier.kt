@@ -1,4 +1,4 @@
-package net.lberrymage.accrescent.util
+package app.accrescent.client.util
 
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters
 import org.bouncycastle.crypto.signers.Ed25519Signer

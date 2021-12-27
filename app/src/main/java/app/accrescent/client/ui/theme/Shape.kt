@@ -1,4 +1,4 @@
-package net.lberrymage.accrescent.ui.theme
+package app.accrescent.client.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
