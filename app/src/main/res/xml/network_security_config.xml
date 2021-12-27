@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config>
-        <domain includeSubdomains="true">staging.lberrymage.net</domain>
+        <domain includeSubdomains="true">store.accrescent.app</domain>
         <pin-set>
             <!-- Let's Encrypt cert -->
-            <pin digest="SHA-256">++xOmG/9tv0uQzuvLH9g0rYaJc6aldMNMVdSQZQrWhM=</pin>
+            <pin digest="SHA-256">4dqqa+0z7xcPE9HKXwnihwOZUpIvzHQ+iAcdTLHxbNE=</pin>
         </pin-set>
     </domain-config>
 </network-security-config>
