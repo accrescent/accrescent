@@ -6,12 +6,10 @@ import org.bouncycastle.util.Arrays
 import org.bouncycastle.util.encoders.Base64
 
 fun verifySignature(
-    signifyPublicKey: String,
+    base64SignifyPublicKey: String,
     message: ByteArray,
     signifySignature: String
 ): Boolean {
-    val base64SignifyPublicKey =
-        signifyPublicKey.replace("untrusted comment: signify public key", "").replace("\n", "")
     val base64SignifySignature = signifySignature.substringAfterLast(".pub").replace("\n", "")
     val publicKey = Arrays.copyOfRange(Base64.decode(base64SignifyPublicKey), 10, 42)
     val signature = Arrays.copyOfRange(Base64.decode(base64SignifySignature), 10, 74)
