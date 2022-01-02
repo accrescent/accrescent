@@ -11,10 +11,10 @@ import javax.net.ssl.HttpsURLConnection
 
 class RepoDataFetcherImpl @Inject constructor() : RepoDataFetcher {
     override fun fetchLatestRepoData(): RepoData {
-        val repoDataFile = fetchFileString(URL(REPOSITORY_URL + DEVELOPERS_PATH))
-        val signature = fetchFileString(URL("$REPOSITORY_URL$DEVELOPERS_PATH.sig"))
+        val repoDataFile = fetchFileString(URL(REPOSITORY_URL + REPODATA_PATH))
+        val signature = fetchFileString(URL("$REPOSITORY_URL$REPODATA_PATH.sig"))
 
-        if (!verifySignature(DEVELOPERS_PUBKEY, repoDataFile.toByteArray(), signature)) {
+        if (!verifySignature(REPODATA_PUBKEY, repoDataFile.toByteArray(), signature)) {
             throw GeneralSecurityException("signature verification failed")
         }
 
@@ -23,9 +23,9 @@ class RepoDataFetcherImpl @Inject constructor() : RepoDataFetcher {
 
     override fun fetchSubRepoData(developer: Developer): SubRepoData {
         val repoDataFile =
-            fetchFileString(URL("$REPOSITORY_URL/${developer.username}/$DEVELOPERS_PATH"))
+            fetchFileString(URL("$REPOSITORY_URL/${developer.username}/$REPODATA_PATH"))
         val signature =
-            fetchFileString(URL("$REPOSITORY_URL/${developer.username}/$DEVELOPERS_PATH.sig"))
+            fetchFileString(URL("$REPOSITORY_URL/${developer.username}/$REPODATA_PATH.sig"))
 
         if (!verifySignature(developer.publicKey, repoDataFile.toByteArray(), signature)) {
             throw GeneralSecurityException("signature verification failed")
@@ -57,7 +57,7 @@ class RepoDataFetcherImpl @Inject constructor() : RepoDataFetcher {
 
     companion object {
         const val REPOSITORY_URL = "https://store.accrescent.app"
-        const val DEVELOPERS_PATH = "/repodata.json"
-        const val DEVELOPERS_PUBKEY = "RWS0w+cSbvRMas9nUV/VXldWZ7M2QYSUSQ6vrKA5MehEeD3N8tIfIxT5"
+        const val REPODATA_PATH = "/repodata.json"
+        const val REPODATA_PUBKEY = "RWS0w+cSbvRMas9nUV/VXldWZ7M2QYSUSQ6vrKA5MehEeD3N8tIfIxT5"
     }
 }

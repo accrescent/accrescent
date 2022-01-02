@@ -18,7 +18,7 @@ class MainViewModel @Inject constructor(
     ViewModel() {
     val apps = repoDataRepository.getApps()
 
-    fun refreshDevelopers() {
+    fun refreshRepoData() {
         viewModelScope.launch {
             repoDataRepository.fetchLatestRepoData()
         }

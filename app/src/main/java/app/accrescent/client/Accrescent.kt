@@ -19,7 +19,7 @@ class Accrescent : Application(), Configuration.Provider {
     override fun onCreate() {
         super.onCreate()
         WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork(
-            "REFRESH_DEVELOPERS",
+            "REFRESH_REPODATA",
             ExistingPeriodicWorkPolicy.KEEP,
             PeriodicWorkRequestBuilder<RefreshRepoDataWorker>(Duration.ofHours(4)).build()
         )

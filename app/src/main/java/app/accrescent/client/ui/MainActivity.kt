@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun RefreshButton(viewModel: MainViewModel = viewModel()) {
-    Button(onClick = { viewModel.refreshDevelopers() }, Modifier.padding(12.dp)) {
+    Button(onClick = { viewModel.refreshRepoData() }, Modifier.padding(12.dp)) {
         Text("Refresh")
     }
 }
