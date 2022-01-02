@@ -34,7 +34,7 @@ class ApkDownloader @Inject constructor(
             val downloadUri =
                 "${REPOSITORY_URL}/${maintainer.username}/$appId/$version/${appPackage.file}"
 
-            downloadToFile(URL(downloadUri), downloadFile)
+            downloadToFile(downloadUri, downloadFile)
 
             if (!verifyHash(downloadFile, appPackage.hash)) {
                 throw GeneralSecurityException("package hash didn't match expected value")
@@ -44,8 +44,8 @@ class ApkDownloader @Inject constructor(
         return apks
     }
 
-    private fun downloadToFile(url: URL, file: File) {
-        val connection = url.openConnection() as HttpsURLConnection
+    private fun downloadToFile(uri: String, file: File) {
+        val connection = URL(uri).openConnection() as HttpsURLConnection
 
         connection.connect()
 
