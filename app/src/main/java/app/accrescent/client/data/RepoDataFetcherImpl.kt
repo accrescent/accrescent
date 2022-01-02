@@ -21,6 +21,19 @@ class RepoDataFetcherImpl @Inject constructor() : RepoDataFetcher {
         return Json.decodeFromString(repoDataFile)
     }
 
+    override fun fetchSubRepoData(developer: Developer): SubRepoData {
+        val repoDataFile =
+            fetchFileString(URL("$REPOSITORY_URL/${developer.username}/$DEVELOPERS_PATH"))
+        val signature =
+            fetchFileString(URL("$REPOSITORY_URL/${developer.username}/$DEVELOPERS_PATH.sig"))
+
+        if (!verifySignature(developer.publicKey, repoDataFile.toByteArray(), signature)) {
+            throw GeneralSecurityException("signature verification failed")
+        }
+
+        return Json.decodeFromString(repoDataFile)
+    }
+
     private fun fetchFileString(url: URL): String {
         val connection = url.openConnection() as HttpsURLConnection
 

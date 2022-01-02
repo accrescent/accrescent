@@ -3,18 +3,17 @@ package app.accrescent.client.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.accrescent.client.ui.theme.AccrescentTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,7 +30,8 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        DisplayButton()
+                        RefreshButton()
+                        AppList()
                     }
                 }
             }
@@ -40,13 +40,34 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun DisplayButton(viewModel: MainViewModel = viewModel()) {
-    val publicKey by viewModel.anonymousPublicKey.collectAsState("")
+fun RefreshButton(viewModel: MainViewModel = viewModel()) {
+    Button(onClick = { viewModel.refreshDevelopers() }, Modifier.padding(12.dp)) {
+        Text("Refresh")
+    }
+}
 
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Button(onClick = { viewModel.refreshDevelopers() }) { Text("Refresh") }
-        if (!publicKey.isNullOrEmpty()) {
-            Text(publicKey!!)
+@Composable
+fun AppList(viewModel: MainViewModel = viewModel()) {
+    val apps by viewModel.apps.collectAsState(emptyList())
+
+    LazyColumn {
+        items(apps) {
+            InstallableAppCard(it.id)
+        }
+    }
+}
+
+@Composable
+fun InstallableAppCard(appId: String, viewModel: MainViewModel = viewModel()) {
+    Card(Modifier.padding(8.dp), backgroundColor = MaterialTheme.colors.primary) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(appId, modifier = Modifier.padding(8.dp))
+            Button(
+                onClick = { viewModel.installApp(appId) },
+                colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primaryVariant)
+            ) {
+                Text("Install", color = Color.LightGray)
+            }
         }
     }
 }

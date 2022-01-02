@@ -2,7 +2,7 @@ package app.accrescent.client.di
 
 import android.content.Context
 import androidx.room.Room
-import app.accrescent.client.data.AppDatabase
+import app.accrescent.client.data.db.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,5 +19,11 @@ object DatabaseModule {
         Room.databaseBuilder(context, AppDatabase::class.java, "accrescent.db").build()
 
     @Provides
+    fun provideAppDao(appDatabase: AppDatabase) = appDatabase.appDao()
+
+    @Provides
     fun provideDeveloperDao(appDatabase: AppDatabase) = appDatabase.developerDao()
+
+    @Provides
+    fun providePackageDao(appDatabase: AppDatabase) = appDatabase.packageDao()
 }
