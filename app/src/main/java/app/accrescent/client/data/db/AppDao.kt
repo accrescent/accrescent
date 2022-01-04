@@ -14,6 +14,9 @@ interface AppDao {
     @Query("SELECT version_code FROM apps WHERE id = :appId")
     suspend fun getVersion(appId: String): Int?
 
+    @Query("SELECT EXISTS (SELECT 1 FROM apps WHERE id = :appId)")
+    suspend fun exists(appId: String): Boolean
+
     @Update
     suspend fun updateApps(vararg apps: App)
 

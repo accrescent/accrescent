@@ -19,6 +19,8 @@ class RepoDataLocalDataSource @Inject constructor(
 
     suspend fun getAppVersion(appId: String) = appDao.getVersion(appId)
 
+    suspend fun appExists(appId: String) = appDao.exists(appId)
+
     suspend fun getAppMaintainer(appId: String) = developerDao.getMaintainer(appId)
 
     fun getPublicKey(username: String) = developerDao.getPublicKey(username)

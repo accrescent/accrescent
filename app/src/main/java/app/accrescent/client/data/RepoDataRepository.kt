@@ -77,6 +77,8 @@ class RepoDataRepository @Inject constructor(
 
     suspend fun getAppMaintainer(appId: String) = repoDataLocalDataSource.getAppMaintainer(appId)
 
+    suspend fun appExists(appId: String) = repoDataLocalDataSource.appExists(appId)
+
     fun getPublicKey(username: String) = repoDataLocalDataSource.getPublicKey(username)
 
     suspend fun getPackagesForApp(appId: String) = repoDataLocalDataSource.getPackagesForApp(appId)
