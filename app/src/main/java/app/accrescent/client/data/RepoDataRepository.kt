@@ -58,10 +58,18 @@ class RepoDataRepository @Inject constructor(
             throw GeneralSecurityException("repodata timestamp less than saved value")
         }
 
-        repoDataLocalDataSource.updateApps(*repoData.apps.entries.map {
+        // Since developers can add information to their repodata for apps not delegated to them by
+        // the root repodata, filter only for apps that _are_ delegated to them. This prevents
+        // developers from taking over repository data for apps not belonging to them.
+        val delegatedApps = repoData
+            .apps
+            .entries
+            .filter { repoDataLocalDataSource.getAppMaintainer(it.key)?.username == developer }
+
+        repoDataLocalDataSource.updateApps(*delegatedApps.map {
             App(it.key, developer, it.value.versionCode)
         }.toTypedArray())
-        for (app in repoData.apps.entries) {
+        for (app in delegatedApps) {
             repoDataLocalDataSource.savePackages(*app.value.packages.map {
                 Package(app.key, it.file, it.hash)
             }.toTypedArray())
