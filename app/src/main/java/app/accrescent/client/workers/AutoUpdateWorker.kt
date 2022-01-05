@@ -18,7 +18,7 @@ class AutoUpdateWorker @AssistedInject constructor(
 ) : CoroutineWorker(context, workerParams) {
     override suspend fun doWork(): Result {
         try {
-            repoDataRepository.fetchLatestRepoData()
+            repoDataRepository.fetchRepoData()
             context
                 .packageManager
                 .getInstalledPackages(0)

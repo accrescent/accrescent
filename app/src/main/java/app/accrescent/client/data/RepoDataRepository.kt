@@ -19,8 +19,8 @@ class RepoDataRepository @Inject constructor(
     private val repoDataLocalDataSource: RepoDataLocalDataSource,
     private val timestampDataStore: DataStore<Preferences>,
 ) {
-    suspend fun fetchLatestRepoData() {
-        val repoData = repoDataRemoteDataSource.fetchLatestRepoData()
+    suspend fun fetchRepoData() {
+        val repoData = repoDataRemoteDataSource.fetchRepoData()
         val timestampKey = longPreferencesKey("root")
         val storedTimestamp = timestampDataStore.data.map { it[timestampKey] ?: 0 }.first()
 

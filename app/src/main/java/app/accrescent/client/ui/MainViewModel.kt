@@ -20,7 +20,7 @@ class MainViewModel @Inject constructor(
 
     fun refreshRepoData() {
         viewModelScope.launch {
-            repoDataRepository.fetchLatestRepoData()
+            repoDataRepository.fetchRepoData()
         }
     }
 

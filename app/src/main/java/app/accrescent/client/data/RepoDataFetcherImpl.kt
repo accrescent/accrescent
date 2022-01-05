@@ -10,7 +10,7 @@ import javax.inject.Inject
 import javax.net.ssl.HttpsURLConnection
 
 class RepoDataFetcherImpl @Inject constructor() : RepoDataFetcher {
-    override fun fetchLatestRepoData(): RepoData {
+    override fun fetchRepoData(): RepoData {
         val repoDataFile = fetchFileString(URL(REPOSITORY_URL + REPODATA_PATH))
         val signature = fetchFileString(URL("$REPOSITORY_URL$REPODATA_PATH.sig"))
 
