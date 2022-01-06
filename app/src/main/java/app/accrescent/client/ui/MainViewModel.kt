@@ -12,8 +12,7 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val repoDataRepository: RepoDataRepository,
     private val packageManager: PackageManager
-) :
-    ViewModel() {
+) : ViewModel() {
     val apps = repoDataRepository.getApps()
 
     fun refreshRepoData() {
