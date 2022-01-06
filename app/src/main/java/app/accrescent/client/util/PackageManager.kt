@@ -4,9 +4,10 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageInstaller.SessionParams
+import app.accrescent.client.di.IoDispatcher
 import app.accrescent.client.receivers.AppInstallBroadcastReceiver
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileInputStream
@@ -15,9 +16,10 @@ import javax.inject.Inject
 class PackageManager @Inject constructor(
     @ApplicationContext private val context: Context,
     private val apkDownloader: ApkDownloader,
+    @IoDispatcher private val dispatcher: CoroutineDispatcher,
 ) {
     suspend fun downloadAndInstall(appId: String) {
-        withContext(Dispatchers.IO) {
+        withContext(dispatcher) {
             installApp(apkDownloader.downloadApp(appId))
         }
     }

@@ -1,13 +1,16 @@
 package app.accrescent.client.data
 
-import kotlinx.coroutines.Dispatchers
+import app.accrescent.client.di.IoDispatcher
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class RepoDataRemoteDataSource @Inject constructor(private val repoDataFetcher: RepoDataFetcher) {
-    suspend fun fetchRepoData() =
-        withContext(Dispatchers.IO) { repoDataFetcher.fetchRepoData() }
+class RepoDataRemoteDataSource @Inject constructor(
+    private val repoDataFetcher: RepoDataFetcher,
+    @IoDispatcher private val dispatcher: CoroutineDispatcher
+) {
+    suspend fun fetchRepoData() = withContext(dispatcher) { repoDataFetcher.fetchRepoData() }
 
     suspend fun fetchSubRepoData(developer: Developer) =
-        withContext(Dispatchers.IO) { repoDataFetcher.fetchSubRepoData(developer) }
+        withContext(dispatcher) { repoDataFetcher.fetchSubRepoData(developer) }
 }
