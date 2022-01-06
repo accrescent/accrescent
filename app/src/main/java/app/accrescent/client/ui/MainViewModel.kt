@@ -5,9 +5,7 @@ import androidx.lifecycle.viewModelScope
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.PackageManager
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -26,9 +24,7 @@ class MainViewModel @Inject constructor(
 
     fun installApp(appId: String) {
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                packageManager.downloadAndInstall(appId)
-            }
+            packageManager.downloadAndInstall(appId)
         }
     }
 }

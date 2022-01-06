@@ -6,6 +6,8 @@ import android.content.Intent
 import android.content.pm.PackageInstaller.SessionParams
 import app.accrescent.client.receivers.AppInstallBroadcastReceiver
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileInputStream
 import javax.inject.Inject
@@ -15,7 +17,9 @@ class PackageManager @Inject constructor(
     private val apkDownloader: ApkDownloader,
 ) {
     suspend fun downloadAndInstall(appId: String) {
-        installApp(apkDownloader.downloadApp(appId))
+        withContext(Dispatchers.IO) {
+            installApp(apkDownloader.downloadApp(appId))
+        }
     }
 
     private fun installApp(apks: List<File>) {

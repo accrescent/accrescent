@@ -3,8 +3,6 @@ package app.accrescent.client.util
 import android.content.Context
 import app.accrescent.client.data.RepoDataRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
@@ -19,7 +17,7 @@ class ApkDownloader @Inject constructor(
 ) {
     suspend fun downloadApp(appId: String): List<File> {
         val maintainer = repoDataRepository.getAppMaintainer(appId)!!
-        val version = repoDataRepository.getAppVersion(appId) ?: withContext(Dispatchers.IO) {
+        val version = repoDataRepository.getAppVersion(appId) ?: run {
             repoDataRepository.fetchSubRepoData(maintainer.username)
             repoDataRepository.getAppVersion(appId)!!
         }
