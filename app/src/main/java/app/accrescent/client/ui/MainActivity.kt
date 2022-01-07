@@ -25,19 +25,29 @@ class MainActivity : ComponentActivity() {
         setContent {
             AccrescentTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    Column(
-                        modifier = Modifier.fillMaxSize(),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        RefreshButton()
-                        AppList()
-                    }
+                    MainContent()
                 }
             }
         }
     }
 }
+
+@Composable
+fun MainContent(viewModel: MainViewModel = viewModel()) {
+    val scaffoldState = rememberScaffoldState(snackbarHostState = viewModel.snackbarHostState)
+
+    Scaffold(scaffoldState = scaffoldState) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            RefreshButton()
+            AppList()
+        }
+    }
+}
+
 
 @Composable
 fun RefreshButton(viewModel: MainViewModel = viewModel()) {
