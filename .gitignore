@@ -1,4 +1,5 @@
 /build
+/keystore.properties
 /.gradle
 /.idea
 /local.properties
