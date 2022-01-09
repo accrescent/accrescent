@@ -1,5 +1,7 @@
 package app.accrescent.client.data
 
+import app.accrescent.client.data.net.RepoData
+import app.accrescent.client.data.net.SubRepoData
 import app.accrescent.client.util.verifySignature
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json

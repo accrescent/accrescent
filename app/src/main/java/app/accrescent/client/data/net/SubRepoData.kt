@@ -1,6 +1,5 @@
-package app.accrescent.client.data
+package app.accrescent.client.data.net
 
-import app.accrescent.client.data.net.App
 import kotlinx.serialization.Serializable
 
 @Serializable
