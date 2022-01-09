@@ -3,13 +3,15 @@ package app.accrescent.client.data.db
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.ForeignKey.CASCADE
 
 @Entity(
     tableName = "packages",
     foreignKeys = [ForeignKey(
         entity = App::class,
         parentColumns = ["id"],
-        childColumns = ["app_id"]
+        childColumns = ["app_id"],
+        onDelete = CASCADE,
     )],
     primaryKeys = ["app_id", "file"]
 )

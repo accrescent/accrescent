@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "4af1ec94d397bfb432b6cf744c7d5964",
+    "identityHash": "1e678aad765ea0b5bfdf253ee26ab2e2",
     "entities": [
       {
         "tableName": "apps",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `maintainer` TEXT NOT NULL, `version_code` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`maintainer`) REFERENCES `developers`(`username`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `maintainer` TEXT NOT NULL, `version_code` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`maintainer`) REFERENCES `developers`(`username`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -46,7 +46,7 @@
         "foreignKeys": [
           {
             "table": "developers",
-            "onDelete": "NO ACTION",
+            "onDelete": "CASCADE",
             "onUpdate": "NO ACTION",
             "columns": [
               "maintainer"
@@ -85,7 +85,7 @@
       },
       {
         "tableName": "packages",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`app_id` TEXT NOT NULL, `file` TEXT NOT NULL, `hash` TEXT NOT NULL, PRIMARY KEY(`app_id`, `file`), FOREIGN KEY(`app_id`) REFERENCES `apps`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`app_id` TEXT NOT NULL, `file` TEXT NOT NULL, `hash` TEXT NOT NULL, PRIMARY KEY(`app_id`, `file`), FOREIGN KEY(`app_id`) REFERENCES `apps`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "appId",
@@ -117,7 +117,7 @@
         "foreignKeys": [
           {
             "table": "apps",
-            "onDelete": "NO ACTION",
+            "onDelete": "CASCADE",
             "onUpdate": "NO ACTION",
             "columns": [
               "app_id"
@@ -132,7 +132,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4af1ec94d397bfb432b6cf744c7d5964')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1e678aad765ea0b5bfdf253ee26ab2e2')"
     ]
   }
 }

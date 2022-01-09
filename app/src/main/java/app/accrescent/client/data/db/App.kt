@@ -3,6 +3,7 @@ package app.accrescent.client.data.db
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.ForeignKey.CASCADE
 import androidx.room.PrimaryKey
 import app.accrescent.client.data.Developer
 
@@ -12,6 +13,7 @@ import app.accrescent.client.data.Developer
         entity = Developer::class,
         parentColumns = ["username"],
         childColumns = ["maintainer"],
+        onDelete = CASCADE,
     )]
 )
 data class App(
