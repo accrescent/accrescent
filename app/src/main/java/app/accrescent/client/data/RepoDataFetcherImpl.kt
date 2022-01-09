@@ -60,6 +60,6 @@ class RepoDataFetcherImpl @Inject constructor() : RepoDataFetcher {
     companion object {
         const val REPOSITORY_URL = "https://store.accrescent.app"
         const val REPODATA_PATH = "/repodata.json"
-        const val REPODATA_PUBKEY = "RWS0w+cSbvRMas9nUV/VXldWZ7M2QYSUSQ6vrKA5MehEeD3N8tIfIxT5"
+        const val REPODATA_PUBKEY = "RWT8aZ/NdUmXCPqQ0we7UyCe34q1xRfncBFVK5dI3ok9BkL1bFF3mgh3"
     }
 }
