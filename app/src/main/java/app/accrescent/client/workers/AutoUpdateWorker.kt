@@ -26,7 +26,7 @@ class AutoUpdateWorker @AssistedInject constructor(
                 .filter { repoDataRepository.appExists(it) }
                 .forEach { packageManager.downloadAndInstall(it) }
         } catch (e: Exception) {
-            return Result.retry()
+            return Result.failure()
         }
 
         return Result.success()
