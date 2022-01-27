@@ -7,7 +7,6 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("org.jetbrains.kotlin.plugin.serialization") version "1.5.31"
-    id("org.sonarqube") version "3.3"
 }
 
 val composeVersion: String by rootProject.extra
