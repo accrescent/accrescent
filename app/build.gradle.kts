@@ -87,7 +87,7 @@ dependencies {
     implementation("androidx.room:room-runtime:2.3.0")
     implementation("androidx.work:work-runtime-ktx:2.7.1")
     implementation("com.google.android.material:material:1.4.0")
-    implementation("com.google.dagger:hilt-android:2.40.5")
+    implementation("com.google.dagger:hilt-android:2.41")
     implementation("org.bouncycastle:bcprov-jdk15to18:1.70")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1")
     debugImplementation("androidx.compose.ui:ui-tooling:1.0.5")
