@@ -71,8 +71,9 @@ fun AppList(viewModel: MainViewModel = viewModel()) {
 fun InstallableAppCard(appId: String, viewModel: MainViewModel = viewModel()) {
     Card(Modifier.padding(8.dp), backgroundColor = MaterialTheme.colors.primary) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(appId, modifier = Modifier.padding(8.dp))
+            Text(appId, modifier = Modifier.padding(horizontal = 8.dp))
             Button(
+                modifier = Modifier.padding(end = 8.dp),
                 onClick = { viewModel.installApp(appId) },
                 colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primaryVariant)
             ) {
