@@ -2,10 +2,7 @@ package app.accrescent.client
 
 import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory
-import androidx.work.Configuration
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
+import androidx.work.*
 import app.accrescent.client.workers.AutoUpdateWorker
 import dagger.hilt.android.HiltAndroidApp
 import java.time.Duration
@@ -18,10 +15,18 @@ class Accrescent : Application(), Configuration.Provider {
 
     override fun onCreate() {
         super.onCreate()
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .setRequiresDeviceIdle(true)
+            .setRequiresStorageNotLow(true)
+            .build()
+        val updateRequest = PeriodicWorkRequestBuilder<AutoUpdateWorker>(Duration.ofHours(4))
+            .setConstraints(constraints)
+            .build()
         WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork(
             "REFRESH_REPODATA",
             ExistingPeriodicWorkPolicy.KEEP,
-            PeriodicWorkRequestBuilder<AutoUpdateWorker>(Duration.ofHours(4)).build()
+            updateRequest,
         )
     }
 
