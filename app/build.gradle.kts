@@ -93,7 +93,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.4.2")
     implementation("androidx.room:room-runtime:2.4.2")
     implementation("androidx.work:work-runtime-ktx:2.7.1")
-    implementation("com.google.android.material:material:1.4.0")
+    implementation("com.google.android.material:material:1.5.0")
     implementation("com.google.dagger:hilt-android:2.41")
     implementation("org.bouncycastle:bcprov-jdk15to18:1.70")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
