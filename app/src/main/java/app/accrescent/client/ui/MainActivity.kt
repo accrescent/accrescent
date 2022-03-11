@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import app.accrescent.client.data.db.App
 import app.accrescent.client.ui.theme.AccrescentTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,7 +49,6 @@ fun MainContent(viewModel: MainViewModel = viewModel()) {
     }
 }
 
-
 @Composable
 fun RefreshButton(viewModel: MainViewModel = viewModel()) {
     Button(onClick = { viewModel.refreshRepoData() }, Modifier.padding(12.dp)) {
@@ -62,19 +62,19 @@ fun AppList(viewModel: MainViewModel = viewModel()) {
 
     LazyColumn {
         items(apps) {
-            InstallableAppCard(it.id)
+            InstallableAppCard(it)
         }
     }
 }
 
 @Composable
-fun InstallableAppCard(appId: String, viewModel: MainViewModel = viewModel()) {
+fun InstallableAppCard(app: App, viewModel: MainViewModel = viewModel()) {
     Card(Modifier.padding(8.dp), backgroundColor = MaterialTheme.colors.primary) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(appId, modifier = Modifier.padding(horizontal = 8.dp))
+            Text(app.name, modifier = Modifier.padding(horizontal = 8.dp))
             Button(
                 modifier = Modifier.padding(end = 8.dp),
-                onClick = { viewModel.installApp(appId) },
+                onClick = { viewModel.installApp(app.id) },
                 colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primaryVariant)
             ) {
                 Text("Install", color = Color.LightGray)
