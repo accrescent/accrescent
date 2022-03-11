@@ -1,7 +1,7 @@
 package app.accrescent.client.data
 
+import app.accrescent.client.data.net.AppRepoData
 import app.accrescent.client.data.net.RepoData
-import app.accrescent.client.data.net.SubRepoData
 import app.accrescent.client.util.verifySignature
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -23,15 +23,8 @@ class RepoDataFetcherImpl @Inject constructor() : RepoDataFetcher {
         return Json.decodeFromString(repoDataFile)
     }
 
-    override fun fetchSubRepoData(developer: Developer): SubRepoData {
-        val repoDataFile =
-            fetchFileString(URL("$REPOSITORY_URL/${developer.username}/$REPODATA_PATH"))
-        val signature =
-            fetchFileString(URL("$REPOSITORY_URL/${developer.username}/$REPODATA_PATH.sig"))
-
-        if (!verifySignature(developer.publicKey, repoDataFile.toByteArray(), signature)) {
-            throw GeneralSecurityException("signature verification failed")
-        }
+    override fun fetchAppRepoData(appId: String): AppRepoData {
+        val repoDataFile = fetchFileString(URL("$REPOSITORY_URL/apps/$appId$REPODATA_PATH"))
 
         return Json.decodeFromString(repoDataFile)
     }

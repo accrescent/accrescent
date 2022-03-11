@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "1e678aad765ea0b5bfdf253ee26ab2e2",
+    "identityHash": "c5abf5c288a83bc93371554b64a66a69",
     "entities": [
       {
         "tableName": "apps",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `maintainer` TEXT NOT NULL, `version_code` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`maintainer`) REFERENCES `developers`(`username`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `name` TEXT NOT NULL, `min_version_code` INTEGER NOT NULL, `icon_hash` TEXT NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -15,16 +15,22 @@
             "notNull": true
           },
           {
-            "fieldPath": "maintainer",
-            "columnName": "maintainer",
+            "fieldPath": "name",
+            "columnName": "name",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "versionCode",
-            "columnName": "version_code",
+            "fieldPath": "minVersionCode",
+            "columnName": "min_version_code",
             "affinity": "INTEGER",
-            "notNull": false
+            "notNull": true
+          },
+          {
+            "fieldPath": "iconHash",
+            "columnName": "icon_hash",
+            "affinity": "TEXT",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -33,59 +39,12 @@
           ],
           "autoGenerate": false
         },
-        "indices": [
-          {
-            "name": "index_apps_maintainer",
-            "unique": false,
-            "columnNames": [
-              "maintainer"
-            ],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_apps_maintainer` ON `${TABLE_NAME}` (`maintainer`)"
-          }
-        ],
-        "foreignKeys": [
-          {
-            "table": "developers",
-            "onDelete": "CASCADE",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "maintainer"
-            ],
-            "referencedColumns": [
-              "username"
-            ]
-          }
-        ]
-      },
-      {
-        "tableName": "developers",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`username` TEXT NOT NULL, `public_key` TEXT NOT NULL, PRIMARY KEY(`username`))",
-        "fields": [
-          {
-            "fieldPath": "username",
-            "columnName": "username",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "publicKey",
-            "columnName": "public_key",
-            "affinity": "TEXT",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "username"
-          ],
-          "autoGenerate": false
-        },
         "indices": [],
         "foreignKeys": []
       },
       {
-        "tableName": "packages",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`app_id` TEXT NOT NULL, `file` TEXT NOT NULL, `hash` TEXT NOT NULL, PRIMARY KEY(`app_id`, `file`), FOREIGN KEY(`app_id`) REFERENCES `apps`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "tableName": "signing_keys",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`app_id` TEXT NOT NULL, `public_key_hash` TEXT NOT NULL, PRIMARY KEY(`app_id`, `public_key_hash`), FOREIGN KEY(`app_id`) REFERENCES `apps`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "appId",
@@ -94,14 +53,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "file",
-            "columnName": "file",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "hash",
-            "columnName": "hash",
+            "fieldPath": "publicKeyHash",
+            "columnName": "public_key_hash",
             "affinity": "TEXT",
             "notNull": true
           }
@@ -109,7 +62,7 @@
         "primaryKey": {
           "columnNames": [
             "app_id",
-            "file"
+            "public_key_hash"
           ],
           "autoGenerate": false
         },
@@ -132,7 +85,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1e678aad765ea0b5bfdf253ee26ab2e2')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c5abf5c288a83bc93371554b64a66a69')"
     ]
   }
 }

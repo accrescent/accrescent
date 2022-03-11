@@ -42,6 +42,8 @@ class MainViewModel @Inject constructor(
                 snackbarHostState.showSnackbar("Failed to download necessary files")
             } catch (e: GeneralSecurityException) {
                 snackbarHostState.showSnackbar("Failed to verify necessary files")
+            } catch (e: NoSuchElementException) {
+                snackbarHostState.showSnackbar("App does not support your device")
             } catch (e: SerializationException) {
                 snackbarHostState.showSnackbar("Failed to decode repodata")
             }

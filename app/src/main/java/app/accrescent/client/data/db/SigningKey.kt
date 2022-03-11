@@ -6,17 +6,16 @@ import androidx.room.ForeignKey
 import androidx.room.ForeignKey.CASCADE
 
 @Entity(
-    tableName = "packages",
+    tableName = "signing_keys",
+    primaryKeys = ["app_id", "public_key_hash"],
     foreignKeys = [ForeignKey(
         entity = App::class,
         parentColumns = ["id"],
         childColumns = ["app_id"],
         onDelete = CASCADE,
     )],
-    primaryKeys = ["app_id", "file"]
 )
-data class Package(
+data class SigningKey(
     @ColumnInfo(name = "app_id") val appId: String,
-    val file: String,
-    val hash: String
+    @ColumnInfo(name = "public_key_hash") val publicKeyHash: String,
 )
