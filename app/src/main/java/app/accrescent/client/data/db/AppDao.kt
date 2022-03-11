@@ -1,6 +1,9 @@
 package app.accrescent.client.data.db
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -13,9 +16,6 @@ interface AppDao {
 
     @Query("SELECT EXISTS (SELECT 1 FROM apps WHERE id = :appId)")
     suspend fun exists(appId: String): Boolean
-
-    @Update
-    suspend fun updateApps(vararg apps: App)
 
     @Query("DELETE FROM apps WHERE id NOT IN (:idsToKeep)")
     suspend fun deleteRemoved(idsToKeep: List<String>)
