@@ -30,6 +30,8 @@ class RepoDataRepository @Inject constructor(
             throw GeneralSecurityException("repodata timestamp less than saved value")
         }
 
+        // This approach is suboptimal since we're replacing existing app entries instead of
+        // updating them
         val apps = repoData
             .apps
             .map { (appId, app) -> App(appId, app.name, app.minVersionCode, app.iconHash) }
