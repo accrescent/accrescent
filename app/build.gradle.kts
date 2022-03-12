@@ -37,8 +37,8 @@ android {
         applicationId = "app.accrescent.client"
         minSdk = 31
         targetSdk = 32
-        versionCode = 2
-        versionName = "0.2.0"
+        versionCode = 3
+        versionName = "0.2.1"
 
         vectorDrawables {
             useSupportLibrary = true
