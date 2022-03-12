@@ -18,6 +18,8 @@ class RepoDataLocalDataSource @Inject constructor(
 
     fun getApps() = appDao.getAll()
 
+    suspend fun getAppMinVersionCode(appId: String) = appDao.getMinVersionCode(appId)
+
     suspend fun appExists(appId: String) = appDao.exists(appId)
 
     suspend fun deleteRemovedApps(idsToKeep: List<String>) = appDao.deleteRemoved(idsToKeep)

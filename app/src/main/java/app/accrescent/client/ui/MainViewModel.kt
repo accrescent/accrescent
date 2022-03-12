@@ -42,7 +42,7 @@ class MainViewModel @Inject constructor(
             } catch (e: FileNotFoundException) {
                 snackbarHostState.showSnackbar("Failed to download necessary files")
             } catch (e: GeneralSecurityException) {
-                snackbarHostState.showSnackbar("Failed to verify necessary files")
+                snackbarHostState.showSnackbar("App verification failed: ${e.message}")
             } catch (e: InvalidObjectException) {
                 snackbarHostState.showSnackbar("Error parsing app files: ${e.message}")
             } catch (e: NoSuchElementException) {

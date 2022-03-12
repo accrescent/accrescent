@@ -48,6 +48,10 @@ class RepoDataRepository @Inject constructor(
 
     fun getApps() = repoDataLocalDataSource.getApps()
 
+    suspend fun getAppMinVersionCode(appId: String): Long {
+        return repoDataLocalDataSource.getAppMinVersionCode(appId)
+    }
+
     suspend fun getAppRepoData(appId: String) = repoDataRemoteDataSource.fetchAppRepoData(appId)
 
     suspend fun appExists(appId: String) = repoDataLocalDataSource.appExists(appId)

@@ -29,21 +29,35 @@ class ApkDownloader @Inject constructor(
     suspend fun downloadApp(appId: String): List<File> {
         Log.i(TAG, "Downloading app $appId")
         val appInfo = repoDataRepository.getAppRepoData(appId)
-        val downloadDir =
-            File("${context.cacheDir.absolutePath}/apps/$appId/${appInfo.versionCode}")
-        val baseDownloadUri = "$REPOSITORY_URL/apps/$appId/${appInfo.versionCode}"
-        downloadDir.mkdirs()
 
+        val version = appInfo.versionCode
+        val minVersion = repoDataRepository.getAppMinVersionCode(appId)
+        if (version < minVersion) {
+            throw GeneralSecurityException("version $version is less than minimum $minVersion")
+        }
+
+        val downloadDir = File("${context.cacheDir.absolutePath}/apps/$appId/$version")
+        val baseDownloadUri = "$REPOSITORY_URL/apps/$appId/$version"
+        downloadDir.mkdirs()
         val baseApk = File(downloadDir.absolutePath, "base.apk")
         downloadToFile("$baseDownloadUri/base.apk", baseApk)
 
-        val packageName = context
+        val packageInfo = context
             .packageManager
             .getPackageArchiveInfo(baseApk.absolutePath, 0)
-            ?.packageName
             ?: throw InvalidObjectException("base.apk is not a valid APK")
+        val packageName = packageInfo.packageName
         if (packageName != appId) {
-            throw InvalidObjectException("app ID $packageName does not match expected value $appId")
+            throw GeneralSecurityException("app ID $packageName does not match expected value $appId")
+        }
+        val packageVersion = packageInfo.longVersionCode
+        if (packageVersion != version) {
+            throw GeneralSecurityException("expected version code $version, actual is $packageVersion")
+        }
+        if (packageInfo.versionName != appInfo.version) {
+            throw GeneralSecurityException(
+                "expected version ${appInfo.version}, actual is ${packageInfo.versionName}"
+            )
         }
 
         val requiredSigners = repoDataRepository.getAppSigners(appId)
