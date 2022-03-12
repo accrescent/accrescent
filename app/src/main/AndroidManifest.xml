@@ -34,6 +34,6 @@
             android:authorities="${applicationId}.androidx-startup"
             tools:node="remove" />
 
-        <receiver android:name=".receivers.AppInstallBroadcastReceiver" />
+        <receiver android:name=".receivers.AppInstallBroadcastReceiver" android:exported="false" />
     </application>
 </manifest>
