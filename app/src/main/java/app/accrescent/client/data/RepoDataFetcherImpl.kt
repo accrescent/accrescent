@@ -11,6 +11,8 @@ import java.security.GeneralSecurityException
 import javax.inject.Inject
 import javax.net.ssl.HttpsURLConnection
 
+private val format = Json { ignoreUnknownKeys }
+
 class RepoDataFetcherImpl @Inject constructor() : RepoDataFetcher {
     override fun fetchRepoData(): RepoData {
         val repoDataFile = fetchFileString(URL(REPOSITORY_URL + REPODATA_PATH))
@@ -20,13 +22,13 @@ class RepoDataFetcherImpl @Inject constructor() : RepoDataFetcher {
             throw GeneralSecurityException("signature verification failed")
         }
 
-        return Json.decodeFromString(repoDataFile)
+        return format.decodeFromString(repoDataFile)
     }
 
     override fun fetchAppRepoData(appId: String): AppRepoData {
         val repoDataFile = fetchFileString(URL("$REPOSITORY_URL/apps/$appId$REPODATA_PATH"))
 
-        return Json.decodeFromString(repoDataFile)
+        return format.decodeFromString(repoDataFile)
     }
 
     private fun fetchFileString(url: URL): String {
