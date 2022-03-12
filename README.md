@@ -22,7 +22,8 @@ Android security model and provide timely and secure app updates from a
 repository with strict minimum security requirements.
 
 Accrescent aims to provide an accessible app store with modern security features
-and strict minimum requirements for apps in its repository.
+and strict minimum requirements for apps in its repository. It currently runs on
+Android 12 and up.
 
 ## Trademark
 
