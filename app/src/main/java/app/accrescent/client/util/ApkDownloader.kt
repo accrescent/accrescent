@@ -12,6 +12,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.ByteArrayInputStream
 import java.io.File
 import java.io.FileOutputStream
+import java.io.InvalidObjectException
 import java.net.URL
 import java.security.GeneralSecurityException
 import java.security.MessageDigest
@@ -35,6 +36,15 @@ class ApkDownloader @Inject constructor(
 
         val baseApk = File(downloadDir.absolutePath, "base.apk")
         downloadToFile("$baseDownloadUri/base.apk", baseApk)
+
+        val packageName = context
+            .packageManager
+            .getPackageArchiveInfo(baseApk.absolutePath, 0)
+            ?.packageName
+            ?: throw InvalidObjectException("base.apk is not a valid APK")
+        if (packageName != appId) {
+            throw InvalidObjectException("app ID $packageName does not match expected value $appId")
+        }
 
         val requiredSigners = repoDataRepository.getAppSigners(appId)
         if (requiredSigners.isEmpty()) {
