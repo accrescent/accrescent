@@ -13,10 +13,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.accrescent.client.data.db.App
 import app.accrescent.client.ui.theme.AccrescentTheme
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,31 +41,34 @@ fun MainContent(viewModel: MainViewModel = viewModel()) {
     val scaffoldState = rememberScaffoldState(snackbarHostState = viewModel.snackbarHostState)
 
     Scaffold(scaffoldState = scaffoldState) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            RefreshButton()
-            AppList()
-        }
-    }
-}
-
-@Composable
-fun RefreshButton(viewModel: MainViewModel = viewModel()) {
-    Button(onClick = { viewModel.refreshRepoData() }, Modifier.padding(12.dp)) {
-        Text("Refresh")
+        AppList()
     }
 }
 
 @Composable
 fun AppList(viewModel: MainViewModel = viewModel()) {
     val apps by viewModel.apps.collectAsState(emptyList())
+    val isRefreshing by viewModel.isRefreshing.collectAsState()
 
-    LazyColumn {
-        items(apps) {
-            InstallableAppCard(it)
+    SwipeRefresh(
+        state = rememberSwipeRefreshState(isRefreshing),
+        onRefresh = { viewModel.refreshRepoData() }
+    ) {
+        LazyColumn(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {
+            if (apps.isEmpty()) {
+                item {
+                    Text(
+                        "Swipe down to refresh",
+                        Modifier.fillMaxWidth(),
+                        textAlign = TextAlign.Center,
+                    )
+                }
+            } else {
+                item { Spacer(Modifier.height(16.dp)) }
+                items(apps) {
+                    InstallableAppCard(it)
+                }
+            }
         }
     }
 }

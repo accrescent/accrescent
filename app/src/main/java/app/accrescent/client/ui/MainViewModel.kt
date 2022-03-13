@@ -6,6 +6,9 @@ import androidx.lifecycle.viewModelScope
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.PackageManager
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.serialization.SerializationException
 import java.io.FileNotFoundException
@@ -20,9 +23,14 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
     val apps = repoDataRepository.getApps()
     val snackbarHostState = SnackbarHostState()
+    private val _isRefreshing = MutableStateFlow(false)
+    val isRefreshing: StateFlow<Boolean>
+        get() = _isRefreshing.asStateFlow()
 
     fun refreshRepoData() {
         viewModelScope.launch {
+            _isRefreshing.emit(true)
+
             try {
                 repoDataRepository.fetchRepoData()
             } catch (e: FileNotFoundException) {
@@ -32,6 +40,8 @@ class MainViewModel @Inject constructor(
             } catch (e: SerializationException) {
                 snackbarHostState.showSnackbar("Failed to decode repodata")
             }
+
+            _isRefreshing.emit(false)
         }
     }
 
