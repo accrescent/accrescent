@@ -24,7 +24,7 @@ class Accrescent : Application(), Configuration.Provider {
             .setConstraints(constraints)
             .build()
         WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork(
-            "REFRESH_REPODATA",
+            "UPDATE_APPS",
             ExistingPeriodicWorkPolicy.KEEP,
             updateRequest,
         )
