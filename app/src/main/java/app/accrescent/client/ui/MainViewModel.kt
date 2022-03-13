@@ -13,6 +13,8 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.SerializationException
 import java.io.FileNotFoundException
 import java.io.InvalidObjectException
+import java.net.ConnectException
+import java.net.UnknownHostException
 import java.security.GeneralSecurityException
 import javax.inject.Inject
 
@@ -33,12 +35,16 @@ class MainViewModel @Inject constructor(
 
             try {
                 repoDataRepository.fetchRepoData()
+            } catch (e: ConnectException) {
+                snackbarHostState.showSnackbar("Network error: ${e.message}")
             } catch (e: FileNotFoundException) {
                 snackbarHostState.showSnackbar("Failed to download repodata")
             } catch (e: GeneralSecurityException) {
                 snackbarHostState.showSnackbar("Failed to verify repodata")
             } catch (e: SerializationException) {
                 snackbarHostState.showSnackbar("Failed to decode repodata")
+            } catch (e: UnknownHostException) {
+                snackbarHostState.showSnackbar("Unknown host error: ${e.message}")
             }
 
             _isRefreshing.emit(false)
@@ -49,6 +55,8 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 packageManager.downloadAndInstall(appId)
+            } catch (e: ConnectException) {
+                snackbarHostState.showSnackbar("Network error: ${e.message}")
             } catch (e: FileNotFoundException) {
                 snackbarHostState.showSnackbar("Failed to download necessary files")
             } catch (e: GeneralSecurityException) {
@@ -59,6 +67,8 @@ class MainViewModel @Inject constructor(
                 snackbarHostState.showSnackbar("App does not support your device")
             } catch (e: SerializationException) {
                 snackbarHostState.showSnackbar("Failed to decode repodata")
+            } catch (e: UnknownHostException) {
+                snackbarHostState.showSnackbar("Unknown host error: ${e.message}")
             }
         }
     }
