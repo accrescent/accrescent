@@ -11,7 +11,7 @@ interface AppDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertApps(vararg apps: App)
 
-    @Query("SELECT * from apps")
+    @Query("SELECT * FROM apps")
     fun getAll(): Flow<List<App>>
 
     @Query("SELECT min_version_code FROM apps WHERE id = :appId")
