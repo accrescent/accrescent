@@ -69,11 +69,23 @@ fun AppList(viewModel: MainViewModel = viewModel()) {
 
 @Composable
 fun InstallableAppCard(app: App, viewModel: MainViewModel = viewModel()) {
-    Card(Modifier.padding(8.dp), backgroundColor = MaterialTheme.colors.primary) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(app.name, modifier = Modifier.padding(horizontal = 8.dp))
+    Card(
+        Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        backgroundColor = MaterialTheme.colors.primary,
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            Text(
+                app.name,
+                modifier = Modifier.padding(start = 16.dp),
+                style = MaterialTheme.typography.h4,
+            )
             Button(
-                modifier = Modifier.padding(end = 8.dp),
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
                 onClick = { viewModel.installApp(app.id) },
                 colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primaryVariant)
             ) {
