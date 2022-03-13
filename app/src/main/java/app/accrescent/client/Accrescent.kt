@@ -1,6 +1,9 @@
 package app.accrescent.client
 
 import android.app.Application
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.*
 import app.accrescent.client.workers.AutoUpdateWorker
@@ -15,6 +18,17 @@ class Accrescent : Application(), Configuration.Provider {
 
     override fun onCreate() {
         super.onCreate()
+
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(
+            NotificationChannel(
+                USER_ACTION_REQUIRED_CHANNEL,
+                "User action required",
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+        )
+
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .setRequiresDeviceIdle(true)
@@ -32,4 +46,8 @@ class Accrescent : Application(), Configuration.Provider {
 
     override fun getWorkManagerConfiguration() =
         Configuration.Builder().setWorkerFactory(workerFactory).build()
+
+    companion object {
+        const val USER_ACTION_REQUIRED_CHANNEL = "UserActionRequired"
+    }
 }
