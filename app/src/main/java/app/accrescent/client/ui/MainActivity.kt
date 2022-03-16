@@ -1,8 +1,10 @@
 package app.accrescent.client.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -13,8 +15,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.accrescent.client.data.db.App
 import app.accrescent.client.ui.theme.AccrescentTheme
@@ -75,10 +79,18 @@ fun AppList(viewModel: MainViewModel = viewModel()) {
 
 @Composable
 fun InstallableAppCard(app: App, viewModel: MainViewModel = viewModel()) {
+    val context = LocalContext.current
+
     Card(
         Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .clickable {
+                val intent = Intent(context, AppDetailsActivity::class.java).apply {
+                    putExtra(EXTRA_APPID, app.id)
+                }
+                startActivity(context, intent, null)
+            },
         backgroundColor = MaterialTheme.colors.primary,
     ) {
         Row(

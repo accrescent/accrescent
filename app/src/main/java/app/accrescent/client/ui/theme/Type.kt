@@ -12,9 +12,19 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
     ),
+    body2 = TextStyle(
+        fontFamily = FontFamily.Monospace,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp,
+    ),
+    h2 = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 24.sp,
+    ),
     h4 = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Medium,
         fontSize = 16.sp,
-    )
+    ),
 )

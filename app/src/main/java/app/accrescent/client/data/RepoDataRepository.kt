@@ -46,6 +46,8 @@ class RepoDataRepository @Inject constructor(
             .forEach { repoDataLocalDataSource.deleteRemovedSigningKeys(it.first, it.second) }
     }
 
+    suspend fun getApp(appId: String) = repoDataLocalDataSource.getApp(appId)
+
     fun getApps() = repoDataLocalDataSource.getApps()
 
     suspend fun getAppMinVersionCode(appId: String): Long {
