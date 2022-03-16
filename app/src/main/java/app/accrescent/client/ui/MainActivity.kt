@@ -52,10 +52,9 @@ fun MainContent(viewModel: MainViewModel = viewModel()) {
 @Composable
 fun AppList(viewModel: MainViewModel = viewModel()) {
     val apps by viewModel.apps.collectAsState(emptyList())
-    val isRefreshing by viewModel.isRefreshing.collectAsState()
 
     SwipeRefresh(
-        state = rememberSwipeRefreshState(isRefreshing),
+        state = rememberSwipeRefreshState(viewModel.isRefreshing),
         onRefresh = { viewModel.refreshRepoData() }
     ) {
         LazyColumn(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {

@@ -1,14 +1,14 @@
 package app.accrescent.client.ui
 
 import androidx.compose.material.SnackbarHostState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.PackageManager
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.serialization.SerializationException
 import java.io.FileNotFoundException
@@ -25,13 +25,12 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
     val apps = repoDataRepository.getApps()
     val snackbarHostState = SnackbarHostState()
-    private val _isRefreshing = MutableStateFlow(false)
-    val isRefreshing: StateFlow<Boolean>
-        get() = _isRefreshing.asStateFlow()
+    var isRefreshing by mutableStateOf(false)
+        private set
 
     fun refreshRepoData() {
         viewModelScope.launch {
-            _isRefreshing.emit(true)
+            isRefreshing = true
 
             try {
                 repoDataRepository.fetchRepoData()
@@ -47,7 +46,7 @@ class MainViewModel @Inject constructor(
                 snackbarHostState.showSnackbar("Unknown host error: ${e.message}")
             }
 
-            _isRefreshing.emit(false)
+            isRefreshing = false
         }
     }
 
