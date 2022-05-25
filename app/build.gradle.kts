@@ -99,7 +99,7 @@ dependencies {
     implementation("com.google.android.material:material:1.6.0")
     implementation("com.google.dagger:hilt-android:2.41")
     implementation("org.bouncycastle:bcprov-jdk15to18:1.70")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     debugImplementation("androidx.compose.ui:ui-tooling:1.1.1")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     kapt("androidx.room:room-compiler:2.4.2")
