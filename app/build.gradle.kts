@@ -103,7 +103,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling:1.2.0-beta02")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     kapt("androidx.room:room-compiler:2.4.2")
-    kapt("com.google.dagger:hilt-android-compiler:2.41")
+    kapt("com.google.dagger:hilt-android-compiler:2.42")
 }
 
 kapt {
