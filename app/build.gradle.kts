@@ -97,7 +97,7 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.7.1")
     implementation("com.google.accompanist:accompanist-swiperefresh:0.23.1")
     implementation("com.google.android.material:material:1.6.0")
-    implementation("com.google.dagger:hilt-android:2.41")
+    implementation("com.google.dagger:hilt-android:2.42")
     implementation("org.bouncycastle:bcprov-jdk15to18:1.70")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     debugImplementation("androidx.compose.ui:ui-tooling:1.2.0-beta02")
