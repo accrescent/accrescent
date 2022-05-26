@@ -44,18 +44,19 @@ class MainActivity : ComponentActivity() {
 fun MainContent(viewModel: MainViewModel = viewModel()) {
     val scaffoldState = rememberScaffoldState(snackbarHostState = viewModel.snackbarHostState)
 
-    Scaffold(scaffoldState = scaffoldState) {
-        AppList()
-    }
+    Scaffold(scaffoldState = scaffoldState, content = { padding ->
+        AppList(padding = padding)
+    })
 }
 
 @Composable
-fun AppList(viewModel: MainViewModel = viewModel()) {
+fun AppList(viewModel: MainViewModel = viewModel(), padding: PaddingValues) {
     val apps by viewModel.apps.collectAsState(emptyList())
 
     SwipeRefresh(
         state = rememberSwipeRefreshState(viewModel.isRefreshing),
-        onRefresh = { viewModel.refreshRepoData() }
+        onRefresh = { viewModel.refreshRepoData() },
+        modifier = Modifier.padding(padding),
     ) {
         LazyColumn(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {
             if (apps.isEmpty()) {
