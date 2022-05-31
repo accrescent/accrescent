@@ -1,20 +1,17 @@
 package app.accrescent.client.data
 
-import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.longPreferencesKey
 import app.accrescent.client.data.db.App
 import app.accrescent.client.data.db.SigningCert
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import java.security.GeneralSecurityException
 import javax.inject.Inject
 
 class RepoDataRepository @Inject constructor(
-    @ApplicationContext private val context: Context,
     private val repoDataRemoteDataSource: RepoDataRemoteDataSource,
     private val repoDataLocalDataSource: RepoDataLocalDataSource,
     private val timestampDataStore: DataStore<Preferences>,
