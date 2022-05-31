@@ -22,7 +22,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun AccrescentTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
+fun AccrescentTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {
