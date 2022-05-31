@@ -6,13 +6,13 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface SigningKeyDao {
+interface SigningCertDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertSigningKeys(vararg signingKeys: SigningKey)
+    suspend fun insertSigningCerts(vararg signingCerts: SigningCert)
 
-    @Query("SELECT public_key_hash FROM signing_keys WHERE app_id = :appId")
+    @Query("SELECT cert_hash FROM signing_certs WHERE app_id = :appId")
     fun getSignersForApp(appId: String): List<String>
 
-    @Query("DELETE FROM signing_keys WHERE app_id = :appId AND public_key_hash NOT IN (:hashesToKeep)")
+    @Query("DELETE FROM signing_certs WHERE app_id = :appId AND cert_hash NOT IN (:hashesToKeep)")
     suspend fun deleteRemoved(appId: String, hashesToKeep: List<String>)
 }

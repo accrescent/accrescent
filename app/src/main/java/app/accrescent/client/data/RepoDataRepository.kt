@@ -6,7 +6,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.longPreferencesKey
 import app.accrescent.client.data.db.App
-import app.accrescent.client.data.db.SigningKey
+import app.accrescent.client.data.db.SigningCert
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -38,12 +38,12 @@ class RepoDataRepository @Inject constructor(
         repoDataLocalDataSource.saveApps(*apps.toTypedArray())
         repoDataLocalDataSource.deleteRemovedApps(apps.map { it.id })
 
-        val signingKeys = repoData.apps.map { (appId, app) ->
-            app.signingKeyHashes.map { SigningKey(appId, it) }
+        val signingCerts = repoData.apps.map { (appId, app) ->
+            app.signingCertHashes.map { SigningCert(appId, it) }
         }.flatten()
-        repoDataLocalDataSource.saveSigningKeys(*signingKeys.toTypedArray())
-        repoData.apps.map { (appId, app) -> Pair(appId, app.signingKeyHashes) }
-            .forEach { repoDataLocalDataSource.deleteRemovedSigningKeys(it.first, it.second) }
+        repoDataLocalDataSource.saveSigningCerts(*signingCerts.toTypedArray())
+        repoData.apps.map { (appId, app) -> Pair(appId, app.signingCertHashes) }
+            .forEach { repoDataLocalDataSource.deleteRemovedSigningCerts(it.first, it.second) }
     }
 
     suspend fun getApp(appId: String) = repoDataLocalDataSource.getApp(appId)

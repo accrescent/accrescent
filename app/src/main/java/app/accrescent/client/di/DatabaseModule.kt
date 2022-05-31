@@ -22,5 +22,5 @@ object DatabaseModule {
     fun provideAppDao(appDatabase: AppDatabase) = appDatabase.appDao()
 
     @Provides
-    fun provideSigningKeyDao(appDatabase: AppDatabase) = appDatabase.signingKeyDao()
+    fun provideSigningCertDao(appDatabase: AppDatabase) = appDatabase.signingCertDao()
 }

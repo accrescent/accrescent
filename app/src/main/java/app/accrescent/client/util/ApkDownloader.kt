@@ -9,14 +9,12 @@ import android.util.DisplayMetrics
 import android.util.Log
 import app.accrescent.client.data.RepoDataRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
-import java.io.ByteArrayInputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InvalidObjectException
 import java.net.URL
 import java.security.GeneralSecurityException
 import java.security.MessageDigest
-import java.security.cert.CertificateFactory
 import javax.inject.Inject
 import javax.net.ssl.HttpsURLConnection
 
@@ -175,16 +173,9 @@ class ApkDownloader @Inject constructor(
     }
 
     private fun signatureToCertHash(signature: Signature): String {
-        val rawCert = ByteArrayInputStream(signature.toByteArray())
-        val subjectPublicKeyInfo = CertificateFactory
-            .getInstance("X.509")
-            .generateCertificate(rawCert)
-            .publicKey
-            .encoded
-
         return MessageDigest
             .getInstance("SHA-256")
-            .digest(subjectPublicKeyInfo)
+            .digest(signature.toByteArray())
             .joinToString("") { "%02x".format(it) }
     }
 
