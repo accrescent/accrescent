@@ -22,9 +22,12 @@ class AutoUpdateWorker @AssistedInject constructor(
             context
                 .packageManager
                 .getInstalledPackages(0)
-                .map { it.packageName }
-                .filter { repoDataRepository.appExists(it) }
-                .forEach { packageManager.downloadAndInstall(it) }
+                .filter { repoDataRepository.appExists(it.packageName) }
+                .filter {
+                    repoDataRepository
+                        .getAppRepoData(it.packageName)
+                        .versionCode > it.longVersionCode
+                }.forEach { packageManager.downloadAndInstall(it.packageName) }
         } catch (e: Exception) {
             return Result.failure()
         }
