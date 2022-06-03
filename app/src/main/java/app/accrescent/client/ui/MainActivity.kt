@@ -11,6 +11,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navDeepLink
 import app.accrescent.client.ui.theme.AccrescentTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -47,7 +48,12 @@ fun MainContent() {
                     viewModel = model,
                 )
             }
-            composable("details/{appId}") {
+            composable(
+                "details/{appId}",
+                deepLinks = listOf(navDeepLink {
+                    uriPattern = "https://accrescent.app/app/{appId}"
+                })
+            ) {
                 val model = hiltViewModel<AppDetailsViewModel>()
                 AppDetailsScreen(scaffoldState = scaffoldState, viewModel = model)
             }
