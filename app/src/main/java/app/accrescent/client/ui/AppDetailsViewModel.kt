@@ -16,7 +16,7 @@ class AppDetailsViewModel @Inject constructor(
     private val repoDataRepository: RepoDataRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    private val appId = savedStateHandle.get<String>(EXTRA_APPID)!!
+    private val appId = savedStateHandle.get<String>("appId")!!
     var uiState by mutableStateOf(AppDetailsUiState(appId = appId))
         private set
 

@@ -1,6 +1,5 @@
 package app.accrescent.client.ui
 
-import androidx.compose.material.SnackbarHostState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -19,31 +18,33 @@ import java.security.GeneralSecurityException
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class AppListViewModel @Inject constructor(
     private val repoDataRepository: RepoDataRepository,
     private val packageManager: PackageManager
 ) : ViewModel() {
     val apps = repoDataRepository.getApps()
-    val snackbarHostState = SnackbarHostState()
     var isRefreshing by mutableStateOf(false)
+        private set
+    var error: String? by mutableStateOf(null)
         private set
 
     fun refreshRepoData() {
         viewModelScope.launch {
+            error = null
             isRefreshing = true
 
             try {
                 repoDataRepository.fetchRepoData()
             } catch (e: ConnectException) {
-                snackbarHostState.showSnackbar("Network error: ${e.message}")
+                error = "Network error: ${e.message}"
             } catch (e: FileNotFoundException) {
-                snackbarHostState.showSnackbar("Failed to download repodata")
+                error = "Failed to download repodata"
             } catch (e: GeneralSecurityException) {
-                snackbarHostState.showSnackbar("Failed to verify repodata")
+                error = "Failed to verify repodata"
             } catch (e: SerializationException) {
-                snackbarHostState.showSnackbar("Failed to decode repodata")
+                error = "Failed to decode repodata"
             } catch (e: UnknownHostException) {
-                snackbarHostState.showSnackbar("Unknown host error: ${e.message}")
+                error = "Unknown host error: ${e.message}"
             }
 
             isRefreshing = false
@@ -52,22 +53,24 @@ class MainViewModel @Inject constructor(
 
     fun installApp(appId: String) {
         viewModelScope.launch {
+            error = null
+
             try {
                 packageManager.downloadAndInstall(appId)
             } catch (e: ConnectException) {
-                snackbarHostState.showSnackbar("Network error: ${e.message}")
+                error = "Network error: ${e.message}"
             } catch (e: FileNotFoundException) {
-                snackbarHostState.showSnackbar("Failed to download necessary files")
+                error = "Failed to download necessary files"
             } catch (e: GeneralSecurityException) {
-                snackbarHostState.showSnackbar("App verification failed: ${e.message}")
+                error = "App verification failed: ${e.message}"
             } catch (e: InvalidObjectException) {
-                snackbarHostState.showSnackbar("Error parsing app files: ${e.message}")
+                error = "Error parsing app files: ${e.message}"
             } catch (e: NoSuchElementException) {
-                snackbarHostState.showSnackbar("App does not support your device")
+                error = "App does not support your device"
             } catch (e: SerializationException) {
-                snackbarHostState.showSnackbar("Failed to decode repodata")
+                error = "Failed to decode repodata"
             } catch (e: UnknownHostException) {
-                snackbarHostState.showSnackbar("Unknown host error: ${e.message}")
+                error = "Unknown host error: ${e.message}"
             }
         }
     }
