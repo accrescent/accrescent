@@ -73,7 +73,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0-beta02"
+        kotlinCompilerExtensionVersion = "1.2.0-beta03"
     }
     packagingOptions {
         resources {
@@ -84,9 +84,9 @@ android {
 
 dependencies {
     implementation("androidx.activity:activity-compose:1.4.0")
-    implementation("androidx.compose.material:material:1.2.0-beta02")
-    implementation("androidx.compose.ui:ui:1.2.0-beta02")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.2.0-beta02")
+    implementation("androidx.compose.material:material:1.2.0-beta03")
+    implementation("androidx.compose.ui:ui:1.2.0-beta03")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.2.0-beta03")
     implementation("androidx.datastore:datastore-preferences:1.0.0")
     implementation("androidx.hilt:hilt-work:1.0.0")
     implementation("androidx.lifecycle:lifecycle-process:2.4.1")
@@ -100,7 +100,7 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.42")
     implementation("org.bouncycastle:bcprov-jdk15to18:1.70")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.2.0-beta02")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.2.0-beta03")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     kapt("androidx.room:room-compiler:2.4.2")
     kapt("com.google.dagger:hilt-android-compiler:2.42")
