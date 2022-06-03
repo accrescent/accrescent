@@ -49,7 +49,7 @@ fun MainContent() {
             }
             composable("details/{appId}") {
                 val model = hiltViewModel<AppDetailsViewModel>()
-                AppDetailsScreen(viewModel = model)
+                AppDetailsScreen(scaffoldState = scaffoldState, viewModel = model)
             }
         }
     })

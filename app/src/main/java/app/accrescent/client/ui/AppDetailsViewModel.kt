@@ -9,6 +9,10 @@ import androidx.lifecycle.viewModelScope
 import app.accrescent.client.data.RepoDataRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import kotlinx.serialization.SerializationException
+import java.io.FileNotFoundException
+import java.net.ConnectException
+import java.net.UnknownHostException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,7 +26,7 @@ class AppDetailsViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            uiState = uiState.copy(isFetchingData = true)
+            uiState = uiState.copy(isFetchingData = true, error = null)
 
             val trustedInfo = repoDataRepository.getApp(appId)
             if (trustedInfo == null) {
@@ -31,11 +35,22 @@ class AppDetailsViewModel @Inject constructor(
             } else {
                 uiState = uiState.copy(appName = trustedInfo.name)
             }
-            val untrustedInfo = repoDataRepository.getAppRepoData(appId)
-            uiState = uiState.copy(
-                versionName = untrustedInfo.version,
-                versionCode = untrustedInfo.versionCode,
-            )
+
+            uiState = try {
+                val untrustedInfo = repoDataRepository.getAppRepoData(appId)
+                uiState.copy(
+                    versionName = untrustedInfo.version,
+                    versionCode = untrustedInfo.versionCode,
+                )
+            } catch (e: ConnectException) {
+                uiState.copy(error = "Network error: ${e.message}", appExists = false)
+            } catch (e: FileNotFoundException) {
+                uiState.copy(error = "Failed to download repodata", appExists = false)
+            } catch (e: SerializationException) {
+                uiState.copy(error = "Failed to decode repodata", appExists = false)
+            } catch (e: UnknownHostException) {
+                uiState.copy(error = "Unknown host error: ${e.message}", appExists = false)
+            }
 
             uiState = uiState.copy(isFetchingData = false)
         }

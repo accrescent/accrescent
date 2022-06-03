@@ -1,18 +1,19 @@
 package app.accrescent.client.ui
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Card
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun AppDetailsScreen(viewModel: AppDetailsViewModel = viewModel()) {
+fun AppDetailsScreen(
+    scaffoldState: ScaffoldState = rememberScaffoldState(),
+    viewModel: AppDetailsViewModel = viewModel(),
+) {
     when {
         viewModel.uiState.isFetchingData -> {
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -26,6 +27,12 @@ fun AppDetailsScreen(viewModel: AppDetailsViewModel = viewModel()) {
             versionCode = viewModel.uiState.versionCode,
         )
         else -> AppNotFoundError()
+    }
+
+    if (viewModel.uiState.error != null) {
+        LaunchedEffect(scaffoldState.snackbarHostState) {
+            scaffoldState.snackbarHostState.showSnackbar(message = viewModel.uiState.error!!)
+        }
     }
 }
 
