@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Accrescent</string>
+    <string name="app_list">Apps</string>
+    <string name="app_updates">Updates</string>
 </resources>

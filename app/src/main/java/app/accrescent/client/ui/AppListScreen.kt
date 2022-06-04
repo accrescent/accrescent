@@ -71,7 +71,7 @@ fun InstallableAppCard(
         Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp)
-            .clickable { navController.navigate("details/${app.id}") },
+            .clickable { navController.navigate("app_details/${app.id}") },
         backgroundColor = MaterialTheme.colors.primary,
     ) {
         Row(
