@@ -11,6 +11,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileInputStream
+import java.io.InvalidObjectException
 import javax.inject.Inject
 
 class PackageManager @Inject constructor(
@@ -27,8 +28,13 @@ class PackageManager @Inject constructor(
     private fun installApp(apks: List<File>) {
         val packageInstaller = context.packageManager.packageInstaller
 
+        // We assume base.apk is always the first APK passed
+        val pkgInfo = context.packageManager.getPackageArchiveInfo(apks[0].absolutePath, 0)
+            ?: throw InvalidObjectException("base.apk is not a valid APK")
+
         val sessionParams = SessionParams(SessionParams.MODE_FULL_INSTALL)
         sessionParams.setRequireUserAction(SessionParams.USER_ACTION_NOT_REQUIRED)
+        sessionParams.setInstallLocation(pkgInfo.installLocation)
         val sessionId = packageInstaller.createSession(sessionParams)
         val session = packageInstaller.openSession(sessionId)
 
