@@ -38,11 +38,11 @@ class AppListViewModel @Inject constructor(
             } catch (e: ConnectException) {
                 error = "Network error: ${e.message}"
             } catch (e: FileNotFoundException) {
-                error = "Failed to download repodata"
+                error = "Failed to download repodata: ${e.message}"
             } catch (e: GeneralSecurityException) {
-                error = "Failed to verify repodata"
+                error = "Failed to verify repodata: ${e.message}"
             } catch (e: SerializationException) {
-                error = "Failed to decode repodata"
+                error = "Failed to decode repodata: ${e.message}"
             } catch (e: UnknownHostException) {
                 error = "Unknown host error: ${e.message}"
             }
@@ -60,15 +60,15 @@ class AppListViewModel @Inject constructor(
             } catch (e: ConnectException) {
                 error = "Network error: ${e.message}"
             } catch (e: FileNotFoundException) {
-                error = "Failed to download necessary files"
+                error = "Failed to download necessary files: ${e.message}"
             } catch (e: GeneralSecurityException) {
                 error = "App verification failed: ${e.message}"
             } catch (e: InvalidObjectException) {
                 error = "Error parsing app files: ${e.message}"
             } catch (e: NoSuchElementException) {
-                error = "App does not support your device"
+                error = "App does not support your device: ${e.message}"
             } catch (e: SerializationException) {
-                error = "Failed to decode repodata"
+                error = "Failed to decode repodata: ${e.message}"
             } catch (e: UnknownHostException) {
                 error = "Unknown host error: ${e.message}"
             }
