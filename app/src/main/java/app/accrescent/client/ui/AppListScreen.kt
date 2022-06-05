@@ -24,11 +24,13 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 fun AppListScreen(
     navController: NavController,
     scaffoldState: ScaffoldState = rememberScaffoldState(),
+    padding: PaddingValues,
     viewModel: AppListViewModel = viewModel(),
 ) {
     val apps by viewModel.apps.collectAsState(emptyList())
 
     SwipeRefresh(
+        modifier = Modifier.padding(padding),
         state = rememberSwipeRefreshState(viewModel.isRefreshing),
         onRefresh = { viewModel.refreshRepoData() },
     ) {
@@ -71,7 +73,7 @@ fun InstallableAppCard(
         Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp)
-            .clickable { navController.navigate("app_details/${app.id}") },
+            .clickable { navController.navigate("${Screen.AppDetails.route}/${app.id}") },
         backgroundColor = MaterialTheme.colors.primary,
     ) {
         Row(
