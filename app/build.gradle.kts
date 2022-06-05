@@ -107,7 +107,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-swiperefresh:0.24.10-beta")
     implementation("com.google.android.material:material:1.6.1")
     implementation("com.google.dagger:hilt-android:2.42")
-    implementation("org.bouncycastle:bcprov-jdk15to18:1.70")
+    implementation("org.bouncycastle:bcprov-jdk15to18:1.71")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     debugImplementation("androidx.compose.ui:ui-tooling:1.2.0-beta03")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
