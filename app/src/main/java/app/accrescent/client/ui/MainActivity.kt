@@ -1,5 +1,6 @@
 package app.accrescent.client.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -23,7 +24,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavType
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
 import app.accrescent.client.ui.theme.AccrescentTheme
 import com.google.accompanist.navigation.animation.AnimatedNavHost
@@ -35,10 +38,13 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val appId = intent.getStringExtra(Intent.EXTRA_PACKAGE_NAME)
+
         setContent {
             AccrescentTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    MainContent()
+                    MainContent(appId)
                 }
             }
         }
@@ -47,7 +53,7 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun MainContent() {
+fun MainContent(appId: String?) {
     val scaffoldState = rememberScaffoldState(snackbarHostState = SnackbarHostState())
     val navController = rememberAnimatedNavController()
     val screens = listOf(Screen.AppList, Screen.AppUpdates)
@@ -55,10 +61,13 @@ fun MainContent() {
     val showBottomBar =
         navController.currentBackStackEntryAsState().value?.destination?.route in screens.map { it.route }
 
+    val startDestination =
+        if (appId != null) "${Screen.AppDetails.route}/{appId}" else Screen.AppList.route
+
     Scaffold(scaffoldState = scaffoldState, content = { padding ->
         AnimatedNavHost(
             navController = navController,
-            startDestination = Screen.AppList.route,
+            startDestination = startDestination,
         ) {
             composable(Screen.AppList.route, enterTransition = {
                 when (initialState.destination.route) {
@@ -97,7 +106,10 @@ fun MainContent() {
                 }
             }) { AppUpdatesScreen(padding = padding) }
             composable(
-                "${Screen.AppDetails.route}/{appId}",
+                "${Screen.AppDetails.route}/{appId}", arguments = listOf(navArgument("appId") {
+                    type = NavType.StringType
+                    defaultValue = appId ?: ""
+                }),
                 deepLinks = listOf(navDeepLink {
                     uriPattern = "https://accrescent.app/app/{appId}"
                 }),
