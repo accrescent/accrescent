@@ -16,6 +16,8 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         if (intent == null || context == null) return
 
+        val sessionId = intent.getIntExtra(PackageInstaller.EXTRA_SESSION_ID, -999)
+
         when (intent.getIntExtra(PackageInstaller.EXTRA_STATUS, -999)) {
             PackageInstaller.STATUS_PENDING_USER_ACTION -> {
                 val confirmationIntent = intent.getParcelableExtra<Intent>(Intent.EXTRA_INTENT)
@@ -26,7 +28,7 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
                 } else {
                     val pendingIntent = PendingIntent.getActivity(
                         context,
-                        0,
+                        sessionId,
                         confirmationIntent,
                         PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_CANCEL_CURRENT
                     )
@@ -40,7 +42,7 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
 
                     val notificationManager =
                         context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-                    notificationManager.notify(0, notification)
+                    notificationManager.notify(sessionId, notification)
                 }
             }
         }
