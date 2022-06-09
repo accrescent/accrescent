@@ -42,7 +42,7 @@ class ApkDownloader @Inject constructor(
 
         val packageInfo = context
             .packageManager
-            .getPackageArchiveInfo(baseApk.absolutePath, 0)
+            .getPackageArchiveInfoCompat(baseApk.absolutePath, 0)
             ?: throw InvalidObjectException("base.apk is not a valid APK")
         val packageName = packageInfo.packageName
         if (packageName != appId) {
@@ -146,7 +146,7 @@ class ApkDownloader @Inject constructor(
     private fun verifySigners(apk: File, requiredSigners: List<String>): Boolean {
         val signingInfo = context
             .packageManager
-            .getPackageArchiveInfo(apk.absolutePath, PackageManager.GET_SIGNING_CERTIFICATES)
+            .getPackageArchiveInfoCompat(apk.absolutePath, PackageManager.GET_SIGNING_CERTIFICATES)
             ?.signingInfo
             ?: return false
 
