@@ -1,6 +1,8 @@
 package app.accrescent.client.workers
 
 import android.content.Context
+import android.content.pm.PackageManager as OsPackageManager
+import android.os.Build
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
@@ -19,10 +21,13 @@ class AutoUpdateWorker @AssistedInject constructor(
     override suspend fun doWork(): Result {
         try {
             repoDataRepository.fetchRepoData()
-            context
-                .packageManager
-                .getInstalledPackages(0)
-                .filter { repoDataRepository.appExists(it.packageName) }
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+                @Suppress("DEPRECATION")
+                context.packageManager.getInstalledPackages(0)
+            } else {
+                context.packageManager.getInstalledPackages(OsPackageManager.PackageInfoFlags.of(0))
+            }.filter { repoDataRepository.appExists(it.packageName) }
                 .filter {
                     repoDataRepository
                         .getAppRepoData(it.packageName)
