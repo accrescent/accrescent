@@ -3,6 +3,7 @@ package app.accrescent.client.util
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageInstaller
 import android.content.pm.PackageInstaller.SessionParams
 import android.content.pm.PackageManager
 import android.os.Build
@@ -37,6 +38,9 @@ class PackageManager @Inject constructor(
         val sessionParams = SessionParams(SessionParams.MODE_FULL_INSTALL)
         sessionParams.setRequireUserAction(SessionParams.USER_ACTION_NOT_REQUIRED)
         sessionParams.setInstallLocation(pkgInfo.installLocation)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            sessionParams.setPackageSource(PackageInstaller.PACKAGE_SOURCE_STORE)
+        }
         val sessionId = packageInstaller.createSession(sessionParams)
         val session = packageInstaller.openSession(sessionId)
 
