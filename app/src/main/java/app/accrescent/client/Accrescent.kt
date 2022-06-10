@@ -24,7 +24,7 @@ class Accrescent : Application(), Configuration.Provider {
         notificationManager.createNotificationChannel(
             NotificationChannel(
                 USER_ACTION_REQUIRED_CHANNEL,
-                "User action required",
+                getString(R.string.user_action_required),
                 NotificationManager.IMPORTANCE_DEFAULT
             )
         )

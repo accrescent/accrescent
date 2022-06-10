@@ -2,4 +2,23 @@
     <string name="app_name">Accrescent</string>
     <string name="app_list">Apps</string>
     <string name="app_updates">Updates</string>
+    <string name="test">Just kidding. This is a shim.</string>
+    <string name="install">Install</string>
+    <string name="swipe_refresh">Swipe down to refresh</string>
+    <string name="user_action_required">User action required</string>
+    <string name="cant_find_app">Sorry, we couldn\'t find that app</string>
+    <string name="version">Version: %1$s</string>
+    <string name="version_code">Version code: %1$d</string>
+    <string name="device_language_unsupported">your device\'s language is not supported</string>
+    <string name="device_density_unsupported">your device\'s screen density is not supported</string>
+    <string name="device_abi_unsupported">your device\'s architecture is not supported</string>
+    <string name="app_signer_mismatch">app not signed by required signer(s).\nExpected: %1$s</string>
+    <string name="no_app_signers">no app signers found.\nExpected: %1$s</string>
+    <string name="version_downgrade">version %1$d is less than minimum %2$d</string>
+    <string name="app_id_mismatch">app ID %1$s does not match expected ID %2$s</string>
+    <string name="version_mismatch">expected version %1$s, actual is %2$s</string>
+    <string name="version_code_mismatch">expected version code %1$d, actual is %2$d</string>
+    <string name="base_apk_not_valid">base.apk is not a valid APK</string>
+    <string name="repodata_timestamp_less">repodata timestamp less than saved value</string>
+    <string name="sig_verify_failed">signature verification failed</string>
 </resources>

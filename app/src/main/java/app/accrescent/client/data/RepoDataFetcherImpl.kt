@@ -1,8 +1,11 @@
 package app.accrescent.client.data
 
+import android.content.Context
+import app.accrescent.client.R
 import app.accrescent.client.data.net.AppRepoData
 import app.accrescent.client.data.net.RepoData
 import app.accrescent.client.util.verifySignature
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.io.ByteArrayOutputStream
@@ -13,13 +16,15 @@ import javax.net.ssl.HttpsURLConnection
 
 private val format = Json { ignoreUnknownKeys }
 
-class RepoDataFetcherImpl @Inject constructor() : RepoDataFetcher {
+class RepoDataFetcherImpl @Inject constructor(
+    @ApplicationContext private val context: Context,
+) : RepoDataFetcher {
     override fun fetchRepoData(): RepoData {
         val repoDataFile = fetchFileString(URL(REPOSITORY_URL + REPODATA_PATH))
         val signature = fetchFileString(URL("$REPOSITORY_URL$REPODATA_PATH.sig"))
 
         if (!verifySignature(REPODATA_PUBKEY, repoDataFile.toByteArray(), signature)) {
-            throw GeneralSecurityException("signature verification failed")
+            throw GeneralSecurityException(context.getString(R.string.sig_verify_failed))
         }
 
         return format.decodeFromString(repoDataFile)
