@@ -7,6 +7,7 @@ import android.content.res.Resources
 import android.os.Build
 import android.util.DisplayMetrics
 import android.util.Log
+import app.accrescent.client.data.REPOSITORY_URL
 import app.accrescent.client.data.RepoDataRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.File
@@ -177,9 +178,5 @@ class ApkDownloader @Inject constructor(
             .getInstance("SHA-256")
             .digest(signature.toByteArray())
             .joinToString("") { "%02x".format(it) }
-    }
-
-    companion object {
-        const val REPOSITORY_URL = "https://store.accrescent.app"
     }
 }
