@@ -13,9 +13,11 @@ import app.accrescent.client.R
 
 @Composable
 fun AppUpdatesScreen(padding: PaddingValues) {
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .padding(padding), contentAlignment = Alignment.Center) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(padding), contentAlignment = Alignment.Center
+    ) {
         Text(stringResource(R.string.test))
     }
 }
