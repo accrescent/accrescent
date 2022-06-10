@@ -28,6 +28,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
+import app.accrescent.client.data.ROOT_DOMAIN
 import app.accrescent.client.ui.theme.AccrescentTheme
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
@@ -111,7 +112,7 @@ fun MainContent(appId: String?) {
                     defaultValue = appId ?: ""
                 }),
                 deepLinks = listOf(navDeepLink {
-                    uriPattern = "https://accrescent.app/app/{appId}"
+                    uriPattern = "https://${ROOT_DOMAIN}/app/{appId}"
                 }),
                 enterTransition = {
                     when (initialState.destination.route) {
