@@ -6,8 +6,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import app.accrescent.client.R
 
 @Composable
 fun AppDetailsScreen(
@@ -47,11 +49,11 @@ fun AppDetails(id: String, name: String, versionName: String, versionCode: Long)
         Column(Modifier.width(256.dp), verticalArrangement = Arrangement.Center) {
             Spacer(Modifier.height(16.dp))
             Text(
-                "Version: $versionName",
+                stringResource(R.string.version, versionName),
                 style = MaterialTheme.typography.body2
             )
             Text(
-                "Version code: $versionCode",
+                stringResource(R.string.version_code, versionCode),
                 style = MaterialTheme.typography.body2
             )
         }
@@ -77,7 +79,7 @@ fun AppNotFoundError() {
         ) {
             Row(horizontalArrangement = Arrangement.Center) {
                 Text(
-                    "Sorry, we couldn't find that app",
+                    stringResource(R.string.cant_find_app),
                     Modifier.align(Alignment.CenterVertically),
                     color = MaterialTheme.colors.error,
                     style = MaterialTheme.typography.h4

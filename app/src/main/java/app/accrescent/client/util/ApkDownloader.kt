@@ -7,6 +7,7 @@ import android.content.res.Resources
 import android.os.Build
 import android.util.DisplayMetrics
 import android.util.Log
+import app.accrescent.client.R
 import app.accrescent.client.data.REPOSITORY_URL
 import app.accrescent.client.data.RepoDataRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -32,7 +33,8 @@ class ApkDownloader @Inject constructor(
         val version = appInfo.versionCode
         val minVersion = repoDataRepository.getAppMinVersionCode(appId)
         if (version < minVersion) {
-            throw GeneralSecurityException("version $version is less than minimum $minVersion")
+            val msg = context.getString(R.string.version_downgrade, version, minVersion)
+            throw GeneralSecurityException(msg)
         }
 
         val downloadDir = File("${context.cacheDir.absolutePath}/apps/$appId/$version")
@@ -44,26 +46,33 @@ class ApkDownloader @Inject constructor(
         val packageInfo = context
             .packageManager
             .getPackageArchiveInfoCompat(baseApk.absolutePath, 0)
-            ?: throw InvalidObjectException("base.apk is not a valid APK")
+            ?: throw InvalidObjectException(context.getString(R.string.base_apk_not_valid))
         val packageName = packageInfo.packageName
         if (packageName != appId) {
-            throw GeneralSecurityException("app ID $packageName does not match expected value $appId")
+            val msg = context.getString(R.string.app_id_mismatch, packageName, appId)
+            throw GeneralSecurityException(msg)
         }
         val packageVersion = packageInfo.longVersionCode
         if (packageVersion != version) {
-            throw GeneralSecurityException("expected version code $version, actual is $packageVersion")
+            val msg = context.getString(R.string.version_code_mismatch, version, packageVersion)
+            throw GeneralSecurityException(msg)
         }
         if (packageInfo.versionName != appInfo.version) {
             throw GeneralSecurityException(
-                "expected version ${appInfo.version}, actual is ${packageInfo.versionName}"
+                context.getString(
+                    R.string.version_mismatch,
+                    appInfo.version,
+                    packageInfo.versionName
+                )
             )
         }
 
         val requiredSigners = repoDataRepository.getAppSigners(appId)
         if (requiredSigners.isEmpty()) {
-            throw IllegalStateException("no app signers found")
+            throw IllegalStateException(context.getString(R.string.no_app_signers, requiredSigners))
         } else if (!verifySigners(baseApk, requiredSigners)) {
-            throw GeneralSecurityException("app not signed by required signer(s)")
+            val msg = context.getString(R.string.app_signer_mismatch, requiredSigners)
+            throw GeneralSecurityException(msg)
         }
 
         val apks = mutableListOf<File>()
@@ -82,7 +91,7 @@ class ApkDownloader @Inject constructor(
                 }
             }
             if (!abiSupported) {
-                throw NoSuchElementException("your device's ABIs are not supported")
+                throw NoSuchElementException(context.getString(R.string.device_abi_unsupported))
             }
         }
 
@@ -103,7 +112,7 @@ class ApkDownloader @Inject constructor(
                 downloadToFile("$baseDownloadUri/split.$densityClass.apk", densitySplit)
                 apks += densitySplit
             } else {
-                throw NoSuchElementException("your device's screen density is not supported")
+                throw NoSuchElementException(context.getString(R.string.device_density_unsupported))
             }
         }
 
@@ -118,7 +127,7 @@ class ApkDownloader @Inject constructor(
                 downloadToFile("$baseDownloadUri/split.$deviceLang.apk", langSplit)
                 apks += langSplit
             } else {
-                throw NoSuchElementException("your device's language is not supported")
+                throw NoSuchElementException(context.getString(R.string.device_language_unsupported))
             }
         }
 

@@ -8,12 +8,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import app.accrescent.client.R
 
 @Composable
 fun AppUpdatesScreen(padding: PaddingValues) {
     Box(modifier = Modifier
         .fillMaxSize()
         .padding(padding), contentAlignment = Alignment.Center) {
-        Text("Just kidding. This is a shim.")
+        Text(stringResource(R.string.test))
     }
 }

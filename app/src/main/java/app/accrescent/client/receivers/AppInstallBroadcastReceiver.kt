@@ -42,7 +42,7 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
                     val notification =
                         Notification.Builder(context, Accrescent.USER_ACTION_REQUIRED_CHANNEL)
                             .setSmallIcon(R.drawable.ic_baseline_touch_app_24)
-                            .setContentTitle("User action required")
+                            .setContentTitle(context.getString(R.string.user_action_required))
                             .setContentIntent(pendingIntent)
                             .setAutoCancel(true)
                             .build()

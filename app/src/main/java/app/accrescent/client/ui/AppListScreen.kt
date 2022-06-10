@@ -12,10 +12,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import app.accrescent.client.R
 import app.accrescent.client.data.db.App
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
@@ -38,7 +40,7 @@ fun AppListScreen(
             if (apps.isEmpty()) {
                 item {
                     Text(
-                        "Swipe down to refresh",
+                        stringResource(R.string.swipe_refresh),
                         Modifier.fillMaxWidth(),
                         textAlign = TextAlign.Center,
                     )
@@ -90,7 +92,7 @@ fun InstallableAppCard(
                 onClick = { onInstallClicked(app.id) },
                 colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primaryVariant),
             ) {
-                Text("Install", color = Color.LightGray)
+                Text(stringResource(R.string.install), color = Color.LightGray)
             }
         }
     }

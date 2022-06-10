@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageInstaller
 import android.content.pm.PackageInstaller.SessionParams
 import android.os.Build
+import app.accrescent.client.R
 import app.accrescent.client.di.IoDispatcher
 import app.accrescent.client.receivers.AppInstallBroadcastReceiver
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -32,7 +33,7 @@ class PackageManager @Inject constructor(
 
         // We assume base.apk is always the first APK passed
         val pkgInfo = context.packageManager.getPackageArchiveInfoCompat(apks[0].absolutePath, 0)
-            ?: throw InvalidObjectException("base.apk is not a valid APK")
+            ?: throw InvalidObjectException(context.getString(R.string.base_apk_not_valid))
 
         val sessionParams = SessionParams(SessionParams.MODE_FULL_INSTALL)
         sessionParams.setRequireUserAction(SessionParams.USER_ACTION_NOT_REQUIRED)
