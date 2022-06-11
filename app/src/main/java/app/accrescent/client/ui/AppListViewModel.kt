@@ -1,13 +1,20 @@
 package app.accrescent.client.ui
 
+import android.app.Application
+import android.content.Context
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import app.accrescent.client.Accrescent
+import app.accrescent.client.data.AppInstallStatuses
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.PackageManager
+import app.accrescent.client.util.getPackageInstallStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.serialization.SerializationException
 import java.io.FileNotFoundException
@@ -19,10 +26,20 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AppListViewModel @Inject constructor(
+    @ApplicationContext context: Context,
     private val repoDataRepository: RepoDataRepository,
-    private val packageManager: PackageManager
-) : ViewModel() {
-    val apps = repoDataRepository.getApps()
+    private val packageManager: PackageManager,
+    appInstallStatuses: AppInstallStatuses,
+) : AndroidViewModel(context as Application) {
+    // Initialize install status for apps as they're added
+    val apps = repoDataRepository.getApps().onEach { apps ->
+        for (app in apps) {
+            appInstallStatuses.statuses[app.id] = context
+                .packageManager
+                .getPackageInstallStatus(app.id)
+        }
+    }
+    val installStatuses = appInstallStatuses.statuses
     var isRefreshing by mutableStateOf(false)
         private set
     var error: String? by mutableStateOf(null)
@@ -72,6 +89,20 @@ class AppListViewModel @Inject constructor(
             } catch (e: UnknownHostException) {
                 error = "Unknown host error: ${e.message}"
             }
+        }
+    }
+
+    fun openApp(appId: String) {
+        error = null
+
+        val context = getApplication<Accrescent>().applicationContext
+
+        val intent = context.packageManager.getLaunchIntentForPackage(appId)
+        if (intent == null) {
+            error = "Could not open app"
+            return
+        } else {
+            context.startActivity(intent)
         }
     }
 }

@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import app.accrescent.client.R
+import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.db.App
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
@@ -43,6 +44,7 @@ fun AppListScreen(
     viewModel: AppListViewModel = viewModel(),
 ) {
     val apps by viewModel.apps.collectAsState(emptyList())
+    val installStatuses = viewModel.installStatuses
 
     SwipeRefresh(
         modifier = Modifier.padding(padding),
@@ -64,7 +66,9 @@ fun AppListScreen(
                     InstallableAppCard(
                         app = app,
                         navController = navController,
+                        installStatus = installStatuses[app.id] ?: InstallStatus.INSTALLABLE,
                         onInstallClicked = viewModel::installApp,
+                        onOpenClicked = viewModel::openApp,
                     )
                 }
             }
@@ -82,7 +86,9 @@ fun AppListScreen(
 fun InstallableAppCard(
     app: App,
     navController: NavController,
+    installStatus: InstallStatus,
     onInstallClicked: (String) -> Unit,
+    onOpenClicked: (String) -> Unit,
 ) {
     Card(
         Modifier
@@ -102,10 +108,20 @@ fun InstallableAppCard(
             )
             Button(
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
-                onClick = { onInstallClicked(app.id) },
+                onClick = {
+                    when (installStatus) {
+                        InstallStatus.INSTALLABLE -> onInstallClicked(app.id)
+                        InstallStatus.INSTALLED -> onOpenClicked(app.id)
+                    }
+                },
                 colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primaryVariant),
             ) {
-                Text(stringResource(R.string.install), color = Color.LightGray)
+                when (installStatus) {
+                    InstallStatus.INSTALLABLE ->
+                        Text(stringResource(R.string.install), color = Color.LightGray)
+                    InstallStatus.INSTALLED ->
+                        Text(stringResource(R.string.open), color = Color.LightGray)
+                }
             }
         }
     }

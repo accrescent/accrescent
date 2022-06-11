@@ -4,6 +4,8 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import androidx.work.Constraints
@@ -11,6 +13,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
+import app.accrescent.client.receivers.AppStatusChangeBroadcastReceiver
 import app.accrescent.client.workers.AutoUpdateWorker
 import dagger.hilt.android.HiltAndroidApp
 import java.time.Duration
@@ -47,6 +50,15 @@ class Accrescent : Application(), Configuration.Provider {
             ExistingPeriodicWorkPolicy.KEEP,
             updateRequest,
         )
+
+        val br = AppStatusChangeBroadcastReceiver()
+        val filter = IntentFilter().apply {
+            addAction(Intent.ACTION_PACKAGE_ADDED)
+            addAction(Intent.ACTION_PACKAGE_REMOVED)
+            addAction(Intent.ACTION_PACKAGE_FULLY_REMOVED)
+            addDataScheme("package")
+        }
+        registerReceiver(br, filter)
     }
 
     override fun getWorkManagerConfiguration() =
