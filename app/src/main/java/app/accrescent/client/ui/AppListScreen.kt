@@ -62,7 +62,7 @@ fun AppListScreen(
                 }
             } else {
                 item { Spacer(Modifier.height(16.dp)) }
-                items(apps) { app ->
+                items(apps, key = { app -> app.id }) { app ->
                     InstallableAppCard(
                         app = app,
                         navController = navController,
