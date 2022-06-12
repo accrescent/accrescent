@@ -17,15 +17,19 @@ fun PackageManager.getPackageArchiveInfoCompat(archiveFilePath: String, flags: I
     }
 }
 
-fun PackageManager.getPackageInstallStatus(appId: String): InstallStatus {
+fun PackageManager.getPackageInstallStatus(appId: String, versionCode: Long): InstallStatus {
     return try {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        val pkgInfo = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             @Suppress("DEPRECATION")
             this.getPackageInfo(appId, 0)
         } else {
             this.getPackageInfo(appId, PackageManager.PackageInfoFlags.of(0))
         }
-        InstallStatus.INSTALLED
+        if (versionCode > pkgInfo.longVersionCode) {
+            InstallStatus.UPDATABLE
+        } else {
+            InstallStatus.INSTALLED
+        }
     } catch (e: PackageManager.NameNotFoundException) {
         InstallStatus.INSTALLABLE
     }

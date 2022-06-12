@@ -2,10 +2,11 @@
     <string name="app_name">Accrescent</string>
     <string name="app_list">Apps</string>
     <string name="app_updates">Updates</string>
-    <string name="test">Just kidding. This is a shim.</string>
     <string name="install">Install</string>
+    <string name="update">Update</string>
     <string name="open">Open</string>
     <string name="swipe_refresh">Swipe down to refresh</string>
+    <string name="up_to_date">All apps are up-to-date</string>
     <string name="user_action_required">User action required</string>
     <string name="cant_find_app">Sorry, we couldn\'t find that app</string>
     <string name="version">Version: %1$s</string>

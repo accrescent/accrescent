@@ -113,7 +113,15 @@ fun MainContent(appId: String?) {
                         slideOutHorizontally(animationSpec = tween(350)) { it }
                     else -> null
                 }
-            }) { AppUpdatesScreen(padding = padding) }
+            }) {
+                val model = hiltViewModel<AppListViewModel>()
+                AppUpdatesScreen(
+                    navController = navController,
+                    scaffoldState = scaffoldState,
+                    padding = padding,
+                    viewModel = model,
+                )
+            }
             composable(
                 "${Screen.AppDetails.route}/{appId}", arguments = listOf(navArgument("appId") {
                     type = NavType.StringType

@@ -14,6 +14,7 @@ import app.accrescent.client.util.PackageManager
 import app.accrescent.client.util.getPackageInstallStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.serialization.SerializationException
@@ -34,9 +35,10 @@ class AppListViewModel @Inject constructor(
     // Initialize install status for apps as they're added
     val apps = repoDataRepository.getApps().onEach { apps ->
         for (app in apps) {
+            val versionCode = repoDataRepository.getAppRepoData(app.id).versionCode
             appInstallStatuses.statuses[app.id] = context
                 .packageManager
-                .getPackageInstallStatus(app.id)
+                .getPackageInstallStatus(app.id, versionCode)
         }
     }
     val installStatuses = appInstallStatuses.statuses
@@ -65,6 +67,12 @@ class AppListViewModel @Inject constructor(
             }
 
             isRefreshing = false
+        }
+    }
+
+    fun refreshInstallStatuses() {
+        viewModelScope.launch {
+            apps.collect()
         }
     }
 
