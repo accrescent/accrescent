@@ -103,7 +103,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.4.2")
     implementation("androidx.room:room-runtime:2.4.2")
     implementation("androidx.work:work-runtime-ktx:2.7.1")
-    implementation("com.google.accompanist:accompanist-navigation-animation:0.24.10-beta")
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.24.11-rc")
     implementation("com.google.accompanist:accompanist-swiperefresh:0.24.10-beta")
     implementation("com.google.android.material:material:1.6.1")
     implementation("com.google.dagger:hilt-android:2.42")
