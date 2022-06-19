@@ -109,6 +109,8 @@ fun MainContent(appId: String?) {
                 }
             }, exitTransition = {
                 when (targetState.destination.route) {
+                    "${Screen.AppDetails.route}/{appId}" ->
+                        fadeOut(animationSpec = tween(350))
                     Screen.AppList.route ->
                         slideOutHorizontally(animationSpec = tween(350)) { it }
                     else -> null
@@ -132,7 +134,8 @@ fun MainContent(appId: String?) {
                 }),
                 enterTransition = {
                     when (initialState.destination.route) {
-                        Screen.AppList.route ->
+                        Screen.AppList.route,
+                        Screen.AppUpdates.route ->
                             slideInVertically(animationSpec = tween(400)) { it } +
                                     fadeIn(animationSpec = tween(400))
                         else -> null
@@ -140,7 +143,8 @@ fun MainContent(appId: String?) {
                 },
                 exitTransition = {
                     when (targetState.destination.route) {
-                        Screen.AppList.route ->
+                        Screen.AppList.route,
+                        Screen.AppUpdates.route ->
                             slideOutVertically(animationSpec = tween(600)) { it } +
                                     fadeOut(animationSpec = tween(400))
                         else -> null
