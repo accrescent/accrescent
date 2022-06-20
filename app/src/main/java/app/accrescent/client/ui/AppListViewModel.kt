@@ -8,6 +8,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import app.accrescent.client.Accrescent
+import app.accrescent.client.R
 import app.accrescent.client.data.AppInstallStatuses
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.PackageManager
@@ -51,18 +52,20 @@ class AppListViewModel @Inject constructor(
             error = null
             isRefreshing = true
 
+            val context = getApplication<Accrescent>().applicationContext
+
             try {
                 repoDataRepository.fetchRepoData()
             } catch (e: ConnectException) {
-                error = "Network error: ${e.message}"
+                error = context.getString(R.string.network_error, e.message)
             } catch (e: FileNotFoundException) {
-                error = "Failed to download repodata: ${e.message}"
+                error = context.getString(R.string.failed_download_repodata, e.message)
             } catch (e: GeneralSecurityException) {
-                error = "Failed to verify repodata: ${e.message}"
+                error = context.getString(R.string.failed_verify_repodata, e.message)
             } catch (e: SerializationException) {
-                error = "Failed to decode repodata: ${e.message}"
+                error = context.getString(R.string.failed_decode_repodata, e.message)
             } catch (e: UnknownHostException) {
-                error = "Unknown host error: ${e.message}"
+                error = context.getString(R.string.unknown_host_error, e.message)
             }
 
             isRefreshing = false
@@ -79,22 +82,24 @@ class AppListViewModel @Inject constructor(
         viewModelScope.launch {
             error = null
 
+            val context = getApplication<Accrescent>().applicationContext
+
             try {
                 packageManager.downloadAndInstall(appId)
             } catch (e: ConnectException) {
-                error = "Network error: ${e.message}"
+                error = context.getString(R.string.network_error, e.message)
             } catch (e: FileNotFoundException) {
-                error = "Failed to download necessary files: ${e.message}"
+                error = context.getString(R.string.failed_download_files, e.message)
             } catch (e: GeneralSecurityException) {
-                error = "App verification failed: ${e.message}"
+                error = context.getString(R.string.app_verification_failed, e.message)
             } catch (e: InvalidObjectException) {
-                error = "Error parsing app files: ${e.message}"
+                error = context.getString(R.string.error_parsing_files, e.message)
             } catch (e: NoSuchElementException) {
-                error = "App does not support your device: ${e.message}"
+                error = context.getString(R.string.app_doesnt_support_device, e.message)
             } catch (e: SerializationException) {
-                error = "Failed to decode repodata: ${e.message}"
+                error = context.getString(R.string.failed_decode_repodata, e.message)
             } catch (e: UnknownHostException) {
-                error = "Unknown host error: ${e.message}"
+                error = context.getString(R.string.unknown_host_error, e.message)
             }
         }
     }
@@ -106,7 +111,7 @@ class AppListViewModel @Inject constructor(
 
         val intent = context.packageManager.getLaunchIntentForPackage(appId)
         if (intent == null) {
-            error = "Could not open app"
+            error = context.getString(R.string.couldnt_open_app)
             return
         } else {
             context.startActivity(intent)
