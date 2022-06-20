@@ -49,6 +49,7 @@ fun AppDetailsScreen(
     if (viewModel.uiState.error != null) {
         LaunchedEffect(scaffoldState.snackbarHostState) {
             scaffoldState.snackbarHostState.showSnackbar(message = viewModel.uiState.error!!)
+            viewModel.uiState.error = null
         }
     }
 }

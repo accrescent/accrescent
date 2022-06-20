@@ -45,7 +45,6 @@ class AppListViewModel @Inject constructor(
     var isRefreshing by mutableStateOf(false)
         private set
     var error: String? by mutableStateOf(null)
-        private set
 
     fun refreshRepoData() {
         viewModelScope.launch {

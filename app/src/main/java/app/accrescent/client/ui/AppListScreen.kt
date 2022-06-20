@@ -68,6 +68,7 @@ fun AppListScreen(
         if (viewModel.error != null) {
             LaunchedEffect(scaffoldState.snackbarHostState) {
                 scaffoldState.snackbarHostState.showSnackbar(message = viewModel.error!!)
+                viewModel.error = null
             }
         }
     }
