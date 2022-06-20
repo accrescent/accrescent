@@ -12,6 +12,6 @@ import app.accrescent.client.R
 sealed class Screen(val route: String, @StringRes val resourceId: Int, val navIcon: ImageVector) {
     object AppList : Screen("app_list", R.string.app_list, Icons.Rounded.Menu)
     object InstalledApps : Screen("installed_apps", R.string.installed, Icons.Rounded.Download)
-    object AppDetails : Screen("app_details", 0, Icons.Rounded.Info)
     object AppUpdates : Screen("app_updates", R.string.app_updates, Icons.Rounded.Update)
+    object AppDetails : Screen("app_details", 0, Icons.Rounded.Info)
 }
