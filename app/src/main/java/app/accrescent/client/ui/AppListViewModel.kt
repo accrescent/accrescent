@@ -34,19 +34,27 @@ class AppListViewModel @Inject constructor(
     private val packageManager: PackageManager,
     appInstallStatuses: AppInstallStatuses,
 ) : AndroidViewModel(context as Application) {
+    val apps = repoDataRepository.getApps()
+
     // Initialize install status for apps as they're added
-    val apps = repoDataRepository.getApps().onEach { apps ->
-        for (app in apps) {
-            try {
-                val versionCode = repoDataRepository.getAppRepoData(app.id).versionCode
-                appInstallStatuses.statuses[app.id] = context
-                    .packageManager
-                    .getPackageInstallStatus(app.id, versionCode)
-            } catch (e: Exception) {
-                appInstallStatuses.statuses[app.id] = InstallStatus.UNKNOWN
+    init {
+        val flow = apps.onEach { apps ->
+            for (app in apps) {
+                try {
+                    val versionCode = repoDataRepository.getAppRepoData(app.id).versionCode
+                    appInstallStatuses.statuses[app.id] = context
+                        .packageManager
+                        .getPackageInstallStatus(app.id, versionCode)
+                } catch (e: Exception) {
+                    appInstallStatuses.statuses[app.id] = InstallStatus.UNKNOWN
+                }
             }
         }
+        viewModelScope.launch {
+            flow.collect()
+        }
     }
+
     val installStatuses = appInstallStatuses.statuses
     var isRefreshing by mutableStateOf(false)
         private set
