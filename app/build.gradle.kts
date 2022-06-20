@@ -41,10 +41,6 @@ android {
         versionCode = 7
         versionName = "0.4.0"
 
-        vectorDrawables {
-            useSupportLibrary = true
-        }
-
         kapt {
             arguments {
                 arg("room.schemaLocation", "$projectDir/schemas")
