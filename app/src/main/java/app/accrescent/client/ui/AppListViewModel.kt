@@ -10,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import app.accrescent.client.Accrescent
 import app.accrescent.client.R
 import app.accrescent.client.data.AppInstallStatuses
+import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.PackageManager
 import app.accrescent.client.util.getPackageInstallStatus
@@ -36,10 +37,14 @@ class AppListViewModel @Inject constructor(
     // Initialize install status for apps as they're added
     val apps = repoDataRepository.getApps().onEach { apps ->
         for (app in apps) {
-            val versionCode = repoDataRepository.getAppRepoData(app.id).versionCode
-            appInstallStatuses.statuses[app.id] = context
-                .packageManager
-                .getPackageInstallStatus(app.id, versionCode)
+            try {
+                val versionCode = repoDataRepository.getAppRepoData(app.id).versionCode
+                appInstallStatuses.statuses[app.id] = context
+                    .packageManager
+                    .getPackageInstallStatus(app.id, versionCode)
+            } catch (e: Exception) {
+                appInstallStatuses.statuses[app.id] = InstallStatus.UNKNOWN
+            }
         }
     }
     val installStatuses = appInstallStatuses.statuses

@@ -52,6 +52,7 @@ fun InstallableAppCard(
                         InstallStatus.INSTALLABLE,
                         InstallStatus.UPDATABLE -> onInstallClicked(app.id)
                         InstallStatus.INSTALLED -> onOpenClicked(app.id)
+                        InstallStatus.UNKNOWN -> {}
                     }
                 },
                 colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primaryVariant),
@@ -63,6 +64,8 @@ fun InstallableAppCard(
                         Text(stringResource(R.string.update), color = Color.LightGray)
                     InstallStatus.INSTALLED ->
                         Text(stringResource(R.string.open), color = Color.LightGray)
+                    InstallStatus.UNKNOWN ->
+                        Text(stringResource(R.string.unknown), color = Color.LightGray)
                 }
             }
         }
