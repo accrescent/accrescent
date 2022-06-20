@@ -1,7 +1,6 @@
 package app.accrescent.client.workers
 
 import android.content.Context
-import android.content.pm.PackageManager as OsPackageManager
 import android.os.Build
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
@@ -10,6 +9,7 @@ import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.PackageManager
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
+import android.content.pm.PackageManager as OsPackageManager
 
 @HiltWorker
 class AutoUpdateWorker @AssistedInject constructor(
