@@ -65,7 +65,7 @@ class MainActivity : ComponentActivity() {
 fun MainContent(appId: String?) {
     val scaffoldState = rememberScaffoldState(snackbarHostState = SnackbarHostState())
     val navController = rememberAnimatedNavController()
-    val screens = listOf(Screen.AppList, Screen.AppUpdates)
+    val screens = listOf(Screen.AppList, Screen.InstalledApps, Screen.AppUpdates)
 
     val showBottomBar =
         navController.currentBackStackEntryAsState().value?.destination?.route in screens.map { it.route }
@@ -80,6 +80,7 @@ fun MainContent(appId: String?) {
         ) {
             composable(Screen.AppList.route, enterTransition = {
                 when (initialState.destination.route) {
+                    Screen.InstalledApps.route,
                     Screen.AppUpdates.route ->
                         slideInHorizontally(animationSpec = tween(350)) { -it }
                     else -> null
@@ -88,6 +89,7 @@ fun MainContent(appId: String?) {
                 when (targetState.destination.route) {
                     "${Screen.AppDetails.route}/{appId}" ->
                         fadeOut(animationSpec = tween(350))
+                    Screen.InstalledApps.route,
                     Screen.AppUpdates.route ->
                         slideOutHorizontally(animationSpec = tween(350)) { -it }
                     else -> null
@@ -101,8 +103,36 @@ fun MainContent(appId: String?) {
                     viewModel = model,
                 )
             }
+            composable(Screen.InstalledApps.route, enterTransition = {
+                when (initialState.destination.route) {
+                    Screen.AppList.route ->
+                        slideInHorizontally(animationSpec = tween(350)) { it }
+                    Screen.AppUpdates.route ->
+                        slideInHorizontally(animationSpec = tween(350)) { -it }
+                    else -> null
+                }
+            }, exitTransition = {
+                when (targetState.destination.route) {
+                    "${Screen.AppDetails.route}/{appId}" ->
+                        fadeOut(animationSpec = tween(350))
+                    Screen.AppList.route ->
+                        slideOutHorizontally(animationSpec = tween(350)) { it }
+                    Screen.AppUpdates.route ->
+                        slideOutHorizontally(animationSpec = tween(350)) { -it }
+                    else -> null
+                }
+            }) {
+                val model = hiltViewModel<AppListViewModel>()
+                InstalledAppsScreen(
+                    navController = navController,
+                    scaffoldState = scaffoldState,
+                    padding = padding,
+                    viewModel = model,
+                )
+            }
             composable(Screen.AppUpdates.route, enterTransition = {
                 when (initialState.destination.route) {
+                    Screen.InstalledApps.route,
                     Screen.AppList.route ->
                         slideInHorizontally(animationSpec = tween(350)) { it }
                     else -> null
@@ -111,7 +141,8 @@ fun MainContent(appId: String?) {
                 when (targetState.destination.route) {
                     "${Screen.AppDetails.route}/{appId}" ->
                         fadeOut(animationSpec = tween(350))
-                    Screen.AppList.route ->
+                    Screen.AppList.route,
+                    Screen.InstalledApps.route ->
                         slideOutHorizontally(animationSpec = tween(350)) { it }
                     else -> null
                 }
@@ -135,6 +166,7 @@ fun MainContent(appId: String?) {
                 enterTransition = {
                     when (initialState.destination.route) {
                         Screen.AppList.route,
+                        Screen.InstalledApps.route,
                         Screen.AppUpdates.route ->
                             slideInVertically(animationSpec = tween(400)) { it } +
                                     fadeIn(animationSpec = tween(400))
@@ -144,6 +176,7 @@ fun MainContent(appId: String?) {
                 exitTransition = {
                     when (targetState.destination.route) {
                         Screen.AppList.route,
+                        Screen.InstalledApps.route,
                         Screen.AppUpdates.route ->
                             slideOutVertically(animationSpec = tween(600)) { it } +
                                     fadeOut(animationSpec = tween(400))
