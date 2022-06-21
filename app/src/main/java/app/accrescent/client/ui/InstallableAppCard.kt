@@ -5,9 +5,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -52,7 +54,8 @@ fun InstallableAppCard(
                         InstallStatus.INSTALLABLE,
                         InstallStatus.UPDATABLE -> onInstallClicked(app.id)
                         InstallStatus.INSTALLED -> onOpenClicked(app.id)
-                        InstallStatus.UNKNOWN -> {}
+                        InstallStatus.LOADING,
+                        InstallStatus.UNKNOWN -> Unit
                     }
                 },
                 colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primaryVariant),
@@ -64,6 +67,11 @@ fun InstallableAppCard(
                         Text(stringResource(R.string.update), color = Color.LightGray)
                     InstallStatus.INSTALLED ->
                         Text(stringResource(R.string.open), color = Color.LightGray)
+                    InstallStatus.LOADING ->
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(24.dp),
+                            strokeWidth = 3.dp
+                        )
                     InstallStatus.UNKNOWN ->
                         Text(stringResource(R.string.unknown), color = Color.LightGray)
                 }

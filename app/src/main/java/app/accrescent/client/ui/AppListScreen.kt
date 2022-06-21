@@ -57,7 +57,7 @@ fun AppListScreen(
                     InstallableAppCard(
                         app = app,
                         navController = navController,
-                        installStatus = installStatuses[app.id] ?: InstallStatus.INSTALLABLE,
+                        installStatus = installStatuses[app.id] ?: InstallStatus.LOADING,
                         onInstallClicked = viewModel::installApp,
                         onOpenClicked = viewModel::openApp,
                     )
