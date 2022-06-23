@@ -10,7 +10,9 @@ A novel Android app repository with a focus on security, privacy and usability.
 
 **Note: Accrescent is not yet ready for production usage. Consider all software
 and services run by this organization as in a "pre-alpha" stage and fit only for
-development and preliminary testing.**
+development and preliminary testing. The apps Accrescent contains are there only
+for testing purposes and will be removed (except for Accrescent itself) when
+Accrescent enters public alpha.**
 
 ## About
 
