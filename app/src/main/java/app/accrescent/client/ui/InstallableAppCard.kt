@@ -29,6 +29,7 @@ fun InstallableAppCard(
     navController: NavController,
     installStatus: InstallStatus,
     onInstallClicked: (String) -> Unit,
+    onUninstallClicked: (String) -> Unit,
     onOpenClicked: (String) -> Unit,
 ) {
     Card(
@@ -47,33 +48,51 @@ fun InstallableAppCard(
                 modifier = Modifier.padding(start = 16.dp),
                 style = MaterialTheme.typography.h4,
             )
-            Button(
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
-                onClick = {
-                    when (installStatus) {
-                        InstallStatus.INSTALLABLE,
-                        InstallStatus.UPDATABLE -> onInstallClicked(app.id)
-                        InstallStatus.INSTALLED -> onOpenClicked(app.id)
-                        InstallStatus.LOADING,
-                        InstallStatus.UNKNOWN -> Unit
-                    }
-                },
-                colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primaryVariant),
-            ) {
+            Row {
                 when (installStatus) {
-                    InstallStatus.INSTALLABLE ->
-                        Text(stringResource(R.string.install), color = Color.LightGray)
+                    InstallStatus.INSTALLED,
                     InstallStatus.UPDATABLE ->
-                        Text(stringResource(R.string.update), color = Color.LightGray)
-                    InstallStatus.INSTALLED ->
-                        Text(stringResource(R.string.open), color = Color.LightGray)
-                    InstallStatus.LOADING ->
-                        CircularProgressIndicator(
-                            modifier = Modifier.size(24.dp),
-                            strokeWidth = 3.dp
-                        )
-                    InstallStatus.UNKNOWN ->
-                        Text(stringResource(R.string.unknown), color = Color.LightGray)
+                        Button(
+                            modifier = Modifier.padding(horizontal = 4.dp, vertical = 12.dp),
+                            onClick = { onUninstallClicked(app.id) },
+                            colors = ButtonDefaults.buttonColors(
+                                backgroundColor = MaterialTheme.colors.primaryVariant
+                            ),
+                        ) {
+                            Text(stringResource(R.string.uninstall), color = Color.LightGray)
+                        }
+                    else -> {}
+                }
+                Button(
+                    modifier = Modifier.padding(end = 16.dp, top = 12.dp, bottom = 12.dp),
+                    onClick = {
+                        when (installStatus) {
+                            InstallStatus.INSTALLABLE,
+                            InstallStatus.UPDATABLE -> onInstallClicked(app.id)
+                            InstallStatus.INSTALLED -> onOpenClicked(app.id)
+                            InstallStatus.LOADING,
+                            InstallStatus.UNKNOWN -> Unit
+                        }
+                    },
+                    colors = ButtonDefaults.buttonColors(
+                        backgroundColor = MaterialTheme.colors.primaryVariant
+                    ),
+                ) {
+                    when (installStatus) {
+                        InstallStatus.INSTALLABLE ->
+                            Text(stringResource(R.string.install), color = Color.LightGray)
+                        InstallStatus.UPDATABLE ->
+                            Text(stringResource(R.string.update), color = Color.LightGray)
+                        InstallStatus.INSTALLED ->
+                            Text(stringResource(R.string.open), color = Color.LightGray)
+                        InstallStatus.LOADING ->
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(24.dp),
+                                strokeWidth = 3.dp
+                            )
+                        InstallStatus.UNKNOWN ->
+                            Text(stringResource(R.string.unknown), color = Color.LightGray)
+                    }
                 }
             }
         }

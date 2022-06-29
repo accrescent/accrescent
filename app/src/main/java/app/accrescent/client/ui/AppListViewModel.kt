@@ -117,6 +117,10 @@ class AppListViewModel @Inject constructor(
         }
     }
 
+    fun uninstallApp(appId: String) {
+        packageManager.uninstallApp(appId)
+    }
+
     fun openApp(appId: String) {
         error = null
 

@@ -9,6 +9,7 @@ import android.os.Build
 import app.accrescent.client.R
 import app.accrescent.client.di.IoDispatcher
 import app.accrescent.client.receivers.AppInstallBroadcastReceiver
+import app.accrescent.client.receivers.AppUninstallBroadcastReceiver
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
@@ -26,6 +27,16 @@ class PackageManager @Inject constructor(
         withContext(dispatcher) {
             installApp(apkDownloader.downloadApp(appId))
         }
+    }
+
+    fun uninstallApp(appId: String) {
+        val pendingIntent = PendingIntent.getBroadcast(
+            context.applicationContext,
+            0,
+            Intent(context.applicationContext, AppUninstallBroadcastReceiver::class.java),
+            PendingIntent.FLAG_MUTABLE
+        )
+        context.packageManager.packageInstaller.uninstall(appId, pendingIntent.intentSender)
     }
 
     private fun installApp(apks: List<File>) {

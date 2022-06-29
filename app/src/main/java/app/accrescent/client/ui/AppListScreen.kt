@@ -59,6 +59,7 @@ fun AppListScreen(
                         navController = navController,
                         installStatus = installStatuses[app.id] ?: InstallStatus.LOADING,
                         onInstallClicked = viewModel::installApp,
+                        onUninstallClicked = viewModel::uninstallApp,
                         onOpenClicked = viewModel::openApp,
                     )
                 }

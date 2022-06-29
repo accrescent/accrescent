@@ -4,6 +4,7 @@
     <string name="installed">Installed</string>
     <string name="app_updates">Updates</string>
     <string name="install">Install</string>
+    <string name="uninstall">Uninstall</string>
     <string name="update">Update</string>
     <string name="open">Open</string>
     <string name="unknown">\???</string>
