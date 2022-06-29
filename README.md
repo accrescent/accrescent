@@ -4,7 +4,7 @@
 
 # Accrescent
 
-A novel Android app store with a focus on security, privacy and usability.
+A novel Android app store with a focus on security, privacy, and usability.
 
 </div>
 
