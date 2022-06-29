@@ -29,7 +29,6 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
                     intent.getParcelableExtra(Intent.EXTRA_INTENT, Intent::class.java)
                 }?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 
-
                 if (isInForeground()) {
                     context.startActivity(confirmationIntent)
                 } else {
