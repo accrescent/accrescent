@@ -4,7 +4,7 @@
 
 # Accrescent
 
-A novel Android app repository with a focus on security, privacy and usability.
+A novel Android app store with a focus on security, privacy and usability.
 
 </div>
 
@@ -21,11 +21,11 @@ However, many users are unsatisfied with some of its practices and policies such
 as mandatory Play App Signing for new apps and the need for a Google account to
 use the store. These users often turn to F-Droid, which fails to adhere to the
 Android security model and provide timely and secure app updates from a
-repository with strict minimum security requirements.
+store with strict minimum security requirements.
 
 Accrescent aims to provide an accessible app store with modern security features
-and strict minimum requirements for apps in its repository. It currently runs on
-Android 12 and up.
+and strict minimum requirements for apps it hosts. It currently runs on Android
+12 and up.
 
 ## Trademark
 
