@@ -20,8 +20,10 @@ class RepoDataFetcherImpl @Inject constructor(
     @ApplicationContext private val context: Context,
 ) : RepoDataFetcher {
     override fun fetchRepoData(): RepoData {
-        val repoDataFile = fetchFileString(URL(REPOSITORY_URL + REPODATA_PATH))
-        val signature = fetchFileString(URL("$REPOSITORY_URL$REPODATA_PATH.sig"))
+        val repoDataUrl = "$REPOSITORY_URL/repodata.$PUBKEY_VERSION.json"
+
+        val repoDataFile = fetchFileString(URL(repoDataUrl))
+        val signature = fetchFileString(URL("$repoDataUrl.sig"))
 
         if (!verifySignature(REPODATA_PUBKEY, repoDataFile.toByteArray(), signature)) {
             throw GeneralSecurityException(context.getString(R.string.sig_verify_failed))
@@ -31,7 +33,7 @@ class RepoDataFetcherImpl @Inject constructor(
     }
 
     override fun fetchAppRepoData(appId: String): AppRepoData {
-        val repoDataFile = fetchFileString(URL("$REPOSITORY_URL/apps/$appId$REPODATA_PATH"))
+        val repoDataFile = fetchFileString(URL("$REPOSITORY_URL/apps/$appId/repodata.json"))
 
         return format.decodeFromString(repoDataFile)
     }
@@ -55,9 +57,5 @@ class RepoDataFetcherImpl @Inject constructor(
         connection.disconnect()
 
         return outBuf.toString()
-    }
-
-    companion object {
-        const val REPODATA_PATH = "/repodata.json"
     }
 }
