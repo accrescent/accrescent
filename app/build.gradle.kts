@@ -38,8 +38,8 @@ android {
         applicationId = "app.accrescent.client"
         minSdk = 31
         targetSdk = 32
-        versionCode = 10
-        versionName = "0.5.2"
+        versionCode = 11
+        versionName = "0.5.3"
 
         kapt {
             arguments {
