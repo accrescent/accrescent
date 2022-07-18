@@ -59,6 +59,5 @@ class RepoDataFetcherImpl @Inject constructor(
 
     companion object {
         const val REPODATA_PATH = "/repodata.json"
-        const val REPODATA_PUBKEY = "RWT8aZ/NdUmXCPqQ0we7UyCe34q1xRfncBFVK5dI3ok9BkL1bFF3mgh3"
     }
 }
