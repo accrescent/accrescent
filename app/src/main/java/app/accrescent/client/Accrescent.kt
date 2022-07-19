@@ -6,6 +6,7 @@ import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.os.Build
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import androidx.work.Constraints
@@ -58,7 +59,11 @@ class Accrescent : Application(), Configuration.Provider {
             addAction(Intent.ACTION_PACKAGE_FULLY_REMOVED)
             addDataScheme("package")
         }
-        registerReceiver(br, filter)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(br, filter)
+        } else {
+            registerReceiver(br, filter, RECEIVER_NOT_EXPORTED)
+        }
     }
 
     override fun getWorkManagerConfiguration() =
