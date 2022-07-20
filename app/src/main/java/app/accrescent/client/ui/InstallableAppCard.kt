@@ -61,7 +61,7 @@ fun InstallableAppCard(
                         ) {
                             Text(stringResource(R.string.uninstall), color = Color.LightGray)
                         }
-                    else -> {}
+                    else -> Unit
                 }
                 Button(
                     modifier = Modifier.padding(end = 16.dp, top = 12.dp, bottom = 12.dp),
