@@ -21,7 +21,7 @@
     <string name="failed_verify_repodata">Échec de la vérification des données du dépôt: %1$s</string>
     <string name="failed_decode_repodata">Échec du décodage des données du dépôt: %1$s</string>
     <string name="error_parsing_files">Erreur lors de l\'analyse des fichiers de l\'application: %1$s</string>
-    <string name="app_doesnt_support_device">L\'application est incompatible avec votre appareil: %1$s</string>
+    <string name="app_doesnt_support_device">Application incompatible avec votre appareil: %1$s</string>
     <string name="unknown_host_error">Erreur d\'hôte inconnue: %1$s</string>
     <string name="user_restriction">Erreur de restriction d'utilisateur: %1$s</string>
     <string name="version">Version: %1$s</string>
