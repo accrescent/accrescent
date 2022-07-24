@@ -1,11 +1,14 @@
 package app.accrescent.client.util
 
+import android.Manifest
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageInstaller
 import android.content.pm.PackageInstaller.SessionParams
+import android.content.pm.PackageManager
 import android.os.Build
+import android.os.UserManager
 import app.accrescent.client.R
 import app.accrescent.client.di.IoDispatcher
 import app.accrescent.client.receivers.AppInstallBroadcastReceiver
@@ -17,6 +20,8 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.InvalidObjectException
 import javax.inject.Inject
+
+class UserRestrictionException(message: String) : Exception(message)
 
 class PackageManager @Inject constructor(
     @ApplicationContext private val context: Context,
@@ -30,6 +35,14 @@ class PackageManager @Inject constructor(
     }
 
     fun uninstallApp(appId: String) {
+        // Honor UserManager restrictions in privileged mode
+        val uninstallBlockedByAdmin = context
+            .getSystemService(UserManager::class.java)
+            .hasUserRestriction(UserManager.DISALLOW_UNINSTALL_APPS)
+        if (uninstallBlockedByAdmin) {
+            throw UserRestrictionException(context.getString(R.string.uninstall_blocked))
+        }
+
         val pendingIntent = PendingIntent.getBroadcast(
             context.applicationContext,
             0,
@@ -40,6 +53,20 @@ class PackageManager @Inject constructor(
     }
 
     private fun installApp(apks: List<File>) {
+        val um = context.getSystemService(UserManager::class.java)
+        val installBlockedByAdmin = if (isPrivileged()) {
+            // We're in privileged mode, so check that installing apps is allowed since the OS
+            // package manager won't check for us.
+            um.hasUserRestriction(UserManager.DISALLOW_INSTALL_APPS)
+        } else {
+            um.hasUserRestriction(UserManager.DISALLOW_INSTALL_APPS) ||
+                    um.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES) ||
+                    um.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES_GLOBALLY)
+        }
+        if (installBlockedByAdmin) {
+            throw UserRestrictionException(context.getString(R.string.install_blocked))
+        }
+
         val packageInstaller = context.packageManager.packageInstaller
 
         // We assume base.apk is always the first APK passed
@@ -78,5 +105,10 @@ class PackageManager @Inject constructor(
         )
         session.commit(pendingIntent.intentSender)
         session.close()
+    }
+
+    private fun isPrivileged(): Boolean {
+        return context.checkSelfPermission(Manifest.permission.INSTALL_PACKAGES) ==
+                PackageManager.PERMISSION_GRANTED
     }
 }
