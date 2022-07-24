@@ -23,7 +23,7 @@
     <string name="error_parsing_files">Erreur lors de l\'analyse des fichiers de l\'application: %1$s</string>
     <string name="app_doesnt_support_device">Application incompatible avec votre appareil: %1$s</string>
     <string name="unknown_host_error">Erreur d\'hôte inconnue: %1$s</string>
-    <string name="user_restriction">Erreur de restriction d'utilisateur: %1$s</string>
+    <string name="user_restriction">Erreur de restriction d\'utilisateur: %1$s</string>
     <string name="version">Version: %1$s</string>
     <string name="version_code">Code de version: %1$d</string>
     <string name="device_language_unsupported">la langue de votre appareil n\'est pas prise en charge</string>
