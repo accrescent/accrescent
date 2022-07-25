@@ -17,13 +17,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.SnackbarHostState
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             AccrescentTheme {
-                Surface(color = MaterialTheme.colors.background) {
+                Surface(color = MaterialTheme.colorScheme.background) {
                     MainContent(appId)
                 }
             }
@@ -73,7 +73,46 @@ fun MainContent(appId: String?) {
     val startDestination =
         if (appId != null) "${Screen.AppDetails.route}/{appId}" else Screen.AppList.route
 
-    Scaffold(scaffoldState = scaffoldState, content = { padding ->
+    Scaffold(
+        scaffoldState = scaffoldState,
+        backgroundColor = MaterialTheme.colorScheme.background,
+        bottomBar = {
+            AnimatedVisibility(
+                visible = showBottomBar,
+                enter = slideInVertically(animationSpec = tween(400)) { it },
+                exit = slideOutVertically(animationSpec = tween(400)) { it },
+            ) {
+                BottomNavigation(
+                    modifier = Modifier.height(80.dp),
+                    backgroundColor = MaterialTheme.colorScheme.secondaryContainer
+                ) {
+                    val navBackStackEntry by navController.currentBackStackEntryAsState()
+                    val currentDestination = navBackStackEntry?.destination
+                    screens.forEach { screen ->
+                        BottomNavigationItem(
+                            modifier = Modifier.padding(16.dp),
+                            icon = {
+                                Icon(
+                                    screen.navIcon,
+                                    contentDescription = stringResource(screen.resourceId)
+                                )
+                            },
+                            label = { Text(stringResource(screen.resourceId)) },
+                            selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
+                            onClick = {
+                                navController.navigate(screen.route) {
+                                    popUpTo(navController.graph.findStartDestination().id) {
+                                        saveState = true
+                                    }
+                                    launchSingleTop = true
+                                    restoreState = true
+                                }
+                            }
+                        )
+                    }
+                }
+            }
+        }) { padding ->
         AnimatedNavHost(
             navController = navController,
             startDestination = startDestination,
@@ -188,38 +227,5 @@ fun MainContent(appId: String?) {
                 AppDetailsScreen(scaffoldState = scaffoldState, viewModel = model)
             }
         }
-    }, bottomBar = {
-        AnimatedVisibility(
-            visible = showBottomBar,
-            enter = slideInVertically(animationSpec = tween(400)) { it },
-            exit = slideOutVertically(animationSpec = tween(400)) { it },
-        ) {
-            BottomNavigation(modifier = Modifier.height(80.dp)) {
-                val navBackStackEntry by navController.currentBackStackEntryAsState()
-                val currentDestination = navBackStackEntry?.destination
-                screens.forEach { screen ->
-                    BottomNavigationItem(
-                        modifier = Modifier.padding(16.dp),
-                        icon = {
-                            Icon(
-                                screen.navIcon,
-                                contentDescription = stringResource(screen.resourceId)
-                            )
-                        },
-                        label = { Text(stringResource(screen.resourceId)) },
-                        selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
-                        onClick = {
-                            navController.navigate(screen.route) {
-                                popUpTo(navController.graph.findStartDestination().id) {
-                                    saveState = true
-                                }
-                                launchSingleTop = true
-                                restoreState = true
-                            }
-                        }
-                    )
-                }
-            }
-        }
-    })
+    }
 }

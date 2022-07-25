@@ -12,11 +12,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Card
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ScaffoldState
-import androidx.compose.material.Text
 import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -61,16 +61,16 @@ fun AppDetails(id: String, name: String, versionName: String, versionCode: Long)
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(name, style = MaterialTheme.typography.h2)
+        Text(name, style = MaterialTheme.typography.headlineMedium)
         Column(Modifier.width(256.dp), verticalArrangement = Arrangement.Center) {
             Spacer(Modifier.height(16.dp))
             Text(
                 stringResource(R.string.version, versionName),
-                style = MaterialTheme.typography.body2
+                style = MaterialTheme.typography.bodyMedium
             )
             Text(
                 stringResource(R.string.version_code, versionCode),
-                style = MaterialTheme.typography.body2
+                style = MaterialTheme.typography.bodyMedium
             )
         }
     }
@@ -78,7 +78,7 @@ fun AppDetails(id: String, name: String, versionName: String, versionCode: Long)
         Text(
             id,
             Modifier.align(Alignment.BottomCenter),
-            style = MaterialTheme.typography.body1
+            style = MaterialTheme.typography.bodyLarge
         )
     }
 }
@@ -91,14 +91,14 @@ fun AppNotFoundError() {
                 .fillMaxWidth()
                 .height(100.dp)
                 .padding(16.dp),
-            backgroundColor = MaterialTheme.colors.onError
+            backgroundColor = MaterialTheme.colorScheme.onError
         ) {
             Row(horizontalArrangement = Arrangement.Center) {
                 Text(
                     stringResource(R.string.cant_find_app),
                     Modifier.align(Alignment.CenterVertically),
-                    color = MaterialTheme.colors.error,
-                    style = MaterialTheme.typography.h4
+                    color = MaterialTheme.colorScheme.error,
+                    style = MaterialTheme.typography.headlineSmall
                 )
             }
         }

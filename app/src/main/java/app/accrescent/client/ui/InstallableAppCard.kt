@@ -6,12 +6,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -37,7 +37,7 @@ fun InstallableAppCard(
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .clickable { navController.navigate("${Screen.AppDetails.route}/${app.id}") },
-        backgroundColor = MaterialTheme.colors.primary,
+        backgroundColor = MaterialTheme.colorScheme.primary,
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -46,7 +46,8 @@ fun InstallableAppCard(
             Text(
                 app.name,
                 modifier = Modifier.padding(start = 16.dp),
-                style = MaterialTheme.typography.h4,
+                color = MaterialTheme.colorScheme.onPrimary,
+                style = MaterialTheme.typography.headlineSmall,
             )
             Row {
                 when (installStatus) {
@@ -56,7 +57,8 @@ fun InstallableAppCard(
                             modifier = Modifier.padding(horizontal = 4.dp, vertical = 12.dp),
                             onClick = { onUninstallClicked(app.id) },
                             colors = ButtonDefaults.buttonColors(
-                                backgroundColor = MaterialTheme.colors.primaryVariant
+                                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                                contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
                             ),
                         ) {
                             Text(stringResource(R.string.uninstall), color = Color.LightGray)
@@ -75,7 +77,8 @@ fun InstallableAppCard(
                         }
                     },
                     colors = ButtonDefaults.buttonColors(
-                        backgroundColor = MaterialTheme.colors.primaryVariant
+                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                        contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
                     ),
                 ) {
                     when (installStatus) {
