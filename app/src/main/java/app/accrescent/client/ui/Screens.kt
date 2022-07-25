@@ -7,7 +7,6 @@ import androidx.compose.material.icons.outlined.Download
 import androidx.compose.material.icons.outlined.Update
 import androidx.compose.material.icons.rounded.Apps
 import androidx.compose.material.icons.rounded.Download
-import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.Update
 import androidx.compose.ui.graphics.vector.ImageVector
 import app.accrescent.client.R
@@ -15,8 +14,8 @@ import app.accrescent.client.R
 sealed class Screen(
     val route: String,
     @StringRes val resourceId: Int,
-    val navIcon: ImageVector,
-    val navIconSelected: ImageVector,
+    val navIcon: ImageVector?,
+    val navIconSelected: ImageVector?,
 ) {
     object AppList : Screen("app_list", R.string.app_list, Icons.Outlined.Apps, Icons.Rounded.Apps)
 
@@ -30,5 +29,5 @@ sealed class Screen(
     object AppUpdates :
         Screen("app_updates", R.string.app_updates, Icons.Outlined.Update, Icons.Rounded.Update)
 
-    object AppDetails : Screen("app_details", 0, Icons.Rounded.Info, Icons.Rounded.Info)
+    object AppDetails : Screen("app_details", 0, null, null)
 }

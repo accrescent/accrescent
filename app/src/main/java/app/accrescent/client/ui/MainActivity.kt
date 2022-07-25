@@ -88,7 +88,7 @@ fun MainContent(appId: String?) {
                         NavigationBarItem(
                             icon = {
                                 Icon(
-                                    if (selected) screen.navIconSelected else screen.navIcon,
+                                    if (selected) screen.navIconSelected!! else screen.navIcon!!,
                                     contentDescription = stringResource(screen.resourceId)
                                 )
                             },
