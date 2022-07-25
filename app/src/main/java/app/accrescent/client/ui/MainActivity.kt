@@ -13,22 +13,18 @@ import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Scaffold
 import androidx.compose.material.SnackbarHostState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -82,23 +78,22 @@ fun MainContent(appId: String?) {
                 enter = slideInVertically(animationSpec = tween(400)) { it },
                 exit = slideOutVertically(animationSpec = tween(400)) { it },
             ) {
-                BottomNavigation(
-                    modifier = Modifier.height(80.dp),
-                    backgroundColor = MaterialTheme.colorScheme.secondaryContainer
-                ) {
+                NavigationBar {
                     val navBackStackEntry by navController.currentBackStackEntryAsState()
                     val currentDestination = navBackStackEntry?.destination
                     screens.forEach { screen ->
-                        BottomNavigationItem(
-                            modifier = Modifier.padding(16.dp),
+                        val selected =
+                            currentDestination?.hierarchy?.any { it.route == screen.route } == true
+
+                        NavigationBarItem(
                             icon = {
                                 Icon(
-                                    screen.navIcon,
+                                    if (selected) screen.navIconSelected else screen.navIcon,
                                     contentDescription = stringResource(screen.resourceId)
                                 )
                             },
                             label = { Text(stringResource(screen.resourceId)) },
-                            selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
+                            selected = selected,
                             onClick = {
                                 navController.navigate(screen.route) {
                                     popUpTo(navController.graph.findStartDestination().id) {

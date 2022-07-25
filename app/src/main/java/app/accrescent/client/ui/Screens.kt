@@ -2,6 +2,9 @@ package app.accrescent.client.ui
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Download
+import androidx.compose.material.icons.outlined.Menu
+import androidx.compose.material.icons.outlined.Update
 import androidx.compose.material.icons.rounded.Download
 import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.Menu
@@ -9,9 +12,23 @@ import androidx.compose.material.icons.rounded.Update
 import androidx.compose.ui.graphics.vector.ImageVector
 import app.accrescent.client.R
 
-sealed class Screen(val route: String, @StringRes val resourceId: Int, val navIcon: ImageVector) {
-    object AppList : Screen("app_list", R.string.app_list, Icons.Rounded.Menu)
-    object InstalledApps : Screen("installed_apps", R.string.installed, Icons.Rounded.Download)
-    object AppUpdates : Screen("app_updates", R.string.app_updates, Icons.Rounded.Update)
-    object AppDetails : Screen("app_details", 0, Icons.Rounded.Info)
+sealed class Screen(
+    val route: String,
+    @StringRes val resourceId: Int,
+    val navIcon: ImageVector,
+    val navIconSelected: ImageVector,
+) {
+    object AppList : Screen("app_list", R.string.app_list, Icons.Outlined.Menu, Icons.Rounded.Menu)
+
+    object InstalledApps : Screen(
+        "installed_apps",
+        R.string.installed,
+        Icons.Outlined.Download,
+        Icons.Rounded.Download,
+    )
+
+    object AppUpdates :
+        Screen("app_updates", R.string.app_updates, Icons.Outlined.Update, Icons.Rounded.Update)
+
+    object AppDetails : Screen("app_details", 0, Icons.Rounded.Info, Icons.Rounded.Info)
 }
