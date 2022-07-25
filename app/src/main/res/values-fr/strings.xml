@@ -34,7 +34,7 @@
     <string name="version_downgrade">la version %1$d est inférieure à la version %2$d minimale</string>
     <string name="app_id_mismatch">l\'ID de l\'application %1$s ne correspond pas à l\'ID %2$s attendu</string>
     <string name="version_mismatch">version %1$s attendue, la version reçue est %2$s</string>
-    <string name="version_code_mismatch">le code de version attendu est %1$d, le code de version reçu est %2$s</string>
+    <string name="version_code_mismatch">le code de version attendu est %1$d, le code de version reçu est %2$d</string>
     <string name="base_apk_not_valid">base.apk n\'est pas un fichier APK valide</string>
     <string name="repodata_timestamp_less">l\'horodatage des données du dépôt est inférieur à la valeur enregistrée</string>
     <string name="sig_verify_failed">la vérification de la signature a échoué</string>
