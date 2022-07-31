@@ -88,7 +88,7 @@ dependencies {
     implementation("androidx.hilt:hilt-work:1.0.0")
     implementation("androidx.lifecycle:lifecycle-process:2.5.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
-    implementation("androidx.navigation:navigation-compose:2.5.0")
+    implementation("androidx.navigation:navigation-compose:2.5.1")
     implementation("androidx.room:room-ktx:2.4.2")
     implementation("androidx.room:room-runtime:2.4.2")
     implementation("androidx.work:work-runtime-ktx:2.7.1")
