@@ -1,9 +1,28 @@
 package app.accrescent.client.util
 
+import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
 import app.accrescent.client.data.InstallStatus
+
+fun <T : Any> Intent.getParcelableExtraCompat(name: String, clazz: Class<T>): T? {
+    return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        @Suppress("DEPRECATION")
+        this.getParcelableExtra(name)
+    } else {
+        this.getParcelableExtra(name, clazz)
+    }
+}
+
+fun PackageManager.getInstalledPackagesCompat(flags: Int): List<PackageInfo> {
+    return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        @Suppress("DEPRECATION")
+        this.getInstalledPackages(flags)
+    } else {
+        this.getInstalledPackages(PackageManager.PackageInfoFlags.of(flags.toLong()))
+    }
+}
 
 fun PackageManager.getPackageArchiveInfoCompat(archiveFilePath: String, flags: Int): PackageInfo? {
     return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
