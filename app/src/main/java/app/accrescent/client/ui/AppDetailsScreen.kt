@@ -3,7 +3,6 @@ package app.accrescent.client.ui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -96,10 +95,9 @@ fun AppNotFoundError() {
                 containerColor = MaterialTheme.colorScheme.error,
             ),
         ) {
-            Row(modifier = Modifier.fillMaxSize(), horizontalArrangement = Arrangement.Center) {
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 Text(
                     stringResource(R.string.cant_find_app),
-                    Modifier.align(Alignment.CenterVertically),
                     style = MaterialTheme.typography.headlineSmall
                 )
             }
