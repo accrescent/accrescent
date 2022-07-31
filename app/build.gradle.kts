@@ -89,8 +89,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-process:2.5.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
     implementation("androidx.navigation:navigation-compose:2.5.1")
-    implementation("androidx.room:room-ktx:2.4.2")
-    implementation("androidx.room:room-runtime:2.4.2")
+    implementation("androidx.room:room-ktx:2.4.3")
+    implementation("androidx.room:room-runtime:2.4.3")
     implementation("androidx.work:work-runtime-ktx:2.7.1")
     implementation("com.google.accompanist:accompanist-navigation-animation:0.25.0")
     implementation("com.google.accompanist:accompanist-swiperefresh:0.25.0")
@@ -100,7 +100,7 @@ dependencies {
     implementation("org.bouncycastle:bcprov-jdk18on:1.71")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
-    kapt("androidx.room:room-compiler:2.4.2")
+    kapt("androidx.room:room-compiler:2.4.3")
     kapt("com.google.dagger:hilt-android-compiler:2.43.1")
 }
 
