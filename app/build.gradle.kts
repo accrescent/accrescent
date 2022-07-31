@@ -96,7 +96,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-swiperefresh:0.25.0")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.25.0")
     implementation("com.google.android.material:material:1.6.1")
-    implementation("com.google.dagger:hilt-android:2.43")
+    implementation("com.google.dagger:hilt-android:2.43.1")
     implementation("org.bouncycastle:bcprov-jdk18on:1.71")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
