@@ -15,7 +15,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.accrescent.client.R
@@ -60,7 +59,7 @@ fun InstallableAppCard(
                                 contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
                             ),
                         ) {
-                            Text(stringResource(R.string.uninstall), color = Color.LightGray)
+                            Text(stringResource(R.string.uninstall))
                         }
                     else -> Unit
                 }
@@ -82,18 +81,18 @@ fun InstallableAppCard(
                 ) {
                     when (installStatus) {
                         InstallStatus.INSTALLABLE ->
-                            Text(stringResource(R.string.install), color = Color.LightGray)
+                            Text(stringResource(R.string.install))
                         InstallStatus.UPDATABLE ->
-                            Text(stringResource(R.string.update), color = Color.LightGray)
+                            Text(stringResource(R.string.update))
                         InstallStatus.INSTALLED ->
-                            Text(stringResource(R.string.open), color = Color.LightGray)
+                            Text(stringResource(R.string.open))
                         InstallStatus.LOADING ->
                             CircularProgressIndicator(
                                 modifier = Modifier.size(24.dp),
                                 strokeWidth = 3.dp
                             )
                         InstallStatus.UNKNOWN ->
-                            Text(stringResource(R.string.unknown), color = Color.LightGray)
+                            Text(stringResource(R.string.unknown))
                     }
                 }
             }
