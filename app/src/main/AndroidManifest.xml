@@ -24,7 +24,7 @@
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Accrescent.NoActionBar">
+            android:theme="@style/Theme.Accrescent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

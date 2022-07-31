@@ -94,6 +94,7 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.7.1")
     implementation("com.google.accompanist:accompanist-navigation-animation:0.25.0")
     implementation("com.google.accompanist:accompanist-swiperefresh:0.25.0")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.25.0")
     implementation("com.google.android.material:material:1.6.1")
     implementation("com.google.dagger:hilt-android:2.43")
     implementation("org.bouncycastle:bcprov-jdk18on:1.71")
