@@ -58,8 +58,8 @@ fun InstalledAppsScreen(
                 items(installedApps, key = { app -> app.id }) { app ->
                     InstallableAppCard(
                         app = app,
-                        navController = navController,
                         installStatus = installStatuses[app.id] ?: InstallStatus.LOADING,
+                        onClick = { navController.navigate("${Screen.AppDetails.route}/${app.id}") },
                         onInstallClicked = viewModel::installApp,
                         onUninstallClicked = viewModel::uninstallApp,
                         onOpenClicked = viewModel::openApp,

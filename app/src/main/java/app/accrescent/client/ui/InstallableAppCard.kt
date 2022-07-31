@@ -18,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import app.accrescent.client.R
 import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.db.App
@@ -26,8 +25,8 @@ import app.accrescent.client.data.db.App
 @Composable
 fun InstallableAppCard(
     app: App,
-    navController: NavController,
     installStatus: InstallStatus,
+    onClick: () -> Unit,
     onInstallClicked: (String) -> Unit,
     onUninstallClicked: (String) -> Unit,
     onOpenClicked: (String) -> Unit,
@@ -36,7 +35,7 @@ fun InstallableAppCard(
         Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp)
-            .clickable { navController.navigate("${Screen.AppDetails.route}/${app.id}") },
+            .clickable { onClick() },
         backgroundColor = MaterialTheme.colorScheme.primary,
     ) {
         Row(
