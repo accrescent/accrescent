@@ -11,9 +11,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.Card
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -91,13 +92,14 @@ fun AppNotFoundError() {
                 .fillMaxWidth()
                 .height(100.dp)
                 .padding(16.dp),
-            backgroundColor = MaterialTheme.colorScheme.onError
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.error,
+            ),
         ) {
-            Row(horizontalArrangement = Arrangement.Center) {
+            Row(modifier = Modifier.fillMaxSize(), horizontalArrangement = Arrangement.Center) {
                 Text(
                     stringResource(R.string.cant_find_app),
                     Modifier.align(Alignment.CenterVertically),
-                    color = MaterialTheme.colorScheme.error,
                     style = MaterialTheme.typography.headlineSmall
                 )
             }
