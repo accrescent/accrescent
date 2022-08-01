@@ -25,7 +25,7 @@ following features:
 - App signing key pinning
 - Signed repository metadata
 - Automatic, unprivileged, unattended updates
-- Full support for split APKs
+- First-class support for split APKs
 - No remote APK signing
 - Meaningful quality control for submitted apps
 
