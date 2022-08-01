@@ -6,7 +6,6 @@ import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.os.Build
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import androidx.work.Constraints
@@ -15,6 +14,7 @@ import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import app.accrescent.client.receivers.AppStatusChangeBroadcastReceiver
+import app.accrescent.client.util.registerReceiverNotExported
 import app.accrescent.client.workers.AutoUpdateWorker
 import dagger.hilt.android.HiltAndroidApp
 import java.time.Duration
@@ -59,11 +59,7 @@ class Accrescent : Application(), Configuration.Provider {
             addAction(Intent.ACTION_PACKAGE_FULLY_REMOVED)
             addDataScheme("package")
         }
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(br, filter)
-        } else {
-            registerReceiver(br, filter, RECEIVER_NOT_EXPORTED)
-        }
+        registerReceiverNotExported(br, filter)
     }
 
     override fun getWorkManagerConfiguration() =
