@@ -3,6 +3,10 @@
 Thank you for your interest in contributing to Accrescent! Here are a few
 resources to help you get started.
 
+The [public roadmap] outlines the project's current plans and priorities. If you
+want to help but aren't sure what needs to be worked on, this is a great place
+to look.
+
 For now, the [#accrescent:matrix.org] Matrix room is the best place to get help
 with development. [@lberrymage:matrix.org] is the lead developer and you are
 welcome to DM him as well.
@@ -64,4 +68,5 @@ Report all vulnerabilities in accordance with Accrescent's [security policy].
 [Jetpack Compose]: https://developer.android.com/jetpack/compose
 [Android Jetpack]: https://developer.android.com/jetpack/
 [meta repository]: https://github.com/accrescent/meta
+[public roadmap]: https://github.com/orgs/accrescent/projects/2
 [security policy]: SECURITY.md
