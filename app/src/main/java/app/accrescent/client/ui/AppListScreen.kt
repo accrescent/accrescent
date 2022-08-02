@@ -1,7 +1,9 @@
 package app.accrescent.client.ui
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -37,10 +39,12 @@ fun AppListScreen(
         state = rememberSwipeRefreshState(viewModel.isRefreshing),
         onRefresh = { viewModel.refreshRepoData() },
     ) {
-        if (apps.isEmpty()) {
-            CenteredText(stringResource(R.string.swipe_refresh))
-        } else {
-            LazyColumn {
+        val verticalArrangement = if (apps.isEmpty()) Arrangement.Center else Arrangement.Top
+
+        LazyColumn(Modifier.fillMaxSize(), verticalArrangement = verticalArrangement) {
+            if (apps.isEmpty()) {
+                item { CenteredText(stringResource(R.string.swipe_refresh)) }
+            } else {
                 item { Spacer(Modifier.height(16.dp)) }
                 items(apps, key = { app -> app.id }) { app ->
                     InstallableAppCard(
