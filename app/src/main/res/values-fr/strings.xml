@@ -10,7 +10,7 @@
     <string name="open">Ouvrir</string>
     <string name="unknown">\???</string>
     <string name="dynamic_color">Couleur dynamique / Material You</string>
-    <string name="dynamic_color_desc">Thème de l\'application basé sur la palette de couleurs du système</string>
+    <string name="dynamic_color_desc">Baser le thème de l\'application sur la palette de couleurs système</string>
     <string name="swipe_refresh">Balayez vers le bas pour rafraîchir</string>
     <string name="no_apps_installed">Aucune application installée</string>
     <string name="up_to_date">Toutes les applications sont à jour</string>
