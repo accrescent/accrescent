@@ -1,13 +1,19 @@
-<resources>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
+
     <string name="app_name">Accrescent</string>
     <string name="app_list">Apps</string>
     <string name="installed">Installed</string>
     <string name="app_updates">Updates</string>
+    <string name="settings">Settings</string>
     <string name="install">Install</string>
     <string name="uninstall">Uninstall</string>
     <string name="update">Update</string>
     <string name="open">Open</string>
     <string name="unknown">\???</string>
+    <string name="dynamic_color">Dynamic color / Material You</string>
+    <string name="dynamic_color_desc">Theme the app based on the system color palette</string>
     <string name="swipe_refresh">Swipe down to refresh</string>
     <string name="no_apps_installed">No apps installed</string>
     <string name="up_to_date">All apps are up-to-date</string>

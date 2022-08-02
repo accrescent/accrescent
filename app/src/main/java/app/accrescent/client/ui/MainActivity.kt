@@ -17,7 +17,10 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.SnackbarHostState
 import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -25,6 +28,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -35,6 +39,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
+import app.accrescent.client.R
 import app.accrescent.client.data.ROOT_DOMAIN
 import app.accrescent.client.ui.theme.AccrescentTheme
 import com.google.accompanist.navigation.animation.AnimatedNavHost
@@ -61,7 +66,10 @@ class MainActivity : ComponentActivity() {
                 )
             }
 
-            AccrescentTheme {
+            val viewModel: SettingsViewModel = hiltViewModel()
+            val dynamicColor by viewModel.dynamicColor.collectAsState(false)
+
+            AccrescentTheme(dynamicColor = dynamicColor) {
                 Surface(color = MaterialTheme.colorScheme.background) {
                     MainContent(appId)
                 }
@@ -70,7 +78,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@OptIn(ExperimentalAnimationApi::class)
+@OptIn(ExperimentalAnimationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun MainContent(appId: String?) {
     val scaffoldState = rememberScaffoldState(snackbarHostState = SnackbarHostState())
@@ -82,10 +90,49 @@ fun MainContent(appId: String?) {
 
     val startDestination =
         if (appId != null) "${Screen.AppDetails.route}/{appId}" else Screen.AppList.route
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination
 
     Scaffold(
         scaffoldState = scaffoldState,
         backgroundColor = MaterialTheme.colorScheme.background,
+        topBar = {
+            // This little hack is used to ensure smooth transition animations when navigating
+            // between AppListScreen and AppDetailsScreen. LookaheadLayout may provide a simpler
+            // solution once Compose 1.3.0 becomes stable.
+            AnimatedVisibility(
+                visible = currentDestination?.route == "${Screen.AppDetails.route}/{appId}",
+                enter = fadeIn(animationSpec = tween(400)),
+                exit = fadeOut(animationSpec = tween(400)),
+            ) {
+                CenterAlignedTopAppBar(title = {})
+            }
+            AnimatedVisibility(
+                visible = currentDestination?.route == Screen.Settings.route,
+                enter = fadeIn(animationSpec = tween(400)),
+                exit = fadeOut(animationSpec = tween(400)),
+            ) {
+                CenterAlignedTopAppBar(title = { Text(stringResource(R.string.settings)) })
+            }
+            AnimatedVisibility(
+                visible = currentDestination?.route != "${Screen.AppDetails.route}/{appId}"
+                        && currentDestination?.route != Screen.Settings.route,
+                enter = fadeIn(animationSpec = tween(400)),
+                exit = fadeOut(animationSpec = tween(400)),
+            ) {
+                CenterAlignedTopAppBar(
+                    title = {},
+                    actions = {
+                        IconButton(onClick = { navController.navigate(Screen.Settings.route) }) {
+                            Icon(
+                                imageVector = Screen.Settings.navIconSelected!!,
+                                contentDescription = stringResource(Screen.Settings.resourceId)
+                            )
+                        }
+                    }
+                )
+            }
+        },
         bottomBar = {
             AnimatedVisibility(
                 visible = showBottomBar,
@@ -93,8 +140,6 @@ fun MainContent(appId: String?) {
                 exit = slideOutVertically(animationSpec = tween(400)) { it },
             ) {
                 NavigationBar {
-                    val navBackStackEntry by navController.currentBackStackEntryAsState()
-                    val currentDestination = navBackStackEntry?.destination
                     screens.forEach { screen ->
                         val selected =
                             currentDestination?.hierarchy?.any { it.route == screen.route } == true
@@ -140,6 +185,8 @@ fun MainContent(appId: String?) {
                     Screen.InstalledApps.route,
                     Screen.AppUpdates.route ->
                         slideOutHorizontally(animationSpec = tween(350)) { -it }
+                    Screen.Settings.route ->
+                        fadeOut(animationSpec = tween(350))
                     else -> null
                 }
             }) {
@@ -167,6 +214,8 @@ fun MainContent(appId: String?) {
                         slideOutHorizontally(animationSpec = tween(350)) { it }
                     Screen.AppUpdates.route ->
                         slideOutHorizontally(animationSpec = tween(350)) { -it }
+                    Screen.Settings.route ->
+                        fadeOut(animationSpec = tween(350))
                     else -> null
                 }
             }) {
@@ -192,6 +241,8 @@ fun MainContent(appId: String?) {
                     Screen.AppList.route,
                     Screen.InstalledApps.route ->
                         slideOutHorizontally(animationSpec = tween(350)) { it }
+                    Screen.Settings.route ->
+                        fadeOut(animationSpec = tween(350))
                     else -> null
                 }
             }) {
@@ -234,6 +285,28 @@ fun MainContent(appId: String?) {
             ) {
                 val model = hiltViewModel<AppDetailsViewModel>()
                 AppDetailsScreen(scaffoldState = scaffoldState, viewModel = model)
+            }
+            composable(Screen.Settings.route, enterTransition = {
+                when (initialState.destination.route) {
+                    Screen.AppList.route,
+                    Screen.InstalledApps.route,
+                    Screen.AppUpdates.route ->
+                        slideInVertically(animationSpec = tween(400)) { -it } +
+                                fadeIn(animationSpec = tween(400))
+                    else -> null
+                }
+            }, exitTransition = {
+                when (targetState.destination.route) {
+                    Screen.AppList.route,
+                    Screen.InstalledApps.route,
+                    Screen.AppUpdates.route ->
+                        slideOutVertically(animationSpec = tween(600)) { -it } +
+                                fadeOut(animationSpec = tween(400))
+                    else -> null
+                }
+            }) {
+                val model = hiltViewModel<SettingsViewModel>()
+                SettingsScreen(model)
             }
         }
     }
