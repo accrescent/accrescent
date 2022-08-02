@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingTranslation">
 
-    <string name="app_name">Accrescent</string>
+    <string name="app_name" translatable="false">Accrescent</string>
     <string name="app_list">Apps</string>
     <string name="installed">Installed</string>
     <string name="app_updates">Updates</string>

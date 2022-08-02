@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Accrescent</string>
     <string name="app_list">Applications</string>
     <string name="installed">Installé</string>
     <string name="app_updates">Mises à jour</string>
