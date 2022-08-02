@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -22,6 +23,7 @@ import androidx.navigation.NavController
 import app.accrescent.client.R
 import app.accrescent.client.data.InstallStatus
 import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.SwipeRefreshIndicator
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
 @Composable
@@ -46,6 +48,14 @@ fun InstalledAppsScreen(
         onRefresh = {
             viewModel.refreshRepoData()
             viewModel.refreshInstallStatuses()
+        },
+        indicator = { state, td ->
+            SwipeRefreshIndicator(
+                state = state,
+                refreshTriggerDistance = td,
+                backgroundColor = MaterialTheme.colorScheme.secondaryContainer,
+                contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
         },
     ) {
         val verticalArrangement =
