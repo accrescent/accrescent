@@ -25,12 +25,7 @@ class RepoDataRepository @Inject constructor(
         val repoData = repoDataRemoteDataSource.fetchRepoData()
         val timestampKey = longPreferencesKey("timestamp")
         val storedTimestamp =
-            timestampDataStore.data.map {
-                when (val timestamp = it[timestampKey]) {
-                    null -> MIN_TIMESTAMP
-                    else -> max(timestamp, MIN_TIMESTAMP)
-                }
-            }.first()
+            timestampDataStore.data.map { max(it[timestampKey] ?: 0, MIN_TIMESTAMP) }.first()
 
         if (repoData.timestamp >= storedTimestamp) {
             timestampDataStore.edit { it[timestampKey] = repoData.timestamp }
