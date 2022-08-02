@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import java.security.GeneralSecurityException
 import javax.inject.Inject
+import kotlin.math.max
 
 class RepoDataRepository @Inject constructor(
     @ApplicationContext private val context: Context,
@@ -24,7 +25,12 @@ class RepoDataRepository @Inject constructor(
         val repoData = repoDataRemoteDataSource.fetchRepoData()
         val timestampKey = longPreferencesKey("timestamp")
         val storedTimestamp =
-            timestampDataStore.data.map { it[timestampKey] ?: MIN_TIMESTAMP }.first()
+            timestampDataStore.data.map {
+                when (val timestamp = it[timestampKey]) {
+                    null -> MIN_TIMESTAMP
+                    else -> max(timestamp, MIN_TIMESTAMP)
+                }
+            }.first()
 
         if (repoData.timestamp >= storedTimestamp) {
             timestampDataStore.edit { it[timestampKey] = repoData.timestamp }
