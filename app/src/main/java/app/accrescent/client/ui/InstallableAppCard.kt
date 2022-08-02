@@ -79,6 +79,7 @@ fun InstallableAppCard(
                         InstallStatus.LOADING ->
                             CircularProgressIndicator(
                                 modifier = Modifier.size(24.dp),
+                                color = MaterialTheme.colorScheme.onPrimary,
                                 strokeWidth = 3.dp
                             )
                         InstallStatus.UNKNOWN ->
