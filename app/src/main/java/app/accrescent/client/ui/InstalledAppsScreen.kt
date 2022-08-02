@@ -1,9 +1,7 @@
 package app.accrescent.client.ui
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -48,12 +46,12 @@ fun InstalledAppsScreen(
             viewModel.refreshInstallStatuses()
         },
     ) {
-        LazyColumn(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {
-            if (apps.isEmpty()) {
-                item { CenteredText(stringResource(R.string.swipe_refresh)) }
-            } else if (installedApps.isEmpty()) {
-                item { CenteredText(stringResource(R.string.no_apps_installed)) }
-            } else {
+        if (apps.isEmpty()) {
+            CenteredText(stringResource(R.string.swipe_refresh))
+        } else if (installedApps.isEmpty()) {
+            CenteredText(stringResource(R.string.no_apps_installed))
+        } else {
+            LazyColumn {
                 item { Spacer(Modifier.height(16.dp)) }
                 items(installedApps, key = { app -> app.id }) { app ->
                     InstallableAppCard(
@@ -67,12 +65,12 @@ fun InstalledAppsScreen(
                 }
             }
         }
+    }
 
-        if (viewModel.error != null) {
-            LaunchedEffect(scaffoldState.snackbarHostState) {
-                scaffoldState.snackbarHostState.showSnackbar(message = viewModel.error!!)
-                viewModel.error = null
-            }
+    if (viewModel.error != null) {
+        LaunchedEffect(scaffoldState.snackbarHostState) {
+            scaffoldState.snackbarHostState.showSnackbar(message = viewModel.error!!)
+            viewModel.error = null
         }
     }
 }
