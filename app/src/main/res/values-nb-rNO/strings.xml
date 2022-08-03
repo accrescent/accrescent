@@ -1,2 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="uninstall">Avinstaller</string>
+    <string name="open">Åpne</string>
+    <string name="dynamic_color_desc">Ifør drakt basert på systemets fargepalett</string>
+    <string name="swipe_refresh">Dra nedover for å gjenoppfriske</string>
+    <string name="no_apps_installed">Ingen programmer installert</string>
+    <string name="up_to_date">Alle programmene er av nyeste dato</string>
+    <string name="cant_find_app">Fant ikke noe slikt program</string>
+    <string name="couldnt_open_app">Kunne ikke åpne programmet</string>
+    <string name="app_verification_failed">Kunne ikke bekrefte program: %1$s</string>
+    <string name="failed_download_files">Klarte ikke å laste ned nødvendige filer: %1$s</string>
+    <string name="failed_verify_repodata">Klarte ikke å bekrefte pakkebrønnsdata: %1$s</string>
+    <string name="failed_decode_repodata">Klarte ikke å dekode pakkebrønnsdata: %1$s</string>
+    <string name="app_doesnt_support_device">Programmet støtter ikke enheten din: %1$s</string>
+    <string name="unknown_host_error">Ukjent vertsfeil: %1$s</string>
+    <string name="version">Versjon: %1$s</string>
+    <string name="version_code">Versjonskode: %1$d</string>
+    <string name="device_language_unsupported">Enhetsspråket ditt støttes ikke</string>
+    <string name="device_density_unsupported">Oppløsningen på skjermen din støttes ikke</string>
+    <string name="device_abi_unsupported">Arkitekturen på enheten din støttes ikke</string>
+    <string name="app_signer_mismatch">Programmet er ikke signert av personen(e) som kreves.
+\nForventet: %1$s</string>
+    <string name="app_id_mismatch">Program-ID-en %1$s samsvarer ikke med forventet ID (%2$s)</string>
+    <string name="version_code_mismatch">Forventet versjonskode %1$d, har %2$d</string>
+    <string name="base_apk_not_valid">base.apk er ikke en gyldig APK</string>
+    <string name="repodata_timestamp_less">Tidsstemplet fra pakkebrønnsdatoen er før lagret verdi</string>
+    <string name="sig_verify_failed">Kunne ikke bekrefte signaturen</string>
+    <string name="install_blocked">Installasjon blokkert av administrator</string>
+    <string name="uninstall_blocked">Avinstallasjon blokkert av administrator</string>
+    <string name="app_updates">Oppgraderinger</string>
+    <string name="update">Oppgrader</string>
+    <string name="user_restriction">Brukerbegrensningsfeil: %1$s</string>
+    <string name="app_list">Programmer</string>
+    <string name="installed">Installert</string>
+    <string name="settings">Innstillinger</string>
+    <string name="dynamic_color">Dynamisk farge</string>
+    <string name="network_error">Nettverksfeil: %1$s</string>
+    <string name="failed_download_repodata">Klarte ikke å laste ned pakkebrønnsdata: %1$s</string>
+    <string name="error_parsing_files">Kunne ikke tolke programfiler: %1$s</string>
+    <string name="install">Installer</string>
+    <string name="user_action_required">Brukerinnvirkning kreves</string>
+    <string name="unknown">\?\?\?</string>
+    <string name="version_mismatch">Forventet versjon %1$s og har %2$s</string>
+    <string name="no_app_signers">Fant ikke noen signaturer.
+\nForventet: %1$s</string>
+    <string name="version_downgrade">Versjon %1$d er mindre enn minste tillatte (%2$d)</string>
+</resources>
