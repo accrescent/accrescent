@@ -29,7 +29,7 @@ following features:
 - No remote APK signing
 - Meaningful quality control for submitted apps
 
-...and more. See [the website] for details.
+...and more. See the [features page] on the website for details.
 
 Accrescent currently runs on Android 12 and up.
 
@@ -57,5 +57,5 @@ name and branding, as are derivatives of Accrescent. Derivatives include, but
 are not limited to forks and unofficial builds.
 
 [contributing guidelines]: CONTRIBUTING.md
+[features page]: https://accrescent.app/features
 [Play App Signing]: https://developer.android.com/studio/publish/app-signing#app-signing-google-play
-[the website]: https://accrescent.app
