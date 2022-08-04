@@ -49,6 +49,11 @@ Accrescent aims to resolve the security, privacy, and usability concerns of
 existing Android app stores by addressing said concerns fundamentally in its
 design.
 
+## Translations
+
+Accrescent has a project on [Hosted Weblate] if you would like to help
+translate.
+
 ## Trademark
 
 The name "Accrescent" and the Accrescent logo are common law trademarks owned by
@@ -58,4 +63,5 @@ are not limited to forks and unofficial builds.
 
 [contributing guidelines]: CONTRIBUTING.md
 [features page]: https://accrescent.app/features
+[Hosted Weblate]: https://hosted.weblate.org/engage/accrescent/
 [Play App Signing]: https://developer.android.com/studio/publish/app-signing#app-signing-google-play
