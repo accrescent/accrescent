@@ -1,2 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="dynamic_color">Dynamische Farben / Material You</string>
+    <string name="app_list">Apps</string>
+    <string name="installed">Installiert</string>
+    <string name="app_updates">Updates</string>
+    <string name="settings">Einstellungen</string>
+    <string name="install">Installieren</string>
+    <string name="uninstall">Deinstallieren</string>
+    <string name="update">Update installieren</string>
+    <string name="open">Öffnen</string>
+    <string name="unknown">\?\?\?</string>
+    <string name="swipe_refresh">Runter wischen zum Aktualisieren</string>
+    <string name="up_to_date">Alle Apps sind aktuell</string>
+    <string name="user_action_required">Interaktion von Nutzer benötigt</string>
+    <string name="network_error">Netzwerkfehler: %1$s</string>
+    <string name="app_verification_failed">App Verifikation fehlgeschlagen: %1$s</string>
+    <string name="failed_download_files">Fehler beim Herunterladen der notwenigen Dateien: %1$s</string>
+    <string name="failed_download_repodata">Fehler beim Herunterladen der Repositorydateien: %1$s</string>
+    <string name="failed_verify_repodata">Fehler beim Verifizieren von Repositorydateien: %1$s</string>
+    <string name="app_doesnt_support_device">Die App unterstützt dieses Gerät nicht: %1$s</string>
+    <string name="dynamic_color_desc">Wähle das App Design abhängig von Systemfarben</string>
+    <string name="unknown_host_error">Unbekannter Host Fehler: %1$s</string>
+    <string name="user_restriction">Nutzerbeschränkungsfehler: %1$s</string>
+    <string name="version">Version: %1$s</string>
+    <string name="version_code">Versionscode: %1$d</string>
+    <string name="device_language_unsupported">Die Gerätesprache wird nicht unterstützt</string>
+    <string name="device_density_unsupported">Die Bildschirmauflösung des Geräts wird nicht unterstützt</string>
+    <string name="device_abi_unsupported">Die Architektur des Geräts wird nicht unterstützt</string>
+    <string name="version_downgrade">Version %1$d ist niedriger als das Minimum %2$d</string>
+    <string name="app_id_mismatch">App ID %1$s stimmt nicht mit der erwarteten ID %2$s überein</string>
+    <string name="version_code_mismatch">erwarteter Versionscode %1$d, tatsächlicher Versionscode %2$d</string>
+    <string name="sig_verify_failed">Verifikation der Signatur fehlgeschlagen</string>
+    <string name="install_blocked">Installation von Admin blockiert</string>
+    <string name="no_apps_installed">Keine Apps installiert</string>
+    <string name="cant_find_app">Entschuldigung, wir konnten diese App nicht finden</string>
+    <string name="error_parsing_files">Fehler beim Parsen von Appdateien: %1$s</string>
+    <string name="couldnt_open_app">App konnte nicht geöffnet werden</string>
+    <string name="base_apk_not_valid">base.apk ist keine gültige APK</string>
+    <string name="failed_decode_repodata">Fehler beim Dekodieren von Repositorydateien: %1$s</string>
+    <string name="uninstall_blocked">Deinstallation von Admin blockiert</string>
+    <string name="app_signer_mismatch">App nicht von benötigten Signaturen signiert.
+\nExpected: %1$s</string>
+    <string name="version_mismatch">erwartete Version %1$s, tatsächliche Version %2$s</string>
+</resources>
