@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dynamic_color">Dynamische Farben / Material You</string>
-    <string name="app_list">Apps</string>
+    <string name="app_list">Anwendungen</string>
     <string name="installed">Installiert</string>
     <string name="app_updates">Aktualisierungen</string>
     <string name="settings">Einstellungen</string>
@@ -10,14 +10,14 @@
     <string name="update">Aktualisieren</string>
     <string name="open">Öffnen</string>
     <string name="unknown">\?\?\?</string>
-    <string name="swipe_refresh">Runter wischen zum Aktualisieren</string>
+    <string name="swipe_refresh">Zum Aktualisieren nach unten wischen</string>
     <string name="up_to_date">Alle Anwendungen sind auf dem neuesten Stand</string>
     <string name="user_action_required">Nutzerinteraktion benötigt</string>
     <string name="network_error">Netzwerkfehler: %1$s</string>
     <string name="app_verification_failed">Verifizierung der Anwendung fehlgeschlagen: %1$s</string>
     <string name="failed_download_files">Herunterladen der erforderlichen Dateien fehlgeschlagen: %1$s</string>
     <string name="failed_download_repodata">Herunterladen der Paketquelle fehlgeschlagen: %1$s</string>
-    <string name="failed_verify_repodata">Fehler beim Verifizieren von Repositorydateien: %1$s</string>
+    <string name="failed_verify_repodata">Fehler beim Verifizieren der Paketquelle: %1$s</string>
     <string name="app_doesnt_support_device">Ihr Gerät wird von dieser Anwendung nicht unterstützt: %1$s</string>
     <string name="dynamic_color_desc">Farbgebung der Anwendung auf Basis der Systemfarbpalette</string>
     <string name="unknown_host_error">Unbekannter Systemfehler: %1$s</string>
@@ -37,7 +37,7 @@
     <string name="error_parsing_files">Fehler bei der Verarbeitung von Anwendungsdaten: %1$s</string>
     <string name="couldnt_open_app">Anwendung konnte nicht geöffnet werden</string>
     <string name="base_apk_not_valid">base.apk ist keine gültige APK-Datei</string>
-    <string name="failed_decode_repodata">Fehler beim Dekodieren von Repositorydateien: %1$s</string>
+    <string name="failed_decode_repodata">Fehler beim Dekodieren der Paketquelle: %1$s</string>
     <string name="uninstall_blocked">Deinstallation durch den Administrator blockiert</string>
     <string name="app_signer_mismatch">Die Anwendung ist nicht von der/den erforderlichen Personen(en) signiert.
 \nErwartet: %1$s</string>
