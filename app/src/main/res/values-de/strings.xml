@@ -3,7 +3,7 @@
     <string name="dynamic_color">Dynamische Farben / Material You</string>
     <string name="app_list">Apps</string>
     <string name="installed">Installiert</string>
-    <string name="app_updates">Updates</string>
+    <string name="app_updates">Aktualisierungen</string>
     <string name="settings">Einstellungen</string>
     <string name="install">Installieren</string>
     <string name="uninstall">Deinstallieren</string>
@@ -40,6 +40,9 @@
     <string name="failed_decode_repodata">Fehler beim Dekodieren von Repositorydateien: %1$s</string>
     <string name="uninstall_blocked">Deinstallation von Admin blockiert</string>
     <string name="app_signer_mismatch">App nicht von benötigten Signaturen signiert.
-\nExpected: %1$s</string>
+\nErwartet: %1$s</string>
     <string name="version_mismatch">erwartete Version %1$s, tatsächliche Version %2$s</string>
+    <string name="no_app_signers">Keine App Signatur gefunden.
+\nErwartet: %1$s</string>
+    <string name="repodata_timestamp_less">Zeitstempel der Repositorydatei geringer als der gespeicherte Wert</string>
 </resources>
