@@ -10,6 +10,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -49,7 +50,7 @@ fun InstallableAppCard(
                 when (installStatus) {
                     InstallStatus.INSTALLED,
                     InstallStatus.UPDATABLE ->
-                        Button(
+                        OutlinedButton(
                             modifier = Modifier.padding(horizontal = 4.dp, vertical = 12.dp),
                             onClick = { onUninstallClicked(app.id) },
                         ) {
