@@ -2,6 +2,7 @@ package app.accrescent.client.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -22,11 +23,11 @@ import app.accrescent.client.R
 import kotlinx.coroutines.launch
 
 @Composable
-fun SettingsScreen(viewModel: SettingsViewModel) {
+fun SettingsScreen(padding: PaddingValues, viewModel: SettingsViewModel) {
     val coroutineScope = rememberCoroutineScope()
     val dynamicColor by viewModel.dynamicColor.collectAsState(false)
 
-    Column {
+    Column(modifier = Modifier.padding(padding)) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()

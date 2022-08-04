@@ -10,12 +10,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.ScaffoldState
-import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -28,7 +27,7 @@ import app.accrescent.client.R
 
 @Composable
 fun AppDetailsScreen(
-    scaffoldState: ScaffoldState = rememberScaffoldState(),
+    snackbarHostState: SnackbarHostState,
     viewModel: AppDetailsViewModel = viewModel(),
 ) {
     when {
@@ -47,8 +46,8 @@ fun AppDetailsScreen(
     }
 
     if (viewModel.uiState.error != null) {
-        LaunchedEffect(scaffoldState.snackbarHostState) {
-            scaffoldState.snackbarHostState.showSnackbar(message = viewModel.uiState.error!!)
+        LaunchedEffect(snackbarHostState) {
+            snackbarHostState.showSnackbar(message = viewModel.uiState.error!!)
             viewModel.uiState.error = null
         }
     }

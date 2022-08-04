@@ -14,22 +14,21 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.SnackbarHostState
-import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Surface
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -70,9 +69,7 @@ class MainActivity : ComponentActivity() {
             val dynamicColor by viewModel.dynamicColor.collectAsState(false)
 
             AccrescentTheme(dynamicColor = dynamicColor) {
-                Surface(color = MaterialTheme.colorScheme.background) {
-                    MainContent(appId)
-                }
+                MainContent(appId)
             }
         }
     }
@@ -81,7 +78,7 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalAnimationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun MainContent(appId: String?) {
-    val scaffoldState = rememberScaffoldState(snackbarHostState = SnackbarHostState())
+    val snackbarHostState = remember { SnackbarHostState() }
     val navController = rememberAnimatedNavController()
     val screens = listOf(Screen.AppList, Screen.InstalledApps, Screen.AppUpdates)
 
@@ -94,8 +91,7 @@ fun MainContent(appId: String?) {
     val currentDestination = navBackStackEntry?.destination
 
     Scaffold(
-        scaffoldState = scaffoldState,
-        backgroundColor = MaterialTheme.colorScheme.background,
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             // This little hack is used to ensure smooth transition animations when navigating
             // between AppListScreen and AppDetailsScreen. LookaheadLayout may provide a simpler
@@ -193,7 +189,7 @@ fun MainContent(appId: String?) {
                 val model = hiltViewModel<AppListViewModel>()
                 AppListScreen(
                     navController = navController,
-                    scaffoldState = scaffoldState,
+                    snackbarHostState = snackbarHostState,
                     padding = padding,
                     viewModel = model,
                 )
@@ -222,7 +218,7 @@ fun MainContent(appId: String?) {
                 val model = hiltViewModel<AppListViewModel>()
                 InstalledAppsScreen(
                     navController = navController,
-                    scaffoldState = scaffoldState,
+                    snackbarHostState = snackbarHostState,
                     padding = padding,
                     viewModel = model,
                 )
@@ -249,7 +245,7 @@ fun MainContent(appId: String?) {
                 val model = hiltViewModel<AppListViewModel>()
                 AppUpdatesScreen(
                     navController = navController,
-                    scaffoldState = scaffoldState,
+                    snackbarHostState = snackbarHostState,
                     padding = padding,
                     viewModel = model,
                 )
@@ -284,7 +280,7 @@ fun MainContent(appId: String?) {
                 }
             ) {
                 val model = hiltViewModel<AppDetailsViewModel>()
-                AppDetailsScreen(scaffoldState = scaffoldState, viewModel = model)
+                AppDetailsScreen(snackbarHostState = snackbarHostState, viewModel = model)
             }
             composable(Screen.Settings.route, enterTransition = {
                 when (initialState.destination.route) {
@@ -306,7 +302,7 @@ fun MainContent(appId: String?) {
                 }
             }) {
                 val model = hiltViewModel<SettingsViewModel>()
-                SettingsScreen(model)
+                SettingsScreen(padding = padding, viewModel = model)
             }
         }
     }
