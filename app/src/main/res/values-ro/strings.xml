@@ -1,2 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_list">Aplicații</string>
+    <string name="installed">Instalat</string>
+    <string name="app_updates">Actualizări</string>
+    <string name="settings">Setări</string>
+    <string name="install">Instalați</string>
+    <string name="uninstall">Dezinstalați</string>
+    <string name="update">Actualizare</string>
+    <string name="open">Deschideți</string>
+    <string name="unknown">\?\?\?</string>
+    <string name="dynamic_color">Culoare dinamică / Material You</string>
+    <string name="dynamic_color_desc">Temați aplicația pe baza paletei de culori a sistemului</string>
+    <string name="swipe_refresh">Glisați în jos pentru a reîmprospăta</string>
+    <string name="no_apps_installed">Nu există aplicații instalate</string>
+    <string name="up_to_date">Toate aplicațiile sunt actualizate</string>
+    <string name="user_action_required">Este necesară acțiunea utilizatorului</string>
+    <string name="cant_find_app">Ne pare rău, nu am putut găsi acea aplicație</string>
+    <string name="couldnt_open_app">Aplicația nu a putut fi deschisă</string>
+    <string name="network_error">Eroare de rețea: %1$s</string>
+    <string name="failed_download_repodata">Nu s-a putut descărca repodata: %1$s</string>
+    <string name="failed_verify_repodata">Nu s-a putut verifica repodata: %1$s</string>
+    <string name="failed_decode_repodata">Nu s-a reușit decodarea repodata: %1$s</string>
+    <string name="error_parsing_files">Eroare la analizarea fișierelor aplicației: %1$s</string>
+    <string name="unknown_host_error">Eroare de gazdă necunoscută: %1$s</string>
+    <string name="version">Versiune: %1$s</string>
+    <string name="version_code">Versiunea codului: %1$d</string>
+    <string name="device_language_unsupported">limba dispozitivului dvs. nu este acceptată</string>
+    <string name="app_signer_mismatch">aplicația nu este semnată de semnatorul/(tarii) necesar(i).
+\nAnticipat: %1$s</string>
+    <string name="no_app_signers">nu s-au găsit semnatarii de aplicație. 
+\nAnticipat: %1$s</string>
+    <string name="version_downgrade">versiunea %1$d este mai mică decât minimul %2$d</string>
+    <string name="app_id_mismatch">ID-ul aplicației %1$s nu se potrivește cu ID-ul așteptat %2$s</string>
+    <string name="base_apk_not_valid">base.apk nu este un APK valid</string>
+    <string name="sig_verify_failed">verificarea semnăturii a eșuat</string>
+    <string name="install_blocked">instalare blocată de administrator</string>
+    <string name="uninstall_blocked">dezinstalare blocată de administrator</string>
+    <string name="app_verification_failed">Verificarea aplicației a eșuat: %1$s</string>
+    <string name="device_density_unsupported">densitatea ecranului dispozitivului dvs. nu este acceptată</string>
+    <string name="user_restriction">Eroare de restricție a utilizatorului: %1$s</string>
+    <string name="failed_download_files">Nu s-au putut descărca fișierele necesare: %1$s</string>
+    <string name="app_doesnt_support_device">Aplicația nu este compatibilă cu dispozitivul dvs: %1$s</string>
+    <string name="device_abi_unsupported">arhitectura dispozitivului dvs. nu este acceptată</string>
+    <string name="repodata_timestamp_less">repodata timestamp este mai mic decât valoarea salvată</string>
+    <string name="version_mismatch">versiunea așteptată este %1$s, versiunea reală este %2$s</string>
+    <string name="version_code_mismatch">codul de versiune așteptat este %1$d, cel real este %2$d</string>
+</resources>
