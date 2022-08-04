@@ -1,7 +1,5 @@
-<resources
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingTranslation">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name" translatable="false">Accrescent</string>
     <string name="app_list">Apps</string>
     <string name="installed">Installed</string>
@@ -11,7 +9,7 @@
     <string name="uninstall">Uninstall</string>
     <string name="update">Update</string>
     <string name="open">Open</string>
-    <string name="unknown">\???</string>
+    <string name="unknown">\?\?\?</string>
     <string name="dynamic_color">Dynamic color / Material You</string>
     <string name="dynamic_color_desc">Theme the app based on the system color palette</string>
     <string name="swipe_refresh">Swipe down to refresh</string>
@@ -36,7 +34,8 @@
     <string name="device_density_unsupported">your device\'s screen density is not supported</string>
     <string name="device_abi_unsupported">your device\'s architecture is not supported</string>
     <string name="app_signer_mismatch">app not signed by required signer(s).\nExpected: %1$s</string>
-    <string name="no_app_signers">no app signers found.\nExpected: %1$s</string>
+    <string name="no_app_signers">no app signers found.
+\nExpected: %1$s</string>
     <string name="version_downgrade">version %1$d is less than minimum %2$d</string>
     <string name="app_id_mismatch">app ID %1$s does not match expected ID %2$s</string>
     <string name="version_mismatch">expected version %1$s, actual is %2$s</string>
