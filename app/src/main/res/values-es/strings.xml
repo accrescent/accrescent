@@ -1,2 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_list">Aplicaciones</string>
+    <string name="installed">Instalado</string>
+    <string name="app_updates">Actualizaciones</string>
+    <string name="settings">Opciones</string>
+    <string name="install">Instalar</string>
+    <string name="uninstall">Desinstalar</string>
+    <string name="open">Abrir</string>
+    <string name="unknown">\?\?\?</string>
+    <string name="dynamic_color">Color dinámico / \'Material You\'</string>
+    <string name="swipe_refresh">Desliza abajo para refrescar</string>
+    <string name="no_apps_installed">No hay aplicaciones instaladas</string>
+    <string name="up_to_date">Todas las aplicaciones están actualizadas</string>
+    <string name="user_action_required">Acción del usuario requerida</string>
+    <string name="cant_find_app">Disculpa, no encontramos esa aplicación</string>
+    <string name="failed_download_files">Error al descargar los archivos necesarios: %1$s</string>
+    <string name="error_parsing_files">Error al analizar los archivos de la aplicación: %1$s</string>
+    <string name="app_doesnt_support_device">La aplicación no soporta tu dispositivo: %1$s</string>
+    <string name="unknown_host_error">Error desconocido de host: %1$s</string>
+    <string name="version">Versión: %1$s</string>
+    <string name="device_language_unsupported">el lenguaje de su dispositivo no es compatible</string>
+    <string name="device_abi_unsupported">la arquitectura de su dispositivo no es compatible</string>
+    <string name="version_downgrade">versión %1$d es menor que el mínimo %2$d</string>
+    <string name="app_id_mismatch">app ID %1$s no coincide con el ID esperado %2$s</string>
+    <string name="version_mismatch">versión esperada %1$s, la actual es %2$s</string>
+    <string name="version_code_mismatch">código de la versión esperada %1$d, actual es %2$d</string>
+    <string name="base_apk_not_valid">base.apk no es una APK valida</string>
+    <string name="failed_download_repodata">Error al descargar metadatos del repositorio: %1$s</string>
+    <string name="failed_verify_repodata">Error al verificar metadatos del repositorio: %1$s</string>
+    <string name="failed_decode_repodata">Error al decodificar metadatos del repositorio: %1$s</string>
+    <string name="repodata_timestamp_less">la marca del tiempo repodata es menor a el valor guardado</string>
+    <string name="sig_verify_failed">la verificacion de firma(s) ha fallado</string>
+    <string name="install_blocked">instalación bloqueada por el admin</string>
+    <string name="uninstall_blocked">desinstalación bloqueada por el admin</string>
+    <string name="dynamic_color_desc">Tema la aplicación en base a la paleta de colores del sistema</string>
+    <string name="update">Actualizar</string>
+    <string name="network_error">Error de red: %1$s</string>
+    <string name="version_code">Versión del código: %1$d</string>
+    <string name="couldnt_open_app">No se pudo abrir la aplicación</string>
+    <string name="app_verification_failed">Verificación de la aplicación ha fallado: %1$s</string>
+    <string name="app_signer_mismatch">aplicación no firmada por el/los firmante(s) requerido(s).
+\nSe esperaba: %1$s</string>
+</resources>
