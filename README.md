@@ -2,6 +2,14 @@
 
 <img src="app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" alt="Accrescent">
 
+</div>
+
+<div align="center">
+
+[![Build](https://github.com/accrescent/accrescent/actions/workflows/build.yaml/badge.svg)](https://github.com/accrescent/accrescent/actions/workflows/build.yaml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=accrescent_accrescent&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=accrescent_accrescent)
+[![Weblate](https://hosted.weblate.org/widgets/accrescent/-/client/svg-badge.svg)](https://hosted.weblate.org/engage/accrescent/)
+
 # Accrescent
 
 A novel Android app store with a focus on security, privacy, and usability.
