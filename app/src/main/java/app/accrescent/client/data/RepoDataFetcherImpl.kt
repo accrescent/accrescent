@@ -14,7 +14,7 @@ import java.security.GeneralSecurityException
 import javax.inject.Inject
 import javax.net.ssl.HttpsURLConnection
 
-private val format = Json { ignoreUnknownKeys }
+private val format = Json { ignoreUnknownKeys = true }
 
 class RepoDataFetcherImpl @Inject constructor(
     @ApplicationContext private val context: Context,
