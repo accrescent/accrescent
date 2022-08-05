@@ -36,6 +36,17 @@ Accrescent currently runs on Android 12 and up.
 Contributions are welcome! If you're interested in helping out, be sure to check
 out the [contributing guidelines] for tips on getting started.
 
+### Signing certificate hash
+
+Accrescent's SHA-256 signing certificate hash is as follows:
+
+```
+067a40c4193aad51ac87f9ddfdebb15e24a1850babfa4821c28c5c25c3fdc071
+```
+
+Be sure to check it against the hashes on [our website] and [Twitter] to verify
+its legitimacy.
+
 ## Why?
 
 The Google Play Store is the de-facto app store in the Android ecosystem.
@@ -62,6 +73,8 @@ name and branding, as are derivatives of Accrescent. Derivatives include, but
 are not limited to forks and unofficial builds.
 
 [contributing guidelines]: CONTRIBUTING.md
+[our website]: https://accrescent.app/faq#verifying
 [features page]: https://accrescent.app/features
 [Hosted Weblate]: https://hosted.weblate.org/engage/accrescent/
 [Play App Signing]: https://developer.android.com/studio/publish/app-signing#app-signing-google-play
+[Twitter]: https://twitter.com/accrescentapp/
