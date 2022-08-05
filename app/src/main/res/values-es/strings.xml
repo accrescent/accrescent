@@ -9,7 +9,7 @@
     <string name="open">Abrir</string>
     <string name="unknown">\?\?\?</string>
     <string name="dynamic_color">Color dinámico / \'Material You\'</string>
-    <string name="swipe_refresh">Desliza abajo para refrescar</string>
+    <string name="swipe_refresh">Deslizar hacia abajo para refrescar</string>
     <string name="no_apps_installed">No hay aplicaciones instaladas</string>
     <string name="up_to_date">Todas las aplicaciones están actualizadas</string>
     <string name="user_action_required">Acción del usuario requerida</string>
@@ -17,7 +17,7 @@
     <string name="failed_download_files">Error al descargar los archivos necesarios: %1$s</string>
     <string name="error_parsing_files">Error al analizar los archivos de la aplicación: %1$s</string>
     <string name="app_doesnt_support_device">La aplicación no soporta tu dispositivo: %1$s</string>
-    <string name="unknown_host_error">Error desconocido de host: %1$s</string>
+    <string name="unknown_host_error">Error de anfitrión desconocido: %1$s</string>
     <string name="version">Versión: %1$s</string>
     <string name="device_language_unsupported">el lenguaje de su dispositivo no es compatible</string>
     <string name="device_abi_unsupported">la arquitectura de su dispositivo no es compatible</string>
@@ -33,7 +33,7 @@
     <string name="sig_verify_failed">la verificacion de firma(s) ha fallado</string>
     <string name="install_blocked">instalación bloqueada por el admin</string>
     <string name="uninstall_blocked">desinstalación bloqueada por el admin</string>
-    <string name="dynamic_color_desc">Tema la aplicación en base a la paleta de colores del sistema</string>
+    <string name="dynamic_color_desc">Tema la aplicación basada en la paleta de colores del sistema</string>
     <string name="update">Actualizar</string>
     <string name="network_error">Error de red: %1$s</string>
     <string name="version_code">Versión del código: %1$d</string>
@@ -41,4 +41,8 @@
     <string name="app_verification_failed">Verificación de la aplicación ha fallado: %1$s</string>
     <string name="app_signer_mismatch">aplicación no firmada por el/los firmante(s) requerido(s).
 \nSe esperaba: %1$s</string>
+    <string name="device_density_unsupported">la densidad de pantalla de su dispositivo no es compatible</string>
+    <string name="user_restriction">Error de restricción de usuario: %1$s</string>
+    <string name="no_app_signers">no se encontraron firmantes de aplicaciones.
+\n Esperado: %1$s</string>
 </resources>
