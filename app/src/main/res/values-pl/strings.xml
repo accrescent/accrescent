@@ -1,2 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="installed">Zainstalowano</string>
+    <string name="unknown">\?\?\?</string>
+    <string name="dynamic_color">Dynamiczny kolor / Material You</string>
+    <string name="settings">Ustawienia</string>
+    <string name="update">Aktualizacja</string>
+    <string name="open">Otwórz</string>
+    <string name="app_updates">Aktualizacje</string>
+    <string name="uninstall">Odinstaluj</string>
+    <string name="dynamic_color_desc">Nadaj aplikacji motyw oparty na systemowej palecie kolorów</string>
+    <string name="no_apps_installed">Brak zainstalowanych aplikacji</string>
+    <string name="up_to_date">Wszystkie aplikacje są aktualne</string>
+    <string name="user_action_required">Wymagana czynność użytkownika</string>
+    <string name="cant_find_app">Przykro nam, nie mogliśmy znaleźć tej aplikacji</string>
+    <string name="couldnt_open_app">Nie można otworzyć aplikacji</string>
+    <string name="network_error">Błąd połączenia: %1$s</string>
+    <string name="failed_verify_repodata">Nie udało się zweryfikować danych repo: %1$s</string>
+    <string name="failed_download_repodata">Nie udało się pobrać danych repo: %1$s</string>
+    <string name="failed_decode_repodata">Nie udało się zdekodować danych repo: %1$s</string>
+    <string name="error_parsing_files">Błąd przetwarzania plików aplikacji: %1$s</string>
+    <string name="app_doesnt_support_device">Aplikacja nie obsługuje Twojego urządzenia: %1$s</string>
+    <string name="unknown_host_error">Błąd nieznanego hosta: %1$s</string>
+    <string name="user_restriction">Błąd ograniczenia użytkownika: %1$s</string>
+    <string name="app_list">Aplikacje</string>
+    <string name="install">Zainstaluj</string>
+    <string name="swipe_refresh">Przeciągnij w dół, aby odświeżyć</string>
+    <string name="app_verification_failed">Weryfikacja aplikacji nie powiodła się: %1$s</string>
+    <string name="failed_download_files">Nie udało się pobrać niezbędnych plików: %1$s</string>
+</resources>
