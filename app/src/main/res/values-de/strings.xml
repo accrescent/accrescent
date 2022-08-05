@@ -29,7 +29,7 @@
     <string name="device_abi_unsupported">Die Prozessorarchitektur Ihres Geräts wird nicht unterstützt</string>
     <string name="version_downgrade">Die Version %1$d ist niedriger als die Mindestversion %2$d</string>
     <string name="app_id_mismatch">Die Anwendungskennung %1$s stimmt nicht mit der erwarteten Anwendungskennung %2$s überein</string>
-    <string name="version_code_mismatch">Erwartete Versionsnummer: %1$d, Tatsächliche Versionsnummer: %2$d</string>
+    <string name="version_code_mismatch">Erwartete Versionsnummer: %1$d, tatsächliche Versionsnummer: %2$d</string>
     <string name="sig_verify_failed">Signaturprüfung fehlgeschlagen</string>
     <string name="install_blocked">Installation durch den Administrator blockiert</string>
     <string name="no_apps_installed">Keine Anwendungen installiert</string>
@@ -41,7 +41,7 @@
     <string name="uninstall_blocked">Deinstallation durch den Administrator blockiert</string>
     <string name="app_signer_mismatch">Die Anwendung ist nicht von der/den erforderlichen Person(en) signiert.
 \nErwartet: %1$s</string>
-    <string name="version_mismatch">Erwartete Version: %1$s, Tatsächliche Version: %2$s</string>
+    <string name="version_mismatch">Erwartete Version: %1$s, tatsächliche Version: %2$s</string>
     <string name="no_app_signers">Die Anwendung ist nicht signiert.
 \nErwartet: %1$s</string>
     <string name="repodata_timestamp_less">Der Zeitstempel der Paketquelle ist geringer als der gespeicherte Wert</string>
