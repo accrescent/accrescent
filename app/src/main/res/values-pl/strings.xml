@@ -27,4 +27,22 @@
     <string name="swipe_refresh">Przeciągnij w dół, aby odświeżyć</string>
     <string name="app_verification_failed">Weryfikacja aplikacji nie powiodła się: %1$s</string>
     <string name="failed_download_files">Nie udało się pobrać niezbędnych plików: %1$s</string>
+    <string name="version">Wersja: %1$s</string>
+    <string name="version_code">Kod wersji: %1$d</string>
+    <string name="device_language_unsupported">język urządzenia nie jest obsługiwany</string>
+    <string name="device_density_unsupported">Rozdzielczość ekranu Twojego urządzenia nie jest obsługiwana</string>
+    <string name="device_abi_unsupported">architektura Twojego urządzenia nie jest obsługiwana</string>
+    <string name="app_signer_mismatch">aplikacja nie jest podpisana przez wymaganego sygnatariusza(ów).
+\nWymagane: %1$s</string>
+    <string name="no_app_signers">nie znaleziono podpisujących aplikację.
+\nWymagane: %1$s</string>
+    <string name="app_id_mismatch">ID aplikacji %1$s nie pasuje do oczekiwanego ID %2$s</string>
+    <string name="version_mismatch">Wymagana wersja %1$s, rzeczywista to %2$s</string>
+    <string name="version_code_mismatch">Wymagany kod wersji %1$d, rzeczywisty to %2$d</string>
+    <string name="base_apk_not_valid">base.apk nie jest prawidłowym APK</string>
+    <string name="sig_verify_failed">weryfikacja podpisu nie powiodła się</string>
+    <string name="install_blocked">instalacja zablokowana przez administratora</string>
+    <string name="uninstall_blocked">odinstaluj zablokowany przez administratora</string>
+    <string name="version_downgrade">wersja %1$d jest mniejsza niż minimalna %2$d</string>
+    <string name="repodata_timestamp_less">znacznik czasu repodaty mniejszy niż zapisana wartość</string>
 </resources>
