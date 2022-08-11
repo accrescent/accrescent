@@ -14,12 +14,12 @@
     <string name="up_to_date">Alle Apps sind auf dem neuesten Stand</string>
     <string name="user_action_required">Nutzerinteraktion benötigt</string>
     <string name="network_error">Netzwerkfehler: %1$s</string>
-    <string name="app_verification_failed">Verifizierung der Anwendung fehlgeschlagen: %1$s</string>
+    <string name="app_verification_failed">Verifizierung der App fehlgeschlagen: %1$s</string>
     <string name="failed_download_files">Herunterladen der erforderlichen Dateien fehlgeschlagen: %1$s</string>
     <string name="failed_download_repodata">Herunterladen der Paketquelle fehlgeschlagen: %1$s</string>
     <string name="failed_verify_repodata">Verifizierung der Paketquelle fehlgeschlagen: %1$s</string>
-    <string name="app_doesnt_support_device">Ihr Gerät wird von dieser Anwendung nicht unterstützt: %1$s</string>
-    <string name="dynamic_color_desc">Farbgebung der Anwendung auf Basis der Systemfarbpalette</string>
+    <string name="app_doesnt_support_device">Ihr Gerät wird von dieser App nicht unterstützt: %1$s</string>
+    <string name="dynamic_color_desc">App-Farbgebung auf Basis der Systemfarbpalette</string>
     <string name="unknown_host_error">Unbekannter Systemfehler: %1$s</string>
     <string name="user_restriction">Nutzerbeschränkungsfehler: %1$s</string>
     <string name="version">Version: %1$s</string>
@@ -28,21 +28,21 @@
     <string name="device_density_unsupported">Die Pixeldichte Ihres Geräts wird nicht unterstützt</string>
     <string name="device_abi_unsupported">Die Prozessorarchitektur Ihres Geräts wird nicht unterstützt</string>
     <string name="version_downgrade">Die Version %1$d ist niedriger als die Mindestversion %2$d</string>
-    <string name="app_id_mismatch">Die Anwendungskennung %1$s stimmt nicht mit der erwarteten Anwendungskennung %2$s überein</string>
+    <string name="app_id_mismatch">Die App-ID %1$s stimmt nicht mit der erwarteten App-ID %2$s überein</string>
     <string name="version_code_mismatch">Erwartete Versionsnummer: %1$d, tatsächliche Versionsnummer: %2$d</string>
     <string name="sig_verify_failed">Signaturprüfung fehlgeschlagen</string>
     <string name="install_blocked">Installation durch den Administrator blockiert</string>
     <string name="no_apps_installed">Keine Apps installiert</string>
     <string name="cant_find_app">Leider konnten wir diese App nicht finden</string>
-    <string name="error_parsing_files">Fehler bei der Verarbeitung von Anwendungsdaten: %1$s</string>
+    <string name="error_parsing_files">Fehler bei der Verarbeitung von App-Daten: %1$s</string>
     <string name="couldnt_open_app">App konnte nicht geöffnet werden</string>
     <string name="base_apk_not_valid">base.apk ist keine gültige APK-Datei</string>
     <string name="failed_decode_repodata">Dekodierung der Paketquelle fehlgeschlagen: %1$s</string>
     <string name="uninstall_blocked">Deinstallation durch den Administrator blockiert</string>
-    <string name="app_signer_mismatch">Die Anwendung ist nicht von der/den erforderlichen Person(en) signiert.
+    <string name="app_signer_mismatch">Die App ist nicht von der/den erforderlichen Person(en) signiert.
 \nErwartet: %1$s</string>
     <string name="version_mismatch">Erwartete Version: %1$s, tatsächliche Version: %2$s</string>
-    <string name="no_app_signers">Die Anwendung ist nicht signiert.
+    <string name="no_app_signers">Die App ist nicht signiert.
 \nErwartet: %1$s</string>
     <string name="repodata_timestamp_less">Der Zeitstempel der Paketquelle ist geringer als der gespeicherte Wert</string>
 </resources>
