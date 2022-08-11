@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dynamic_color">Dynamische Farben / Material You</string>
-    <string name="app_list">Anwendungen</string>
+    <string name="app_list">Apps</string>
     <string name="installed">Installiert</string>
-    <string name="app_updates">Aktualisierungen</string>
+    <string name="app_updates">Updates</string>
     <string name="settings">Einstellungen</string>
     <string name="install">Installieren</string>
     <string name="uninstall">Deinstallieren</string>
