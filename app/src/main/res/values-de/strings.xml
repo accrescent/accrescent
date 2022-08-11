@@ -11,7 +11,7 @@
     <string name="open">Öffnen</string>
     <string name="unknown">\?\?\?</string>
     <string name="swipe_refresh">Zum Aktualisieren nach unten wischen</string>
-    <string name="up_to_date">Alle Anwendungen sind auf dem neuesten Stand</string>
+    <string name="up_to_date">Alle Apps sind auf dem neuesten Stand</string>
     <string name="user_action_required">Nutzerinteraktion benötigt</string>
     <string name="network_error">Netzwerkfehler: %1$s</string>
     <string name="app_verification_failed">Verifizierung der Anwendung fehlgeschlagen: %1$s</string>
@@ -32,10 +32,10 @@
     <string name="version_code_mismatch">Erwartete Versionsnummer: %1$d, tatsächliche Versionsnummer: %2$d</string>
     <string name="sig_verify_failed">Signaturprüfung fehlgeschlagen</string>
     <string name="install_blocked">Installation durch den Administrator blockiert</string>
-    <string name="no_apps_installed">Keine Anwendungen installiert</string>
-    <string name="cant_find_app">Leider konnten wir diese Anwendung nicht finden</string>
+    <string name="no_apps_installed">Keine Apps installiert</string>
+    <string name="cant_find_app">Leider konnten wir diese App nicht finden</string>
     <string name="error_parsing_files">Fehler bei der Verarbeitung von Anwendungsdaten: %1$s</string>
-    <string name="couldnt_open_app">Anwendung konnte nicht geöffnet werden</string>
+    <string name="couldnt_open_app">App konnte nicht geöffnet werden</string>
     <string name="base_apk_not_valid">base.apk ist keine gültige APK-Datei</string>
     <string name="failed_decode_repodata">Dekodierung der Paketquelle fehlgeschlagen: %1$s</string>
     <string name="uninstall_blocked">Deinstallation durch den Administrator blockiert</string>
