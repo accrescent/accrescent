@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" alt="Accrescent">
+<img src=".icon-round.png" alt="Accrescent" width="144" height="144">
 
 </div>
 
