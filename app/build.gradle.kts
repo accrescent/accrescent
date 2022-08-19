@@ -97,7 +97,7 @@ dependencies {
     implementation("com.google.android.material:material:1.6.1")
     implementation("com.google.dagger:hilt-android:2.43.2")
     implementation("org.bouncycastle:bcprov-jdk18on:1.71")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     kapt("androidx.room:room-compiler:2.4.3")
     kapt("com.google.dagger:hilt-android-compiler:2.43.2")
