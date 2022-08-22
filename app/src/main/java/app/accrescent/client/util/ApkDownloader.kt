@@ -154,9 +154,11 @@ class ApkDownloader @Inject constructor(
     }
 
     private fun verifySigners(apk: File, requiredSigners: List<String>): Boolean {
+        @Suppress("DEPRECATION")
+        val flags = PackageManager.GET_SIGNING_CERTIFICATES or PackageManager.GET_SIGNATURES
         val signingInfo = context
             .packageManager
-            .getPackageArchiveInfoCompat(apk.absolutePath, PackageManager.GET_SIGNING_CERTIFICATES)
+            .getPackageArchiveInfoCompat(apk.absolutePath, flags)
             ?.signingInfo
             ?: return false
 
