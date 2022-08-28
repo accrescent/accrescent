@@ -1,2 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_list">Приложения</string>
+    <string name="app_updates">Обновления</string>
+    <string name="install">Установить</string>
+    <string name="network_error">Ошибка сети: %1$s</string>
+    <string name="settings">Настройки</string>
+    <string name="swipe_refresh">Потяните вниз, чтобы обновить</string>
+    <string name="up_to_date">Все приложения обновлены</string>
+    <string name="user_action_required">Необходимо действие пользователя</string>
+    <string name="cant_find_app">К сожалению, мы не смогли найти это приложение</string>
+    <string name="couldnt_open_app">Не удалось открыть приложение</string>
+    <string name="app_verification_failed">Не удалось подтвердить подлинность приложения: %1$s</string>
+    <string name="failed_download_files">Не удалось загрузить необходимые файлы: %1$s</string>
+    <string name="installed">Установленные</string>
+    <string name="uninstall">Удалить</string>
+    <string name="failed_download_repodata">Не удалось загрузить данные репозитория: %1$s</string>
+    <string name="failed_verify_repodata">Не удалось верифицировать данные репозитория: %1$s</string>
+    <string name="failed_decode_repodata">Не удалось декодировать данные репозитория: %1$s</string>
+    <string name="error_parsing_files">Ошибка чтения файлов приложения: %1$s</string>
+    <string name="app_doesnt_support_device">Приложение не поддерживает ваше устройство: %1$s</string>
+    <string name="version">Версия: %1$s</string>
+    <string name="version_code">Код версии: %1$d</string>
+    <string name="device_language_unsupported">язык вашего устройства не поддерживается</string>
+    <string name="device_density_unsupported">плотность пикселей вашего экрана не поддерживается</string>
+    <string name="device_abi_unsupported">архитектура вашего устройства не поддерживается</string>
+    <string name="app_signer_mismatch">приложение не подписано необходимым лицом (лицами).
+\nОжидается: %1$s</string>
+    <string name="no_app_signers">приложение никем не подписано.
+\nОжидается: %1$s</string>
+    <string name="version_downgrade">версия %1$d меньше, чем минимальная версия %2$d</string>
+    <string name="app_id_mismatch">ID приложения %1$s не совпадает с ожидаемым ID %2$s</string>
+    <string name="version_code_mismatch">ожидаемый код версии %1$d, настоящий %2$d</string>
+    <string name="base_apk_not_valid">base.apk не является действительным APK</string>
+    <string name="sig_verify_failed">ошибка верификации подписи</string>
+    <string name="update">Обновить</string>
+    <string name="open">Открыть</string>
+    <string name="unknown">\?\?\?</string>
+    <string name="uninstall_blocked">удаление заблокировано администратором</string>
+    <string name="version_mismatch">ожидаемая версия %1$s, настоящая %2$s</string>
+    <string name="repodata_timestamp_less">временная метка данных репозитория меньше сохраненного значения</string>
+    <string name="install_blocked">установка заблокирована администратором</string>
+</resources>
