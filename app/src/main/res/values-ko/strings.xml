@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_list">앱</string>
+    <string name="installed">설치됨</string>
+    <string name="uninstall">설치 제거</string>
+    <string name="update">업데이트</string>
+    <string name="open">열기</string>
+    <string name="unknown">\?\?\?</string>
+    <string name="dynamic_color">역동적 색상 / Material You</string>
+    <string name="swipe_refresh">새로고침하려면 아래로 쓸어내리세요.</string>
+    <string name="app_updates">업데이트</string>
+    <string name="install">설치</string>
+    <string name="settings">설정</string>
+    <string name="dynamic_color_desc">시스템 색상 팔레트를 기반으로 앱 테마 지정</string>
+</resources>
