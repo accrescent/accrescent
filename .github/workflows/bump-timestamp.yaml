@@ -1,4 +1,4 @@
-name: Update MIN_TIMESTAMP
+name: Bump MIN_TIMESTAMP
 
 on:
   schedule:
@@ -21,7 +21,7 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@v4.1.1
         env:
-          message: Update MIN_TIMESTAMP
+          message: Bump MIN_TIMESTAMP
         with:
           title: ${{ env.message }}
           commit-message: ${{ env.message }}
