@@ -1,0 +1,30 @@
+name: Bump MIN_TIMESTAMP
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update Constants.kt
+        env:
+          FILE: app/src/main/java/app/accrescent/client/data/Constants.kt
+          CONSTANT: 'const val MIN_TIMESTAMP: Long'
+        run: |
+          TIMESTAMP=$(curl -s https://store.accrescent.app/repodata.0.json | jq '.timestamp')
+          sed -i -E "s/^$CONSTANT = [[:digit:]]*$/$CONSTANT = $TIMESTAMP/" $FILE
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v4
+        env:
+          message: Bump MIN_TIMESTAMP
+        with:
+          title: ${{ env.message }}
+          commit-message: ${{ env.message }}
+          delete-branch: true
