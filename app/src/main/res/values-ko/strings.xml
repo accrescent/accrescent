@@ -7,9 +7,42 @@
     <string name="open">열기</string>
     <string name="unknown">\?\?\?</string>
     <string name="dynamic_color">역동적 색상 / Material You</string>
-    <string name="swipe_refresh">새로고침하려면 아래로 쓸어내리세요.</string>
+    <string name="swipe_refresh">아래로 쓸어내려 새로 고침</string>
     <string name="app_updates">업데이트</string>
     <string name="install">설치</string>
     <string name="settings">설정</string>
     <string name="dynamic_color_desc">시스템 색상 팔레트를 기반으로 앱 테마 지정</string>
+    <string name="no_apps_installed">설치된 앱 없음</string>
+    <string name="up_to_date">모든 앱이 최신 상태</string>
+    <string name="user_action_required">사용자 조치 필요</string>
+    <string name="cant_find_app">죄송하지만, 해당 앱을 찾을 수 없음</string>
+    <string name="couldnt_open_app">앱을 열 수 없음</string>
+    <string name="network_error">네트워크 오류: %1$s</string>
+    <string name="failed_download_repodata">저장소 데이터 다운로드 실패: %1$s</string>
+    <string name="failed_verify_repodata">저장소 확인 실패: %1$s</string>
+    <string name="failed_decode_repodata">저장소 디코딩 실패: %1$s</string>
+    <string name="error_parsing_files">앱 파일 구문 분석 오류: %1$s</string>
+    <string name="app_doesnt_support_device">앱이 장치를 지원하지 않음: %1$s</string>
+    <string name="unknown_host_error">알 수 없는 호스트 오류: %1$s</string>
+    <string name="user_restriction">사용자 제한 오류: %1$s</string>
+    <string name="version">버전: %1$s</string>
+    <string name="device_language_unsupported">장치의 언어가 지원되지 않음</string>
+    <string name="device_density_unsupported">장치의 화면 밀도가 지원되지 않음</string>
+    <string name="version_downgrade">버전 %1$d이(가) 최소 %2$d보다 작음</string>
+    <string name="version_mismatch">예상 버전 %1$s, 실제 버전은 %2$s</string>
+    <string name="version_code_mismatch">예상 버전 코드 %1$d, 실제 버전 코드는 %2$d</string>
+    <string name="base_apk_not_valid">base.apk는 유효한 APK가 아님</string>
+    <string name="repodata_timestamp_less">저장된 값보다 작은 저장소 타임스탬프</string>
+    <string name="install_blocked">관리자가 차단한 설치</string>
+    <string name="uninstall_blocked">관리자가 차단한 설치 제거</string>
+    <string name="version_code">버전 코드: %1$d</string>
+    <string name="no_app_signers">앱 서명자를 찾을 수 없습니다.
+\n예상: %1$s</string>
+    <string name="app_verification_failed">앱 인증 실패: %1$s</string>
+    <string name="failed_download_files">필요한 파일 다운로드 실패: %1$s</string>
+    <string name="device_abi_unsupported">장치의 아키텍처가 지원되지 않음</string>
+    <string name="app_signer_mismatch">필수 서명자가 앱에 서명하지 않았습니다.
+\n예상: %1$s</string>
+    <string name="app_id_mismatch">앱 ID %1$s이(가) 예상 ID %2$s과(와) 일치하지 않음</string>
+    <string name="sig_verify_failed">서명 검증 실패</string>
 </resources>
