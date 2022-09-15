@@ -1,2 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="install">Installer</string>
+    <string name="installed">Installeret</string>
+    <string name="app_updates">Opdateringer</string>
+    <string name="settings">Indstillinger</string>
+    <string name="dynamic_color_desc">Tilpas appen baseret på system farve palletten</string>
+    <string name="couldnt_open_app">Kunne ikke åbne appen</string>
+    <string name="network_error">Netværks fejl: %1$s</string>
+    <string name="app_verification_failed">App godkendelse fejlede: %1$s</string>
+    <string name="user_action_required">Bruger handling krævet</string>
+    <string name="failed_download_files">Kunne ikke downloade nødvendige filer: %1$s</string>
+    <string name="failed_download_repodata">Kunne ikke downloade repodata: %1$s</string>
+    <string name="failed_verify_repodata">kunne ikke bekræfte repodata: %1$s</string>
+    <string name="failed_decode_repodata">Kunne ikke afkode repodata: %1$s</string>
+    <string name="error_parsing_files">Fejl ved parsing af appfiler: %1$s</string>
+    <string name="app_doesnt_support_device">Appen understøtter ikke denne enhed: %1$s</string>
+    <string name="unknown_host_error">Ukendt host fejl: %1$s</string>
+    <string name="version">Version: %1$s</string>
+    <string name="user_restriction">bruger restriktioner fejl: %1$s</string>
+    <string name="version_code">Version kode: %1$d</string>
+    <string name="version_downgrade">Version %1$d er mindre end minimum %2$d</string>
+    <string name="app_id_mismatch">App ID %1$s matcher ikke forventede ID %2$s</string>
+    <string name="version_mismatch">Forventede version %1$s, aktuelle version %2$s</string>
+    <string name="version_code_mismatch">Forventede version %1$d, aktuelle version %2$d</string>
+    <string name="device_abi_unsupported">Din enheds arkitektur er ikke understøttet</string>
+    <string name="app_signer_mismatch">Appen er ikke underskrevet af påkrævede underskrivere
+\nForventede: %1$s</string>
+    <string name="repodata_timestamp_less">Repodata tidsstempel er mindre end gemt værdi</string>
+    <string name="base_apk_not_valid">base.apk er ikke en gyldig APK</string>
+    <string name="sig_verify_failed">Signatur verifikation fejlede</string>
+    <string name="install_blocked">Installation blokeret af administrator</string>
+    <string name="uninstall_blocked">Afinstallering blokeret af administrator</string>
+    <string name="no_apps_installed">Ingen apps installeret</string>
+    <string name="app_list">Apps</string>
+    <string name="uninstall">Afinstaller</string>
+    <string name="dynamic_color">Dynamisk Farve / Material You</string>
+    <string name="open">Åben</string>
+    <string name="update">Opdater</string>
+    <string name="unknown">\?\?\?</string>
+    <string name="swipe_refresh">Swipe ned for at genindlæse</string>
+    <string name="cant_find_app">Undskyld vi kunne ikke finde den app</string>
+    <string name="up_to_date">Alle apps er opdaterede</string>
+    <string name="device_language_unsupported">Din enheds sprog er ikke understøttet</string>
+    <string name="no_app_signers">Ingen app-underskrivelser fundet
+\nForventede: %1$s</string>
+    <string name="device_density_unsupported">Din enheds skærm opløsning er ikke understøttet</string>
+</resources>
