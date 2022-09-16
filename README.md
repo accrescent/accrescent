@@ -55,19 +55,6 @@ Accrescent's SHA-256 signing certificate hash is as follows:
 Be sure to check it against the hashes on [our website] and [Twitter] to verify
 its legitimacy.
 
-## Why?
-
-The Google Play Store is the de-facto app store in the Android ecosystem.
-However, many users are unsatisfied with some of its practices and policies such
-as mandatory [Play App Signing] for new apps and the need for a Google account
-to use the store. These users often turn to F-Droid, which fails to adhere to
-the Android security model and provide timely and secure app updates from a
-store with strict minimum security requirements.
-
-Accrescent aims to resolve the security, privacy, and usability concerns of
-existing Android app stores by addressing said concerns fundamentally in its
-design.
-
 ## Translations
 
 Accrescent has a project on [Hosted Weblate] if you would like to help
