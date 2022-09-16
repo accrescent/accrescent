@@ -16,7 +16,7 @@
     <string name="user_action_required">需要人工行動</string>
     <string name="cant_find_app">找不到 App</string>
     <string name="couldnt_open_app">不能打開 App</string>
-    <string name="network_error">網路 Error：%1$s</string>
+    <string name="network_error">網路錯誤：%1$s</string>
     <string name="app_verification_failed">App 核實失敗：%1$s</string>
     <string name="failed_download_files">需要的文件下載失敗：%1$s</string>
     <string name="failed_download_repodata">存儲庫數據下載失敗：%1$s</string>
