@@ -9,7 +9,7 @@
     <string name="open">打開</string>
     <string name="unknown">\?\?\?</string>
     <string name="dynamic_color">動態色彩 / Material You</string>
-    <string name="dynamic_color_desc">idk bro</string>
+    <string name="dynamic_color_desc">用 Material You 重畫 App</string>
     <string name="swipe_refresh">拉下以刷新</string>
     <string name="no_apps_installed">無已安裝的 App</string>
     <string name="up_to_date">所有的 App 已更新</string>
