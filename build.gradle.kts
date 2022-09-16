@@ -6,7 +6,7 @@ buildscript {
         maven { url = uri("https://repo.maven.apache.org/maven2")} // mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.2.2")
+        classpath("com.android.tools.build:gradle:7.3.0")
         classpath("com.google.dagger:hilt-android-gradle-plugin:2.43.2")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
     }
