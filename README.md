@@ -36,6 +36,7 @@ following features:
 - First-class support for split APKs
 - No remote APK signing
 - Meaningful quality control for submitted apps
+- No account requirement for installing apps
 
 ...and more. See the [features page] on the website for details.
 
