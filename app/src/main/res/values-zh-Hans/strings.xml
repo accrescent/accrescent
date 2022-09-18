@@ -37,7 +37,7 @@
     <string name="version_downgrade">版本 %1$d 少于 %2$d</string>
     <string name="app_id_mismatch">App ID %1$s 不符合预期的 ID %2$s</string>
     <string name="version_mismatch">预期版本 %1$s，接受了 %2$s</string>
-    <string name="version_code_mismatch">预期版本号吗 %1$d，接受了 %2$d</string>
+    <string name="version_code_mismatch">预期版本号码 %1$d，接受了 %2$d</string>
     <string name="base_apk_not_valid">base.apk 不是可接受的 APK</string>
     <string name="repodata_timestamp_less">存储库数据太老</string>
     <string name="sig_verify_failed">数位签章确认失败</string>
