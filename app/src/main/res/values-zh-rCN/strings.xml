@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_list">App</string>
+    <string name="installed">已安装</string>
+    <string name="app_updates">更新</string>
+    <string name="settings">设置</string>
+    <string name="install">安装</string>
+    <string name="uninstall">卸载</string>
+    <string name="update">更新</string>
+    <string name="open">打开</string>
+    <string name="unknown">\?\?\?</string>
+    <string name="dynamic_color">动态色彩 / Material You</string>
+    <string name="dynamic_color_desc">用 Material You 重画 App</string>
+    <string name="swipe_refresh">拉下刷新</string>
+    <string name="no_apps_installed">没有已安装的 App</string>
+    <string name="up_to_date">所有的 App 已更新</string>
+    <string name="user_action_required">需要用户行动</string>
+    <string name="cant_find_app">无法找到 App</string>
+    <string name="couldnt_open_app">无法打开 App</string>
+    <string name="network_error">网路错误：%1$s</string>
+    <string name="app_verification_failed">App 核实失败：%1$s</string>
+    <string name="failed_download_files">需要的文件下载失败：%1$s</string>
+    <string name="failed_download_repodata">存储库数据下载失败：%1$s</string>
+    <string name="failed_verify_repodata">存储库数据核实失败：%1$s</string>
+    <string name="failed_decode_repodata">存储库数据解码失败：%1$s</string>
+    <string name="error_parsing_files">App 文件解析失败：%1$s</string>
+    <string name="app_doesnt_support_device">App 不支持您的设备：%1$s</string>
+    <string name="unknown_host_error">未知主机：%1$s</string>
+    <string name="user_restriction">用户限制：%1$s</string>
+    <string name="version">版本：%1$s</string>
+    <string name="version_code">版本代码：%1$d</string>
+    <string name="device_language_unsupported">不支持您的设备语言</string>
+    <string name="device_density_unsupported">不支持您的设备屏幕密度</string>
+    <string name="device_abi_unsupported">不支持您的设备的架构</string>
+    <string name="app_signer_mismatch">App 没有被需要的签署人签署。\n预期的签署人：%1$s</string>
+    <string name="no_app_signers">无 App 签署人找到。\n预期的签署人：%1$s</string>
+    <string name="version_downgrade">版本 %1$d 少于 %2$d</string>
+    <string name="app_id_mismatch">App ID %1$s 不符合预期的 ID %2$s</string>
+    <string name="version_mismatch">预期版本 %1$s，接受了 %2$s</string>
+    <string name="version_code_mismatch">预期版本号码 %1$d，接受了 %2$d</string>
+    <string name="base_apk_not_valid">base.apk 不是可接受的 APK</string>
+    <string name="repodata_timestamp_less">存储库数据太老</string>
+    <string name="sig_verify_failed">数位签章确认失败</string>
+    <string name="install_blocked">安装被管理员屏蔽</string>
+    <string name="uninstall_blocked">卸载被管理员屏蔽</string>
+</resources>
