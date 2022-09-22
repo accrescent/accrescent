@@ -31,6 +31,7 @@ android {
         }
     }
 
+    namespace = "app.accrescent.client"
     compileSdk = 33
     buildToolsVersion = "33.0.0"
 
