@@ -10,8 +10,13 @@
     <string name="update">Update</string>
     <string name="open">Open</string>
     <string name="unknown">\?\?\?</string>
+    <string name="customization">Customization</string>
     <string name="dynamic_color">Dynamic color / Material You</string>
     <string name="dynamic_color_desc">Theme the app based on the system color palette</string>
+    <string name="about">About</string>
+    <string name="source_code">Source code</string>
+    <string name="source_code_desc">View Accrescent\'s source code</string>
+    <string name="open_link">Open link</string>
     <string name="swipe_refresh">Swipe down to refresh</string>
     <string name="no_apps_installed">No apps installed</string>
     <string name="up_to_date">All apps are up-to-date</string>
