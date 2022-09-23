@@ -45,4 +45,9 @@
     <string name="failed_decode_repodata">Impossibile decodificare i dati del repository: %1$s</string>
     <string name="repodata_timestamp_less">timestamp dei dati del repository inferiore al valore salvato</string>
     <string name="uninstall_blocked">disinstallazione bloccata dall\'amministratore</string>
+    <string name="source_code">Codice sorgente</string>
+    <string name="source_code_desc">Visualizza il codice sorgente di Accrescent</string>
+    <string name="about">Informazioni</string>
+    <string name="customization">Personalizzazione</string>
+    <string name="open_link">Apri il link</string>
 </resources>
