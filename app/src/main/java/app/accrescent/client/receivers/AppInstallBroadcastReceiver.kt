@@ -21,13 +21,17 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
 
         when (intent.getIntExtra(PackageInstaller.EXTRA_STATUS, -999)) {
             PackageInstaller.STATUS_PENDING_USER_ACTION -> {
+                val notificationManager =
+                    context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                 val confirmationIntent = intent
                     .getParcelableExtraCompat(Intent.EXTRA_INTENT, Intent::class.java)
                     ?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 
+                // Note we don't currently handle the case where the app is in the background and
+                // the notification permission is denied.
                 if (isInForeground()) {
                     context.startActivity(confirmationIntent)
-                } else {
+                } else if (notificationManager.areNotificationsEnabled()) {
                     val pendingIntent = PendingIntent.getActivity(
                         context,
                         sessionId,
@@ -42,8 +46,6 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
                             .setAutoCancel(true)
                             .build()
 
-                    val notificationManager =
-                        context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                     notificationManager.notify(sessionId, notification)
                 }
             }
