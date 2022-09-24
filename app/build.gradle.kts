@@ -41,6 +41,23 @@ android {
         targetSdk = 33
         versionCode = 15
         versionName = "0.7.2"
+        resourceConfigurations.addAll(listOf(
+            "da",
+            "de",
+            "en",
+            "es",
+            "fr",
+            "it",
+            "ko",
+            "nb-rNO",
+            "nl",
+            "pl",
+            "ro",
+            "ru",
+            "sv",
+            "zh-rCN",
+            "zh-rTW",
+        ))
 
         kapt {
             arguments {
