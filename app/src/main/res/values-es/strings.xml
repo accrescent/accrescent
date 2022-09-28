@@ -45,4 +45,9 @@
     <string name="user_restriction">Error de restricción de usuario: %1$s</string>
     <string name="no_app_signers">no se encontraron firmantes de aplicaciones.
 \n Esperado: %1$s</string>
+    <string name="source_code_desc">Ver código fuente de Accrescent</string>
+    <string name="open_link">Abrir enlace</string>
+    <string name="customization">Personalización</string>
+    <string name="about">Acerca de</string>
+    <string name="source_code">Código fuente</string>
 </resources>
