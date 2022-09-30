@@ -45,4 +45,9 @@
     <string name="no_app_signers">Ingen app-underskrivelser fundet
 \nForventede: %1$s</string>
     <string name="device_density_unsupported">Din enheds skærm opløsning er ikke understøttet</string>
+    <string name="customization">Tilpas</string>
+    <string name="about">Omkring</string>
+    <string name="source_code">Kilde Kode</string>
+    <string name="source_code_desc">Se Accrescent\'s kilde kode</string>
+    <string name="open_link">Åben link</string>
 </resources>
