@@ -114,7 +114,7 @@ android {
 
 dependencies {
     implementation("androidx.compose.material:material-icons-extended:1.2.1")
-    implementation("androidx.compose.material3:material3:1.0.0-beta03")
+    implementation("androidx.compose.material3:material3:1.0.0-rc01")
     implementation("androidx.compose.ui:ui:1.2.1")
     implementation("androidx.datastore:datastore-preferences:1.0.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
