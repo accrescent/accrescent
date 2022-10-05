@@ -95,6 +95,21 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.3.2"
     }
+
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
+    packagingOptions {
+        resources.excludes.addAll(listOf(
+            "DebugProbesKt.bin",
+            "META-INF/**.version",
+            "kotlin-tooling-metadata.json",
+            "kotlin/**.kotlin_builtins",
+            "org/bouncycastle/pqc/**.properties",
+            "org/bouncycastle/x509/**.properties",
+        ))
+    }
 }
 
 dependencies {
