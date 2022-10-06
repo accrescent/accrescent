@@ -39,8 +39,8 @@ android {
         applicationId = "app.accrescent.client"
         minSdk = 31
         targetSdk = 33
-        versionCode = 15
-        versionName = "0.7.2"
+        versionCode = 16
+        versionName = "0.7.3"
         resourceConfigurations.addAll(listOf(
             "da",
             "de",
