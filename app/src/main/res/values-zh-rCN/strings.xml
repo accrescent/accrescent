@@ -29,7 +29,6 @@
     <string name="user_restriction">用户限制：%1$s</string>
     <string name="version">版本：%1$s</string>
     <string name="version_code">版本代码：%1$d</string>
-    <string name="device_language_unsupported">不支持您的设备语言</string>
     <string name="device_density_unsupported">不支持您的设备屏幕密度</string>
     <string name="device_abi_unsupported">不支持您的设备的架构</string>
     <string name="app_signer_mismatch">App 没有被需要的签署人签署。\n预期的签署人：%1$s</string>

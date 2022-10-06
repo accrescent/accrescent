@@ -37,7 +37,6 @@
     <string name="app_doesnt_support_device">Uygulama cihazınızı desteklemiyor:%1$s</string>
     <string name="unknown_host_error">Bilinmeyen host hatası: %1$s</string>
     <string name="sig_verify_failed">İmza doğrulaması başarısız oldu</string>
-    <string name="device_language_unsupported">Cihazınızın dili desteklenmiyor</string>
     <string name="device_density_unsupported">Cihazınızın ekran yoğunluğu desteklenmiyor</string>
     <string name="app_id_mismatch">Uygulama IDsi %1$s , beklenen ID\'yle %2$s eşleşmiyor</string>
     <string name="app_verification_failed">Uygulama doğrulaması başarısız oldu: %1$s</string>

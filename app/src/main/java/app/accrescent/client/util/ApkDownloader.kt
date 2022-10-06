@@ -116,9 +116,7 @@ class ApkDownloader @Inject constructor(
             }
         }
 
-        // Play Store normally handles installing the correct language split when the user changes
-        // their device language. Since we don't have that level of integration, we only attempt to
-        // install the split for the device language at time of install.
+        // Opportunistically install the split for the device language at time of install
         if (appInfo.langSplits.isNotEmpty()) {
             val deviceLang = Resources.getSystem().configuration.locales[0].language
             if (appInfo.langSplits.contains(deviceLang)) {
@@ -127,7 +125,7 @@ class ApkDownloader @Inject constructor(
                 downloadToFile("$baseDownloadUri/split.$deviceLang.apk", langSplit)
                 apks += langSplit
             } else {
-                throw NoSuchElementException(context.getString(R.string.device_language_unsupported))
+                Log.d(TAG, "Preferred language APK not available, using default app language")
             }
         }
 

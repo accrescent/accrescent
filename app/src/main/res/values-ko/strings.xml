@@ -26,7 +26,6 @@
     <string name="unknown_host_error">알 수 없는 호스트 오류: %1$s</string>
     <string name="user_restriction">사용자 제한 오류: %1$s</string>
     <string name="version">버전: %1$s</string>
-    <string name="device_language_unsupported">장치의 언어가 지원되지 않음</string>
     <string name="device_density_unsupported">장치의 화면 밀도가 지원되지 않음</string>
     <string name="version_downgrade">버전 %1$d이(가) 최소 %2$d보다 작음</string>
     <string name="version_mismatch">예상 버전 %1$s, 실제 버전은 %2$s</string>

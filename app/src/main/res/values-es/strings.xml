@@ -19,7 +19,6 @@
     <string name="app_doesnt_support_device">La aplicación no soporta tu dispositivo: %1$s</string>
     <string name="unknown_host_error">Error de anfitrión desconocido: %1$s</string>
     <string name="version">Versión: %1$s</string>
-    <string name="device_language_unsupported">el lenguaje de su dispositivo no es compatible</string>
     <string name="device_abi_unsupported">la arquitectura de su dispositivo no es compatible</string>
     <string name="version_downgrade">versión %1$d es menor que el mínimo %2$d</string>
     <string name="app_id_mismatch">app ID %1$s no coincide con el ID esperado %2$s</string>

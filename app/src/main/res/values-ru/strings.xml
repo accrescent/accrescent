@@ -21,7 +21,6 @@
     <string name="app_doesnt_support_device">Приложение не поддерживает ваше устройство: %1$s</string>
     <string name="version">Версия: %1$s</string>
     <string name="version_code">Код версии: %1$d</string>
-    <string name="device_language_unsupported">язык вашего устройства не поддерживается</string>
     <string name="device_density_unsupported">плотность пикселей вашего экрана не поддерживается</string>
     <string name="device_abi_unsupported">архитектура вашего устройства не поддерживается</string>
     <string name="app_signer_mismatch">приложение не подписано необходимым лицом (лицами).

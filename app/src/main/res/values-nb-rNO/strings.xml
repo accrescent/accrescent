@@ -16,7 +16,6 @@
     <string name="unknown_host_error">Ukjent vertsfeil: %1$s</string>
     <string name="version">Versjon: %1$s</string>
     <string name="version_code">Versjonskode: %1$d</string>
-    <string name="device_language_unsupported">Enhetsspråket ditt støttes ikke</string>
     <string name="device_density_unsupported">Oppløsningen på skjermen din støttes ikke</string>
     <string name="device_abi_unsupported">Arkitekturen på enheten din støttes ikke</string>
     <string name="app_signer_mismatch">Programmet er ikke signert av personen(e) som kreves.

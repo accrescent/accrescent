@@ -25,7 +25,6 @@
     <string name="unknown_host_error">Okänt värdfel: %1$s</string>
     <string name="user_restriction">Användarbegränsningsfel: %1$s</string>
     <string name="version">Version: %1$s</string>
-    <string name="device_language_unsupported">din enhets språk stöds inte</string>
     <string name="device_density_unsupported">din enhets skärmdensitet stöds inte</string>
     <string name="device_abi_unsupported">din enhets arkitektur stöds inte</string>
     <string name="app_signer_mismatch">appen är inte undertecknad av de(n) undertecknare som krävs.

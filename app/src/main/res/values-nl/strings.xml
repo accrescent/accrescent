@@ -23,7 +23,6 @@
     <string name="user_restriction">Fout gebruikersbeperking: %1$s</string>
     <string name="version">Versie: %1$s</string>
     <string name="version_code">Versie code: %1$d</string>
-    <string name="device_language_unsupported">de taal van uw toestel wordt niet ondersteund</string>
     <string name="device_density_unsupported">de schermdichtheid van uw toestel wordt niet ondersteund</string>
     <string name="device_abi_unsupported">de architectuur van uw toestel wordt niet ondersteund</string>
     <string name="app_signer_mismatch">app niet ondertekend door vereiste ondertekenaar(s).

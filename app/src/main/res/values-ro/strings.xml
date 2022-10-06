@@ -25,7 +25,6 @@
     <string name="unknown_host_error">Eroare de gazdă necunoscută: %1$s</string>
     <string name="version">Versiune: %1$s</string>
     <string name="version_code">Versiunea codului: %1$d</string>
-    <string name="device_language_unsupported">limba dispozitivului dvs. nu este acceptată</string>
     <string name="app_signer_mismatch">aplicația nu este semnată de semnatorul/(tarii) necesar(i).
 \nAnticipat: %1$s</string>
     <string name="no_app_signers">nu s-au găsit semnatarii de aplicație. 

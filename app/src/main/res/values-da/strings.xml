@@ -41,7 +41,6 @@
     <string name="swipe_refresh">Swipe ned for at genindlæse</string>
     <string name="cant_find_app">Undskyld vi kunne ikke finde den app</string>
     <string name="up_to_date">Alle apps er opdaterede</string>
-    <string name="device_language_unsupported">Din enheds sprog er ikke understøttet</string>
     <string name="no_app_signers">Ingen app-underskrivelser fundet
 \nForventede: %1$s</string>
     <string name="device_density_unsupported">Din enheds skærm opløsning er ikke understøttet</string>

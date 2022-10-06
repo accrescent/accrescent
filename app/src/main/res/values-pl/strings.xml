@@ -29,7 +29,6 @@
     <string name="failed_download_files">Nie udało się pobrać niezbędnych plików: %1$s</string>
     <string name="version">Wersja: %1$s</string>
     <string name="version_code">Kod wersji: %1$d</string>
-    <string name="device_language_unsupported">język urządzenia nie jest obsługiwany</string>
     <string name="device_density_unsupported">Rozdzielczość ekranu Twojego urządzenia nie jest obsługiwana</string>
     <string name="device_abi_unsupported">architektura Twojego urządzenia nie jest obsługiwana</string>
     <string name="app_signer_mismatch">aplikacja nie jest podpisana przez wymaganego sygnatariusza(ów).

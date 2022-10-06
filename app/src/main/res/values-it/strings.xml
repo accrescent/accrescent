@@ -25,7 +25,6 @@
     <string name="unknown_host_error">Errore di host sconosciuto: %1$s</string>
     <string name="version">Versione: %1$s</string>
     <string name="version_code">Codice versione: %1$d</string>
-    <string name="device_language_unsupported">la lingua del tuo dispositivo non è supportata</string>
     <string name="device_abi_unsupported">l\'architettura del tuo dispositivo non è supportata</string>
     <string name="app_signer_mismatch">applicazione non firmata dai firmatari richiesti.
 \nPrevisto: %1$s</string>
