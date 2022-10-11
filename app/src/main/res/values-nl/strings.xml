@@ -44,4 +44,8 @@
     <string name="no_apps_installed">Geen applicaties geïnstalleerd</string>
     <string name="failed_verify_repodata">Verificatie van repodata mislukt: %1$s</string>
     <string name="swipe_refresh">Swipe naar beneden om te verversen</string>
+    <string name="about">Over ons</string>
+    <string name="source_code">Broncode</string>
+    <string name="source_code_desc">Bekijk Accrescent\'s broncode</string>
+    <string name="open_link">Open link</string>
 </resources>
