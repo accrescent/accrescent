@@ -25,13 +25,13 @@
     <string name="version_mismatch">versión esperada %1$s, la actual es %2$s</string>
     <string name="version_code_mismatch">código de la versión esperada %1$d, actual es %2$d</string>
     <string name="base_apk_not_valid">base.apk no es una APK valida</string>
-    <string name="failed_download_repodata">Error al descargar metadatos del repositorio: %1$s</string>
-    <string name="failed_verify_repodata">Error al verificar metadatos del repositorio: %1$s</string>
-    <string name="failed_decode_repodata">Error al decodificar metadatos del repositorio: %1$s</string>
+    <string name="failed_download_repodata">Fallo en la descarga de datos del repositorio: %1$s</string>
+    <string name="failed_verify_repodata">Fallo al verificar los datos del repositorio: %1$s</string>
+    <string name="failed_decode_repodata">Fallo en la decodificación de los datos del repositorio: %1$s</string>
     <string name="repodata_timestamp_less">la marca del tiempo repodata es menor a el valor guardado</string>
     <string name="sig_verify_failed">la verificacion de firma(s) ha fallado</string>
     <string name="install_blocked">instalación bloqueada por el admin</string>
-    <string name="uninstall_blocked">desinstalación bloqueada por el admin</string>
+    <string name="uninstall_blocked">desinstalación bloqueada por el administrador</string>
     <string name="dynamic_color_desc">Tema la aplicación basada en la paleta de colores del sistema</string>
     <string name="update">Actualizar</string>
     <string name="network_error">Error de red: %1$s</string>
