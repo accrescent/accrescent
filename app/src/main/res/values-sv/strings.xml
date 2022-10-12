@@ -44,4 +44,9 @@
     <string name="version_code">Versionskod: %1$d</string>
     <string name="version_code_mismatch">förväntade versionskod %1$d, den faktiska är %2$d</string>
     <string name="base_apk_not_valid">base.apk är inte en giltig APK</string>
+    <string name="customization">Anpassning</string>
+    <string name="about">Om</string>
+    <string name="source_code">Källkod</string>
+    <string name="source_code_desc">Visa Accrescents källkod</string>
+    <string name="open_link">Öppna länk</string>
 </resources>
