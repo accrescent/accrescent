@@ -8,7 +8,6 @@
     <string name="uninstall">Disinstalla</string>
     <string name="update">Aggiorna</string>
     <string name="open">Apri</string>
-    <string name="unknown">\?\?\?</string>
     <string name="dynamic_color">Tema dinamico / Material You</string>
     <string name="dynamic_color_desc">Imposta il tema dell\'applicazione in base alla palette dei colori del sistema</string>
     <string name="swipe_refresh">Trascina verso il basso per aggiornare</string>

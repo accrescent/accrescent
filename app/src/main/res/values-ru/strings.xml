@@ -34,7 +34,6 @@
     <string name="sig_verify_failed">ошибка верификации подписи</string>
     <string name="update">Обновить</string>
     <string name="open">Открыть</string>
-    <string name="unknown">\?\?\?</string>
     <string name="uninstall_blocked">удаление заблокировано администратором</string>
     <string name="version_mismatch">ожидаемая версия %1$s, настоящая %2$s</string>
     <string name="repodata_timestamp_less">временная метка данных репозитория меньше сохраненного значения</string>

@@ -9,7 +9,6 @@
     <string name="uninstall">Avinstallera</string>
     <string name="update">Uppdatera</string>
     <string name="open">Öppna</string>
-    <string name="unknown">\?\?\?</string>
     <string name="dynamic_color">Dynamisk färg / Material You</string>
     <string name="dynamic_color_desc">Temasätt appen baserat på systemets färgpalett</string>
     <string name="failed_download_files">Det gick inte att ladda ner nödvändiga filer: %1$s</string>

@@ -39,7 +39,6 @@
     <string name="error_parsing_files">Kunne ikke tolke programfiler: %1$s</string>
     <string name="install">Installer</string>
     <string name="user_action_required">Brukerinnvirkning kreves</string>
-    <string name="unknown">\?\?\?</string>
     <string name="version_mismatch">Forventet versjon %1$s og har %2$s</string>
     <string name="no_app_signers">Fant ikke noen signaturer.
 \nForventet: %1$s</string>

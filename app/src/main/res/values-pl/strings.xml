@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="installed">Zainstalowano</string>
-    <string name="unknown">\?\?\?</string>
     <string name="dynamic_color">Dynamiczny kolor / Material You</string>
     <string name="settings">Ustawienia</string>
     <string name="update">Aktualizacja</string>

@@ -8,7 +8,6 @@
     <string name="uninstall">卸載</string>
     <string name="update">更新</string>
     <string name="open">打開</string>
-    <string name="unknown">\?\?\?</string>
     <string name="dynamic_color">動態色彩 / Material You</string>
     <string name="dynamic_color_desc">用 Material You 重畫 App</string>
     <string name="swipe_refresh">拉下刷新</string>

@@ -5,7 +5,6 @@
     <string name="settings">Instellingen</string>
     <string name="install">Installeer</string>
     <string name="uninstall">Verwijder</string>
-    <string name="unknown">\?\?\?</string>
     <string name="dynamic_color_desc">Thema van de applicatie is gebaseerd op het kleur palette van het systeem</string>
     <string name="up_to_date">Alle applicaties zijn bijgewerkt</string>
     <string name="user_action_required">Actie van de gebruiker vereist</string>

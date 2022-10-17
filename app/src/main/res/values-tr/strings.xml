@@ -8,7 +8,6 @@
     <string name="customization">Kişiselleştirme</string>
     <string name="dynamic_color">Dinamil renk / Material You</string>
     <string name="dynamic_color_desc">Sistemin renk paletine göre uygulama temasını değiştir</string>
-    <string name="unknown">\?\?\?</string>
     <string name="swipe_refresh">Yenilemek için aşağı kaydırın</string>
     <string name="no_apps_installed">Hiç uygulama yüklenmedi</string>
     <string name="failed_download_files">Gerekli dosyaları indirme başarısız oldu:%1$s</string>

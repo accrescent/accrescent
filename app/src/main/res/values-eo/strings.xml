@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="unknown">\?\?\?</string>
     <string name="about">Pri</string>
     <string name="source_code">Fontkodo</string>
     <string name="source_code_desc">Vidi la fontkodon de Accrescent</string>

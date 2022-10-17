@@ -9,7 +9,7 @@
     <string name="uninstall">Uninstall</string>
     <string name="update">Update</string>
     <string name="open">Open</string>
-    <string name="unknown">\?\?\?</string>
+    <string name="unknown" translatable="false">\?\?\?</string>
     <string name="customization">Customization</string>
     <string name="dynamic_color">Dynamic color / Material You</string>
     <string name="dynamic_color_desc">Theme the app based on the system color palette</string>
