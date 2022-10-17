@@ -45,6 +45,7 @@ android {
             "da",
             "de",
             "en",
+            "eo",
             "es",
             "fr",
             "it",
