@@ -114,9 +114,10 @@ android {
 }
 
 dependencies {
-    implementation("androidx.compose.material:material-icons-extended:1.3.0")
-    implementation("androidx.compose.material3:material3:1.0.0")
-    implementation("androidx.compose.ui:ui:1.3.0")
+    implementation(platform("androidx.compose:compose-bom:2022.10.00"))
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.ui:ui")
     implementation("androidx.datastore:datastore-preferences:1.0.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     implementation("androidx.hilt:hilt-work:1.0.0")
