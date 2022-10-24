@@ -115,6 +115,7 @@ android {
 
 dependencies {
     implementation(platform("androidx.compose:compose-bom:2022.10.00"))
+    implementation("androidx.compose.material:material")
     implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui")
@@ -128,7 +129,6 @@ dependencies {
     implementation("androidx.room:room-runtime:2.4.3")
     implementation("androidx.work:work-runtime-ktx:2.7.1")
     implementation("com.google.accompanist:accompanist-navigation-animation:0.25.1")
-    implementation("com.google.accompanist:accompanist-swiperefresh:0.25.1")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.25.1")
     implementation("com.google.android.material:material:1.7.0")
     implementation("com.google.dagger:hilt-android:2.44")
