@@ -129,7 +129,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-navigation-animation:0.25.1")
     implementation("com.google.accompanist:accompanist-swiperefresh:0.25.1")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.25.1")
-    implementation("com.google.android.material:material:1.6.1")
+    implementation("com.google.android.material:material:1.7.0")
     implementation("com.google.dagger:hilt-android:2.44")
     implementation("org.bouncycastle:bcprov-jdk18on:1.72")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
