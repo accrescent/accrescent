@@ -43,4 +43,9 @@
     <string name="no_app_signers">Die App ist nicht signiert.
 \nErwartet: %1$s</string>
     <string name="repodata_timestamp_less">Der Zeitstempel der Paketquelle ist geringer als der gespeicherte Wert</string>
+    <string name="customization">Personalisierung</string>
+    <string name="about">Über</string>
+    <string name="source_code">Quellcode</string>
+    <string name="source_code_desc">Accrescents Quellcode ansehen</string>
+    <string name="open_link">Link öffnen</string>
 </resources>
