@@ -131,7 +131,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-navigation-animation:0.27.0")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
     implementation("com.google.android.material:material:1.7.0")
-    implementation("com.google.dagger:hilt-android:2.44.1")
+    implementation("com.google.dagger:hilt-android:2.44.2")
     implementation("org.bouncycastle:bcprov-jdk18on:1.72")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
