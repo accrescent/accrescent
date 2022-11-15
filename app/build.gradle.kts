@@ -136,7 +136,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     kapt("androidx.room:room-compiler:2.4.3")
-    kapt("com.google.dagger:hilt-android-compiler:2.44.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.44.2")
 }
 
 kapt {
