@@ -1,12 +1,10 @@
 package app.accrescent.client.util
 
-import android.Manifest
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageInstaller
 import android.content.pm.PackageInstaller.SessionParams
-import android.content.pm.PackageManager
 import android.os.Build
 import android.os.UserManager
 import app.accrescent.client.R
@@ -28,9 +26,9 @@ class PackageManager @Inject constructor(
     private val apkDownloader: ApkDownloader,
     @IoDispatcher private val dispatcher: CoroutineDispatcher,
 ) {
-    suspend fun downloadAndInstall(appId: String) {
+    suspend fun downloadAndInstall(appId: String, requireUserAction: Boolean) {
         withContext(dispatcher) {
-            installApp(apkDownloader.downloadApp(appId))
+            installApp(apkDownloader.downloadApp(appId), requireUserAction)
         }
     }
 
@@ -52,9 +50,9 @@ class PackageManager @Inject constructor(
         context.packageManager.packageInstaller.uninstall(appId, pendingIntent.intentSender)
     }
 
-    private fun installApp(apks: List<File>) {
+    private fun installApp(apks: List<File>, requireUserAction: Boolean) {
         val um = context.getSystemService(UserManager::class.java)
-        val installBlockedByAdmin = if (isPrivileged()) {
+        val installBlockedByAdmin = if (context.isPrivileged()) {
             // We're in privileged mode, so check that installing apps is allowed since the OS
             // package manager won't check for us.
             um.hasUserRestriction(UserManager.DISALLOW_INSTALL_APPS)
@@ -74,7 +72,10 @@ class PackageManager @Inject constructor(
             ?: throw InvalidObjectException(context.getString(R.string.base_apk_not_valid))
 
         val sessionParams = SessionParams(SessionParams.MODE_FULL_INSTALL)
-        sessionParams.setRequireUserAction(SessionParams.USER_ACTION_NOT_REQUIRED)
+        when (requireUserAction) {
+            true -> sessionParams.setRequireUserAction(SessionParams.USER_ACTION_REQUIRED)
+            false -> sessionParams.setRequireUserAction(SessionParams.USER_ACTION_NOT_REQUIRED)
+        }
         sessionParams.setInstallLocation(pkgInfo.installLocation)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             sessionParams.setPackageSource(PackageInstaller.PACKAGE_SOURCE_STORE)
@@ -105,10 +106,5 @@ class PackageManager @Inject constructor(
         )
         session.commit(pendingIntent.intentSender)
         session.close()
-    }
-
-    private fun isPrivileged(): Boolean {
-        return context.checkSelfPermission(Manifest.permission.INSTALL_PACKAGES) ==
-                PackageManager.PERMISSION_GRANTED
     }
 }

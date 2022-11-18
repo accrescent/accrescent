@@ -26,9 +26,10 @@ fun InstallableAppCard(
     app: App,
     installStatus: InstallStatus,
     onClick: () -> Unit,
-    onInstallClicked: (String) -> Unit,
+    onInstallClicked: (String, requireUserAction: Boolean) -> Unit,
     onUninstallClicked: (String) -> Unit,
     onOpenClicked: (String) -> Unit,
+    requireUserAction: Boolean = false,
 ) {
     Card(
         Modifier
@@ -62,8 +63,8 @@ fun InstallableAppCard(
                     modifier = Modifier.padding(end = 16.dp, top = 12.dp, bottom = 12.dp),
                     onClick = {
                         when (installStatus) {
-                            InstallStatus.INSTALLABLE,
-                            InstallStatus.UPDATABLE -> onInstallClicked(app.id)
+                            InstallStatus.INSTALLABLE -> onInstallClicked(app.id, requireUserAction)
+                            InstallStatus.UPDATABLE -> onInstallClicked(app.id, false)
                             InstallStatus.INSTALLED -> onOpenClicked(app.id)
                             InstallStatus.LOADING,
                             InstallStatus.UNKNOWN -> Unit
