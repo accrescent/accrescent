@@ -22,12 +22,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import app.accrescent.client.R
 import app.accrescent.client.data.InstallStatus
+import app.accrescent.client.util.isPrivileged
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -38,8 +40,10 @@ fun AppListScreen(
     padding: PaddingValues,
     viewModel: AppListViewModel = viewModel(),
 ) {
+    val context = LocalContext.current
     val apps by viewModel.apps.collectAsState(emptyList())
     val installStatuses = viewModel.installStatuses
+    val requireUserAction by viewModel.requireUserAction.collectAsState(!context.isPrivileged())
 
     val refreshScope = rememberCoroutineScope()
     val state = rememberPullRefreshState(viewModel.isRefreshing, onRefresh = {
@@ -69,6 +73,7 @@ fun AppListScreen(
                         onInstallClicked = viewModel::installApp,
                         onUninstallClicked = viewModel::uninstallApp,
                         onOpenClicked = viewModel::openApp,
+                        requireUserAction = requireUserAction,
                     )
                 }
             }

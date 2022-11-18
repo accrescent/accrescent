@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.accrescent.client.R
 import app.accrescent.client.data.SOURCE_CODE_URL
+import app.accrescent.client.util.isPrivileged
 import kotlinx.coroutines.launch
 
 @Composable
@@ -36,12 +37,24 @@ fun SettingsScreen(padding: PaddingValues, viewModel: SettingsViewModel) {
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
     val dynamicColor by viewModel.dynamicColor.collectAsState(false)
+    val requireUserAction by viewModel.requireUserAction.collectAsState(!context.isPrivileged())
 
     Column(
         modifier = Modifier
             .padding(padding)
             .padding(horizontal = 32.dp)
     ) {
+        SettingGroupLabel(stringResource(R.string.app_updates))
+        Setting(
+            label = stringResource(R.string.require_user_action),
+            description = stringResource(R.string.require_user_action_desc),
+        ) {
+            Switch(
+                checked = requireUserAction,
+                onCheckedChange = { coroutineScope.launch { viewModel.setRequireUserAction(it) } },
+                enabled = context.isPrivileged(),
+            )
+        }
         SettingGroupLabel(stringResource(R.string.customization))
         Setting(
             label = stringResource(R.string.dynamic_color),

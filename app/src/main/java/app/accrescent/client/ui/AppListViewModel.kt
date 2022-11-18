@@ -11,6 +11,7 @@ import app.accrescent.client.Accrescent
 import app.accrescent.client.R
 import app.accrescent.client.data.AppInstallStatuses
 import app.accrescent.client.data.InstallStatus
+import app.accrescent.client.data.PreferencesManager
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.PackageManager
 import app.accrescent.client.util.UserRestrictionException
@@ -33,9 +34,11 @@ class AppListViewModel @Inject constructor(
     @ApplicationContext context: Context,
     private val repoDataRepository: RepoDataRepository,
     private val packageManager: PackageManager,
+    preferencesManager: PreferencesManager,
     appInstallStatuses: AppInstallStatuses,
 ) : AndroidViewModel(context as Application) {
     val apps = repoDataRepository.getApps()
+    val requireUserAction = preferencesManager.requireUserAction
 
     // Initialize install status for apps as they're added
     init {
@@ -92,14 +95,14 @@ class AppListViewModel @Inject constructor(
         }
     }
 
-    fun installApp(appId: String) {
+    fun installApp(appId: String, requireUserAction: Boolean) {
         viewModelScope.launch {
             error = null
 
             val context = getApplication<Accrescent>().applicationContext
 
             try {
-                packageManager.downloadAndInstall(appId)
+                packageManager.downloadAndInstall(appId, requireUserAction)
             } catch (e: ConnectException) {
                 error = context.getString(R.string.network_error, e.message)
             } catch (e: FileNotFoundException) {

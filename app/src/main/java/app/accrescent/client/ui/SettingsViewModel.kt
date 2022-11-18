@@ -9,7 +9,11 @@ import javax.inject.Inject
 class SettingsViewModel @Inject constructor(private val preferencesManager: PreferencesManager) :
     ViewModel() {
     val dynamicColor = preferencesManager.dynamicColor
+    val requireUserAction = preferencesManager.requireUserAction
 
     suspend fun setDynamicColor(dynamicColor: Boolean) =
         preferencesManager.setDynamicColor(dynamicColor)
+
+    suspend fun setRequireUserAction(requireUserAction: Boolean) =
+        preferencesManager.setRequireUserAction(requireUserAction)
 }
