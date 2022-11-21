@@ -19,7 +19,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -44,6 +47,8 @@ fun AppListScreen(
     val apps by viewModel.apps.collectAsState(emptyList())
     val installStatuses = viewModel.installStatuses
     val requireUserAction by viewModel.requireUserAction.collectAsState(!context.isPrivileged())
+
+    var uninstallConfirmDialogAppId: String? by remember { mutableStateOf(null) }
 
     val refreshScope = rememberCoroutineScope()
     val state = rememberPullRefreshState(viewModel.isRefreshing, onRefresh = {
@@ -71,7 +76,16 @@ fun AppListScreen(
                         installStatus = installStatuses[app.id] ?: InstallStatus.LOADING,
                         onClick = { navController.navigate("${Screen.AppDetails.route}/${app.id}") },
                         onInstallClicked = viewModel::installApp,
-                        onUninstallClicked = viewModel::uninstallApp,
+                        onUninstallClicked = {
+                            // When uninstalling in privileged mode, the OS doesn't create a
+                            // confirmation dialog. To prevent users from mistakenly deleting
+                            // important app data, create our own dialog in this case.
+                            if (context.isPrivileged()) {
+                                uninstallConfirmDialogAppId = app.id
+                            } else {
+                                viewModel.uninstallApp(app.id)
+                            }
+                        },
                         onOpenClicked = viewModel::openApp,
                         requireUserAction = requireUserAction,
                     )
@@ -92,6 +106,14 @@ fun AppListScreen(
             modifier = Modifier.align(Alignment.TopCenter),
             backgroundColor = MaterialTheme.colorScheme.secondaryContainer,
             contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+        )
+    }
+
+    if (uninstallConfirmDialogAppId != null) {
+        UninstallConfirmDialog(
+            appId = uninstallConfirmDialogAppId!!,
+            onDismiss = { uninstallConfirmDialogAppId = null },
+            onConfirm = { viewModel.uninstallApp(uninstallConfirmDialogAppId!!) }
         )
     }
 }
