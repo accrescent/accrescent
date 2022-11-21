@@ -15,11 +15,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import app.accrescent.client.BuildConfig
 import app.accrescent.client.R
 import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.db.App
+import app.accrescent.client.util.isPrivileged
 
 @Composable
 fun InstallableAppCard(
@@ -31,6 +34,8 @@ fun InstallableAppCard(
     onOpenClicked: (String) -> Unit,
     requireUserAction: Boolean = false,
 ) {
+    val context = LocalContext.current
+
     Card(
         Modifier
             .fillMaxWidth()
@@ -51,11 +56,14 @@ fun InstallableAppCard(
                 when (installStatus) {
                     InstallStatus.INSTALLED,
                     InstallStatus.UPDATABLE ->
-                        OutlinedButton(
-                            modifier = Modifier.padding(horizontal = 4.dp, vertical = 12.dp),
-                            onClick = { onUninstallClicked(app.id) },
-                        ) {
-                            Text(stringResource(R.string.uninstall))
+                        // We can't uninstall ourselves if we're a priv-app
+                        if (!(context.isPrivileged() && app.id == BuildConfig.APPLICATION_ID)) {
+                            OutlinedButton(
+                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 12.dp),
+                                onClick = { onUninstallClicked(app.id) },
+                            ) {
+                                Text(stringResource(R.string.uninstall))
+                            }
                         }
                     else -> Unit
                 }
