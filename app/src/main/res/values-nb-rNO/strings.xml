@@ -43,4 +43,15 @@
     <string name="no_app_signers">Fant ikke noen signaturer.
 \nForventet: %1$s</string>
     <string name="version_downgrade">Versjon %1$d er mindre enn minste tillatte (%2$d)</string>
+    <string name="yes">Ja</string>
+    <string name="uninstall_confirm">Avinstaller dette programmet\?</string>
+    <string name="no">Nei</string>
+    <string name="uninstall_confirm_desc">Programmet og all dets data vil bli fjernet fra enheten din.</string>
+    <string name="require_user_action">Installer påkrevd bekreftelse</string>
+    <string name="require_user_action_desc">Spør alltid om bekreftelse for å forhindre utilsiktet installasjon av programmer.</string>
+    <string name="source_code">Kildekode</string>
+    <string name="open_link">Åpne lenke</string>
+    <string name="customization">Tilpasning</string>
+    <string name="about">Om</string>
+    <string name="source_code_desc">Vis Accrescents kildekode</string>
 </resources>
