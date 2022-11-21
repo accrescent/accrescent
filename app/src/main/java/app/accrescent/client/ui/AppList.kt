@@ -37,21 +37,19 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun InstalledAppsScreen(
+fun AppList(
     navController: NavController,
     snackbarHostState: SnackbarHostState = SnackbarHostState(),
     padding: PaddingValues,
     viewModel: AppListViewModel = viewModel(),
+    filter: (installStatus: InstallStatus) -> Boolean = { true },
+    noFilterResultsText: String = "",
 ) {
     val context = LocalContext.current
     val apps by viewModel.apps.collectAsState(emptyList())
     val installStatuses = viewModel.installStatuses
-    val installedApps = apps.filter {
-        when (installStatuses[it.id]) {
-            InstallStatus.INSTALLED, InstallStatus.UPDATABLE -> true
-            else -> false
-        }
-    }
+    val filteredApps = apps.filter { filter(installStatuses[it.id] ?: InstallStatus.LOADING) }
+    val requireUserAction by viewModel.requireUserAction.collectAsState(!context.isPrivileged())
 
     var uninstallConfirmDialogAppId: String? by remember { mutableStateOf(null) }
 
@@ -69,16 +67,16 @@ fun InstalledAppsScreen(
             .pullRefresh(state)
     ) {
         val verticalArrangement =
-            if (apps.isEmpty() || installedApps.isEmpty()) Arrangement.Center else Arrangement.Top
+            if (apps.isEmpty() || filteredApps.isEmpty()) Arrangement.Center else Arrangement.Top
 
         LazyColumn(Modifier.fillMaxSize(), verticalArrangement = verticalArrangement) {
             if (apps.isEmpty()) {
                 item { CenteredText(stringResource(R.string.swipe_refresh)) }
-            } else if (installedApps.isEmpty()) {
-                item { CenteredText(stringResource(R.string.no_apps_installed)) }
+            } else if (filteredApps.isEmpty()) {
+                item { CenteredText(noFilterResultsText) }
             } else {
                 item { Spacer(Modifier.height(16.dp)) }
-                items(installedApps, key = { app -> app.id }) { app ->
+                items(filteredApps, key = { app -> app.id }) { app ->
                     InstallableAppCard(
                         app = app,
                         installStatus = installStatuses[app.id] ?: InstallStatus.LOADING,
@@ -95,6 +93,7 @@ fun InstalledAppsScreen(
                             }
                         },
                         onOpenClicked = viewModel::openApp,
+                        requireUserAction = requireUserAction,
                     )
                 }
             }
