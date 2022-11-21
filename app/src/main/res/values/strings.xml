@@ -51,4 +51,8 @@
     <string name="sig_verify_failed">signature verification failed</string>
     <string name="install_blocked">install blocked by admin</string>
     <string name="uninstall_blocked">uninstall blocked by admin</string>
+    <string name="uninstall_confirm">Uninstall this app?</string>
+    <string name="uninstall_confirm_desc">App will be removed from your device along with all of its data.</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

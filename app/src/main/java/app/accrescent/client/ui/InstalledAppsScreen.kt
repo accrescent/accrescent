@@ -19,15 +19,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import app.accrescent.client.R
 import app.accrescent.client.data.InstallStatus
+import app.accrescent.client.util.isPrivileged
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -38,6 +43,7 @@ fun InstalledAppsScreen(
     padding: PaddingValues,
     viewModel: AppListViewModel = viewModel(),
 ) {
+    val context = LocalContext.current
     val apps by viewModel.apps.collectAsState(emptyList())
     val installStatuses = viewModel.installStatuses
     val installedApps = apps.filter {
@@ -46,6 +52,8 @@ fun InstalledAppsScreen(
             else -> false
         }
     }
+
+    var uninstallConfirmDialogAppId: String? by remember { mutableStateOf(null) }
 
     val refreshScope = rememberCoroutineScope()
     val state = rememberPullRefreshState(viewModel.isRefreshing, onRefresh = {
@@ -76,7 +84,16 @@ fun InstalledAppsScreen(
                         installStatus = installStatuses[app.id] ?: InstallStatus.LOADING,
                         onClick = { navController.navigate("${Screen.AppDetails.route}/${app.id}") },
                         onInstallClicked = viewModel::installApp,
-                        onUninstallClicked = viewModel::uninstallApp,
+                        onUninstallClicked = {
+                            // When uninstalling in privileged mode, the OS doesn't create a
+                            // confirmation dialog. To prevent users from mistakenly deleting
+                            // important app data, create our own dialog in this case.
+                            if (context.isPrivileged()) {
+                                uninstallConfirmDialogAppId = app.id
+                            } else {
+                                viewModel.uninstallApp(app.id)
+                            }
+                        },
                         onOpenClicked = viewModel::openApp,
                     )
                 }
@@ -96,6 +113,14 @@ fun InstalledAppsScreen(
             modifier = Modifier.align(Alignment.TopCenter),
             backgroundColor = MaterialTheme.colorScheme.secondaryContainer,
             contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+        )
+    }
+
+    if (uninstallConfirmDialogAppId != null) {
+        UninstallConfirmDialog(
+            appId = uninstallConfirmDialogAppId!!,
+            onDismiss = { uninstallConfirmDialogAppId = null },
+            onConfirm = { viewModel.uninstallApp(uninstallConfirmDialogAppId!!) }
         )
     }
 }
