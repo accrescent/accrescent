@@ -9,16 +9,16 @@ import androidx.compose.ui.text.font.FontFamily
 import app.accrescent.client.R
 
 @Composable
-fun UninstallConfirmDialog(
+fun ActionConfirmDialog(
+    title: String,
+    description: String,
     onDismiss: () -> Unit,
     onConfirm: () -> Unit
 ) {
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(stringResource(R.string.uninstall_confirm)) },
-        text = {
-            Text(stringResource(R.string.uninstall_confirm_desc), fontFamily = FontFamily.Default)
-        },
+        title = { Text(title) },
+        text = { Text(description, fontFamily = FontFamily.Default) },
         confirmButton = {
             TextButton(
                 onClick = {

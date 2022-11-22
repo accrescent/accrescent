@@ -116,7 +116,9 @@ fun AppList(
     }
 
     if (uninstallConfirmDialogAppId != null) {
-        UninstallConfirmDialog(
+        ActionConfirmDialog(
+            title = stringResource(R.string.uninstall_confirm),
+            description = stringResource(R.string.uninstall_confirm_desc),
             onDismiss = { uninstallConfirmDialogAppId = null },
             onConfirm = { viewModel.uninstallApp(uninstallConfirmDialogAppId!!) }
         )
