@@ -24,6 +24,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -86,7 +88,9 @@ fun SettingsScreen(padding: PaddingValues, viewModel: SettingsViewModel) {
 fun SettingGroupLabel(text: String) {
     Text(
         text = text,
-        modifier = Modifier.padding(top = 16.dp),
+        modifier = Modifier
+            .semantics { heading() }
+            .padding(top = 16.dp),
         color = MaterialTheme.colorScheme.primary,
         style = MaterialTheme.typography.labelLarge,
     )
@@ -95,7 +99,9 @@ fun SettingGroupLabel(text: String) {
 @Composable
 fun Setting(label: String, description: String, content: @Composable () -> Unit) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .semantics(mergeDescendants = true) {}
+            .fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
