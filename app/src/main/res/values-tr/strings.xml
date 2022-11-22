@@ -48,4 +48,12 @@
     <string name="no_app_signers">uygulama imzalayan bulunamadı. 
 \nBeklenen: %1$s</string>
     <string name="version_code_mismatch">beklenen sürüm kodu %1$d, gerçekte olan %2$d</string>
+    <string name="require_user_action">Kurulum onay istemi</string>
+    <string name="uninstall_confirm">Bu uygulama kaldırılsın mı\?</string>
+    <string name="yes">Evet</string>
+    <string name="no">Hayır</string>
+    <string name="require_user_action_desc">Uygulamaların yanlışlıkla kurulmasını önlemek için her zaman onay iste</string>
+    <string name="install_confirm">Bu uygulama kurulsun mu\?</string>
+    <string name="install_confirm_desc">Bu uygulamayı aygıtınıza kurmak istediğinizden emin misiniz\?</string>
+    <string name="uninstall_confirm_desc">Uygulama, tüm verileriyle birlikte aygıtınızdan kaldırılacak.</string>
 </resources>
