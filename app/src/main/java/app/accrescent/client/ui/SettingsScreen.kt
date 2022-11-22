@@ -105,7 +105,7 @@ fun Setting(label: String, description: String, content: @Composable () -> Unit)
                 .padding(vertical = 16.dp)
         ) {
             Text(label, fontWeight = FontWeight.Bold)
-            Text(description, fontSize = 14.sp)
+            Text(description, style = MaterialTheme.typography.bodyMedium, lineHeight = 16.sp)
         }
         content()
     }

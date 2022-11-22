@@ -84,7 +84,6 @@ fun AccrescentTheme(
 
     MaterialTheme(
         colorScheme = colors,
-        typography = Typography,
         content = content
     )
 }

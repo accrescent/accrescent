@@ -21,6 +21,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.accrescent.client.R
@@ -60,25 +62,23 @@ fun AppDetails(id: String, name: String, versionName: String, versionCode: Long)
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(name, style = MaterialTheme.typography.headlineMedium)
+        Text(name, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.SemiBold)
         Column(Modifier.width(256.dp), verticalArrangement = Arrangement.Center) {
             Spacer(Modifier.height(16.dp))
             Text(
                 stringResource(R.string.version, versionName),
-                style = MaterialTheme.typography.bodyMedium
+                style = MaterialTheme.typography.titleSmall,
+                fontFamily = FontFamily.Monospace,
             )
             Text(
                 stringResource(R.string.version_code, versionCode),
-                style = MaterialTheme.typography.bodyMedium
+                style = MaterialTheme.typography.titleSmall,
+                fontFamily = FontFamily.Monospace,
             )
         }
     }
     Box(Modifier.fillMaxSize()) {
-        Text(
-            id,
-            Modifier.align(Alignment.BottomCenter),
-            style = MaterialTheme.typography.bodyLarge
-        )
+        Text(id, Modifier.align(Alignment.BottomCenter))
     }
 }
 
@@ -97,7 +97,7 @@ fun AppNotFoundError() {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 Text(
                     stringResource(R.string.cant_find_app),
-                    style = MaterialTheme.typography.headlineSmall
+                    fontWeight = FontWeight.Medium,
                 )
             }
         }

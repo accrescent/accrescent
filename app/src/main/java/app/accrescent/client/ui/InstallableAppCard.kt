@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import app.accrescent.client.BuildConfig
 import app.accrescent.client.R
@@ -50,7 +51,7 @@ fun InstallableAppCard(
             Text(
                 app.name,
                 modifier = Modifier.padding(start = 16.dp),
-                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Medium,
             )
             Row {
                 when (installStatus) {
