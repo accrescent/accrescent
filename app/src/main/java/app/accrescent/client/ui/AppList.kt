@@ -19,20 +19,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import app.accrescent.client.R
 import app.accrescent.client.data.InstallStatus
-import app.accrescent.client.util.isPrivileged
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -45,14 +40,9 @@ fun AppList(
     filter: (installStatus: InstallStatus) -> Boolean = { true },
     noFilterResultsText: String = "",
 ) {
-    val context = LocalContext.current
     val apps by viewModel.apps.collectAsState(emptyList())
     val installStatuses = viewModel.installStatuses
     val filteredApps = apps.filter { filter(installStatuses[it.id] ?: InstallStatus.LOADING) }
-    val requireUserAction by viewModel.requireUserAction.collectAsState(!context.isPrivileged())
-
-    var installConfirmDialogAppId: String? by remember { mutableStateOf(null) }
-    var uninstallConfirmDialogAppId: String? by remember { mutableStateOf(null) }
 
     val refreshScope = rememberCoroutineScope()
     val state = rememberPullRefreshState(viewModel.isRefreshing, onRefresh = {
@@ -78,34 +68,9 @@ fun AppList(
             } else {
                 item { Spacer(Modifier.height(16.dp)) }
                 items(filteredApps, key = { app -> app.id }) { app ->
-                    val installStatus = installStatuses[app.id] ?: InstallStatus.LOADING
-
-                    InstallableAppCard(
+                    AppCard(
                         app = app,
-                        installStatus = installStatus,
                         onClick = { navController.navigate("${Screen.AppDetails.route}/${app.id}") },
-                        onInstallClicked = {
-                            if (
-                                context.isPrivileged() &&
-                                installStatus == InstallStatus.INSTALLABLE &&
-                                requireUserAction
-                            ) {
-                                installConfirmDialogAppId = app.id
-                            } else {
-                                viewModel.installApp(app.id)
-                            }
-                        },
-                        onUninstallClicked = {
-                            // When uninstalling in privileged mode, the OS doesn't create a
-                            // confirmation dialog. To prevent users from mistakenly deleting
-                            // important app data, create our own dialog in this case.
-                            if (context.isPrivileged()) {
-                                uninstallConfirmDialogAppId = app.id
-                            } else {
-                                viewModel.uninstallApp(app.id)
-                            }
-                        },
-                        onOpenClicked = { viewModel.openApp(app.id) },
                     )
                 }
             }
@@ -124,23 +89,6 @@ fun AppList(
             modifier = Modifier.align(Alignment.TopCenter),
             backgroundColor = MaterialTheme.colorScheme.secondaryContainer,
             contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-        )
-    }
-
-    if (installConfirmDialogAppId != null) {
-        ActionConfirmDialog(
-            title = stringResource(R.string.install_confirm),
-            description = stringResource(R.string.install_confirm_desc),
-            onDismiss = { installConfirmDialogAppId = null },
-            onConfirm = { viewModel.installApp(installConfirmDialogAppId!!) }
-        )
-    }
-    if (uninstallConfirmDialogAppId != null) {
-        ActionConfirmDialog(
-            title = stringResource(R.string.uninstall_confirm),
-            description = stringResource(R.string.uninstall_confirm_desc),
-            onDismiss = { uninstallConfirmDialogAppId = null },
-            onConfirm = { viewModel.uninstallApp(uninstallConfirmDialogAppId!!) }
         )
     }
 }
