@@ -81,7 +81,7 @@ fun AppList(
                         app = app,
                         installStatus = installStatuses[app.id] ?: InstallStatus.LOADING,
                         onClick = { navController.navigate("${Screen.AppDetails.route}/${app.id}") },
-                        onInstallClicked = viewModel::installApp,
+                        onInstallClicked = { viewModel.installApp(app.id, requireUserAction) },
                         onUninstallClicked = {
                             // When uninstalling in privileged mode, the OS doesn't create a
                             // confirmation dialog. To prevent users from mistakenly deleting
@@ -92,8 +92,7 @@ fun AppList(
                                 viewModel.uninstallApp(app.id)
                             }
                         },
-                        onOpenClicked = viewModel::openApp,
-                        requireUserAction = requireUserAction,
+                        onOpenClicked = { viewModel.openApp(app.id) },
                     )
                 }
             }

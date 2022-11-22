@@ -30,10 +30,9 @@ fun InstallableAppCard(
     app: App,
     installStatus: InstallStatus,
     onClick: () -> Unit,
-    onInstallClicked: (String, requireUserAction: Boolean) -> Unit,
-    onUninstallClicked: (String) -> Unit,
-    onOpenClicked: (String) -> Unit,
-    requireUserAction: Boolean = false,
+    onInstallClicked: () -> Unit,
+    onUninstallClicked: () -> Unit,
+    onOpenClicked: () -> Unit,
 ) {
     val context = LocalContext.current
 
@@ -61,7 +60,7 @@ fun InstallableAppCard(
                         if (!(context.isPrivileged() && app.id == BuildConfig.APPLICATION_ID)) {
                             OutlinedButton(
                                 modifier = Modifier.padding(horizontal = 4.dp, vertical = 12.dp),
-                                onClick = { onUninstallClicked(app.id) },
+                                onClick = { onUninstallClicked() },
                             ) {
                                 Text(stringResource(R.string.uninstall))
                             }
@@ -72,9 +71,9 @@ fun InstallableAppCard(
                     modifier = Modifier.padding(end = 16.dp, top = 12.dp, bottom = 12.dp),
                     onClick = {
                         when (installStatus) {
-                            InstallStatus.INSTALLABLE -> onInstallClicked(app.id, requireUserAction)
-                            InstallStatus.UPDATABLE -> onInstallClicked(app.id, false)
-                            InstallStatus.INSTALLED -> onOpenClicked(app.id)
+                            InstallStatus.INSTALLABLE,
+                            InstallStatus.UPDATABLE -> onInstallClicked()
+                            InstallStatus.INSTALLED -> onOpenClicked()
                             InstallStatus.LOADING,
                             InstallStatus.UNKNOWN -> Unit
                         }
