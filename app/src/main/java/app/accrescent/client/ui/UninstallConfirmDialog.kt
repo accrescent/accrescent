@@ -10,9 +10,8 @@ import app.accrescent.client.R
 
 @Composable
 fun UninstallConfirmDialog(
-    appId: String,
     onDismiss: () -> Unit,
-    onConfirm: (appId: String) -> Unit
+    onConfirm: () -> Unit
 ) {
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -23,7 +22,7 @@ fun UninstallConfirmDialog(
         confirmButton = {
             TextButton(
                 onClick = {
-                    onConfirm(appId)
+                    onConfirm()
                     onDismiss()
                 },
                 content = { Text(stringResource(R.string.yes)) },
