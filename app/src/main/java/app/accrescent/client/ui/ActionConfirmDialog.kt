@@ -5,7 +5,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
 import app.accrescent.client.R
 
 @Composable
@@ -18,7 +17,7 @@ fun ActionConfirmDialog(
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(title) },
-        text = { Text(description, fontFamily = FontFamily.Default) },
+        text = { Text(description) },
         confirmButton = {
             TextButton(
                 onClick = {
