@@ -26,9 +26,9 @@ class PackageManager @Inject constructor(
     private val apkDownloader: ApkDownloader,
     @IoDispatcher private val dispatcher: CoroutineDispatcher,
 ) {
-    suspend fun downloadAndInstall(appId: String, requireUserAction: Boolean) {
+    suspend fun downloadAndInstall(appId: String) {
         withContext(dispatcher) {
-            installApp(apkDownloader.downloadApp(appId), requireUserAction)
+            installApp(apkDownloader.downloadApp(appId))
         }
     }
 
@@ -50,7 +50,7 @@ class PackageManager @Inject constructor(
         context.packageManager.packageInstaller.uninstall(appId, pendingIntent.intentSender)
     }
 
-    private fun installApp(apks: List<File>, requireUserAction: Boolean) {
+    private fun installApp(apks: List<File>) {
         val um = context.getSystemService(UserManager::class.java)
         val installBlockedByAdmin = if (context.isPrivileged()) {
             // We're in privileged mode, so check that installing apps is allowed since the OS
@@ -72,10 +72,7 @@ class PackageManager @Inject constructor(
             ?: throw InvalidObjectException(context.getString(R.string.base_apk_not_valid))
 
         val sessionParams = SessionParams(SessionParams.MODE_FULL_INSTALL)
-        when (requireUserAction) {
-            true -> sessionParams.setRequireUserAction(SessionParams.USER_ACTION_REQUIRED)
-            false -> sessionParams.setRequireUserAction(SessionParams.USER_ACTION_NOT_REQUIRED)
-        }
+        sessionParams.setRequireUserAction(SessionParams.USER_ACTION_NOT_REQUIRED)
         sessionParams.setInstallLocation(pkgInfo.installLocation)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             sessionParams.setPackageSource(PackageInstaller.PACKAGE_SOURCE_STORE)

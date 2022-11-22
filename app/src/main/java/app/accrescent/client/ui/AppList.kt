@@ -51,6 +51,7 @@ fun AppList(
     val filteredApps = apps.filter { filter(installStatuses[it.id] ?: InstallStatus.LOADING) }
     val requireUserAction by viewModel.requireUserAction.collectAsState(!context.isPrivileged())
 
+    var installConfirmDialogAppId: String? by remember { mutableStateOf(null) }
     var uninstallConfirmDialogAppId: String? by remember { mutableStateOf(null) }
 
     val refreshScope = rememberCoroutineScope()
@@ -77,11 +78,23 @@ fun AppList(
             } else {
                 item { Spacer(Modifier.height(16.dp)) }
                 items(filteredApps, key = { app -> app.id }) { app ->
+                    val installStatus = installStatuses[app.id] ?: InstallStatus.LOADING
+
                     InstallableAppCard(
                         app = app,
-                        installStatus = installStatuses[app.id] ?: InstallStatus.LOADING,
+                        installStatus = installStatus,
                         onClick = { navController.navigate("${Screen.AppDetails.route}/${app.id}") },
-                        onInstallClicked = { viewModel.installApp(app.id, requireUserAction) },
+                        onInstallClicked = {
+                            if (
+                                context.isPrivileged() &&
+                                installStatus == InstallStatus.INSTALLABLE &&
+                                requireUserAction
+                            ) {
+                                installConfirmDialogAppId = app.id
+                            } else {
+                                viewModel.installApp(app.id)
+                            }
+                        },
                         onUninstallClicked = {
                             // When uninstalling in privileged mode, the OS doesn't create a
                             // confirmation dialog. To prevent users from mistakenly deleting
@@ -114,6 +127,14 @@ fun AppList(
         )
     }
 
+    if (installConfirmDialogAppId != null) {
+        ActionConfirmDialog(
+            title = stringResource(R.string.install_confirm),
+            description = stringResource(R.string.install_confirm_desc),
+            onDismiss = { installConfirmDialogAppId = null },
+            onConfirm = { viewModel.installApp(installConfirmDialogAppId!!) }
+        )
+    }
     if (uninstallConfirmDialogAppId != null) {
         ActionConfirmDialog(
             title = stringResource(R.string.uninstall_confirm),

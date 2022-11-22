@@ -27,7 +27,7 @@ class AutoUpdateWorker @AssistedInject constructor(
                     repoDataRepository
                         .getAppRepoData(it.packageName)
                         .versionCode > it.longVersionCode
-                }.forEach { packageManager.downloadAndInstall(it.packageName, false) }
+                }.forEach { packageManager.downloadAndInstall(it.packageName) }
         } catch (e: Exception) {
             return Result.failure()
         }

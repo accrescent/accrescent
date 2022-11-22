@@ -95,14 +95,14 @@ class AppListViewModel @Inject constructor(
         }
     }
 
-    fun installApp(appId: String, requireUserAction: Boolean) {
+    fun installApp(appId: String) {
         viewModelScope.launch {
             error = null
 
             val context = getApplication<Accrescent>().applicationContext
 
             try {
-                packageManager.downloadAndInstall(appId, requireUserAction)
+                packageManager.downloadAndInstall(appId)
             } catch (e: ConnectException) {
                 error = context.getString(R.string.network_error, e.message)
             } catch (e: FileNotFoundException) {
