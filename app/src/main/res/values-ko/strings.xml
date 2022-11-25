@@ -48,4 +48,12 @@
     <string name="customization">사용자화</string>
     <string name="source_code_desc">Accrescent의 소스 코드 보기</string>
     <string name="open_link">링크 열기</string>
+    <string name="require_user_action_desc">실수로 앱을 설치하는 것을 방지하기 위해 항상 확인 메시지 표시</string>
+    <string name="uninstall_confirm">이 앱을 제거하겠습니까\?</string>
+    <string name="no">아니오</string>
+    <string name="install_confirm_desc">기기에 이 앱을 설치하겠습니까\?</string>
+    <string name="yes">예</string>
+    <string name="require_user_action">설치 확인 프롬프트</string>
+    <string name="install_confirm">이 앱을 설치하겠습니까\?</string>
+    <string name="uninstall_confirm_desc">모든 데이터와 함께 앱이 기기에서 제거됩니다.</string>
 </resources>
