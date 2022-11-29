@@ -129,7 +129,7 @@ dependencies {
     implementation("androidx.room:room-runtime:2.4.3")
     implementation("androidx.work:work-runtime-ktx:2.7.1")
     implementation("com.google.accompanist:accompanist-navigation-animation:0.27.1")
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.27.1")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.28.0")
     implementation("com.google.android.material:material:1.7.0")
     implementation("com.google.dagger:hilt-android:2.44.2")
     implementation("org.bouncycastle:bcprov-jdk18on:1.72")
