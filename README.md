@@ -16,11 +16,7 @@ A novel Android app store focused on security, privacy, and usability.
 
 </div>
 
-**Note: Accrescent is not yet ready for production usage. Consider all software
-and services run by this organization as in a "pre-alpha" stage and fit only for
-development and preliminary testing. The apps Accrescent contains are there only
-for testing purposes and will be removed (except for Accrescent itself) when
-Accrescent enters public alpha.**
+Currently in early alpha.
 
 ## About
 
