@@ -1,2 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="about">Tentang</string>
+    <string name="settings">Pengaturan</string>
+    <string name="open_link">Buka tautan</string>
+    <string name="network_error">Kesalahan jaringan: %1$s</string>
+    <string name="device_density_unsupported">kepadatan layar perangkatmu tidak didukung</string>
+    <string name="failed_verify_repodata">Gagal memverifikasi repodata: %1$s</string>
+    <string name="app_doesnt_support_device">Aplikasi tidak mendukung perangkatmu: %1$s</string>
+    <string name="sig_verify_failed">verifikasi signature gagal</string>
+    <string name="require_user_action_desc">Selalu perlukan konfirmasi untuk menghindari pemasangan aplikasi yang tidak disengaja</string>
+    <string name="install_confirm">Pasang aplikasi ini\?</string>
+    <string name="uninstall_confirm_desc">Aplikasi dan seluruh datanya akan dihapus dari perangkatmu.</string>
+    <string name="install_confirm_desc">Apakah kamu yakin ingin memasang aplikasi ini di perangkatmu\?</string>
+    <string name="app_list">Aplikasi</string>
+    <string name="installed">Terpasang</string>
+    <string name="app_updates">Pembaruan</string>
+    <string name="install">Pasang</string>
+    <string name="uninstall">Hapus pemasangan</string>
+    <string name="update">Perbarui</string>
+    <string name="open">Buka</string>
+    <string name="dynamic_color_desc">Atur tema aplikasi ini berdasarkan palet warna sistem</string>
+    <string name="source_code">Kode sumber</string>
+    <string name="source_code_desc">Lihat kode sumber Accrescent</string>
+    <string name="swipe_refresh">Tarik ke bawah untuk memuat ulang</string>
+    <string name="no_apps_installed">Tak ada aplikasi yang terpasang</string>
+    <string name="up_to_date">Semua aplikasi sudah mutakhir</string>
+    <string name="user_action_required">Tindakan pengguna diperlukan</string>
+    <string name="cant_find_app">Maaf, kami tidak dapat menemukan aplikasi tersebut</string>
+    <string name="couldnt_open_app">Tidak dapat membuka aplikasi</string>
+    <string name="app_verification_failed">Verifikasi aplikasi gagal: %1$s</string>
+    <string name="failed_download_files">Gagal mengunduh berkas yang diperlukan: %1$s</string>
+    <string name="failed_download_repodata">Gagal mengunduh repodata: %1$s</string>
+    <string name="failed_decode_repodata">Gagal membaca repodata: %1$s</string>
+    <string name="error_parsing_files">Gagal menguraikan berkas aplikasi: %1$s</string>
+    <string name="unknown_host_error">Kesalahan host tidak dikenal: %1$s</string>
+    <string name="user_restriction">Kesalahan pembatasan pengguna: %1$s</string>
+    <string name="version">Versi: %1$s</string>
+    <string name="version_code">Kode versi: %1$d</string>
+    <string name="device_abi_unsupported">architecture perangkatmu tidak didukung</string>
+    <string name="customization">Kustomisasi</string>
+    <string name="version_downgrade">versi %1$d di bawah minimum %2$d</string>
+    <string name="app_id_mismatch">ID aplikasi %1$s tidak cocok dengan ID %2$s yang diharapkan</string>
+    <string name="base_apk_not_valid">base.apk bukan sebuah APK yang sah</string>
+    <string name="require_user_action">Perlukan konfirmasi sebelum pemasangan</string>
+    <string name="install_blocked">pemasangan diblokir oleh admin</string>
+    <string name="uninstall_blocked">penghapusan pemasangan diblokir oleh admin</string>
+    <string name="uninstall_confirm">Hapus pemasangan aplikasi ini\?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+</resources>
