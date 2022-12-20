@@ -12,7 +12,6 @@ import app.accrescent.client.R
 import app.accrescent.client.data.AppInstallStatuses
 import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.RepoDataRepository
-import app.accrescent.client.util.PackageManager
 import app.accrescent.client.util.getPackageInstallStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -30,7 +29,6 @@ import javax.inject.Inject
 class AppListViewModel @Inject constructor(
     @ApplicationContext context: Context,
     private val repoDataRepository: RepoDataRepository,
-    private val packageManager: PackageManager,
     appInstallStatuses: AppInstallStatuses,
 ) : AndroidViewModel(context as Application) {
     val apps = repoDataRepository.getApps()
