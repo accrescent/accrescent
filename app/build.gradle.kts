@@ -48,6 +48,7 @@ android {
             "eo",
             "es",
             "fr",
+            "in",
             "it",
             "ko",
             "nb-rNO",
