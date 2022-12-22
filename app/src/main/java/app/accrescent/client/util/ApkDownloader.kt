@@ -11,6 +11,10 @@ import app.accrescent.client.R
 import app.accrescent.client.data.REPOSITORY_URL
 import app.accrescent.client.data.RepoDataRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InvalidObjectException
@@ -40,12 +44,87 @@ class ApkDownloader @Inject constructor(
         val downloadDir = File("${context.cacheDir.absolutePath}/apps/$appId/$version")
         val baseDownloadUri = "$REPOSITORY_URL/apps/$appId/$version"
         downloadDir.mkdirs()
-        val baseApk = File(downloadDir.absolutePath, "base.apk")
-        downloadToFile("$baseDownloadUri/base.apk", baseApk)
 
+        var abiSplit: String? = null
+        var densitySplit: String? = null
+        var langSplit: String? = null
+
+        // Get ABI split name if applicable
+        if (appInfo.abiSplits.isNotEmpty()) {
+            for (abi in Build.SUPPORTED_ABIS) {
+                if (appInfo.abiSplits.contains(abi)) {
+                    Log.d(TAG, "Preferred ABI: $abi")
+                    abiSplit = "split.$abi.apk"
+                    break
+                }
+            }
+            if (abiSplit == null) {
+                throw NoSuchElementException(context.getString(R.string.device_abi_unsupported))
+            }
+        }
+
+        // Get density split name if applicable
+        if (appInfo.densitySplits.isNotEmpty()) {
+            val screenDensity = context.resources.displayMetrics.densityDpi
+            val densityClass = when {
+                screenDensity <= DisplayMetrics.DENSITY_LOW -> "ldpi"
+                screenDensity <= DisplayMetrics.DENSITY_MEDIUM -> "mdpi"
+                screenDensity <= DisplayMetrics.DENSITY_TV -> "tvdpi"
+                screenDensity <= DisplayMetrics.DENSITY_HIGH -> "hdpi"
+                screenDensity <= DisplayMetrics.DENSITY_XHIGH -> "xhdpi"
+                screenDensity <= DisplayMetrics.DENSITY_XXHIGH -> "xxhdpi"
+                else -> "xxxhdpi"
+            }
+            if (appInfo.densitySplits.contains(densityClass)) {
+                Log.d(TAG, "Preferred screen density: $densityClass")
+                densitySplit = "split.$densityClass.apk"
+            } else {
+                throw NoSuchElementException(context.getString(R.string.device_density_unsupported))
+            }
+        }
+
+        // Opportunistically get device language split name at time of install if applicable
+        if (appInfo.langSplits.isNotEmpty()) {
+            val deviceLang = Resources.getSystem().configuration.locales[0].language
+            if (appInfo.langSplits.contains(deviceLang)) {
+                Log.d(TAG, "Preferred language: $deviceLang")
+                langSplit = "split.$deviceLang.apk"
+            } else {
+                Log.d(TAG, "Preferred language APK not available, using default app language")
+            }
+        }
+
+        // Download APKs
+        val apkFileNames = mutableListOf<String>()
+        apkFileNames.add("base.apk")
+        abiSplit?.let { apkFileNames.add(it) }
+        densitySplit?.let { apkFileNames.add(it) }
+        langSplit?.let { apkFileNames.add(it) }
+
+        val apks = mutableListOf<File>()
+
+        coroutineScope {
+            withContext(coroutineContext) {
+                apkFileNames.forEach {
+                    launch(Dispatchers.IO) {
+                        val file = File(downloadDir.absolutePath, it)
+                        downloadToFile("$baseDownloadUri/$it", file)
+                        // Ensure the base APK is the first element. The rest of this method and
+                        // PackageManager.installApp() both expect this.
+                        if (it == "base.apk") {
+                            apks.add(0, file)
+                        } else {
+                            apks.add(file)
+                        }
+                    }
+                }
+            }
+        }
+
+        // Verify package info is as expected
         val packageInfo = context
             .packageManager
-            .getPackageArchiveInfoCompat(baseApk.absolutePath, 0)
+            .getPackageArchiveInfoCompat(apks[0].absolutePath, 0)
             ?: throw InvalidObjectException(context.getString(R.string.base_apk_not_valid))
         val packageName = packageInfo.packageName
         if (packageName != appId) {
@@ -67,88 +146,37 @@ class ApkDownloader @Inject constructor(
             )
         }
 
+        // Verify signers
         val requiredSigners = repoDataRepository.getAppSigners(appId)
         if (requiredSigners.isEmpty()) {
             throw IllegalStateException(context.getString(R.string.no_app_signers, requiredSigners))
-        } else if (!verifySigners(baseApk, requiredSigners)) {
+        } else if (!verifySigners(apks[0], requiredSigners)) {
             val msg = context.getString(R.string.app_signer_mismatch, requiredSigners)
             throw GeneralSecurityException(msg)
-        }
-
-        val apks = mutableListOf<File>()
-        apks += baseApk
-
-        if (appInfo.abiSplits.isNotEmpty()) {
-            var abiSupported = false
-            for (abi in Build.SUPPORTED_ABIS) {
-                if (appInfo.abiSplits.contains(abi)) {
-                    Log.d(TAG, "Preferred ABI: $abi")
-                    val abiSplit = File(downloadDir.absolutePath, "split.$abi.apk")
-                    downloadToFile("$baseDownloadUri/split.$abi.apk", abiSplit)
-                    apks += abiSplit
-                    abiSupported = true
-                    break
-                }
-            }
-            if (!abiSupported) {
-                throw NoSuchElementException(context.getString(R.string.device_abi_unsupported))
-            }
-        }
-
-        if (appInfo.densitySplits.isNotEmpty()) {
-            val screenDensity = context.resources.displayMetrics.densityDpi
-            val densityClass = when {
-                screenDensity <= DisplayMetrics.DENSITY_LOW -> "ldpi"
-                screenDensity <= DisplayMetrics.DENSITY_MEDIUM -> "mdpi"
-                screenDensity <= DisplayMetrics.DENSITY_TV -> "tvdpi"
-                screenDensity <= DisplayMetrics.DENSITY_HIGH -> "hdpi"
-                screenDensity <= DisplayMetrics.DENSITY_XHIGH -> "xhdpi"
-                screenDensity <= DisplayMetrics.DENSITY_XXHIGH -> "xxhdpi"
-                else -> "xxxhdpi"
-            }
-            if (appInfo.densitySplits.contains(densityClass)) {
-                Log.d(TAG, "Preferred screen density: $densityClass")
-                val densitySplit = File(downloadDir.absolutePath, "split.$densityClass.apk")
-                downloadToFile("$baseDownloadUri/split.$densityClass.apk", densitySplit)
-                apks += densitySplit
-            } else {
-                throw NoSuchElementException(context.getString(R.string.device_density_unsupported))
-            }
-        }
-
-        // Opportunistically install the split for the device language at time of install
-        if (appInfo.langSplits.isNotEmpty()) {
-            val deviceLang = Resources.getSystem().configuration.locales[0].language
-            if (appInfo.langSplits.contains(deviceLang)) {
-                Log.d(TAG, "Preferred language: $deviceLang")
-                val langSplit = File(downloadDir.absolutePath, "split.$deviceLang.apk")
-                downloadToFile("$baseDownloadUri/split.$deviceLang.apk", langSplit)
-                apks += langSplit
-            } else {
-                Log.d(TAG, "Preferred language APK not available, using default app language")
-            }
         }
 
         return apks
     }
 
-    private fun downloadToFile(uri: String, file: File) {
-        val connection = URL(uri).openConnection() as HttpsURLConnection
+    private suspend fun downloadToFile(uri: String, file: File) {
+        return withContext(Dispatchers.IO) {
+            val connection = URL(uri).openConnection() as HttpsURLConnection
 
-        connection.connect()
+            connection.connect()
 
-        val data = connection.inputStream
-        val buf = ByteArray(DEFAULT_BUFFER_SIZE)
-        val outFile = FileOutputStream(file, false)
+            val data = connection.inputStream
+            val buf = ByteArray(DEFAULT_BUFFER_SIZE)
+            val outFile = FileOutputStream(file, false)
 
-        var bytes = data.read(buf)
-        while (bytes >= 0) {
-            outFile.write(buf, 0, bytes)
-            bytes = data.read(buf)
+            var bytes = data.read(buf)
+            while (bytes >= 0) {
+                outFile.write(buf, 0, bytes)
+                bytes = data.read(buf)
+            }
+
+            outFile.close()
+            connection.disconnect()
         }
-
-        outFile.close()
-        connection.disconnect()
     }
 
     private fun verifySigners(apk: File, requiredSigners: List<String>): Boolean {
