@@ -109,9 +109,9 @@ class ApkDownloader @Inject constructor(
         val downloadProgress = DownloadProgress(0, 0)
 
         coroutineScope {
-            withContext(coroutineContext) {
+            withContext(Dispatchers.IO) {
                 apkFileNames.forEach {
-                    launch(Dispatchers.IO) {
+                    launch {
                         val file = File(downloadDir.absolutePath, it)
                         downloadToFile(
                             "$baseDownloadUri/$it",
