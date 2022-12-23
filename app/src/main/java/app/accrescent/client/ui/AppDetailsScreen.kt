@@ -186,6 +186,7 @@ fun AppDetails(
                         InstallStatus.UNKNOWN -> Unit
                     }
                 },
+                enabled = downloadProgress.value == null,
             ) {
                 when (installStatus) {
                     InstallStatus.INSTALLABLE ->
