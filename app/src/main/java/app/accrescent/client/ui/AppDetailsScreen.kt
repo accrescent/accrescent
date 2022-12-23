@@ -21,6 +21,7 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -36,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.accrescent.client.BuildConfig
 import app.accrescent.client.R
+import app.accrescent.client.data.DownloadProgress
 import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.util.isPrivileged
 
@@ -85,6 +87,7 @@ fun AppDetailsScreen(
                 }
             },
             onOpenClicked = { viewModel.openApp(viewModel.uiState.appId) },
+            downloadProgress = viewModel.uiState.downloadProgress,
         )
         else -> AppNotFoundError()
     }
@@ -124,6 +127,7 @@ fun AppDetails(
     onInstallClicked: () -> Unit,
     onUninstallClicked: () -> Unit,
     onOpenClicked: () -> Unit,
+    downloadProgress: State<DownloadProgress?> = mutableStateOf(null),
 ) {
     val context = LocalContext.current
 
@@ -202,8 +206,23 @@ fun AppDetails(
             }
         }
     }
+
     Box(Modifier.fillMaxSize()) {
-        Text(id, Modifier.align(Alignment.BottomCenter))
+        Column(
+            modifier = Modifier.align(Alignment.BottomCenter),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            if (downloadProgress.value != null) {
+                val part = downloadProgress.value!!.part.toFloat()
+                val total = downloadProgress.value!!.total.toFloat()
+                CircularProgressIndicator(
+                    modifier = Modifier.size(96.dp),
+                    progress = part / total,
+                )
+            }
+
+            Text(id, Modifier.padding(top = 48.dp))
+        }
     }
 }
 

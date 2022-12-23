@@ -8,6 +8,7 @@ import android.os.Build
 import android.util.DisplayMetrics
 import android.util.Log
 import app.accrescent.client.R
+import app.accrescent.client.data.DownloadProgress
 import app.accrescent.client.data.REPOSITORY_URL
 import app.accrescent.client.data.RepoDataRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -30,7 +31,10 @@ class ApkDownloader @Inject constructor(
     @ApplicationContext private val context: Context,
     private val repoDataRepository: RepoDataRepository,
 ) {
-    suspend fun downloadApp(appId: String): List<File> {
+    suspend fun downloadApp(
+        appId: String,
+        onProgressUpdate: (DownloadProgress) -> Unit
+    ): List<File> {
         Log.i(TAG, "Downloading app $appId")
         val appInfo = repoDataRepository.getAppRepoData(appId)
 
@@ -102,13 +106,19 @@ class ApkDownloader @Inject constructor(
         langSplit?.let { apkFileNames.add(it) }
 
         val apks = mutableListOf<File>()
+        val downloadProgress = DownloadProgress(0, 0)
 
         coroutineScope {
             withContext(coroutineContext) {
                 apkFileNames.forEach {
                     launch(Dispatchers.IO) {
                         val file = File(downloadDir.absolutePath, it)
-                        downloadToFile("$baseDownloadUri/$it", file)
+                        downloadToFile(
+                            "$baseDownloadUri/$it",
+                            file,
+                            onProgressUpdate,
+                            downloadProgress,
+                        )
                         // Ensure the base APK is the first element. The rest of this method and
                         // PackageManager.installApp() both expect this.
                         if (it == "base.apk") {
@@ -158,9 +168,16 @@ class ApkDownloader @Inject constructor(
         return apks
     }
 
-    private suspend fun downloadToFile(uri: String, file: File) {
+    private suspend fun downloadToFile(
+        uri: String,
+        file: File,
+        onProgressUpdate: (DownloadProgress) -> Unit,
+        totalDownloadProgress: DownloadProgress,
+    ) {
         return withContext(Dispatchers.IO) {
             val connection = URL(uri).openConnection() as HttpsURLConnection
+            val size = connection.getHeaderField("Content-length").toLongOrNull() ?: 0
+            totalDownloadProgress.total += size
 
             connection.connect()
 
@@ -168,10 +185,15 @@ class ApkDownloader @Inject constructor(
             val buf = ByteArray(DEFAULT_BUFFER_SIZE)
             val outFile = FileOutputStream(file, false)
 
+            var totalBytesRead: Long = 0
             var bytes = data.read(buf)
             while (bytes >= 0) {
                 outFile.write(buf, 0, bytes)
                 bytes = data.read(buf)
+                totalBytesRead += bytes
+
+                totalDownloadProgress.part += bytes
+                onProgressUpdate(totalDownloadProgress)
             }
 
             outFile.close()
