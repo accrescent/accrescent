@@ -48,4 +48,12 @@
     <string name="uninstall_confirm">Hapus pemasangan aplikasi ini\?</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
+    <string name="dynamic_color">Warna dinamis / Material Anda</string>
+    <string name="app_signer_mismatch">aplikasi tidak ditandatangani oleh penandatangan yang diperlukan.
+\nDiharapkan: %1$s</string>
+    <string name="no_app_signers">tidak ada penandatangan aplikasi yang ditemukan.
+\nDiharapkan: %1$s</string>
+    <string name="version_mismatch">versi yang diharapkan %1$s, yang sebenarnya adalah %2$s</string>
+    <string name="version_code_mismatch">kode versi yang diharapkan %1$d, yang sebenarnya adalah %2$d</string>
+    <string name="repodata_timestamp_less">timestamp repodata kurang dari nilai yang disimpan</string>
 </resources>
