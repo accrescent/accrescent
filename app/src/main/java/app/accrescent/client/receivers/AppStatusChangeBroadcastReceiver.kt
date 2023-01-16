@@ -36,6 +36,12 @@ class AppStatusChangeBroadcastReceiver : BroadcastReceiver() {
                         pendingResult.finish()
                         return@launch
                     }
+
+                    // We don't care about apps Accrescent doesn't serve
+                    if (!repoDataRepository.appExists(appId)) {
+                        return@launch
+                    }
+
                     val versionCode = try {
                         repoDataRepository.getAppRepoData(appId).versionCode
                     } catch (e: Exception) {
