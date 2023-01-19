@@ -1,2 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_updates">புதுப்பிப்புகள்</string>
+    <string name="settings">அமைப்புகள்</string>
+    <string name="uninstall">நிறுவல் நீக்கவும்</string>
+    <string name="require_user_action">நிறுவுதல் உறுதிப்படுத்துதல் தூண்டுதல்</string>
+    <string name="customization">தனிப்பயனாக்கம்</string>
+    <string name="dynamic_color">மாறும் வண்ணம் / மடீரியல் யூ</string>
+    <string name="about">ஆக்ரசெண்ட் பற்றி</string>
+    <string name="source_code">மூல குறியீடு</string>
+    <string name="open_link">இணைப்பைத் திற</string>
+    <string name="swipe_refresh">புதுப்பிக்க கீழே இழுக்கவும்</string>
+    <string name="app_list">செயலிகள்</string>
+    <string name="installed">நிறுவப்பட்டவை</string>
+    <string name="user_action_required">பயனர் நடவடிக்கை தேவை</string>
+    <string name="couldnt_open_app">பயன்பாட்டைத் திறக்க முடியவில்லை</string>
+    <string name="network_error">நெட்வொர்க் பிழை: %1$s</string>
+    <string name="error_parsing_files">செயலியின் கோப்புகளைப் பாகுபடுத்துவதில் பிழை: %1$s</string>
+    <string name="app_doesnt_support_device">இந்த செயலி உங்கள் சாதனத்தில் வேலை செய்யாது : %1$s</string>
+    <string name="user_restriction">பயனர் கட்டுப்பாடு பிழை: %1$s</string>
+    <string name="version">பதிப்பு: %1$s</string>
+    <string name="device_abi_unsupported">உங்கள் சாதனத்தின் கட்டமைப்பு ஆதரிக்கப்படவில்லை</string>
+    <string name="no_app_signers">செயலியை கையொப்பமிடுபவர்கள் இல்லை.
+\nஎதிர்பார்க்கப்படுகிறது: %1$s</string>
+    <string name="version_code_mismatch">எதிர்பார்க்கப்படும் பதிப்புக் குறியீடு %1$d, உண்மையானது %2$d</string>
+    <string name="sig_verify_failed">கையொப்ப சரிபார்க்க முடியவில்லை</string>
+    <string name="install_blocked">நிறுவல் நிர்வாகியால் தடுக்கப்பட்டது</string>
+    <string name="uninstall_blocked">நிறுவல் நீக்கம் நிர்வாகியால் தடுக்கப்பட்டது</string>
+    <string name="install_confirm">இந்த செயலியை நிறுவவா\?</string>
+    <string name="install_confirm_desc">உங்கள் சாதனத்தில் இந்தப் செயலியை நிச்சயமாக நிறுவ விரும்புகிறீர்களா\?</string>
+    <string name="uninstall_confirm">இந்த செயலியை நிறுவல் நீக்கவா\?</string>
+    <string name="uninstall_confirm_desc">இந்த செயலி மற்றும் அதன் எல்லா தரவையும் சேர்த்து உங்கள் சாதனத்தில் இருந்து அகற்றப்படும்.</string>
+    <string name="yes">ஆம்</string>
+    <string name="no">இல்லை</string>
+    <string name="install">நிறுவு</string>
+    <string name="update">புதுப்பி</string>
+    <string name="source_code_desc">ஆக்ரசெண்டின் மூலக் குறியீட்டைப் பார்க்கவும்</string>
+    <string name="require_user_action_desc">தற்செயலாக செயலிகளை நிறுவுவதைத் தடுக்க எப்போதும் உறுதிப்படுத்தல் கேட்கவும்</string>
+    <string name="dynamic_color_desc">கணினி வண்ணத் தட்டு அடிப்படையில் செயலியை தீம் செய்யவும்</string>
+    <string name="no_apps_installed">செயலிகள் எதுவும் நிறுவப்படவில்லை</string>
+    <string name="up_to_date">எல்லா செயலிகளும் புதுப்பித்த நிலையில் உள்ளன</string>
+    <string name="cant_find_app">மன்னிக்கவும், அந்த செயலியை எங்களால் கண்டுபிடிக்க முடியவில்லை</string>
+    <string name="failed_download_repodata">களஞ்சியத்தை பதிவிறக்க முடியவில்லை</string>
+    <string name="app_verification_failed">செயலியை சரிபார்க்க முடியவில்லை: %1$s</string>
+    <string name="failed_verify_repodata">களஞ்சியத்தை சரிபார்க்க முடியவில்லை: %1$s</string>
+    <string name="failed_download_files">தேவையான கோப்புகளைப் பதிவிறக்க முடியவில்லை: %1$s</string>
+    <string name="failed_decode_repodata">களஙஞ்சியத்தை குறிவிலக்க முடியவில்லல: %1$s</string>
+    <string name="open">திற</string>
+    <string name="version_code">பதிப்புக் குறியீடு: %1$d</string>
+    <string name="device_density_unsupported">உங்கள் சாதனத்தின் திரை தெளிவுத்திறன் ஆதரிக்கப்படவில்லை</string>
+    <string name="unknown_host_error">அறியப்படாத தொகுப்பாளர் பிழை: %1$s</string>
+    <string name="app_signer_mismatch">செயலியை தேவையான கையொப்பமிடுபவர்(கள்) மூலம் கையொப்பமிடப்படவில்லை.
+\nஎதிர்பார்க்கப்படுகிறது: %1$s</string>
+    <string name="version_downgrade">பதிப்பு %1$d குறைந்தபட்சத்தை %2$d விடக் குறைவாக உள்ளது</string>
+    <string name="app_id_mismatch">செயலியின் ஐடி %1$s எதிர்பார்க்கப்படும் ஐடி %2$s உடன் பொருந்தவில்லை</string>
+    <string name="version_mismatch">எதிர்பார்க்கப்படும் பதிப்பு %1$s, உண்மையானது %2$s</string>
+    <string name="base_apk_not_valid">base.apk சரியான APK அல்ல</string>
+    <string name="repodata_timestamp_less">செமலியின் நேர முத்திரை சேமிக்கப்பட்ட மதிப்பை விட குறைவாக உள்ளது</string>
+</resources>
