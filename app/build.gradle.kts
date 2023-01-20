@@ -57,6 +57,7 @@ android {
             "ro",
             "ru",
             "sv",
+            "ta",
             "tr",
             "uk",
             "zh-rCN",
