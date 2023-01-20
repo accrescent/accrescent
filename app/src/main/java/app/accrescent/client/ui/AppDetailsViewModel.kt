@@ -92,7 +92,7 @@ class AppDetailsViewModel @Inject constructor(
             val context = getApplication<Accrescent>().applicationContext
 
             try {
-                packageManager.downloadAndInstall(appId) { uiState.downloadProgress.value = it }
+                packageManager.downloadAndInstall(appId)
             } catch (e: ConnectException) {
                 uiState.error = context.getString(R.string.network_error, e.message)
             } catch (e: FileNotFoundException) {
@@ -109,8 +109,6 @@ class AppDetailsViewModel @Inject constructor(
                 uiState.error = context.getString(R.string.failed_decode_repodata, e.message)
             } catch (e: UnknownHostException) {
                 uiState.error = context.getString(R.string.unknown_host_error, e.message)
-            } finally {
-                uiState.downloadProgress.value = null
             }
         }
     }
