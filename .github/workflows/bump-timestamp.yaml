@@ -2,7 +2,7 @@ name: Bump MIN_TIMESTAMP
 
 on:
   schedule:
-    - cron: '0 0 1 * *'
+    - cron: '0 0 1,16 * *'
 
 permissions:
   contents: write
