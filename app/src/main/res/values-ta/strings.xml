@@ -40,7 +40,6 @@
     <string name="no_apps_installed">செயலிகள் எதுவும் நிறுவப்படவில்லை</string>
     <string name="up_to_date">எல்லா செயலிகளும் புதுப்பித்த நிலையில் உள்ளன</string>
     <string name="cant_find_app">மன்னிக்கவும், அந்த செயலியை எங்களால் கண்டுபிடிக்க முடியவில்லை</string>
-    <string name="failed_download_repodata">களஞ்சியத்தை பதிவிறக்க முடியவில்லை</string>
     <string name="app_verification_failed">செயலியை சரிபார்க்க முடியவில்லை: %1$s</string>
     <string name="failed_verify_repodata">களஞ்சியத்தை சரிபார்க்க முடியவில்லை: %1$s</string>
     <string name="failed_download_files">தேவையான கோப்புகளைப் பதிவிறக்க முடியவில்லை: %1$s</string>
