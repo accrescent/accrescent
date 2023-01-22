@@ -43,4 +43,5 @@
     <string name="uninstall_blocked">odinstaluj zablokowany przez administratora</string>
     <string name="version_downgrade">wersja %1$d jest mniejsza niż minimalna %2$d</string>
     <string name="repodata_timestamp_less">znacznik czasu repodaty mniejszy niż zapisana wartość</string>
+    <string name="require_user_action">Monit potwierdzający instalację</string>
 </resources>
