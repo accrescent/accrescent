@@ -22,12 +22,14 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.collectAsState
@@ -35,6 +37,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -49,6 +52,7 @@ import app.accrescent.client.ui.theme.AccrescentTheme
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import com.google.accompanist.systemuicontroller.SystemUiController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -74,7 +78,10 @@ class MainActivity : ComponentActivity() {
             val dynamicColor by viewModel.dynamicColor.collectAsState(false)
 
             AccrescentTheme(dynamicColor = dynamicColor) {
-                MainContent(appId)
+                MainContent(
+                    systemUiController,
+                    appId
+                )
             }
         }
 
@@ -91,13 +98,23 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalAnimationApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun MainContent(appId: String?) {
+fun MainContent(
+    systemUiController: SystemUiController,
+    appId: String?
+) {
     val snackbarHostState = remember { SnackbarHostState() }
     val navController = rememberAnimatedNavController()
     val screens = listOf(Screen.AppList, Screen.InstalledApps, Screen.AppUpdates)
 
     val showBottomBar =
         navController.currentBackStackEntryAsState().value?.destination?.route in screens.map { it.route }
+    val surfaceColor = MaterialTheme.colorScheme.surface
+    val surfaceColorEl2 = MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp)
+    SideEffect {
+        systemUiController.setNavigationBarColor(
+            if (showBottomBar) surfaceColorEl2 else surfaceColor
+        )
+    }
 
     val startDestination =
         if (appId != null) "${Screen.AppDetails.route}/{appId}" else Screen.AppList.route
