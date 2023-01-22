@@ -44,4 +44,16 @@
     <string name="version_downgrade">wersja %1$d jest mniejsza niż minimalna %2$d</string>
     <string name="repodata_timestamp_less">znacznik czasu repodaty mniejszy niż zapisana wartość</string>
     <string name="require_user_action">Monit potwierdzający instalację</string>
+    <string name="require_user_action_desc">Zawsze pytaj o potwierdzenie, aby zapobiec przypadkowej instalacji aplikacji</string>
+    <string name="customization">Dostosowanie</string>
+    <string name="uninstall_confirm">Odinstalować tę aplikację\?</string>
+    <string name="about">O nas</string>
+    <string name="open_link">Otwórz link</string>
+    <string name="install_confirm_desc">Czy na pewno chcesz zainstalować tę aplikację na swoim urządzeniu\?</string>
+    <string name="source_code">Kod źródłowy</string>
+    <string name="source_code_desc">Zobacz kod źródłowy Accrescent</string>
+    <string name="install_confirm">Zainstalować tę aplikację\?</string>
+    <string name="uninstall_confirm_desc">Aplikacja zostanie usunięta z Twojego urządzenia wraz z wszystkimi jej danymi.</string>
+    <string name="yes">Tak</string>
+    <string name="no">Nie</string>
 </resources>
