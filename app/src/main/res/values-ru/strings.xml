@@ -38,4 +38,6 @@
     <string name="version_mismatch">ожидаемая версия %1$s, настоящая %2$s</string>
     <string name="repodata_timestamp_less">временная метка данных репозитория меньше сохраненного значения</string>
     <string name="install_blocked">установка заблокирована администратором</string>
+    <string name="source_code">Исходный код</string>
+    <string name="open_link">Открыть ссылку</string>
 </resources>
