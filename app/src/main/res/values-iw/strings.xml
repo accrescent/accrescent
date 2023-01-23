@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="update">עדכון</string>
+    <string name="app_list">יישומים</string>
+    <string name="settings">הגדרות</string>
+    <string name="uninstall">הסר</string>
+    <string name="installed">מותקנים</string>
+    <string name="install">התקן</string>
+    <string name="app_updates">עדכונים</string>
+    <string name="open">פתוח</string>
+</resources>
