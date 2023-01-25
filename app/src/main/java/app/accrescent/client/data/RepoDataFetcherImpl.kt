@@ -39,19 +39,9 @@ class RepoDataFetcherImpl @Inject constructor(
     }
 
     private fun fetchFileString(url: URL): String {
-        val connection = url.openHttpConnection()
-
-        val data = connection.inputStream
-        val buf = ByteArray(DEFAULT_BUFFER_SIZE)
         val outBuf = ByteArrayOutputStream()
 
-        var bytes = data.read(buf)
-        while (bytes >= 0) {
-            outBuf.write(buf, 0, bytes)
-            bytes = data.read(buf)
-        }
-
-        outBuf.close()
+        url.openHttpConnection().use { it.downloadTo(outBuf) }
 
         return outBuf.toString()
     }
