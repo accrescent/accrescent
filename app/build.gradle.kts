@@ -50,6 +50,7 @@ android {
             "fr",
             "in",
             "it",
+            "iw",
             "ko",
             "nb-rNO",
             "nl",
