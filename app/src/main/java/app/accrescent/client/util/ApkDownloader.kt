@@ -18,7 +18,6 @@ import java.net.URL
 import java.security.GeneralSecurityException
 import java.security.MessageDigest
 import javax.inject.Inject
-import javax.net.ssl.HttpsURLConnection
 
 private const val TAG = "ApkDownloader"
 
@@ -133,9 +132,7 @@ class ApkDownloader @Inject constructor(
     }
 
     private fun downloadToFile(uri: String, file: File) {
-        val connection = URL(uri).openConnection() as HttpsURLConnection
-
-        connection.connect()
+        val connection = URL(uri).openHttpConnection()
 
         val data = connection.inputStream
         val buf = ByteArray(DEFAULT_BUFFER_SIZE)
@@ -148,7 +145,6 @@ class ApkDownloader @Inject constructor(
         }
 
         outFile.close()
-        connection.disconnect()
     }
 
     private fun verifySigners(apk: File, requiredSigners: List<String>): Boolean {
