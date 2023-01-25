@@ -83,12 +83,8 @@ class PackageManager @Inject constructor(
         for (apk in apks) {
             val sessionStream = session.openWrite(apk.name, 0, apk.length())
             val fileStream = FileInputStream(apk)
-            val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
-            var bytesRead: Int
 
-            while (fileStream.read(buffer).also { bytesRead = it } != -1) {
-                sessionStream.write(buffer, 0, bytesRead)
-            }
+            fileStream.copyTo(sessionStream)
 
             fileStream.close()
             session.fsync(sessionStream)
