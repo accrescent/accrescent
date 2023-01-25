@@ -1,12 +1,11 @@
 package app.accrescent.client.util
 
-import java.io.InputStream
+import java.io.OutputStream
 import java.net.HttpURLConnection
 import java.net.URL
 
 class HttpConnection(private val connection: HttpURLConnection) : AutoCloseable {
-    val inputStream: InputStream
-        get() = connection.inputStream
+    fun downloadTo(out: OutputStream) = connection.inputStream.copyTo(out)
 
     override fun close() = connection.disconnect()
 }

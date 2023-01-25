@@ -132,17 +132,9 @@ class ApkDownloader @Inject constructor(
     }
 
     private fun downloadToFile(uri: String, file: File) {
-        val connection = URL(uri).openHttpConnection()
-
-        val data = connection.inputStream
-        val buf = ByteArray(DEFAULT_BUFFER_SIZE)
         val outFile = FileOutputStream(file, false)
 
-        var bytes = data.read(buf)
-        while (bytes >= 0) {
-            outFile.write(buf, 0, bytes)
-            bytes = data.read(buf)
-        }
+        URL(uri).openHttpConnection().use { it.downloadTo(outFile) }
 
         outFile.close()
     }
