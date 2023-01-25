@@ -7,6 +7,7 @@ import android.content.pm.PackageInstaller
 import android.content.pm.PackageInstaller.SessionParams
 import android.os.Build
 import android.os.UserManager
+import android.system.Os
 import app.accrescent.client.R
 import app.accrescent.client.data.Apk
 import app.accrescent.client.di.IoDispatcher
@@ -82,7 +83,8 @@ class PackageManager @Inject constructor(
 
         for (apk in apks) {
             apk.file.use {
-                val sessionStream = session.openWrite(apk.name, 0, -1)
+                val size = Os.fstat(it.descriptor).st_size
+                val sessionStream = session.openWrite(apk.name, 0, size)
                 apk.file.seekToStart()
                 val fileStream = FileInputStream(apk.file.descriptor)
 
