@@ -9,6 +9,7 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
 import app.accrescent.client.data.InstallStatus
+import java.io.FileDescriptor
 
 fun Context.registerReceiverNotExported(receiver: BroadcastReceiver, filter: IntentFilter) {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
@@ -46,6 +47,10 @@ fun PackageManager.getPackageArchiveInfoCompat(archiveFilePath: String, flags: I
             PackageManager.PackageInfoFlags.of(flags.toLong())
         )
     }
+}
+
+fun PackageManager.getPackageArchiveInfoForFd(fd: Int, flags: Int): PackageInfo? {
+    return getPackageArchiveInfoCompat("/proc/self/fd/$fd", flags)
 }
 
 fun PackageManager.getPackageInstallStatus(appId: String, versionCode: Long): InstallStatus {

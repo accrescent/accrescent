@@ -8,11 +8,10 @@ import android.os.Build
 import android.util.DisplayMetrics
 import android.util.Log
 import app.accrescent.client.R
+import app.accrescent.client.data.Apk
 import app.accrescent.client.data.REPOSITORY_URL
 import app.accrescent.client.data.RepoDataRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
-import java.io.File
-import java.io.FileOutputStream
 import java.io.InvalidObjectException
 import java.net.URL
 import java.security.GeneralSecurityException
@@ -25,7 +24,7 @@ class ApkDownloader @Inject constructor(
     @ApplicationContext private val context: Context,
     private val repoDataRepository: RepoDataRepository,
 ) {
-    suspend fun downloadApp(appId: String): List<File> {
+    suspend fun downloadApp(appId: String): List<Apk> {
         Log.i(TAG, "Downloading app $appId")
         val appInfo = repoDataRepository.getAppRepoData(appId)
 
@@ -36,15 +35,15 @@ class ApkDownloader @Inject constructor(
             throw GeneralSecurityException(msg)
         }
 
-        val downloadDir = File("${context.cacheDir.absolutePath}/apps/$appId/$version")
         val baseDownloadUri = "$REPOSITORY_URL/apps/$appId/$version"
-        downloadDir.mkdirs()
-        val baseApk = File(downloadDir.absolutePath, "base.apk")
-        downloadToFile("$baseDownloadUri/base.apk", baseApk)
+
+        val baseApk = newTemporaryFile()
+        URL("$baseDownloadUri/base.apk").openHttpConnection()
+            .use { it.downloadTo(baseApk.descriptor) }
 
         val packageInfo = context
             .packageManager
-            .getPackageArchiveInfoCompat(baseApk.absolutePath, 0)
+            .getPackageArchiveInfoForFd(baseApk.getFd(), 0)
             ?: throw InvalidObjectException(context.getString(R.string.base_apk_not_valid))
         val packageName = packageInfo.packageName
         if (packageName != appId) {
@@ -74,17 +73,19 @@ class ApkDownloader @Inject constructor(
             throw GeneralSecurityException(msg)
         }
 
-        val apks = mutableListOf<File>()
-        apks += baseApk
+        val apks = mutableListOf<Apk>()
+        apks += Apk("base.apk", baseApk)
 
         if (appInfo.abiSplits.isNotEmpty()) {
             var abiSupported = false
             for (abi in Build.SUPPORTED_ABIS) {
                 if (appInfo.abiSplits.contains(abi)) {
                     Log.d(TAG, "Preferred ABI: $abi")
-                    val abiSplit = File(downloadDir.absolutePath, "split.$abi.apk")
-                    downloadToFile("$baseDownloadUri/split.$abi.apk", abiSplit)
-                    apks += abiSplit
+                    val abiSplit = newTemporaryFile()
+                    val splitName = "split.$abi.apk"
+                    URL("$baseDownloadUri/$splitName").openHttpConnection()
+                        .use { it.downloadTo(abiSplit.descriptor) }
+                    apks += Apk(splitName, abiSplit)
                     abiSupported = true
                     break
                 }
@@ -107,9 +108,11 @@ class ApkDownloader @Inject constructor(
             }
             if (appInfo.densitySplits.contains(densityClass)) {
                 Log.d(TAG, "Preferred screen density: $densityClass")
-                val densitySplit = File(downloadDir.absolutePath, "split.$densityClass.apk")
-                downloadToFile("$baseDownloadUri/split.$densityClass.apk", densitySplit)
-                apks += densitySplit
+                val densitySplit = newTemporaryFile()
+                val splitName = "split.$densityClass.apk"
+                URL("$baseDownloadUri/$splitName").openHttpConnection()
+                    .use { it.downloadTo(densitySplit.descriptor) }
+                apks += Apk(splitName, densitySplit)
             } else {
                 throw NoSuchElementException(context.getString(R.string.device_density_unsupported))
             }
@@ -120,9 +123,11 @@ class ApkDownloader @Inject constructor(
             val deviceLang = Resources.getSystem().configuration.locales[0].language
             if (appInfo.langSplits.contains(deviceLang)) {
                 Log.d(TAG, "Preferred language: $deviceLang")
-                val langSplit = File(downloadDir.absolutePath, "split.$deviceLang.apk")
-                downloadToFile("$baseDownloadUri/split.$deviceLang.apk", langSplit)
-                apks += langSplit
+                val langSplit = newTemporaryFile()
+                val splitName = "split.$deviceLang.apk"
+                URL("$baseDownloadUri/$splitName").openHttpConnection()
+                    .use { it.downloadTo(langSplit.descriptor) }
+                apks += Apk(splitName, langSplit)
             } else {
                 Log.d(TAG, "Preferred language APK not available, using default app language")
             }
@@ -131,20 +136,12 @@ class ApkDownloader @Inject constructor(
         return apks
     }
 
-    private fun downloadToFile(uri: String, file: File) {
-        val outFile = FileOutputStream(file, false)
-
-        URL(uri).openHttpConnection().use { it.downloadTo(outFile) }
-
-        outFile.close()
-    }
-
-    private fun verifySigners(apk: File, requiredSigners: List<String>): Boolean {
+    private fun verifySigners(apk: TemporaryFile, requiredSigners: List<String>): Boolean {
         @Suppress("DEPRECATION")
         val flags = PackageManager.GET_SIGNING_CERTIFICATES or PackageManager.GET_SIGNATURES
         val signingInfo = context
             .packageManager
-            .getPackageArchiveInfoCompat(apk.absolutePath, flags)
+            .getPackageArchiveInfoForFd(apk.getFd(), flags)
             ?.signingInfo
             ?: return false
 

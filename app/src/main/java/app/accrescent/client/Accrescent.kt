@@ -65,7 +65,13 @@ class Accrescent : Application(), Configuration.Provider {
     override fun getWorkManagerConfiguration() =
         Configuration.Builder().setWorkerFactory(workerFactory).build()
 
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(base)
+        appContext = base
+    }
+
     companion object {
+        lateinit var appContext: Context
         const val USER_ACTION_REQUIRED_CHANNEL = "UserActionRequired"
     }
 }
