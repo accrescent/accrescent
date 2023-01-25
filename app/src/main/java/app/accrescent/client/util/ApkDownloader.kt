@@ -37,10 +37,68 @@ class ApkDownloader @Inject constructor(
 
         val baseDownloadUri = "$REPOSITORY_URL/apps/$appId/$version"
 
-        val baseApk = newTemporaryFile()
-        URL("$baseDownloadUri/base.apk").openHttpConnection()
-            .use { it.downloadTo(baseApk.descriptor) }
+        val apkNames = mutableListOf("base.apk")
 
+        // Resolve ABI split
+        if (appInfo.abiSplits.isNotEmpty()) {
+            var abiSupported = false
+            for (abi in Build.SUPPORTED_ABIS) {
+                if (appInfo.abiSplits.contains(abi)) {
+                    Log.d(TAG, "Preferred ABI: $abi")
+                    apkNames += "split.$abi.apk"
+                    abiSupported = true
+                    break
+                }
+            }
+            if (!abiSupported) {
+                throw NoSuchElementException(context.getString(R.string.device_abi_unsupported))
+            }
+        }
+
+        // Resolve density split
+        if (appInfo.densitySplits.isNotEmpty()) {
+            val screenDensity = context.resources.displayMetrics.densityDpi
+            val densityClass = when {
+                screenDensity <= DisplayMetrics.DENSITY_LOW -> "ldpi"
+                screenDensity <= DisplayMetrics.DENSITY_MEDIUM -> "mdpi"
+                screenDensity <= DisplayMetrics.DENSITY_TV -> "tvdpi"
+                screenDensity <= DisplayMetrics.DENSITY_HIGH -> "hdpi"
+                screenDensity <= DisplayMetrics.DENSITY_XHIGH -> "xhdpi"
+                screenDensity <= DisplayMetrics.DENSITY_XXHIGH -> "xxhdpi"
+                else -> "xxxhdpi"
+            }
+            if (appInfo.densitySplits.contains(densityClass)) {
+                Log.d(TAG, "Preferred screen density: $densityClass")
+                apkNames += "split.$densityClass.apk"
+            } else {
+                throw NoSuchElementException(context.getString(R.string.device_density_unsupported))
+            }
+        }
+
+        // Opportunistically resolve language split
+        if (appInfo.langSplits.isNotEmpty()) {
+            val deviceLang = Resources.getSystem().configuration.locales[0].language
+            if (appInfo.langSplits.contains(deviceLang)) {
+                Log.d(TAG, "Preferred language: $deviceLang")
+                apkNames += "split.$deviceLang.apk"
+            } else {
+                Log.d(TAG, "Preferred language APK not available, using default app language")
+            }
+        }
+
+        // Download APKs
+        val apks = mutableListOf<Apk>()
+        for (name in apkNames) {
+            val apk = newTemporaryFile()
+            URL("$baseDownloadUri/$name")
+                .openHttpConnection()
+                .use { it.downloadTo(apk.descriptor) }
+            apks += Apk(name, apk)
+        }
+
+        val baseApk = apks[0].file
+
+        // Verify package info is as expected
         val packageInfo = context
             .packageManager
             .getPackageArchiveInfoForFd(baseApk.getFd(), 0)
@@ -65,72 +123,13 @@ class ApkDownloader @Inject constructor(
             )
         }
 
+        // Verify app signers
         val requiredSigners = repoDataRepository.getAppSigners(appId)
         if (requiredSigners.isEmpty()) {
             throw IllegalStateException(context.getString(R.string.no_app_signers, requiredSigners))
         } else if (!verifySigners(baseApk, requiredSigners)) {
             val msg = context.getString(R.string.app_signer_mismatch, requiredSigners)
             throw GeneralSecurityException(msg)
-        }
-
-        val apks = mutableListOf<Apk>()
-        apks += Apk("base.apk", baseApk)
-
-        if (appInfo.abiSplits.isNotEmpty()) {
-            var abiSupported = false
-            for (abi in Build.SUPPORTED_ABIS) {
-                if (appInfo.abiSplits.contains(abi)) {
-                    Log.d(TAG, "Preferred ABI: $abi")
-                    val abiSplit = newTemporaryFile()
-                    val splitName = "split.$abi.apk"
-                    URL("$baseDownloadUri/$splitName").openHttpConnection()
-                        .use { it.downloadTo(abiSplit.descriptor) }
-                    apks += Apk(splitName, abiSplit)
-                    abiSupported = true
-                    break
-                }
-            }
-            if (!abiSupported) {
-                throw NoSuchElementException(context.getString(R.string.device_abi_unsupported))
-            }
-        }
-
-        if (appInfo.densitySplits.isNotEmpty()) {
-            val screenDensity = context.resources.displayMetrics.densityDpi
-            val densityClass = when {
-                screenDensity <= DisplayMetrics.DENSITY_LOW -> "ldpi"
-                screenDensity <= DisplayMetrics.DENSITY_MEDIUM -> "mdpi"
-                screenDensity <= DisplayMetrics.DENSITY_TV -> "tvdpi"
-                screenDensity <= DisplayMetrics.DENSITY_HIGH -> "hdpi"
-                screenDensity <= DisplayMetrics.DENSITY_XHIGH -> "xhdpi"
-                screenDensity <= DisplayMetrics.DENSITY_XXHIGH -> "xxhdpi"
-                else -> "xxxhdpi"
-            }
-            if (appInfo.densitySplits.contains(densityClass)) {
-                Log.d(TAG, "Preferred screen density: $densityClass")
-                val densitySplit = newTemporaryFile()
-                val splitName = "split.$densityClass.apk"
-                URL("$baseDownloadUri/$splitName").openHttpConnection()
-                    .use { it.downloadTo(densitySplit.descriptor) }
-                apks += Apk(splitName, densitySplit)
-            } else {
-                throw NoSuchElementException(context.getString(R.string.device_density_unsupported))
-            }
-        }
-
-        // Opportunistically install the split for the device language at time of install
-        if (appInfo.langSplits.isNotEmpty()) {
-            val deviceLang = Resources.getSystem().configuration.locales[0].language
-            if (appInfo.langSplits.contains(deviceLang)) {
-                Log.d(TAG, "Preferred language: $deviceLang")
-                val langSplit = newTemporaryFile()
-                val splitName = "split.$deviceLang.apk"
-                URL("$baseDownloadUri/$splitName").openHttpConnection()
-                    .use { it.downloadTo(langSplit.descriptor) }
-                apks += Apk(splitName, langSplit)
-            } else {
-                Log.d(TAG, "Preferred language APK not available, using default app language")
-            }
         }
 
         return apks
