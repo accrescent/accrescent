@@ -8,13 +8,13 @@ import android.content.pm.PackageInstaller.SessionParams
 import android.os.Build
 import android.os.UserManager
 import app.accrescent.client.R
+import app.accrescent.client.data.Apk
 import app.accrescent.client.di.IoDispatcher
 import app.accrescent.client.receivers.AppInstallBroadcastReceiver
 import app.accrescent.client.receivers.AppUninstallBroadcastReceiver
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
-import java.io.File
 import java.io.FileInputStream
 import java.io.InvalidObjectException
 import javax.inject.Inject
@@ -50,7 +50,7 @@ class PackageManager @Inject constructor(
         context.packageManager.packageInstaller.uninstall(appId, pendingIntent.intentSender)
     }
 
-    private fun installApp(apks: List<File>) {
+    private fun installApp(apks: List<Apk>) {
         val um = context.getSystemService(UserManager::class.java)
         val installBlockedByAdmin = if (context.isPrivileged()) {
             // We're in privileged mode, so check that installing apps is allowed since the OS
@@ -68,7 +68,7 @@ class PackageManager @Inject constructor(
         val packageInstaller = context.packageManager.packageInstaller
 
         // We assume base.apk is always the first APK passed
-        val pkgInfo = context.packageManager.getPackageArchiveInfoCompat(apks[0].absolutePath, 0)
+        val pkgInfo = context.packageManager.getPackageArchiveInfoForFd(apks[0].file.getFd(), 0)
             ?: throw InvalidObjectException(context.getString(R.string.base_apk_not_valid))
 
         val sessionParams = SessionParams(SessionParams.MODE_FULL_INSTALL)
@@ -81,14 +81,17 @@ class PackageManager @Inject constructor(
         val session = packageInstaller.openSession(sessionId)
 
         for (apk in apks) {
-            val sessionStream = session.openWrite(apk.name, 0, apk.length())
-            val fileStream = FileInputStream(apk)
+            apk.file.use {
+                val sessionStream = session.openWrite(apk.name, 0, -1)
+                apk.file.seekToStart()
+                val fileStream = FileInputStream(apk.file.descriptor)
 
-            fileStream.copyTo(sessionStream)
+                fileStream.copyTo(sessionStream)
 
-            fileStream.close()
-            session.fsync(sessionStream)
-            sessionStream.close()
+                fileStream.close()
+                session.fsync(sessionStream)
+                sessionStream.close()
+            }
         }
 
         val pendingIntent = PendingIntent.getBroadcast(
