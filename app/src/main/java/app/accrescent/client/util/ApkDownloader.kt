@@ -11,6 +11,7 @@ import app.accrescent.client.R
 import app.accrescent.client.data.Apk
 import app.accrescent.client.data.REPOSITORY_URL
 import app.accrescent.client.data.RepoDataRepository
+import app.accrescent.client.data.net.AppRepoData
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.InvalidObjectException
 import java.net.URL
@@ -35,8 +36,25 @@ class ApkDownloader @Inject constructor(
             throw GeneralSecurityException(msg)
         }
 
-        val baseDownloadUri = "$REPOSITORY_URL/apps/$appId/$version"
+        val apkNames = resolveApkNames(appInfo)
+        val apks = downloadApks("$REPOSITORY_URL/apps/$appId/$version", apkNames)
+        val baseApk = apks[0].file
 
+        verifyPackageInfo(appId, appInfo, baseApk)
+
+        // Verify app signers
+        val requiredSigners = repoDataRepository.getAppSigners(appId)
+        if (requiredSigners.isEmpty()) {
+            throw IllegalStateException(context.getString(R.string.no_app_signers, requiredSigners))
+        } else if (!verifySigners(baseApk, requiredSigners)) {
+            val msg = context.getString(R.string.app_signer_mismatch, requiredSigners)
+            throw GeneralSecurityException(msg)
+        }
+
+        return apks
+    }
+
+    private fun resolveApkNames(appInfo: AppRepoData): List<String> {
         val apkNames = mutableListOf("base.apk")
 
         // Resolve ABI split
@@ -86,53 +104,36 @@ class ApkDownloader @Inject constructor(
             }
         }
 
-        // Download APKs
-        val apks = mutableListOf<Apk>()
-        for (name in apkNames) {
-            val apk = newTemporaryFile()
-            URL("$baseDownloadUri/$name")
-                .openHttpConnection()
-                .use { it.downloadTo(apk.descriptor) }
-            apks += Apk(name, apk)
-        }
+        return apkNames
+    }
 
-        val baseApk = apks[0].file
-
-        // Verify package info is as expected
+    private fun verifyPackageInfo(appId: String, expected: AppRepoData, apk: TemporaryFile) {
         val packageInfo = context
             .packageManager
-            .getPackageArchiveInfoForFd(baseApk.getFd(), 0)
+            .getPackageArchiveInfoForFd(apk.getFd(), 0)
             ?: throw InvalidObjectException(context.getString(R.string.base_apk_not_valid))
-        val packageName = packageInfo.packageName
-        if (packageName != appId) {
-            val msg = context.getString(R.string.app_id_mismatch, packageName, appId)
+
+        if (packageInfo.packageName != appId) {
+            val msg = context.getString(R.string.app_id_mismatch, packageInfo.packageName, appId)
             throw GeneralSecurityException(msg)
         }
-        val packageVersion = packageInfo.longVersionCode
-        if (packageVersion != version) {
-            val msg = context.getString(R.string.version_code_mismatch, version, packageVersion)
+        if (packageInfo.longVersionCode != expected.versionCode) {
+            val msg = context.getString(
+                R.string.version_code_mismatch,
+                expected.versionCode,
+                packageInfo.longVersionCode,
+            )
             throw GeneralSecurityException(msg)
         }
-        if (packageInfo.versionName != appInfo.version) {
+        if (packageInfo.versionName != expected.version) {
             throw GeneralSecurityException(
                 context.getString(
                     R.string.version_mismatch,
-                    appInfo.version,
+                    expected.version,
                     packageInfo.versionName
                 )
             )
         }
-
-        // Verify app signers
-        val requiredSigners = repoDataRepository.getAppSigners(appId)
-        if (requiredSigners.isEmpty()) {
-            throw IllegalStateException(context.getString(R.string.no_app_signers, requiredSigners))
-        } else if (!verifySigners(baseApk, requiredSigners)) {
-            val msg = context.getString(R.string.app_signer_mismatch, requiredSigners)
-            throw GeneralSecurityException(msg)
-        }
-
-        return apks
     }
 
     private fun verifySigners(apk: TemporaryFile, requiredSigners: List<String>): Boolean {
@@ -165,11 +166,24 @@ class ApkDownloader @Inject constructor(
                 .contains(requiredSigners[0])
         }
     }
+}
 
-    private fun signatureToCertHash(signature: Signature): String {
-        return MessageDigest
-            .getInstance("SHA-256")
-            .digest(signature.toByteArray())
-            .joinToString("") { "%02x".format(it) }
+private fun downloadApks(baseDownloadUri: String, names: List<String>): List<Apk> {
+    val apks = mutableListOf<Apk>()
+    for (name in names) {
+        val apk = newTemporaryFile()
+        URL("$baseDownloadUri/$name")
+            .openHttpConnection()
+            .use { it.downloadTo(apk.descriptor) }
+        apks += Apk(name, apk)
     }
+
+    return apks
+}
+
+private fun signatureToCertHash(signature: Signature): String {
+    return MessageDigest
+        .getInstance("SHA-256")
+        .digest(signature.toByteArray())
+        .joinToString("") { "%02x".format(it) }
 }
