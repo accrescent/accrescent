@@ -218,6 +218,11 @@ fun AppDetails(
                     modifier = Modifier.size(96.dp),
                     progress = downloadProgress.part.toFloat() / downloadProgress.total,
                 )
+
+                val partMb = "%.1f".format(downloadProgress.part.toFloat() / 1_000_000)
+                val totalMb = "%.1f".format(downloadProgress.total.toFloat() / 1_000_000)
+
+                Text("$partMb MB / $totalMb MB", Modifier.padding(top = 16.dp))
             }
 
             Text(id, Modifier.padding(top = 48.dp))
