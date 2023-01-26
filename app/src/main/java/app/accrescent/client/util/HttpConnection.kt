@@ -7,9 +7,15 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class HttpConnection(private val connection: HttpURLConnection) : AutoCloseable {
-    fun downloadTo(out: OutputStream) = connection.inputStream.copyTo(out)
+    fun downloadTo(out: OutputStream, onProgressUpdate: (Long) -> Unit = {}) {
+        connection.inputStream.copyTo(out, onProgressUpdate)
+    }
 
-    fun downloadTo(fd: FileDescriptor) = FileOutputStream(fd).use { this.downloadTo(it) }
+    fun downloadTo(fd: FileDescriptor, onProgressUpdate: (Long) -> Unit = {}) {
+        FileOutputStream(fd).use { this.downloadTo(it, onProgressUpdate) }
+    }
+
+    fun getContentLength() = connection.getHeaderField("Content-Length").toLongOrNull() ?: 0
 
     override fun close() = connection.disconnect()
 }
