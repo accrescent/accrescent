@@ -36,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.accrescent.client.BuildConfig
 import app.accrescent.client.R
+import app.accrescent.client.data.DownloadProgress
 import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.util.isPrivileged
 
@@ -85,6 +86,7 @@ fun AppDetailsScreen(
                 }
             },
             onOpenClicked = { viewModel.openApp(viewModel.uiState.appId) },
+            downloadProgress = viewModel.uiState.downloadProgress,
         )
         else -> AppNotFoundError()
     }
@@ -124,6 +126,7 @@ fun AppDetails(
     onInstallClicked: () -> Unit,
     onUninstallClicked: () -> Unit,
     onOpenClicked: () -> Unit,
+    downloadProgress: DownloadProgress?,
 ) {
     val context = LocalContext.current
 
@@ -202,8 +205,21 @@ fun AppDetails(
             }
         }
     }
+
     Box(Modifier.fillMaxSize()) {
-        Text(id, Modifier.align(Alignment.BottomCenter))
+        Column(
+            modifier = Modifier.align(Alignment.BottomCenter),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            if (downloadProgress != null) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(96.dp),
+                    progress = downloadProgress.part.toFloat() / downloadProgress.total,
+                )
+            }
+
+            Text(id, Modifier.padding(top = 48.dp))
+        }
     }
 }
 

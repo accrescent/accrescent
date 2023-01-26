@@ -10,6 +10,7 @@ import android.os.UserManager
 import android.system.Os
 import app.accrescent.client.R
 import app.accrescent.client.data.Apk
+import app.accrescent.client.data.DownloadProgress
 import app.accrescent.client.di.IoDispatcher
 import app.accrescent.client.receivers.AppInstallBroadcastReceiver
 import app.accrescent.client.receivers.AppUninstallBroadcastReceiver
@@ -27,9 +28,12 @@ class PackageManager @Inject constructor(
     private val apkDownloader: ApkDownloader,
     @IoDispatcher private val dispatcher: CoroutineDispatcher,
 ) {
-    suspend fun downloadAndInstall(appId: String) {
+    suspend fun downloadAndInstall(
+        appId: String,
+        onProgressUpdate: (DownloadProgress) -> Unit = {}
+    ) {
         withContext(dispatcher) {
-            installApp(apkDownloader.downloadApp(appId))
+            installApp(apkDownloader.downloadApp(appId, onProgressUpdate))
         }
     }
 

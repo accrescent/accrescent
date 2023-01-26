@@ -92,7 +92,10 @@ class AppDetailsViewModel @Inject constructor(
             val context = getApplication<Accrescent>().applicationContext
 
             try {
-                packageManager.downloadAndInstall(appId)
+                packageManager.downloadAndInstall(appId) {
+                    uiState = uiState.copy(downloadProgress = it)
+                }
+                uiState = uiState.copy(downloadProgress = null)
             } catch (e: ConnectException) {
                 uiState.error = context.getString(R.string.network_error, e.message)
             } catch (e: FileNotFoundException) {
@@ -112,7 +115,6 @@ class AppDetailsViewModel @Inject constructor(
             }
         }
     }
-
 
     fun uninstallApp(appId: String) {
         uiState.error = null

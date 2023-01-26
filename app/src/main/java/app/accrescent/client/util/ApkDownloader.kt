@@ -9,6 +9,7 @@ import android.util.DisplayMetrics
 import android.util.Log
 import app.accrescent.client.R
 import app.accrescent.client.data.Apk
+import app.accrescent.client.data.DownloadProgress
 import app.accrescent.client.data.REPOSITORY_URL
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.data.net.AppRepoData
@@ -25,7 +26,10 @@ class ApkDownloader @Inject constructor(
     @ApplicationContext private val context: Context,
     private val repoDataRepository: RepoDataRepository,
 ) {
-    suspend fun downloadApp(appId: String): List<Apk> {
+    suspend fun downloadApp(
+        appId: String,
+        onProgressUpdate: (DownloadProgress) -> Unit = {},
+    ): List<Apk> {
         Log.i(TAG, "Downloading app $appId")
         val appInfo = repoDataRepository.getAppRepoData(appId)
 
@@ -37,7 +41,7 @@ class ApkDownloader @Inject constructor(
         }
 
         val apkNames = resolveApkNames(appInfo)
-        val apks = downloadApks("$REPOSITORY_URL/apps/$appId/$version", apkNames)
+        val apks = downloadApks("$REPOSITORY_URL/apps/$appId/$version", apkNames, onProgressUpdate)
         val baseApk = apks[0].file
 
         verifyPackageInfo(appId, appInfo, baseApk)
@@ -168,13 +172,30 @@ class ApkDownloader @Inject constructor(
     }
 }
 
-private fun downloadApks(baseDownloadUri: String, names: List<String>): List<Apk> {
+private fun downloadApks(
+    baseDownloadUri: String,
+    names: List<String>,
+    onProgressUpdate: (DownloadProgress) -> Unit = {},
+): List<Apk> {
+    var totalBytesToDownload = 0L
+    var totalBytesDownloaded = 0L
+
     val apks = mutableListOf<Apk>()
+    val connections = mutableListOf<HttpConnection>()
     for (name in names) {
+        val conn = URL("$baseDownloadUri/$name").openHttpConnection()
+        totalBytesToDownload += conn.getContentLength()
+        connections += conn
+    }
+
+    for ((name, conn) in names.zip(connections)) {
         val apk = newTemporaryFile()
-        URL("$baseDownloadUri/$name")
-            .openHttpConnection()
-            .use { it.downloadTo(apk.descriptor) }
+        conn.use {
+            it.downloadTo(apk.descriptor) { bytes ->
+                totalBytesDownloaded += bytes
+                onProgressUpdate(DownloadProgress(totalBytesDownloaded, totalBytesToDownload))
+            }
+        }
         apks += Apk(name, apk)
     }
 
