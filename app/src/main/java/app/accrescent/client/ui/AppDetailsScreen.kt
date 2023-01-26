@@ -47,6 +47,7 @@ fun AppDetailsScreen(
 ) {
     val context = LocalContext.current
     val installStatus = viewModel.installStatuses[viewModel.uiState.appId]
+    val downloadProgress = viewModel.downloadProgresses[viewModel.uiState.appId]
     val requireUserAction by viewModel.requireUserAction.collectAsState(!context.isPrivileged())
 
     var installConfirmDialog by remember { mutableStateOf(false) }
@@ -86,7 +87,7 @@ fun AppDetailsScreen(
                 }
             },
             onOpenClicked = { viewModel.openApp(viewModel.uiState.appId) },
-            downloadProgress = viewModel.uiState.downloadProgress,
+            downloadProgress = downloadProgress,
         )
         else -> AppNotFoundError()
     }

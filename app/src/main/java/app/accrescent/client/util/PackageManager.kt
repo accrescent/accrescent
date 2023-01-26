@@ -30,10 +30,13 @@ class PackageManager @Inject constructor(
 ) {
     suspend fun downloadAndInstall(
         appId: String,
-        onProgressUpdate: (DownloadProgress) -> Unit = {}
+        onProgressUpdate: (DownloadProgress) -> Unit = {},
+        onDownloadComplete: () -> Unit = {},
     ) {
         withContext(dispatcher) {
-            installApp(apkDownloader.downloadApp(appId, onProgressUpdate))
+            val apks = apkDownloader.downloadApp(appId, onProgressUpdate)
+            onDownloadComplete()
+            installApp(apks)
         }
     }
 

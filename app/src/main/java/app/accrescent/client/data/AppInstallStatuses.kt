@@ -7,4 +7,5 @@ import javax.inject.Singleton
 @Singleton
 class AppInstallStatuses @Inject constructor() {
     val statuses = mutableStateMapOf<String, InstallStatus>()
+    val downloadProgresses = mutableStateMapOf<String, DownloadProgress>()
 }

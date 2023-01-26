@@ -37,6 +37,7 @@ class AppDetailsViewModel @Inject constructor(
 ) : AndroidViewModel(context as Application) {
     private val appId = savedStateHandle.get<String>("appId")!!
     val installStatuses = appInstallStatuses.statuses
+    var downloadProgresses = appInstallStatuses.downloadProgresses
     val requireUserAction = preferencesManager.requireUserAction
     var uiState by mutableStateOf(AppDetailsUiState(appId = appId))
         private set
@@ -92,10 +93,11 @@ class AppDetailsViewModel @Inject constructor(
             val context = getApplication<Accrescent>().applicationContext
 
             try {
-                packageManager.downloadAndInstall(appId) {
-                    uiState = uiState.copy(downloadProgress = it)
-                }
-                uiState = uiState.copy(downloadProgress = null)
+                packageManager.downloadAndInstall(
+                    appId = appId,
+                    onProgressUpdate = { downloadProgresses[appId] = it },
+                    onDownloadComplete = { downloadProgresses.remove(appId) },
+                )
             } catch (e: ConnectException) {
                 uiState.error = context.getString(R.string.network_error, e.message)
             } catch (e: FileNotFoundException) {
