@@ -130,6 +130,7 @@ fun AppDetails(
     downloadProgress: DownloadProgress?,
 ) {
     val context = LocalContext.current
+    var waitingForSize by remember { mutableStateOf(false) }
 
     Column(
         Modifier.fillMaxSize(),
@@ -181,7 +182,10 @@ fun AppDetails(
                 onClick = {
                     when (installStatus) {
                         InstallStatus.INSTALLABLE,
-                        InstallStatus.UPDATABLE -> onInstallClicked()
+                        InstallStatus.UPDATABLE -> {
+                            waitingForSize = true
+                            onInstallClicked()
+                        }
                         InstallStatus.INSTALLED -> onOpenClicked()
                         InstallStatus.LOADING,
                         InstallStatus.UNKNOWN -> Unit
@@ -213,7 +217,13 @@ fun AppDetails(
             modifier = Modifier.align(Alignment.BottomCenter),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            if (downloadProgress != null) {
+            if (waitingForSize && downloadProgress == null) {
+                CircularProgressIndicator(modifier = Modifier.size(96.dp))
+                // Spacer to align this indicator with the other when it appears
+                Text("", Modifier.padding(top = 16.dp))
+            } else if (downloadProgress != null) {
+                waitingForSize = false
+
                 CircularProgressIndicator(
                     modifier = Modifier.size(96.dp),
                     progress = downloadProgress.part.toFloat() / downloadProgress.total,
