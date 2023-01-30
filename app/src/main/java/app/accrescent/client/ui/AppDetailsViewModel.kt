@@ -11,10 +11,12 @@ import androidx.lifecycle.viewModelScope
 import app.accrescent.client.Accrescent
 import app.accrescent.client.R
 import app.accrescent.client.data.AppInstallStatuses
+import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.PreferencesManager
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.PackageManager
 import app.accrescent.client.util.UserRestrictionException
+import app.accrescent.client.util.getPackageInstallStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
@@ -56,6 +58,16 @@ class AppDetailsViewModel @Inject constructor(
 
             uiState = try {
                 val untrustedInfo = repoDataRepository.getAppRepoData(appId)
+                if (appInstallStatuses.statuses[appId] == null) {
+                    appInstallStatuses.statuses[appId] =
+                        try {
+                            context
+                                .packageManager
+                                .getPackageInstallStatus(appId, untrustedInfo.versionCode)
+                        } catch (e: Exception) {
+                            InstallStatus.UNKNOWN
+                        }
+                }
                 uiState.copy(
                     versionName = untrustedInfo.version,
                     versionCode = untrustedInfo.versionCode,
