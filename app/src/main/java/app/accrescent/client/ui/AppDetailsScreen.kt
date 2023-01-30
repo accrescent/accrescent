@@ -173,40 +173,42 @@ fun AppDetails(
                     }
                 else -> Unit
             }
-            Button(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f)
-                    .padding(horizontal = 6.dp),
-                enabled = downloadProgress == null && !waitingForSize,
-                onClick = {
-                    when (installStatus) {
-                        InstallStatus.INSTALLABLE,
-                        InstallStatus.UPDATABLE -> {
-                            waitingForSize = true
-                            onInstallClicked()
+            if (!(installStatus == InstallStatus.INSTALLED && id == BuildConfig.APPLICATION_ID)) {
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f)
+                        .padding(horizontal = 6.dp),
+                    enabled = downloadProgress == null && !waitingForSize,
+                    onClick = {
+                        when (installStatus) {
+                            InstallStatus.INSTALLABLE,
+                            InstallStatus.UPDATABLE -> {
+                                waitingForSize = true
+                                onInstallClicked()
+                            }
+                            InstallStatus.INSTALLED -> onOpenClicked()
+                            InstallStatus.LOADING,
+                            InstallStatus.UNKNOWN -> Unit
                         }
-                        InstallStatus.INSTALLED -> onOpenClicked()
-                        InstallStatus.LOADING,
-                        InstallStatus.UNKNOWN -> Unit
+                    },
+                ) {
+                    when (installStatus) {
+                        InstallStatus.INSTALLABLE ->
+                            Text(stringResource(R.string.install))
+                        InstallStatus.UPDATABLE ->
+                            Text(stringResource(R.string.update))
+                        InstallStatus.INSTALLED ->
+                            Text(stringResource(R.string.open))
+                        InstallStatus.LOADING ->
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(24.dp),
+                                color = MaterialTheme.colorScheme.onPrimary,
+                                strokeWidth = 3.dp
+                            )
+                        InstallStatus.UNKNOWN ->
+                            Text(stringResource(R.string.unknown))
                     }
-                },
-            ) {
-                when (installStatus) {
-                    InstallStatus.INSTALLABLE ->
-                        Text(stringResource(R.string.install))
-                    InstallStatus.UPDATABLE ->
-                        Text(stringResource(R.string.update))
-                    InstallStatus.INSTALLED ->
-                        Text(stringResource(R.string.open))
-                    InstallStatus.LOADING ->
-                        CircularProgressIndicator(
-                            modifier = Modifier.size(24.dp),
-                            color = MaterialTheme.colorScheme.onPrimary,
-                            strokeWidth = 3.dp
-                        )
-                    InstallStatus.UNKNOWN ->
-                        Text(stringResource(R.string.unknown))
                 }
             }
         }
