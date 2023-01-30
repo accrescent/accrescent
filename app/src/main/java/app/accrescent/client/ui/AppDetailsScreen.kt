@@ -178,7 +178,7 @@ fun AppDetails(
                     .fillMaxWidth()
                     .weight(1f)
                     .padding(horizontal = 6.dp),
-                enabled = downloadProgress == null,
+                enabled = downloadProgress == null && !waitingForSize,
                 onClick = {
                     when (installStatus) {
                         InstallStatus.INSTALLABLE,
