@@ -38,11 +38,11 @@ class Accrescent : Application(), Configuration.Provider {
             )
         )
 
-        val constraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .setRequiresDeviceIdle(true)
-            .setRequiresStorageNotLow(true)
-            .build()
+        val constraints = Constraints(
+            requiredNetworkType = NetworkType.CONNECTED,
+            requiresDeviceIdle = true,
+            requiresStorageNotLow = true,
+        )
         val updateRequest = PeriodicWorkRequestBuilder<AutoUpdateWorker>(Duration.ofHours(4))
             .setConstraints(constraints)
             .build()
