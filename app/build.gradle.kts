@@ -17,6 +17,12 @@ if (useKeystoreProperties) {
     keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
+}
+
 android {
     if (useKeystoreProperties) {
         signingConfigs {
