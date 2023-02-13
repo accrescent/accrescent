@@ -34,9 +34,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -48,6 +50,7 @@ import androidx.navigation.navDeepLink
 import app.accrescent.client.R
 import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.ROOT_DOMAIN
+import app.accrescent.client.ui.common.SearchAppBar
 import app.accrescent.client.ui.theme.AccrescentTheme
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
@@ -115,6 +118,9 @@ fun MainContent(
             if (showBottomBar) surfaceColorEl2 else surfaceColor
         )
     }
+    val searchQuery = remember {
+        mutableStateOf(TextFieldValue())
+    }
 
     val startDestination =
         if (appId != null) "${Screen.AppDetails.route}/{appId}" else Screen.AppList.route
@@ -147,17 +153,14 @@ fun MainContent(
                 enter = fadeIn(animationSpec = tween(400)),
                 exit = fadeOut(animationSpec = tween(400)),
             ) {
-                CenterAlignedTopAppBar(
-                    title = {},
-                    actions = {
-                        IconButton(onClick = { navController.navigate(Screen.Settings.route) }) {
-                            Icon(
-                                imageVector = Screen.Settings.navIconSelected!!,
-                                contentDescription = stringResource(Screen.Settings.resourceId)
-                            )
-                        }
+                SearchAppBar(value = searchQuery) {
+                    IconButton(onClick = { navController.navigate(Screen.Settings.route) }) {
+                        Icon(
+                            imageVector = Screen.Settings.navIconSelected!!,
+                            contentDescription = stringResource(Screen.Settings.resourceId)
+                        )
                     }
-                )
+                }
             }
         },
         bottomBar = {
@@ -223,6 +226,7 @@ fun MainContent(
                     snackbarHostState = snackbarHostState,
                     padding = padding,
                     viewModel = model,
+                    searchQuery = searchQuery.value.text
                 )
             }
             composable(Screen.InstalledApps.route, enterTransition = {
@@ -254,6 +258,7 @@ fun MainContent(
                     viewModel = model,
                     filter = { it == InstallStatus.INSTALLED || it == InstallStatus.UPDATABLE },
                     noFilterResultsText = stringResource(R.string.no_apps_installed),
+                    searchQuery = searchQuery.value.text
                 )
             }
             composable(Screen.AppUpdates.route, enterTransition = {
@@ -283,6 +288,7 @@ fun MainContent(
                     viewModel = model,
                     filter = { it == InstallStatus.UPDATABLE },
                     noFilterResultsText = stringResource(R.string.up_to_date),
+                    searchQuery = searchQuery.value.text
                 )
             }
             composable(
