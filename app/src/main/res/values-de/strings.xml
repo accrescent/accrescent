@@ -15,7 +15,7 @@
     <string name="network_error">Netzwerkfehler: %1$s</string>
     <string name="app_verification_failed">Verifizierung der App fehlgeschlagen: %1$s</string>
     <string name="failed_download_files">Download erforderlicher Dateien fehlgeschlagen: %1$s</string>
-    <string name="failed_download_repodata">Herunterladen der Paketquelle fehlgeschlagen: %1$s</string>
+    <string name="failed_download_repodata">Herunterladen von Paketquelle fehlgeschlagen: %1$s</string>
     <string name="failed_verify_repodata">Verifizierung der Paketquelle fehlgeschlagen: %1$s</string>
     <string name="app_doesnt_support_device">Die App unterstützt dein Gerät nicht: %1$s</string>
     <string name="dynamic_color_desc">Appfarben auf Basis der Systemfarbpalette</string>
@@ -49,7 +49,7 @@
     <string name="source_code_desc">Accrescents Quellcode ansehen</string>
     <string name="open_link">Link öffnen</string>
     <string name="require_user_action">Aufforderung zum Bestätigen einer Installation</string>
-    <string name="require_user_action_desc">Immer bestätigen, um versehentliche Appinstallationen zu verhindern</string>
+    <string name="require_user_action_desc">Immer Bestätigung fordern, um versehentliche App-Installationen zu verhindern</string>
     <string name="install_confirm">App installieren\?</string>
     <string name="install_confirm_desc">Willst du diese App wirklich auf deinem Gerät installieren\?</string>
     <string name="uninstall_confirm">App deinstallieren\?</string>
