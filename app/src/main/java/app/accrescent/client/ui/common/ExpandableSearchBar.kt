@@ -98,8 +98,9 @@ fun ExpandedSearchView(
         IconButton(
             modifier = Modifier.padding(top = 5.dp),
             onClick = {
-                onExpandedChanged(false)
                 onSearchDisplayClosed()
+                onExpandedChanged(false)
+                textFieldValue.value = TextFieldValue("")
             }
         ) {
             Icon(
