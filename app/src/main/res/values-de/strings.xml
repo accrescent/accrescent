@@ -17,7 +17,7 @@
     <string name="failed_download_files">Download erforderlicher Dateien fehlgeschlagen: %1$s</string>
     <string name="failed_download_repodata">Herunterladen der Paketquelle fehlgeschlagen: %1$s</string>
     <string name="failed_verify_repodata">Verifizierung der Paketquelle fehlgeschlagen: %1$s</string>
-    <string name="app_doesnt_support_device">Ihr Gerät wird von dieser App nicht unterstützt: %1$s</string>
+    <string name="app_doesnt_support_device">Die App unterstützt dein Gerät nicht: %1$s</string>
     <string name="dynamic_color_desc">Appfarben auf Basis der Systemfarbpalette</string>
     <string name="unknown_host_error">Unbekannter Systemfehler: %1$s</string>
     <string name="user_restriction">Nutzerbeschränkungsfehler: %1$s</string>
@@ -37,7 +37,7 @@
     <string name="base_apk_not_valid">base.apk ist keine gültige APK-Datei</string>
     <string name="failed_decode_repodata">Dekodierung der Paketquelle fehlgeschlagen: %1$s</string>
     <string name="uninstall_blocked">Deinstallation durch einen Administrator gesperrt</string>
-    <string name="app_signer_mismatch">Die App ist nicht von der/den erforderlichen Person(en) signiert.
+    <string name="app_signer_mismatch">Die App ist nicht von den erforderlichen Personen signiert.
 \nErwartet: %1$s</string>
     <string name="version_mismatch">Erwartete Version: %1$s, tatsächliche Version: %2$s</string>
     <string name="no_app_signers">Die App ist nicht signiert.
