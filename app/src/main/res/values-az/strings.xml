@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_list">Tətbiqlər</string>
+    <string name="installed">Quraşdırılıb</string>
+    <string name="app_updates">Yeniləmələr</string>
+    <string name="settings">Tənzimləmələr</string>
+    <string name="install">Quraşdır</string>
+    <string name="uninstall">Sil</string>
+    <string name="update">Yenilə</string>
+</resources>
