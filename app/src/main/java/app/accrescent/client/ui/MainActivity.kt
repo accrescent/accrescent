@@ -153,7 +153,11 @@ fun MainContent(
                 enter = fadeIn(animationSpec = tween(400)),
                 exit = fadeOut(animationSpec = tween(400)),
             ) {
-                SearchAppBar(value = searchQuery) {
+                SearchAppBar(
+                    value = searchQuery,
+                    // keep the search bar open if query is not empty when returning from an other screen
+                    expandedInitially = searchQuery.value.text.isNotEmpty()
+                ) {
                     IconButton(onClick = { navController.navigate(Screen.Settings.route) }) {
                         Icon(
                             imageVector = Screen.Settings.navIconSelected!!,
