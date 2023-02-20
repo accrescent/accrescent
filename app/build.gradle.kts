@@ -3,7 +3,7 @@ import java.util.Properties
 
 plugins {
     id("com.android.application")
-    id("app.accrescent.tools.bundletool") version "0.1.1"
+    id("app.accrescent.tools.bundletool") version "0.1.2"
     id("dagger.hilt.android.plugin")
     id("kotlin-android")
     id("kotlin-kapt")
