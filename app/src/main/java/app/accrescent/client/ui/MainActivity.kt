@@ -118,9 +118,7 @@ fun MainContent(
             if (showBottomBar) surfaceColorEl2 else surfaceColor
         )
     }
-    val searchQuery = remember {
-        mutableStateOf(TextFieldValue())
-    }
+    val searchQuery = remember { mutableStateOf(TextFieldValue()) }
 
     val startDestination =
         if (appId != null) "${Screen.AppDetails.route}/{appId}" else Screen.AppList.route

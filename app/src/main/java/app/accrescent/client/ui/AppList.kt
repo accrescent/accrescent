@@ -44,12 +44,8 @@ fun AppList(
     val apps by viewModel.apps.collectAsState(emptyList())
     val installStatuses = viewModel.installStatuses
     val filteredApps = apps.filter { filter(installStatuses[it.id] ?: InstallStatus.LOADING) }
-        .filter {
-            it.name.lowercase().contains(searchQuery.lowercase())
-        }
-        .sortedBy {
-            it.name.lowercase().indexOf(searchQuery.lowercase())
-        }
+        .filter { it.name.lowercase().contains(searchQuery.lowercase()) }
+        .sortedBy { it.name.lowercase().indexOf(searchQuery.lowercase()) }
 
     val refreshScope = rememberCoroutineScope()
     val state = rememberPullRefreshState(viewModel.isRefreshing, onRefresh = {
