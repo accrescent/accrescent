@@ -41,10 +41,10 @@ fun SearchIcon() {
 
 @Composable
 fun CollapsedSearchView(
+    title: String,
     onExpandedChanged: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
     actions: @Composable RowScope.() -> Unit,
-    title: String
 ) {
     Row(
         modifier = modifier

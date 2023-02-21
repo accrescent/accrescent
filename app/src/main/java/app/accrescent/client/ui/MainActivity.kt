@@ -225,10 +225,10 @@ fun MainContent(
                 val model = hiltViewModel<AppListViewModel>()
                 AppList(
                     navController = navController,
-                    snackbarHostState = snackbarHostState,
                     padding = padding,
+                    searchQuery = searchQuery.value.text,
+                    snackbarHostState = snackbarHostState,
                     viewModel = model,
-                    searchQuery = searchQuery.value.text
                 )
             }
             composable(Screen.InstalledApps.route, enterTransition = {
@@ -255,12 +255,12 @@ fun MainContent(
                 val model = hiltViewModel<AppListViewModel>()
                 AppList(
                     navController = navController,
-                    snackbarHostState = snackbarHostState,
                     padding = padding,
+                    searchQuery = searchQuery.value.text,
+                    snackbarHostState = snackbarHostState,
                     viewModel = model,
                     filter = { it == InstallStatus.INSTALLED || it == InstallStatus.UPDATABLE },
                     noFilterResultsText = stringResource(R.string.no_apps_installed),
-                    searchQuery = searchQuery.value.text
                 )
             }
             composable(Screen.AppUpdates.route, enterTransition = {
@@ -285,12 +285,12 @@ fun MainContent(
                 val model = hiltViewModel<AppListViewModel>()
                 AppList(
                     navController = navController,
-                    snackbarHostState = snackbarHostState,
                     padding = padding,
+                    searchQuery = searchQuery.value.text,
+                    snackbarHostState = snackbarHostState,
                     viewModel = model,
                     filter = { it == InstallStatus.UPDATABLE },
                     noFilterResultsText = stringResource(R.string.up_to_date),
-                    searchQuery = searchQuery.value.text
                 )
             }
             composable(

@@ -14,9 +14,9 @@ import androidx.compose.ui.text.input.TextFieldValue
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchAppBar(
+    value: MutableState<TextFieldValue>,
     modifier: Modifier = Modifier,
     title: String = "",
-    value: MutableState<TextFieldValue>,
     onSearchDisplayChanged: (String) -> Unit = {},
     onSearchDisplayClosed: () -> Unit = {},
     expandedInitially: Boolean = false,
@@ -40,10 +40,10 @@ fun SearchAppBar(
                     )
 
                     false -> CollapsedSearchView(
+                        title = title,
                         onExpandedChanged = onExpandedChanged,
                         modifier = modifier,
                         actions = actions,
-                        title = title
                     )
                 }
             }

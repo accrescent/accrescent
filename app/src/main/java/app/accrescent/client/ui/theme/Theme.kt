@@ -71,8 +71,8 @@ private val DarkColorPalette = darkColorScheme(
 
 @Composable
 fun AccrescentTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean,
+    darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
     val colors = when {

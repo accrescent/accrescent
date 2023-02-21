@@ -34,12 +34,12 @@ import kotlinx.coroutines.launch
 @Composable
 fun AppList(
     navController: NavController,
-    snackbarHostState: SnackbarHostState = SnackbarHostState(),
     padding: PaddingValues,
+    searchQuery: String,
+    snackbarHostState: SnackbarHostState = SnackbarHostState(),
     viewModel: AppListViewModel = viewModel(),
     filter: (installStatus: InstallStatus) -> Boolean = { true },
     noFilterResultsText: String = "",
-    searchQuery: String
 ) {
     val apps by viewModel.apps.collectAsState(emptyList())
     val installStatuses = viewModel.installStatuses
