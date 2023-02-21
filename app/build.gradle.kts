@@ -49,6 +49,7 @@ android {
         versionCode = 21
         versionName = "0.9.1"
         resourceConfigurations.addAll(listOf(
+            "az",
             "da",
             "de",
             "en",
