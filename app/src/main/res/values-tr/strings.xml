@@ -56,4 +56,5 @@
     <string name="install_confirm">Bu uygulama kurulsun mu\?</string>
     <string name="install_confirm_desc">Bu uygulamayı aygıtınıza kurmak istediğinizden emin misiniz\?</string>
     <string name="uninstall_confirm_desc">Uygulama, tüm verileriyle birlikte aygıtınızdan kaldırılacak.</string>
+    <string name="search">Ara</string>
 </resources>
