@@ -56,4 +56,5 @@
     <string name="install_confirm">¿Instalar esta aplicación\?</string>
     <string name="yes">Sí</string>
     <string name="uninstall_confirm_desc">La aplicación se eliminará de tu dispositivo junto con todos sus datos.</string>
+    <string name="search">Buscar</string>
 </resources>
