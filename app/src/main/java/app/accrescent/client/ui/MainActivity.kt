@@ -222,13 +222,11 @@ fun MainContent(
                     else -> null
                 }
             }) {
-                val model = hiltViewModel<AppListViewModel>()
                 AppList(
                     navController = navController,
                     padding = padding,
                     searchQuery = searchQuery.value.text,
                     snackbarHostState = snackbarHostState,
-                    viewModel = model,
                 )
             }
             composable(Screen.InstalledApps.route, enterTransition = {
@@ -252,13 +250,11 @@ fun MainContent(
                     else -> null
                 }
             }) {
-                val model = hiltViewModel<AppListViewModel>()
                 AppList(
                     navController = navController,
                     padding = padding,
                     searchQuery = searchQuery.value.text,
                     snackbarHostState = snackbarHostState,
-                    viewModel = model,
                     filter = { it == InstallStatus.INSTALLED || it == InstallStatus.UPDATABLE },
                     noFilterResultsText = stringResource(R.string.no_apps_installed),
                 )
@@ -282,13 +278,11 @@ fun MainContent(
                     else -> null
                 }
             }) {
-                val model = hiltViewModel<AppListViewModel>()
                 AppList(
                     navController = navController,
                     padding = padding,
                     searchQuery = searchQuery.value.text,
                     snackbarHostState = snackbarHostState,
-                    viewModel = model,
                     filter = { it == InstallStatus.UPDATABLE },
                     noFilterResultsText = stringResource(R.string.up_to_date),
                 )
@@ -322,8 +316,7 @@ fun MainContent(
                     }
                 }
             ) {
-                val model = hiltViewModel<AppDetailsViewModel>()
-                AppDetailsScreen(snackbarHostState = snackbarHostState, viewModel = model)
+                AppDetailsScreen(snackbarHostState)
             }
             composable(Screen.Settings.route, enterTransition = {
                 when (initialState.destination.route) {
@@ -344,8 +337,7 @@ fun MainContent(
                     else -> null
                 }
             }) {
-                val model = hiltViewModel<SettingsViewModel>()
-                SettingsScreen(padding = padding, viewModel = model)
+                SettingsScreen(padding)
             }
         }
     }

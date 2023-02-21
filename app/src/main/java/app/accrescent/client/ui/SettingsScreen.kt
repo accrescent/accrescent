@@ -29,13 +29,14 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import app.accrescent.client.R
 import app.accrescent.client.data.SOURCE_CODE_URL
 import app.accrescent.client.util.isPrivileged
 import kotlinx.coroutines.launch
 
 @Composable
-fun SettingsScreen(padding: PaddingValues, viewModel: SettingsViewModel) {
+fun SettingsScreen(padding: PaddingValues, viewModel: SettingsViewModel = hiltViewModel()) {
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
     val dynamicColor by viewModel.dynamicColor.collectAsState(false)

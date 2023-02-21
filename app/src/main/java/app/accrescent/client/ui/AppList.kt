@@ -24,7 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import app.accrescent.client.R
 import app.accrescent.client.data.InstallStatus
@@ -37,7 +37,7 @@ fun AppList(
     padding: PaddingValues,
     searchQuery: String,
     snackbarHostState: SnackbarHostState = SnackbarHostState(),
-    viewModel: AppListViewModel = viewModel(),
+    viewModel: AppListViewModel = hiltViewModel(),
     filter: (installStatus: InstallStatus) -> Boolean = { true },
     noFilterResultsText: String = "",
 ) {

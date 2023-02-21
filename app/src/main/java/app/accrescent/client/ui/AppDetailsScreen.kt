@@ -33,7 +33,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import app.accrescent.client.BuildConfig
 import app.accrescent.client.R
 import app.accrescent.client.data.DownloadProgress
@@ -43,7 +43,7 @@ import app.accrescent.client.util.isPrivileged
 @Composable
 fun AppDetailsScreen(
     snackbarHostState: SnackbarHostState,
-    viewModel: AppDetailsViewModel = viewModel(),
+    viewModel: AppDetailsViewModel = hiltViewModel(),
 ) {
     val context = LocalContext.current
     val installStatus = viewModel.installStatuses[viewModel.uiState.appId]
