@@ -56,4 +56,5 @@
     <string name="install_confirm">Встановити цей додаток\?</string>
     <string name="uninstall_confirm">Видалити цей додаток\?</string>
     <string name="uninstall_confirm_desc">Додаток буде видалено з вашого пристрою разом з усіма даними.</string>
+    <string name="search">Пошук</string>
 </resources>
