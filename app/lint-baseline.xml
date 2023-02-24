@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.4.1" type="baseline" client="gradle" dependencies="false" name="AGP (7.4.1)" variant="all" version="7.4.1">
+
+    <issue
+        id="ComposeContentEmitterReturningValues"
+        message="Composable functions should either emit content into the composition or return a value, but not both.&#xA;If a composable should offer additional control surfaces to its caller, those control surfaces or callbacks should be provided as parameters to the composable function by the caller.&#xA;See https://slackhq.github.io/compose-lints/rules/#do-not-emit-content-and-return-a-result for more information."
+        errorLine1="@Composable"
+        errorLine2="^">
+        <location
+            file="src/main/java/app/accrescent/client/ui/AppDetailsScreen.kt"
+            line="120"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="ComposeModifierMissing"
+        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
+        errorLine1="fun AppCard(app: App, onClick: () -> Unit) {"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="src/main/java/app/accrescent/client/ui/AppCard.kt"
+            line="18"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ComposeModifierMissing"
+        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
+        errorLine1="fun AppDetailsScreen("
+        errorLine2="    ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/app/accrescent/client/ui/AppDetailsScreen.kt"
+            line="44"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ComposeModifierMissing"
+        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
+        errorLine1="fun AppDetails("
+        errorLine2="    ~~~~~~~~~~">
+        <location
+            file="src/main/java/app/accrescent/client/ui/AppDetailsScreen.kt"
+            line="121"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ComposeModifierMissing"
+        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
+        errorLine1="fun AppNotFoundError() {"
+        errorLine2="    ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/app/accrescent/client/ui/AppDetailsScreen.kt"
+            line="246"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ComposeModifierMissing"
+        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
+        errorLine1="fun AppList("
+        errorLine2="    ~~~~~~~">
+        <location
+            file="src/main/java/app/accrescent/client/ui/AppList.kt"
+            line="35"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ComposeModifierMissing"
+        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
+        errorLine1="fun CenteredText(message: String) {"
+        errorLine2="    ~~~~~~~~~~~~">
+        <location
+            file="src/main/java/app/accrescent/client/ui/CenteredText.kt"
+            line="12"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ComposeModifierMissing"
+        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
+        errorLine1="fun SearchIcon() {"
+        errorLine2="    ~~~~~~~~~~">
+        <location
+            file="src/main/java/app/accrescent/client/ui/common/ExpandableSearchBar.kt"
+            line="35"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ComposeModifierMissing"
+        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
+        errorLine1="fun MainContent("
+        errorLine2="    ~~~~~~~~~~~">
+        <location
+            file="src/main/java/app/accrescent/client/ui/MainActivity.kt"
+            line="104"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ComposeModifierMissing"
+        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
+        errorLine1="fun SettingsScreen(padding: PaddingValues, viewModel: SettingsViewModel = hiltViewModel()) {"
+        errorLine2="    ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/app/accrescent/client/ui/SettingsScreen.kt"
+            line="39"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ComposeModifierMissing"
+        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
+        errorLine1="fun SettingGroupLabel(text: String) {"
+        errorLine2="    ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/app/accrescent/client/ui/SettingsScreen.kt"
+            line="89"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ComposeModifierMissing"
+        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
+        errorLine1="fun Setting(label: String, description: String, content: @Composable () -> Unit) {"
+        errorLine2="    ~~~~~~~">
+        <location
+            file="src/main/java/app/accrescent/client/ui/SettingsScreen.kt"
+            line="101"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ComposeMultipleContentEmitters"
+        message="Composable functions should only be emitting content into the composition from one source at their top level.&#xA;See https://slackhq.github.io/compose-lints/rules/#do-not-emit-multiple-pieces-of-content for more information."
+        errorLine1="@Composable"
+        errorLine2="^">
+        <location
+            file="src/main/java/app/accrescent/client/ui/AppDetailsScreen.kt"
+            line="120"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="ComposeMutableParameters"
+        message="Using mutable objects as state in Compose will cause your users to see incorrect or stale data in your app.&#xA;Mutable objects that are not observable, such as ArrayList&lt;T> or a mutable data class, cannot be observed by Compose to trigger recomposition when they change.&#xA;See https://slackhq.github.io/compose-lints/rules/#do-not-use-inherently-mutable-types-as-parameters for more information."
+        errorLine1="    textFieldValue: MutableState&lt;TextFieldValue>,"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/app/accrescent/client/ui/common/ExpandableSearchBar.kt"
+            line="77"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="ComposeMutableParameters"
+        message="Using mutable objects as state in Compose will cause your users to see incorrect or stale data in your app.&#xA;Mutable objects that are not observable, such as ArrayList&lt;T> or a mutable data class, cannot be observed by Compose to trigger recomposition when they change.&#xA;See https://slackhq.github.io/compose-lints/rules/#do-not-use-inherently-mutable-types-as-parameters for more information."
+        errorLine1="    value: MutableState&lt;TextFieldValue>,"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/app/accrescent/client/ui/common/SearchAppBar.kt"
+            line="17"
+            column="12"/>
+    </issue>
+
+</issues>

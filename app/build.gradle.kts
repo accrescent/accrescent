@@ -123,6 +123,10 @@ android {
             "org/bouncycastle/x509/**.properties",
         ))
     }
+
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
 }
 
 dependencies {
@@ -149,6 +153,8 @@ dependencies {
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     kapt("androidx.room:room-compiler:2.5.0")
     kapt("com.google.dagger:hilt-android-compiler:2.45")
+
+    lintChecks("com.slack.lint.compose:compose-lint-checks:1.0.1")
 }
 
 kapt {
