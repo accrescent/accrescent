@@ -56,4 +56,5 @@
     <string name="uninstall_confirm_desc">Die App und all ihre Daten werden von deinem Gerät gelöscht.</string>
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
+    <string name="search">Suche</string>
 </resources>
