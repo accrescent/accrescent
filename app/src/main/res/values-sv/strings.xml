@@ -56,4 +56,5 @@
     <string name="no">Ingen</string>
     <string name="uninstall_confirm_desc">Appen kommer att tas bort från din enhet tillsammans med all dess data.</string>
     <string name="require_user_action_desc">Be alltid om en bekräftelse för att förhindra att appar installeras av misstag</string>
+    <string name="search">Sök</string>
 </resources>
