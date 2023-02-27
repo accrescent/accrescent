@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_list">Aplicaciones</string>
+    <string name="app_list">Aplicaciónes</string>
     <string name="installed">Instalado</string>
     <string name="app_updates">Actualizaciones</string>
     <string name="settings">Opciones</string>
