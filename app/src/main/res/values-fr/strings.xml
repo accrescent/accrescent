@@ -56,4 +56,5 @@
     <string name="install_confirm_desc">Êtes-vous sûr de vouloir installer cette application sur votre appareil \?</string>
     <string name="uninstall_confirm">Désinstaller cette application \?</string>
     <string name="uninstall_confirm_desc">L’application sera supprimée de votre appareil avec toutes ses données.</string>
+    <string name="search">Recherche</string>
 </resources>
