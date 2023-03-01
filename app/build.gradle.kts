@@ -4,6 +4,7 @@ import java.util.Properties
 plugins {
     id("com.android.application")
     id("app.accrescent.tools.bundletool") version "0.1.2"
+    id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
     id("kotlin-android")
     id("kotlin-kapt")
@@ -73,10 +74,8 @@ android {
             "zh-rTW",
         ))
 
-        kapt {
-            arguments {
-                arg("room.schemaLocation", "$projectDir/schemas")
-            }
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
         }
     }
 
@@ -151,7 +150,7 @@ dependencies {
     implementation("org.bouncycastle:bcprov-jdk18on:1.72")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
-    kapt("androidx.room:room-compiler:2.5.0")
+    ksp("androidx.room:room-compiler:2.5.0")
     kapt("com.google.dagger:hilt-android-compiler:2.45")
 
     lintChecks("com.slack.lint.compose:compose-lint-checks:1.0.1")
