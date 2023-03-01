@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 7.4.1" type="baseline" client="gradle" dependencies="false" name="AGP (7.4.1)" variant="all" version="7.4.1">
+<issues format="6" by="lint 7.4.2" type="baseline" client="gradle" dependencies="false" name="AGP (7.4.2)" variant="all" version="7.4.2">
 
     <issue
         id="ComposeContentEmitterReturningValues"
@@ -10,17 +10,6 @@
             file="src/main/java/app/accrescent/client/ui/AppDetailsScreen.kt"
             line="120"
             column="1"/>
-    </issue>
-
-    <issue
-        id="ComposeModifierMissing"
-        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
-        errorLine1="fun AppCard(app: App, onClick: () -> Unit) {"
-        errorLine2="    ~~~~~~~">
-        <location
-            file="src/main/java/app/accrescent/client/ui/AppCard.kt"
-            line="18"
-            column="5"/>
     </issue>
 
     <issue
@@ -52,7 +41,7 @@
         errorLine2="    ~~~~~~~~~~~~~~~~">
         <location
             file="src/main/java/app/accrescent/client/ui/AppDetailsScreen.kt"
-            line="246"
+            line="248"
             column="5"/>
     </issue>
 
@@ -63,7 +52,7 @@
         errorLine2="    ~~~~~~~">
         <location
             file="src/main/java/app/accrescent/client/ui/AppList.kt"
-            line="35"
+            line="36"
             column="5"/>
     </issue>
 
