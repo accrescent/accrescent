@@ -18,6 +18,7 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -36,6 +37,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
@@ -224,8 +226,8 @@ fun MainContent(
             }) {
                 AppList(
                     navController = navController,
-                    padding = padding,
                     searchQuery = searchQuery.value.text,
+                    modifier = Modifier.padding(padding),
                     snackbarHostState = snackbarHostState,
                 )
             }
@@ -252,8 +254,8 @@ fun MainContent(
             }) {
                 AppList(
                     navController = navController,
-                    padding = padding,
                     searchQuery = searchQuery.value.text,
+                    modifier = Modifier.padding(padding),
                     snackbarHostState = snackbarHostState,
                     filter = { it == InstallStatus.INSTALLED || it == InstallStatus.UPDATABLE },
                     noFilterResultsText = stringResource(R.string.no_apps_installed),
@@ -280,8 +282,8 @@ fun MainContent(
             }) {
                 AppList(
                     navController = navController,
-                    padding = padding,
                     searchQuery = searchQuery.value.text,
+                    modifier = Modifier.padding(padding),
                     snackbarHostState = snackbarHostState,
                     filter = { it == InstallStatus.UPDATABLE },
                     noFilterResultsText = stringResource(R.string.up_to_date),
@@ -337,7 +339,7 @@ fun MainContent(
                     else -> null
                 }
             }) {
-                SettingsScreen(padding)
+                SettingsScreen(Modifier.padding(padding))
             }
         }
     }

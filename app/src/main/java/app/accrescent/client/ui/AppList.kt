@@ -3,7 +3,6 @@ package app.accrescent.client.ui
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -36,8 +35,8 @@ import kotlinx.coroutines.launch
 @Composable
 fun AppList(
     navController: NavController,
-    padding: PaddingValues,
     searchQuery: String,
+    modifier: Modifier = Modifier,
     snackbarHostState: SnackbarHostState = SnackbarHostState(),
     viewModel: AppListViewModel = hiltViewModel(),
     filter: (installStatus: InstallStatus) -> Boolean = { true },
@@ -57,11 +56,7 @@ fun AppList(
         }
     })
 
-    Box(
-        modifier = Modifier
-            .padding(padding)
-            .pullRefresh(state)
-    ) {
+    Box(modifier.pullRefresh(state)) {
         val verticalArrangement =
             if (apps.isEmpty() || filteredApps.isEmpty()) Arrangement.Center else Arrangement.Top
 

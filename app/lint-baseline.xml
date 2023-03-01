@@ -48,17 +48,6 @@
     <issue
         id="ComposeModifierMissing"
         message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
-        errorLine1="fun AppList("
-        errorLine2="    ~~~~~~~">
-        <location
-            file="src/main/java/app/accrescent/client/ui/AppList.kt"
-            line="36"
-            column="5"/>
-    </issue>
-
-    <issue
-        id="ComposeModifierMissing"
-        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
         errorLine1="fun CenteredText(message: String) {"
         errorLine2="    ~~~~~~~~~~~~">
         <location
@@ -85,18 +74,7 @@
         errorLine2="    ~~~~~~~~~~~">
         <location
             file="src/main/java/app/accrescent/client/ui/MainActivity.kt"
-            line="104"
-            column="5"/>
-    </issue>
-
-    <issue
-        id="ComposeModifierMissing"
-        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
-        errorLine1="fun SettingsScreen(padding: PaddingValues, viewModel: SettingsViewModel = hiltViewModel()) {"
-        errorLine2="    ~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/app/accrescent/client/ui/SettingsScreen.kt"
-            line="39"
+            line="106"
             column="5"/>
     </issue>
 
@@ -107,7 +85,7 @@
         errorLine2="    ~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/java/app/accrescent/client/ui/SettingsScreen.kt"
-            line="89"
+            line="84"
             column="5"/>
     </issue>
 
@@ -118,7 +96,7 @@
         errorLine2="    ~~~~~~~">
         <location
             file="src/main/java/app/accrescent/client/ui/SettingsScreen.kt"
-            line="101"
+            line="96"
             column="5"/>
     </issue>
 

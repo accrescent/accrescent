@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -36,17 +35,13 @@ import app.accrescent.client.util.isPrivileged
 import kotlinx.coroutines.launch
 
 @Composable
-fun SettingsScreen(padding: PaddingValues, viewModel: SettingsViewModel = hiltViewModel()) {
+fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel = hiltViewModel()) {
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
     val dynamicColor by viewModel.dynamicColor.collectAsState(false)
     val requireUserAction by viewModel.requireUserAction.collectAsState(!context.isPrivileged())
 
-    Column(
-        modifier = Modifier
-            .padding(padding)
-            .padding(horizontal = 32.dp)
-    ) {
+    Column(modifier.padding(horizontal = 32.dp)) {
         SettingGroupLabel(stringResource(R.string.app_updates))
         Setting(
             label = stringResource(R.string.require_user_action),
