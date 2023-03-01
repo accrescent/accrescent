@@ -1,6 +1,5 @@
 package app.accrescent.client.ui
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,8 +14,8 @@ import androidx.compose.ui.unit.dp
 import app.accrescent.client.data.db.App
 
 @Composable
-fun AppCard(app: App, onClick: () -> Unit, modifier: Modifier = Modifier) {
-    Card(modifier.clickable { onClick() }) {
+fun AppCard(app: App, modifier: Modifier = Modifier) {
+    Card(modifier) {
         Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             AppIcon(
                 app.id,

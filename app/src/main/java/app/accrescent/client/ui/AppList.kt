@@ -1,5 +1,6 @@
 package app.accrescent.client.ui
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -74,10 +75,10 @@ fun AppList(
                 items(filteredApps, key = { app -> app.id }) { app ->
                     AppCard(
                         app = app,
-                        onClick = { navController.navigate("${Screen.AppDetails.route}/${app.id}") },
                         Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 8.dp),
+                            .padding(horizontal = 16.dp, vertical = 8.dp)
+                            .clickable { navController.navigate("${Screen.AppDetails.route}/${app.id}") },
                     )
                 }
             }
