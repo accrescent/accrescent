@@ -43,4 +43,18 @@
     <string name="repodata_timestamp_less">repodata timestamp este mai mic decât valoarea salvată</string>
     <string name="version_mismatch">versiunea așteptată este %1$s, versiunea reală este %2$s</string>
     <string name="version_code_mismatch">codul de versiune așteptat este %1$d, cel real este %2$d</string>
+    <string name="require_user_action">Cerere de confirmare a instalării</string>
+    <string name="require_user_action_desc">Cereți întotdeauna confirmarea pentru a preveni instalarea accidentală a aplicațiilor</string>
+    <string name="install_confirm">Instalați această aplicație\?</string>
+    <string name="no">Nu</string>
+    <string name="yes">Da</string>
+    <string name="uninstall_confirm_desc">Aplicația va fi eliminată de pe dispozitivul dvs. împreună cu toate datele sale.</string>
+    <string name="uninstall_confirm">Dezinstală această aplicație\?</string>
+    <string name="install_confirm_desc">Sunteți sigur că doriți să instalați această aplicație pe dispozitivul dumneavoastră\?</string>
+    <string name="search">Căutare</string>
+    <string name="open_link">Deschidere link</string>
+    <string name="customization">Personalizare</string>
+    <string name="source_code">Codul sursă</string>
+    <string name="about">Despre</string>
+    <string name="source_code_desc">Vezi codul sursă al Accrescent</string>
 </resources>
