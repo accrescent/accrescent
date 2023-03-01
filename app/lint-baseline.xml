@@ -79,28 +79,6 @@
     </issue>
 
     <issue
-        id="ComposeModifierMissing"
-        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
-        errorLine1="fun SettingGroupLabel(text: String) {"
-        errorLine2="    ~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/app/accrescent/client/ui/SettingsScreen.kt"
-            line="84"
-            column="5"/>
-    </issue>
-
-    <issue
-        id="ComposeModifierMissing"
-        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
-        errorLine1="fun Setting(label: String, description: String, content: @Composable () -> Unit) {"
-        errorLine2="    ~~~~~~~">
-        <location
-            file="src/main/java/app/accrescent/client/ui/SettingsScreen.kt"
-            line="96"
-            column="5"/>
-    </issue>
-
-    <issue
         id="ComposeMultipleContentEmitters"
         message="Composable functions should only be emitting content into the composition from one source at their top level.&#xA;See https://slackhq.github.io/compose-lints/rules/#do-not-emit-multiple-pieces-of-content for more information."
         errorLine1="@Composable"

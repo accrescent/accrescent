@@ -42,10 +42,11 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
     val requireUserAction by viewModel.requireUserAction.collectAsState(!context.isPrivileged())
 
     Column(modifier.padding(horizontal = 32.dp)) {
-        SettingGroupLabel(stringResource(R.string.app_updates))
+        SettingGroupLabel(stringResource(R.string.app_updates), Modifier.padding(top = 16.dp))
         Setting(
             label = stringResource(R.string.require_user_action),
             description = stringResource(R.string.require_user_action_desc),
+            modifier = Modifier.fillMaxWidth(),
         ) {
             Switch(
                 checked = requireUserAction,
@@ -53,20 +54,22 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
                 enabled = context.isPrivileged(),
             )
         }
-        SettingGroupLabel(stringResource(R.string.customization))
+        SettingGroupLabel(stringResource(R.string.customization), Modifier.padding(top = 16.dp))
         Setting(
             label = stringResource(R.string.dynamic_color),
             description = stringResource(R.string.dynamic_color_desc),
+            modifier = Modifier.fillMaxWidth(),
         ) {
             Switch(
                 checked = dynamicColor,
                 onCheckedChange = { coroutineScope.launch { viewModel.setDynamicColor(it) } },
             )
         }
-        SettingGroupLabel(stringResource(R.string.about))
+        SettingGroupLabel(stringResource(R.string.about), Modifier.padding(top = 16.dp))
         Setting(
             label = stringResource(R.string.source_code),
             description = stringResource(R.string.source_code_desc),
+            modifier = Modifier.fillMaxWidth(),
         ) {
             IconButton(onClick = {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_CODE_URL))
@@ -81,23 +84,24 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
 }
 
 @Composable
-fun SettingGroupLabel(text: String) {
+fun SettingGroupLabel(text: String, modifier: Modifier = Modifier) {
     Text(
         text = text,
-        modifier = Modifier
-            .semantics { heading() }
-            .padding(top = 16.dp),
+        modifier = modifier.semantics { heading() },
         color = MaterialTheme.colorScheme.primary,
         style = MaterialTheme.typography.labelLarge,
     )
 }
 
 @Composable
-fun Setting(label: String, description: String, content: @Composable () -> Unit) {
+fun Setting(
+    label: String,
+    description: String,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit,
+) {
     Row(
-        modifier = Modifier
-            .semantics(mergeDescendants = true) {}
-            .fillMaxWidth(),
+        modifier = modifier.semantics(mergeDescendants = true) {},
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
