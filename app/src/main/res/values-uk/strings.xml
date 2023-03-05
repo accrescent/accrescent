@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="require_user_action_desc">Завжди запитувати підтвердження, щоб запобігти випадковому встановленню додатків</string>
-    <string name="no_app_signers">підписантів додатку не знайдено.
+    <string name="require_user_action_desc">Завжди запитувати підтвердження, щоб запобігти випадковому встановленню застосунків</string>
+    <string name="no_app_signers">підписантів застосунку не знайдено.
 \nОчікується: %1$s</string>
-    <string name="app_signer_mismatch">додаток не підписано необхідними підписантом(ами).
+    <string name="app_signer_mismatch">застосунок не підписано необхідними підписантом(ами).
 \nОчікується: %1$s</string>
     <string name="repodata_timestamp_less">мітка часу реподанних менше збереженого значення</string>
-    <string name="app_list">Додатки</string>
+    <string name="app_list">Застосунки</string>
     <string name="installed">Встановлено</string>
     <string name="settings">Налаштування</string>
     <string name="install">Встановити</string>
@@ -16,15 +16,15 @@
     <string name="require_user_action">Запит на підтвердження встановлення</string>
     <string name="about">Про нас</string>
     <string name="source_code_desc">Переглянути вихідний код Accrescent</string>
-    <string name="no_apps_installed">Немає встановлених додатків</string>
-    <string name="up_to_date">Всі актуальні додатки</string>
+    <string name="no_apps_installed">Немає встановлених застосунків</string>
+    <string name="up_to_date">Всі актуальні застосунки</string>
     <string name="network_error">Помилка мережі: %1$s</string>
-    <string name="app_verification_failed">Не вдалося верифікувати додаток: %1$s</string>
+    <string name="app_verification_failed">Не вдалося перевірити застосунок: %1$s</string>
     <string name="failed_download_files">Не вдалося завантажити необхідні файли: %1$s</string>
     <string name="failed_download_repodata">Не вдалося завантажити реподані: %1$s</string>
     <string name="failed_verify_repodata">Не вдалося верифікувати реподані: %1$s</string>
     <string name="failed_decode_repodata">Не вдалося декодувати реподані: %1$s</string>
-    <string name="app_doesnt_support_device">Додаток не підтримує ваш пристрій: %1$s</string>
+    <string name="app_doesnt_support_device">Застосунок не підтримує ваш пристрій: %1$s</string>
     <string name="user_restriction">Помилка обмеження користувача: %1$s</string>
     <string name="device_density_unsupported">щільність екрану вашого пристрою не підтримується</string>
     <string name="device_abi_unsupported">архітектура вашого пристрою не підтримується</string>
@@ -36,25 +36,25 @@
     <string name="app_updates">Оновлення</string>
     <string name="update">Оновити</string>
     <string name="dynamic_color">Динамічний колір / Material You</string>
-    <string name="dynamic_color_desc">Тема додатку на основі системної колірної палітри</string>
+    <string name="dynamic_color_desc">Тема застосунку на основі системної колірної палітри</string>
     <string name="source_code">Вихідний код</string>
     <string name="open_link">Відкрити посилання</string>
     <string name="swipe_refresh">Проведіть вниз, щоб оновити</string>
     <string name="user_action_required">Необхідні дії користувача</string>
-    <string name="cant_find_app">Вибачте, ми не змогли знайти цей додаток</string>
-    <string name="couldnt_open_app">Не вдалося відкрити додаток</string>
+    <string name="cant_find_app">Вибачте, ми не змогли знайти цей застосунок</string>
+    <string name="couldnt_open_app">Не вдалося відкрити застосунок</string>
     <string name="unknown_host_error">Невідома помилка хоста: %1$s</string>
-    <string name="install_confirm_desc">Ви впевнені, що хочете встановити цей додаток на свій пристрій\?</string>
-    <string name="error_parsing_files">Помилка розбору файлів додатка: %1$s</string>
+    <string name="install_confirm_desc">Ви впевнені, що хочете встановити цей застосунок на свій пристрій\?</string>
+    <string name="error_parsing_files">Помилка розбору файлів застосунку: %1$s</string>
     <string name="version">Версія: %1$s</string>
     <string name="version_code">Код версії: %1$d</string>
     <string name="version_downgrade">версія %1$d менша за мінімальну %2$d</string>
-    <string name="app_id_mismatch">ідентифікатор додатка %1$s не відповідає очікуваному ідентифікатору %2$s</string>
+    <string name="app_id_mismatch">ідентифікатор застосунку %1$s не відповідає очікуваному ідентифікатору %2$s</string>
     <string name="sig_verify_failed">перевірка підпису не пройшла</string>
     <string name="install_blocked">інсталяція заблокована адміністратором</string>
     <string name="uninstall_blocked">видалення заблоковане адміністратором</string>
-    <string name="install_confirm">Встановити цей додаток\?</string>
-    <string name="uninstall_confirm">Видалити цей додаток\?</string>
-    <string name="uninstall_confirm_desc">Додаток буде видалено з вашого пристрою разом з усіма даними.</string>
+    <string name="install_confirm">Встановити цей застосунок\?</string>
+    <string name="uninstall_confirm">Видалити цей застосунок\?</string>
+    <string name="uninstall_confirm_desc">Застосунок буде видалено з вашого пристрою разом з усіма даними.</string>
     <string name="search">Пошук</string>
 </resources>
