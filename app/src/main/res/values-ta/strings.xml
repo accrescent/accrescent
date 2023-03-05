@@ -55,4 +55,6 @@
     <string name="version_mismatch">எதிர்பார்க்கப்படும் பதிப்பு %1$s, உண்மையானது %2$s</string>
     <string name="base_apk_not_valid">base.apk சரியான APK அல்ல</string>
     <string name="repodata_timestamp_less">செமலியின் நேர முத்திரை சேமிக்கப்பட்ட மதிப்பை விட குறைவாக உள்ளது</string>
+    <string name="failed_download_repodata">களஞ்சியத்தை பதிவிறக்குவதில் தோல்வி: %1$s</string>
+    <string name="search">தேடல்</string>
 </resources>
