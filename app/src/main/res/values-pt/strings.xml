@@ -1,2 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_updates">Atualizações</string>
+    <string name="installed">Instalado</string>
+    <string name="install">Instalar</string>
+    <string name="uninstall">Desinstalar</string>
+    <string name="update">Atualizar</string>
+    <string name="open">Abrir</string>
+    <string name="require_user_action">Instalar prompt de confirmação</string>
+    <string name="require_user_action_desc">Sempre solicite confirmação para evitar a instalação acidental de aplicativos</string>
+    <string name="customization">Costumização</string>
+    <string name="dynamic_color">Cor dinâmica / Material Você</string>
+    <string name="about">Sobre</string>
+    <string name="source_code">Código fonte</string>
+    <string name="source_code_desc">Veja o código-fonte da Acrescent</string>
+    <string name="open_link">Link aberto</string>
+    <string name="swipe_refresh">Deslize para baixo para atualizar</string>
+    <string name="user_action_required">Ação do usuário necessária</string>
+    <string name="couldnt_open_app">Não foi possível abrir o aplicativo</string>
+    <string name="network_error">Network error: %1$s</string>
+    <string name="app_verification_failed">Falha na verificação do aplicativo: %1$s</string>
+    <string name="failed_download_repodata">Falha ao baixar repodados: %1$s</string>
+    <string name="failed_verify_repodata">Falha ao verificar repodata: %1$s</string>
+    <string name="failed_decode_repodata">Falha ao decodificar repodata: %1$s</string>
+    <string name="unknown_host_error">Erro de host desconhecido: %1$s</string>
+    <string name="user_restriction">Erro de restrição de usuário: %1$s</string>
+    <string name="version">Versão: %1$s</string>
+    <string name="version_code">Código da versão: %1$d</string>
+    <string name="device_density_unsupported">a densidade da tela do seu dispositivo não é suportada</string>
+    <string name="app_signer_mismatch">aplicativo não assinado pelo(s) signatário(s) necessário(s).
+\nEsperado: %1$s</string>
+    <string name="version_downgrade">a versão %1$d é menor que o mínimo %2$d</string>
+    <string name="app_id_mismatch">ID do aplicativo %1$s não corresponde ao ID esperado %2$s</string>
+    <string name="version_mismatch">versão esperada %1$s, real é %2$s</string>
+    <string name="version_code_mismatch">código de versão esperado %1$d, real é %2$d</string>
+    <string name="base_apk_not_valid">base.apk não é um APK válido</string>
+    <string name="sig_verify_failed">verificação de assinatura falhou</string>
+    <string name="install_blocked">instalação bloqueada pelo administrador</string>
+    <string name="uninstall_blocked">desinstalação bloqueada pelo administrador</string>
+    <string name="install_confirm">Instalar este aplicativo\?</string>
+    <string name="uninstall_confirm_desc">O aplicativo será removido do seu dispositivo junto com todos os seus dados.</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="search">Procurar</string>
+    <string name="settings">Configurações</string>
+    <string name="app_list">Aplicativos</string>
+    <string name="up_to_date">Todos os aplicativos estão atualizados</string>
+    <string name="cant_find_app">Não foi possível encontrar esse aplicativo</string>
+    <string name="dynamic_color_desc">Tema o aplicativo com base na paleta de cores do sistema</string>
+    <string name="no_apps_installed">Nenhum aplicativo instalado</string>
+    <string name="failed_download_files">Falha ao baixar os arquivos necessários: %1$s</string>
+    <string name="error_parsing_files">Erro ao analisar os arquivos do aplicativo: %1$s</string>
+    <string name="app_doesnt_support_device">O aplicativo não é compatível com seu dispositivo: %1$s</string>
+    <string name="device_abi_unsupported">a arquitetura do seu dispositivo não é suportada</string>
+    <string name="repodata_timestamp_less">carimbo de data/hora repodata menor que o valor salvo</string>
+    <string name="no_app_signers">nenhum signatário de aplicativo encontrado.
+\nEsperado: %1$s</string>
+    <string name="uninstall_confirm">Desinstalar este aplicativo\?</string>
+    <string name="install_confirm_desc">Tem certeza de que deseja instalar este aplicativo no seu dispositivo\?</string>
+</resources>
