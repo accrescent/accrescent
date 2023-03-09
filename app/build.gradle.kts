@@ -156,7 +156,7 @@ dependencies {
     ksp("androidx.room:room-compiler:2.5.0")
     kapt("com.google.dagger:hilt-android-compiler:2.45")
 
-    lintChecks("com.slack.lint.compose:compose-lint-checks:1.1.0")
+    lintChecks("com.slack.lint.compose:compose-lint-checks:1.1.1")
 }
 
 kapt {
