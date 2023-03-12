@@ -36,6 +36,9 @@ class PreferencesManager @Inject constructor(@ApplicationContext private val con
     val requireUserAction = data.map { preferences ->
         preferences[PreferencesKeys.REQUIRE_USER_ACTION] ?: !context.isPrivileged()
     }
+    val automaticUpdates = data.map { preferences ->
+        preferences[PreferencesKeys.AUTOMATIC_UPDATES] ?: true
+    }
     val networkType = data.map { preferences ->
         preferences[PreferencesKeys.UPDATER_NETWORK_TYPE] ?: NetworkType.CONNECTED.name
     }
@@ -43,6 +46,12 @@ class PreferencesManager @Inject constructor(@ApplicationContext private val con
     suspend fun setDynamicColor(dynamicColor: Boolean) {
         context.dataStore.edit {
             it[PreferencesKeys.DYNAMIC_COLOR] = dynamicColor
+        }
+    }
+
+    suspend fun setAutomaticUpdates(automaticUpdates: Boolean) {
+        context.dataStore.edit {
+            it[PreferencesKeys.AUTOMATIC_UPDATES] = automaticUpdates
         }
     }
 
@@ -61,6 +70,7 @@ class PreferencesManager @Inject constructor(@ApplicationContext private val con
     private object PreferencesKeys {
         val DYNAMIC_COLOR = booleanPreferencesKey("dynamic_color")
         val REQUIRE_USER_ACTION = booleanPreferencesKey("require_user_action")
+        val AUTOMATIC_UPDATES = booleanPreferencesKey("automatic_updates")
         val UPDATER_NETWORK_TYPE = stringPreferencesKey("updater_network_type")
     }
 }
