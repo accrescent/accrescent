@@ -52,6 +52,7 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
     val coroutineScope = rememberCoroutineScope()
     val dynamicColor by viewModel.dynamicColor.collectAsState(false)
     val requireUserAction by viewModel.requireUserAction.collectAsState(!context.isPrivileged())
+    val automaticUpdates by viewModel.automaticUpdates.collectAsState(true)
     val networkType by viewModel.updaterNetworkType.collectAsState(NetworkType.CONNECTED.name)
 
     Column(modifier.padding(horizontal = 32.dp)) {
@@ -81,6 +82,16 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
         val networkTypeNames = listOf(R.string.all, R.string.unmetered, R.string.metered, R.string.not_roaming)
         val networkTypeValues = listOf(NetworkType.CONNECTED, NetworkType.UNMETERED, NetworkType.METERED, NetworkType.NOT_ROAMING)
         SettingGroupLabel(stringResource(R.string.updater), Modifier.padding(top = 16.dp))
+        Setting(
+            label = stringResource(R.string.automatic_updates),
+            description = stringResource(R.string.automatic_updates_desc),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Switch(
+                checked = automaticUpdates,
+                onCheckedChange = { coroutineScope.launch { viewModel.setAutomaticUpdates(it) } },
+            )
+        }
         ListPreference(
             label = stringResource(R.string.network_condition),
             description = stringResource(R.string.network_condition_desc),

@@ -25,11 +25,18 @@ class Accrescent : Application(), Configuration.Provider {
 
         val notificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.createNotificationChannel(
-            NotificationChannel(
-                USER_ACTION_REQUIRED_CHANNEL,
-                getString(R.string.user_action_required),
-                NotificationManager.IMPORTANCE_DEFAULT
+        notificationManager.createNotificationChannels(
+            listOf(
+                NotificationChannel(
+                    USER_ACTION_REQUIRED_CHANNEL,
+                    getString(R.string.user_action_required),
+                    NotificationManager.IMPORTANCE_DEFAULT
+                ),
+                NotificationChannel(
+                    UPDATE_AVAILABLE_CHANNEL,
+                    getString(R.string.update_available),
+                    NotificationManager.IMPORTANCE_DEFAULT
+                )
             )
         )
 
@@ -56,5 +63,6 @@ class Accrescent : Application(), Configuration.Provider {
     companion object {
         lateinit var appContext: Context
         const val USER_ACTION_REQUIRED_CHANNEL = "UserActionRequired"
+        const val UPDATE_AVAILABLE_CHANNEL = "UpdateAvailable"
     }
 }

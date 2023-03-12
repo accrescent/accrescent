@@ -13,6 +13,7 @@ class SettingsViewModel @Inject constructor(private val preferencesManager: Pref
     ViewModel() {
     val dynamicColor = preferencesManager.dynamicColor
     val requireUserAction = preferencesManager.requireUserAction
+    var automaticUpdates = preferencesManager.automaticUpdates
     val updaterNetworkType = preferencesManager.networkType
 
     suspend fun setDynamicColor(dynamicColor: Boolean) =
@@ -25,4 +26,7 @@ class SettingsViewModel @Inject constructor(private val preferencesManager: Pref
         preferencesManager.setNetworkType(networkType.name)
         AutoUpdateWorker.enqueue(context, networkType, true)
     }
+
+    suspend fun setAutomaticUpdates(automaticUpdates: Boolean) =
+        preferencesManager.setAutomaticUpdates(automaticUpdates)
 }

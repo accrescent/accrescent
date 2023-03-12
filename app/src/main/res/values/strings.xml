@@ -65,4 +65,7 @@
     <string name="metered">Metered</string>
     <string name="unmetered">Unmetered</string>
     <string name="not_roaming">Not roaming</string>
+    <string name="automatic_updates">Automatic updates</string>
+    <string name="automatic_updates_desc">Whether to update apps automatically. Shows a notification instead if disabled.</string>
+    <string name="update_available">Update available</string>
 </resources>
