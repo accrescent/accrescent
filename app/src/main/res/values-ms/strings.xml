@@ -1,2 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_list">Aplikasi</string>
+    <string name="installed">Dipasang</string>
+    <string name="app_updates">Kemas kini</string>
+    <string name="settings">Tetapan</string>
+    <string name="install">Pasang</string>
+    <string name="uninstall">Nyahpasang</string>
+    <string name="update">Kemas kini</string>
+    <string name="open">Buka</string>
+    <string name="require_user_action">Pasang gesaan pengesahan</string>
+    <string name="dynamic_color">Warna dinamik / Material Anda</string>
+    <string name="about">Perihal</string>
+    <string name="source_code">Kod Sumber</string>
+    <string name="source_code_desc">Lihat kod sumber Accrescent</string>
+    <string name="open_link">Buka pautan</string>
+    <string name="swipe_refresh">Leret ke bawah untuk segar semula</string>
+    <string name="up_to_date">Semua aplikasi adalah terkini</string>
+    <string name="user_action_required">Tindakan pengguna diperlukan</string>
+    <string name="cant_find_app">Maaf, kami tidak dapat mencari aplikasi itu</string>
+    <string name="couldnt_open_app">Tidak boleh buka aplikasi</string>
+    <string name="network_error">Ralat rangkaian: %1$s</string>
+    <string name="failed_download_files">Gagal untuk memuat turun fail penting: %1$s</string>
+    <string name="failed_download_repodata">Gagal untuk memuat turun data repo: %1$s</string>
+    <string name="failed_verify_repodata">Gagal untuk mengesahkan data repo: %1$s</string>
+    <string name="error_parsing_files">Gagal menghuraikan fail aplikasi: %1$s</string>
+    <string name="unknown_host_error">Ralat hos: %1$s</string>
+    <string name="require_user_action_desc">Sentiasa gesa untuk pengesahan demi mengelakkan memasang aplikasi secara tidak sengaja</string>
+    <string name="customization">Pengubahsuaian</string>
+    <string name="dynamic_color_desc">Temakan apliaksi berdasarkan palet warna sisten</string>
+    <string name="no_apps_installed">Tiada aplikasi dipasang</string>
+    <string name="app_verification_failed">Pengesahan aplikasi gagal: %1$s</string>
+    <string name="failed_decode_repodata">Gagal untuk menyahkod data repo: %1$s</string>
+    <string name="app_doesnt_support_device">Aplikasi tidak menyokong peranti anda: %1$s</string>
+</resources>
