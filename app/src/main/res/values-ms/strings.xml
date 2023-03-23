@@ -24,7 +24,7 @@
     <string name="failed_download_repodata">Gagal untuk memuat turun data repo: %1$s</string>
     <string name="failed_verify_repodata">Gagal untuk mengesahkan data repo: %1$s</string>
     <string name="error_parsing_files">Gagal menghuraikan fail aplikasi: %1$s</string>
-    <string name="unknown_host_error">Ralat hos</string>
+    <string name="unknown_host_error">Ralat hos: %1$s</string>
     <string name="require_user_action_desc">Sentiasa gesa untuk pengesahan demi mengelakkan memasang aplikasi secara tidak sengaja</string>
     <string name="customization">Pengubahsuaian</string>
     <string name="dynamic_color_desc">Temakan apliaksi berdasarkan palet warna sisten</string>
