@@ -44,6 +44,8 @@ import androidx.work.NetworkType
 import app.accrescent.client.R
 import app.accrescent.client.data.SOURCE_CODE_URL
 import app.accrescent.client.util.isPrivileged
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.launch
 
 @Composable
@@ -79,12 +81,12 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
                 onCheckedChange = { coroutineScope.launch { viewModel.setDynamicColor(it) } },
             )
         }
-        val networkTypeNames = listOf(
-            R.string.all,
-            R.string.unmetered,
-            R.string.not_roaming
+        val networkTypeNames = persistentListOf(
+            stringResource(R.string.all),
+            stringResource(R.string.unmetered),
+            stringResource(R.string.not_roaming),
         )
-        val networkTypeValues = listOf(
+        val networkTypeValues = persistentListOf(
             NetworkType.CONNECTED,
             NetworkType.UNMETERED,
             NetworkType.NOT_ROAMING
@@ -103,7 +105,7 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
         ListPreference(
             label = stringResource(R.string.network_condition),
             description = stringResource(R.string.network_condition_desc),
-            entries = networkTypeNames.map { stringResource(it) },
+            entries = networkTypeNames,
             currentValueIndex = networkTypeValues.indexOf(NetworkType.valueOf(networkType)),
             onSelectionChanged = {
                 coroutineScope.launch { viewModel.setUpdaterNetworkType(context, networkTypeValues[it]) }
@@ -165,7 +167,7 @@ fun Setting(
 fun ListPreference(
     label: String,
     description: String,
-    entries: List<String>,
+    entries: ImmutableList<String>,
     currentValueIndex: Int,
     modifier: Modifier = Modifier,
     onSelectionChanged: (index: Int) -> Unit,
