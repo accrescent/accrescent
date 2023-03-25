@@ -57,4 +57,16 @@
     <string name="install_confirm_desc">האם אתה בטוח שברצונך להתקין אפליקציה זו במכשיר שלך\?</string>
     <string name="yes">כן</string>
     <string name="no">לא</string>
+    <string name="network_condition">מצב רשת</string>
+    <string name="all">הכול</string>
+    <string name="unmetered">לא מדודה</string>
+    <string name="not_roaming">בלי נדידה</string>
+    <string name="update_available">עדכון זמין</string>
+    <string name="update_finished">העדכון הסתיים</string>
+    <string name="update_failure">כשל בעדכון</string>
+    <string name="updater">מעדכן</string>
+    <string name="network_condition_desc">סוגי הרשתות להריץ דרכם עדכונים</string>
+    <string name="automatic_updates">עדכונים אוטומטיים</string>
+    <string name="automatic_updates_desc">האם לעדכן יישומים אוטומטית. מציג התראה במקום אם מושבת.</string>
+    <string name="update_success">%1$s עודכן בהצלחה.</string>
 </resources>
