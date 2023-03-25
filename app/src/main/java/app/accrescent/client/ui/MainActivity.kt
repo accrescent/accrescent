@@ -287,6 +287,7 @@ fun MainContent(
                     snackbarHostState = snackbarHostState,
                     filter = { it == InstallStatus.UPDATABLE },
                     noFilterResultsText = stringResource(R.string.up_to_date),
+                    isUpdatesScreen = true,
                 )
             }
             composable(

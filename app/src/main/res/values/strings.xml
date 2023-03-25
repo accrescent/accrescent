@@ -8,6 +8,8 @@
     <string name="install">Install</string>
     <string name="uninstall">Uninstall</string>
     <string name="update">Update</string>
+    <string name="update_all">Update all</string>
+    <string name="updating">Updating…</string>
     <string name="open">Open</string>
     <string name="unknown" translatable="false">\?\?\?</string>
     <string name="require_user_action">Install confirmation prompt</string>

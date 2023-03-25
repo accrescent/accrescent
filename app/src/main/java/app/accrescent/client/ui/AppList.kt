@@ -8,14 +8,20 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.pullrefresh.PullRefreshIndicator
 import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
+import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -41,6 +47,7 @@ fun AppList(
     viewModel: AppListViewModel = hiltViewModel(),
     filter: (installStatus: InstallStatus) -> Boolean = { true },
     noFilterResultsText: String = "",
+    isUpdatesScreen: Boolean = false,
 ) {
     val apps by viewModel.apps.collectAsState(emptyList())
     val installStatuses = viewModel.installStatuses
@@ -93,5 +100,30 @@ fun AppList(
             backgroundColor = MaterialTheme.colorScheme.secondaryContainer,
             contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
         )
+
+        if (isUpdatesScreen && filteredApps.isNotEmpty()) {
+            ExtendedFloatingActionButton(
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(bottom = 16.dp, end = 8.dp),
+                onClick = {
+                    if (viewModel.currentlyUpdatingApps.isEmpty()) {
+                        viewModel.updateApps(filteredApps.map { it.id })
+                    }
+                },
+            ) {
+                Icon(Icons.Default.Download, null)
+                Spacer(modifier = Modifier.width(5.dp))
+                Text(
+                    stringResource(
+                        if (viewModel.currentlyUpdatingApps.isEmpty()) {
+                            R.string.update_all
+                        } else {
+                            R.string.updating
+                        },
+                    ),
+                )
+            }
+        }
     }
 }
