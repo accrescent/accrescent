@@ -42,4 +42,5 @@
     <string name="install_blocked">instalação bloqueada pelo administrador</string>
     <string name="app_doesnt_support_device">O aplicativo não é compatível com seu dispositivo: %1$s</string>
     <string name="dynamic_color_desc">Colorir o aplicativo com base na paleta de cores do sistema</string>
+    <string name="device_abi_unsupported">a arquitetura do seu dispositivo não é suportada</string>
 </resources>
