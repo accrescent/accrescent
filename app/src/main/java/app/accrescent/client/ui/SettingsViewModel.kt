@@ -24,7 +24,7 @@ class SettingsViewModel @Inject constructor(private val preferencesManager: Pref
 
     suspend fun setUpdaterNetworkType(context: Context, networkType: NetworkType) {
         preferencesManager.setNetworkType(networkType.name)
-        AutoUpdateWorker.enqueue(context, networkType, true)
+        AutoUpdateWorker.enqueue(context, networkType)
     }
 
     suspend fun setAutomaticUpdates(automaticUpdates: Boolean) =

@@ -76,7 +76,7 @@ class AutoUpdateWorker @AssistedInject constructor(
     companion object {
         private const val UPDATER_WORK_NAME = "UPDATE_APPS"
 
-        fun enqueue(context: Context, networkType: NetworkType, forceUpdate: Boolean = false) {
+        fun enqueue(context: Context, networkType: NetworkType) {
             val constraints = Constraints(
                 requiredNetworkType = networkType,
                 requiresDeviceIdle = true,
@@ -87,7 +87,7 @@ class AutoUpdateWorker @AssistedInject constructor(
                 .build()
             WorkManager.getInstance(context).enqueueUniquePeriodicWork(
                 UPDATER_WORK_NAME,
-                if (forceUpdate) ExistingPeriodicWorkPolicy.UPDATE else ExistingPeriodicWorkPolicy.KEEP,
+                ExistingPeriodicWorkPolicy.UPDATE,
                 updateRequest,
             )
         }
