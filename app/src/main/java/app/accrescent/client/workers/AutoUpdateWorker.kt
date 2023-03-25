@@ -30,7 +30,7 @@ class AutoUpdateWorker @AssistedInject constructor(
     @Assisted val workerParams: WorkerParameters,
     private val preferencesManager: PreferencesManager,
     private val repoDataRepository: RepoDataRepository,
-    private val packageManager: PackageManager
+    private val packageManager: PackageManager,
 ) : CoroutineWorker(context, workerParams) {
     override suspend fun doWork(): Result {
         try {
@@ -62,8 +62,9 @@ class AutoUpdateWorker @AssistedInject constructor(
     private fun showUpdateNotification(index: Int, packageInfo: PackageInfo, repoData: AppRepoData) {
         val notificationManager = NotificationManagerCompat.from(context)
 
+        val packageLabel = context.packageManager.getApplicationLabel(packageInfo.applicationInfo)
         val notification = NotificationCompat.Builder(context, UPDATE_AVAILABLE_CHANNEL)
-            .setContentTitle(packageInfo.packageName)
+            .setContentTitle(packageLabel)
             .setContentText("${packageInfo.versionName} -> ${repoData.version}")
             .setSmallIcon(R.drawable.ic_baseline_update_24)
             .setAutoCancel(true)
@@ -74,11 +75,11 @@ class AutoUpdateWorker @AssistedInject constructor(
     companion object {
         private const val UPDATER_WORK_NAME = "UPDATE_APPS"
 
-        fun enqueue(context: Context, networkType: NetworkType, forceUpdate: Boolean = true) {
+        fun enqueue(context: Context, networkType: NetworkType, forceUpdate: Boolean = false) {
             val constraints = Constraints(
                 requiredNetworkType = networkType,
                 requiresDeviceIdle = true,
-                requiresStorageNotLow = true
+                requiresStorageNotLow = true,
             )
             val updateRequest = PeriodicWorkRequestBuilder<AutoUpdateWorker>(Duration.ofHours(4))
                 .setConstraints(constraints)
@@ -86,7 +87,7 @@ class AutoUpdateWorker @AssistedInject constructor(
             WorkManager.getInstance(context).enqueueUniquePeriodicWork(
                 UPDATER_WORK_NAME,
                 if (forceUpdate) ExistingPeriodicWorkPolicy.UPDATE else ExistingPeriodicWorkPolicy.KEEP,
-                updateRequest
+                updateRequest,
             )
         }
     }
