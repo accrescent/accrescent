@@ -79,13 +79,21 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
                 onCheckedChange = { coroutineScope.launch { viewModel.setDynamicColor(it) } },
             )
         }
-        val networkTypeNames = listOf(R.string.all, R.string.unmetered, R.string.metered, R.string.not_roaming)
-        val networkTypeValues = listOf(NetworkType.CONNECTED, NetworkType.UNMETERED, NetworkType.METERED, NetworkType.NOT_ROAMING)
+        val networkTypeNames = listOf(
+            R.string.all,
+            R.string.unmetered,
+            R.string.not_roaming
+        )
+        val networkTypeValues = listOf(
+            NetworkType.CONNECTED,
+            NetworkType.UNMETERED,
+            NetworkType.NOT_ROAMING
+        )
         SettingGroupLabel(stringResource(R.string.updater), Modifier.padding(top = 16.dp))
         Setting(
             label = stringResource(R.string.automatic_updates),
             description = stringResource(R.string.automatic_updates_desc),
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         ) {
             Switch(
                 checked = automaticUpdates,
@@ -99,13 +107,13 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             currentValueIndex = networkTypeValues.indexOf(NetworkType.valueOf(networkType)),
             onSelectionChanged = {
                 coroutineScope.launch { viewModel.setUpdaterNetworkType(context, networkTypeValues[it]) }
-            }
+            },
         )
         SettingGroupLabel(stringResource(R.string.about), Modifier.padding(top = 16.dp))
         Setting(
             label = stringResource(R.string.source_code),
             description = stringResource(R.string.source_code_desc),
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         ) {
             IconButton(onClick = {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_CODE_URL))
@@ -125,7 +133,7 @@ fun SettingGroupLabel(text: String, modifier: Modifier = Modifier) {
         text = text,
         modifier = modifier.semantics { heading() },
         color = MaterialTheme.colorScheme.primary,
-        style = MaterialTheme.typography.labelLarge
+        style = MaterialTheme.typography.labelLarge,
     )
 }
 
@@ -140,7 +148,7 @@ fun Setting(
     Row(
         modifier = modifier.semantics(mergeDescendants = true) {},
         horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(
             modifier = (if (fillMaxWidth) Modifier.fillMaxWidth() else Modifier.width(228.dp))
@@ -160,7 +168,7 @@ fun ListPreference(
     entries: List<String>,
     currentValueIndex: Int,
     modifier: Modifier = Modifier,
-    onSelectionChanged: (index: Int) -> Unit
+    onSelectionChanged: (index: Int) -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     var showDialog by remember {
@@ -173,11 +181,9 @@ fun ListPreference(
         modifier = modifier
             .clickable(
                 interactionSource = interactionSource,
-                indication = null
-            ) {
-            showDialog = true
-        },
-        fillMaxWidth = true
+                indication = null,
+            ) { showDialog = true },
+        fillMaxWidth = true,
     ) {
         if (showDialog) {
             AlertDialog(
@@ -200,11 +206,11 @@ fun ListPreference(
                                         onSelectionChanged(index)
                                         showDialog = false
                                     }
-                                    .padding(horizontal = 15.dp, vertical = 12.dp)
+                                    .padding(horizontal = 15.dp, vertical = 12.dp),
                             )
                         }
                     }
-                }
+                },
             )
         }
     }

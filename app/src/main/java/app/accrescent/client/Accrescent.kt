@@ -36,6 +36,11 @@ class Accrescent : Application(), Configuration.Provider {
                     UPDATE_AVAILABLE_CHANNEL,
                     getString(R.string.update_available),
                     NotificationManager.IMPORTANCE_DEFAULT
+                ),
+                NotificationChannel(
+                    UPDATE_FINISHED_CHANNEL,
+                    getString(R.string.update_finished),
+                    NotificationManager.IMPORTANCE_DEFAULT
                 )
             )
         )
@@ -64,5 +69,6 @@ class Accrescent : Application(), Configuration.Provider {
         lateinit var appContext: Context
         const val USER_ACTION_REQUIRED_CHANNEL = "UserActionRequired"
         const val UPDATE_AVAILABLE_CHANNEL = "UpdateAvailable"
+        const val UPDATE_FINISHED_CHANNEL = "UpdateFinished"
     }
 }

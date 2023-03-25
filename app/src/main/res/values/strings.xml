@@ -62,10 +62,12 @@
     <string name="network_condition">Network condition</string>
     <string name="network_condition_desc">Network types to automatically run updates on</string>
     <string name="all">All</string>
-    <string name="metered">Metered</string>
     <string name="unmetered">Unmetered</string>
     <string name="not_roaming">Not roaming</string>
     <string name="automatic_updates">Automatic updates</string>
     <string name="automatic_updates_desc">Whether to update apps automatically. Shows a notification instead if disabled.</string>
     <string name="update_available">Update available</string>
+    <string name="update_finished">Update finished</string>
+    <string name="update_failure">Update failure</string>
+    <string name="update_success">%1$s has been updated successfully.</string>
 </resources>
