@@ -69,6 +69,7 @@ class AutoUpdateWorker @AssistedInject constructor(
             .setSmallIcon(R.drawable.ic_baseline_update_24)
             .setAutoCancel(true)
 
+        @Suppress("MissingPermission")
         notificationManager.notify(index + 1000, notification.build())
     }
 

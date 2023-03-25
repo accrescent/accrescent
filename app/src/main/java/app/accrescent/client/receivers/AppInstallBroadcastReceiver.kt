@@ -59,6 +59,7 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
                             .setAutoCancel(true)
                             .build()
 
+                    @Suppress("MissingPermission")
                     notificationManager.notify(sessionId, notification)
                 }
             }
@@ -73,6 +74,7 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
                         .setAutoCancel(true)
                         .build()
 
+                @Suppress("MissingPermission")
                 notificationManager.notify(sessionId, notification)
             }
             PackageInstaller.STATUS_FAILURE -> {
@@ -86,6 +88,7 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
                         .setAutoCancel(true)
                         .build()
 
+                @Suppress("MissingPermission")
                 notificationManager.notify(sessionId, notification)
             }
         }
