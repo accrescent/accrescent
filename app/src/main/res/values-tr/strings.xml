@@ -57,4 +57,16 @@
     <string name="install_confirm_desc">Bu uygulamayı aygıtınıza kurmak istediğinizden emin misiniz\?</string>
     <string name="uninstall_confirm_desc">Uygulama, tüm verileriyle birlikte aygıtınızdan kaldırılacak.</string>
     <string name="search">Ara</string>
+    <string name="network_condition">Ağ durumu</string>
+    <string name="automatic_updates_desc">Uygulamaların otomatik olarak güncellenip güncellenmeyeceği. Devre dışı bırakılırsa bunun yerine bir bildirim gösterilir.</string>
+    <string name="automatic_updates">Otomatik güncellemeler</string>
+    <string name="updater">Güncelleyici</string>
+    <string name="network_condition_desc">Güncellemelerin otomatik olarak çalıştırılacağı ağ türleri</string>
+    <string name="all">Tümü</string>
+    <string name="unmetered">Kotasız</string>
+    <string name="not_roaming">Dolaşımda olmayan</string>
+    <string name="update_available">Güncelleme var</string>
+    <string name="update_finished">Güncelleme tamamlandı</string>
+    <string name="update_failure">Güncelleme hatası</string>
+    <string name="update_success">%1$s başarıyla güncellendi.</string>
 </resources>
