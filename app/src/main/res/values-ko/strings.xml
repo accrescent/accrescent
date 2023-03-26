@@ -57,4 +57,16 @@
     <string name="install_confirm">이 앱을 설치하겠습니까\?</string>
     <string name="uninstall_confirm_desc">모든 데이터와 함께 앱이 기기에서 제거됩니다.</string>
     <string name="search">찾다</string>
+    <string name="updater">업데이터</string>
+    <string name="network_condition">네트워크 상태</string>
+    <string name="network_condition_desc">업데이트를 자동으로 실행할 네트워크 유형</string>
+    <string name="all">모두</string>
+    <string name="unmetered">무제한</string>
+    <string name="not_roaming">로밍 안함</string>
+    <string name="update_finished">업데이트 완료</string>
+    <string name="update_success">%1$s이(가) 성공적으로 업데이트되었습니다.</string>
+    <string name="update_failure">업데이트 실패</string>
+    <string name="automatic_updates">자동 업데이트</string>
+    <string name="automatic_updates_desc">앱을 자동으로 업데이트할지 여부입니다. 비활성화된 경우 대신 알림을 표시합니다.</string>
+    <string name="update_available">업데이트 가능</string>
 </resources>
