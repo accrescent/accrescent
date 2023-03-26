@@ -57,4 +57,16 @@
     <string name="yes">Tak</string>
     <string name="no">Nie</string>
     <string name="search">Szukaj</string>
+    <string name="network_condition">Stan sieci</string>
+    <string name="all">Wszystko</string>
+    <string name="unmetered">Niezmierzone</string>
+    <string name="not_roaming">Nie roaming</string>
+    <string name="automatic_updates">Automatyczne aktualizacje</string>
+    <string name="update_available">Dostępna jest aktualizacja</string>
+    <string name="update_failure">Aktualizacja nie powiodła się</string>
+    <string name="updater">Aktualizator</string>
+    <string name="network_condition_desc">Typy sieci do automatycznego przeprowadzania aktualizacji</string>
+    <string name="update_success">%1$s zostało pomyślnie zaktualizowane.</string>
+    <string name="automatic_updates_desc">Czy automatycznie aktualizować aplikacje. Zamiast tego pokazuje powiadomienie, jeśli jest wyłączone.</string>
+    <string name="update_finished">Zakończono aktualizację</string>
 </resources>
