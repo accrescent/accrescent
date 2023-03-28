@@ -43,4 +43,8 @@
     <string name="app_doesnt_support_device">O aplicativo não é compatível com seu dispositivo: %1$s</string>
     <string name="dynamic_color_desc">Colorir o aplicativo com base na paleta de cores do sistema</string>
     <string name="device_abi_unsupported">a arquitetura do seu dispositivo não é suportada</string>
+    <string name="automatic_updates">Atualizações automáticas</string>
+    <string name="update_available">Atualização disponível</string>
+    <string name="update_finished">Atualização concluída</string>
+    <string name="update_success">%1$s foi atualizado com sucesso.</string>
 </resources>
