@@ -57,4 +57,16 @@
     <string name="about">关于</string>
     <string name="source_code">源代码</string>
     <string name="customization">个性化</string>
+    <string name="updater">更新</string>
+    <string name="network_condition">网络状况</string>
+    <string name="unmetered">非计费网络</string>
+    <string name="not_roaming">非漫游网络</string>
+    <string name="automatic_updates">自动更新</string>
+    <string name="all">全部</string>
+    <string name="automatic_updates_desc">选择是否自动更新应用。如果禁用此选项，应用有新版本时仅会显示通知。</string>
+    <string name="update_finished">更新完毕</string>
+    <string name="update_failure">更新失败</string>
+    <string name="update_success">%1$s 已成功更新。</string>
+    <string name="network_condition_desc">选择在何种网络类型下运行自动更新</string>
+    <string name="update_available">更新可用</string>
 </resources>
