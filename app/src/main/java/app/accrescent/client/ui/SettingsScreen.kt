@@ -64,17 +64,18 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             .padding(horizontal = 32.dp)
             .verticalScroll(rememberScrollState()),
     ) {
-        SettingGroupLabel(stringResource(R.string.app_updates), Modifier.padding(top = 16.dp))
-        Setting(
-            label = stringResource(R.string.require_user_action),
-            description = stringResource(R.string.require_user_action_desc),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Switch(
-                checked = requireUserAction,
-                onCheckedChange = { coroutineScope.launch { viewModel.setRequireUserAction(it) } },
-                enabled = context.isPrivileged(),
-            )
+        if (context.isPrivileged()) {
+            SettingGroupLabel(stringResource(R.string.app_updates), Modifier.padding(top = 16.dp))
+            Setting(
+                label = stringResource(R.string.require_user_action),
+                description = stringResource(R.string.require_user_action_desc),
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Switch(
+                    checked = requireUserAction,
+                    onCheckedChange = { coroutineScope.launch { viewModel.setRequireUserAction(it) } },
+                )
+            }
         }
         SettingGroupLabel(stringResource(R.string.customization), Modifier.padding(top = 16.dp))
         Setting(
