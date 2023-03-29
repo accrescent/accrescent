@@ -111,7 +111,6 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
         }
         ListPreference(
             label = stringResource(R.string.network_condition),
-            description = stringResource(R.string.network_condition_desc),
             entries = networkTypeNames,
             currentValueIndex = networkTypeValues.indexOf(NetworkType.valueOf(networkType)),
             onSelectionChanged = {
@@ -173,7 +172,6 @@ fun Setting(
 @Composable
 fun ListPreference(
     label: String,
-    description: String,
     entries: ImmutableList<String>,
     currentValueIndex: Int,
     modifier: Modifier = Modifier,
@@ -186,7 +184,7 @@ fun ListPreference(
 
     Setting(
         label = label,
-        description = description,
+        description = entries[currentValueIndex],
         modifier = modifier
             .clickable(
                 interactionSource = interactionSource,
