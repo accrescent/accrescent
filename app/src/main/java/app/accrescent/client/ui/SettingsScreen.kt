@@ -89,13 +89,13 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
         }
         val networkTypeNames = persistentListOf(
             stringResource(R.string.all),
-            stringResource(R.string.unmetered),
             stringResource(R.string.not_roaming),
+            stringResource(R.string.unmetered),
         )
         val networkTypeValues = persistentListOf(
             NetworkType.CONNECTED,
+            NetworkType.NOT_ROAMING,
             NetworkType.UNMETERED,
-            NetworkType.NOT_ROAMING
         )
         SettingGroupLabel(stringResource(R.string.updater), Modifier.padding(top = 16.dp))
         Setting(
