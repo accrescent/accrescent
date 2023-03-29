@@ -12,7 +12,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.OpenInNew
 import androidx.compose.material3.AlertDialog
@@ -57,7 +59,11 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
     val automaticUpdates by viewModel.automaticUpdates.collectAsState(true)
     val networkType by viewModel.updaterNetworkType.collectAsState(NetworkType.CONNECTED.name)
 
-    Column(modifier.padding(horizontal = 32.dp)) {
+    Column(
+        modifier
+            .padding(horizontal = 32.dp)
+            .verticalScroll(rememberScrollState()),
+    ) {
         SettingGroupLabel(stringResource(R.string.app_updates), Modifier.padding(top = 16.dp))
         Setting(
             label = stringResource(R.string.require_user_action),
