@@ -62,7 +62,7 @@
     <string name="automatic_updates">Otomatik güncellemeler</string>
     <string name="updater">Güncelleyici</string>
     <string name="network_condition_desc">Güncellemelerin otomatik olarak çalıştırılacağı ağ türleri</string>
-    <string name="all">Tümü</string>
+    <string name="any">Tümü</string>
     <string name="unmetered">Kotasız</string>
     <string name="not_roaming">Dolaşımda olmayan</string>
     <string name="update_available">Güncelleme var</string>

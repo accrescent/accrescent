@@ -60,7 +60,7 @@
     <string name="updater">업데이터</string>
     <string name="network_condition">네트워크 상태</string>
     <string name="network_condition_desc">업데이트를 자동으로 실행할 네트워크 유형</string>
-    <string name="all">모두</string>
+    <string name="any">모두</string>
     <string name="unmetered">무제한</string>
     <string name="not_roaming">로밍 안함</string>
     <string name="update_finished">업데이트 완료</string>

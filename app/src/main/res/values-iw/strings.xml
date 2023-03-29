@@ -58,7 +58,7 @@
     <string name="yes">כן</string>
     <string name="no">לא</string>
     <string name="network_condition">מצב רשת</string>
-    <string name="all">הכול</string>
+    <string name="any">הכול</string>
     <string name="unmetered">לא מדודה</string>
     <string name="not_roaming">בלי נדידה</string>
     <string name="update_available">עדכון זמין</string>

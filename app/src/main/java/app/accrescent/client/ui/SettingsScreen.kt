@@ -88,7 +88,7 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             )
         }
         val networkTypeNames = persistentListOf(
-            stringResource(R.string.all),
+            stringResource(R.string.any),
             stringResource(R.string.not_roaming),
             stringResource(R.string.unmetered),
         )

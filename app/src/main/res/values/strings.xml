@@ -61,7 +61,7 @@
     <string name="updater">Updater</string>
     <string name="network_condition">Network condition</string>
     <string name="network_condition_desc">Network types to automatically run updates on</string>
-    <string name="all">All</string>
+    <string name="any">Any</string>
     <string name="unmetered">Unmetered</string>
     <string name="not_roaming">Not roaming</string>
     <string name="automatic_updates">Automatic updates</string>
