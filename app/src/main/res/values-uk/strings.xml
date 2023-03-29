@@ -62,6 +62,7 @@
     <string name="network_condition_desc">Типи мереж для автоматичного запуску оновлень</string>
     <string name="not_roaming">Не роумінг</string>
     <string name="unmetered">Безліміт</string>
+    <string name="any">Усі</string>
     <string name="automatic_updates">Автоматичні оновлення</string>
     <string name="automatic_updates_desc">Чи оновлювати програми автоматично. Якщо вимкнено, показуватиме сповіщення.</string>
     <string name="update_available">Доступне оновлення</string>

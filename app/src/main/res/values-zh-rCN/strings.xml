@@ -62,6 +62,7 @@
     <string name="unmetered">非计费网络</string>
     <string name="not_roaming">非漫游网络</string>
     <string name="automatic_updates">自动更新</string>
+    <string name="any">全部</string>
     <string name="automatic_updates_desc">选择是否自动更新应用。如果禁用此选项，应用有新版本时仅会显示通知。</string>
     <string name="update_finished">更新完毕</string>
     <string name="update_failure">更新失败</string>
