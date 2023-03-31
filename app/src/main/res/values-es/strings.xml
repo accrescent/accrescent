@@ -57,4 +57,16 @@
     <string name="yes">Sí</string>
     <string name="uninstall_confirm_desc">La aplicación se eliminará de tu dispositivo junto con todos sus datos.</string>
     <string name="search">Buscar</string>
+    <string name="updater">Actualizador</string>
+    <string name="network_condition">Condición de la red</string>
+    <string name="network_condition_desc">Tipos de red para ejecutar actualizaciones automáticamente</string>
+    <string name="unmetered">Ilimitada</string>
+    <string name="not_roaming">Sin itinerancia</string>
+    <string name="automatic_updates">Actualizaciones automáticas</string>
+    <string name="update_available">Actualización disponible</string>
+    <string name="update_finished">Actualización finalizada</string>
+    <string name="update_failure">Actualización fallida</string>
+    <string name="update_success">%1$s se actualizó correctamente.</string>
+    <string name="any">Cualquiera</string>
+    <string name="automatic_updates_desc">Ya sea para actualizar automáticamente la aplicación. Si está deshabilitado, muestra una notificación en su lugar.</string>
 </resources>
