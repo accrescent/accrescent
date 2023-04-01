@@ -46,7 +46,7 @@
     <string name="customization">Tilpas</string>
     <string name="about">Omkring</string>
     <string name="source_code">Kilde Kode</string>
-    <string name="source_code_desc">Se Accrescent\'s kilde kode</string>
+    <string name="source_code_desc">Se Accroissant\'s kilde kode</string>
     <string name="open_link">Åben link</string>
     <string name="require_user_action">Bekræftelse af installation</string>
     <string name="require_user_action_desc">Bed altid om en bekræftelse for at undgå utilsigtet installation af apps</string>

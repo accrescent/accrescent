@@ -1,6 +1,6 @@
 # Contributing Guidelines
 
-Thank you for your interest in contributing to Accrescent! Here are a few
+Thank you for your interest in contributing to Accroissant! Here are a few
 resources to help you get started.
 
 The [public roadmap] outlines the project's current plans and priorities. If you
@@ -11,7 +11,7 @@ For now, the [#accrescent:matrix.org] Matrix room is the best place to get help
 with development. [@lberrymage:matrix.org] is the lead developer and you are
 welcome to DM him as well.
 
-There currently isn't any documentation for how Accrescent is structured or how it
+There currently isn't any documentation for how Accroissant is structured or how it
 functions under the hood, but some will be added in the future.
 
 The project's coding style and conventions are outlined below. Please check your
@@ -30,7 +30,7 @@ branch against them before making a PR to expeditide the review process.
 
 ## Code conventions
 
-- Use Kotlin for all Accrescent code. Java will not be accepted.
+- Use Kotlin for all Accroissant code. Java will not be accepted.
 - Use [Jetpack Compose] for UI where possible. UI using XML Views will only be
   accepted if no viable Compose alternative exists. Since Jetpack Compose is
   still fairly new, it's okay to use alpha/beta/rc libraries if necessary
@@ -40,7 +40,7 @@ branch against them before making a PR to expeditide the review process.
   safe language.
 - Prefer higher-level languages like Kotlin where possible. If lower-level code
   is required for performance or other reasons, use Rust if feasible, but keep
-  in mind that Accrescent is a high-level application and shouldn't require much
+  in mind that Accroissant is a high-level application and shouldn't require much
   low-level code, much less memory unsafe code.
 
 ## Bug reports, feature suggestions, and questions
@@ -61,7 +61,7 @@ many people.
 
 ## Vulnerability reports
 
-Report all vulnerabilities in accordance with Accrescent's [security policy].
+Report all vulnerabilities in accordance with Accroissant's [security policy].
 
 [#accrescent:matrix.org]: https://matrix.to/#/#accrescent:matrix.org
 [@lberrymage:matrix.org]: https://matrix.to/#/@lberrymage:matrix.org

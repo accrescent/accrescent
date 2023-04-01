@@ -1,5 +1,5 @@
 <resources>
-    <style name="Theme.Accrescent" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.Accroissant" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

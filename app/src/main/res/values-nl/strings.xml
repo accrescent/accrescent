@@ -45,7 +45,7 @@
     <string name="swipe_refresh">Swipe naar beneden om te verversen</string>
     <string name="about">Over ons</string>
     <string name="source_code">Broncode</string>
-    <string name="source_code_desc">Bekijk Accrescent\'s broncode</string>
+    <string name="source_code_desc">Bekijk Accroissant\'s broncode</string>
     <string name="open_link">Open link</string>
     <string name="require_user_action">Bevestigingsprompt installeren</string>
     <string name="require_user_action_desc">Altijd om bevestiging vragen om te voorkomen dat apps per ongeluk worden geïnstalleerd</string>

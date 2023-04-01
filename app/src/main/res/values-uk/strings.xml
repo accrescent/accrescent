@@ -15,7 +15,7 @@
     <string name="customization">Кастомізація</string>
     <string name="require_user_action">Запит на підтвердження встановлення</string>
     <string name="about">Про нас</string>
-    <string name="source_code_desc">Переглянути вихідний код Accrescent</string>
+    <string name="source_code_desc">Переглянути вихідний код Accroissant</string>
     <string name="no_apps_installed">Немає встановлених застосунків</string>
     <string name="up_to_date">Всі актуальні застосунки</string>
     <string name="network_error">Помилка мережі: %1$s</string>

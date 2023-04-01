@@ -2,7 +2,7 @@
 <resources>
     <string name="about">Pri</string>
     <string name="source_code">Fontkodo</string>
-    <string name="source_code_desc">Vidi la fontkodon de Accrescent</string>
+    <string name="source_code_desc">Vidi la fontkodon de Accroissant</string>
     <string name="open_link">Malfermi hiperligon</string>
     <string name="no_apps_installed">Neniu programo instalita</string>
     <string name="up_to_date">Ĉiuj programoj estas ĝisdataj</string>
