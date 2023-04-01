@@ -65,7 +65,6 @@
     <string name="update_finished">העדכון הסתיים</string>
     <string name="update_failure">כשל בעדכון</string>
     <string name="updater">מעדכן</string>
-    <string name="network_condition_desc">סוגי הרשתות להריץ דרכם עדכונים</string>
     <string name="automatic_updates">עדכונים אוטומטיים</string>
     <string name="automatic_updates_desc">האם לעדכן יישומים אוטומטית. מציג התראה במקום אם מושבת.</string>
     <string name="update_success">%1$s עודכן בהצלחה.</string>

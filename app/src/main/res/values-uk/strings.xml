@@ -59,7 +59,6 @@
     <string name="search">Пошук</string>
     <string name="updater">Оновлювач</string>
     <string name="network_condition">Стан мережі</string>
-    <string name="network_condition_desc">Типи мереж для автоматичного запуску оновлень</string>
     <string name="not_roaming">Не роумінг</string>
     <string name="unmetered">Безліміт</string>
     <string name="any">Усі</string>

@@ -67,6 +67,5 @@
     <string name="update_finished">更新完毕</string>
     <string name="update_failure">更新失败</string>
     <string name="update_success">%1$s 已成功更新。</string>
-    <string name="network_condition_desc">选择在何种网络类型下运行自动更新</string>
     <string name="update_available">更新可用</string>
 </resources>

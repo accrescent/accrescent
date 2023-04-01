@@ -65,7 +65,6 @@
     <string name="update_available">Dostępna jest aktualizacja</string>
     <string name="update_failure">Aktualizacja nie powiodła się</string>
     <string name="updater">Aktualizator</string>
-    <string name="network_condition_desc">Typy sieci do automatycznego przeprowadzania aktualizacji</string>
     <string name="update_success">%1$s zostało pomyślnie zaktualizowane.</string>
     <string name="automatic_updates_desc">Czy automatycznie aktualizować aplikacje. Zamiast tego pokazuje powiadomienie, jeśli jest wyłączone.</string>
     <string name="update_finished">Zakończono aktualizację</string>
