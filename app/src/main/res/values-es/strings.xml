@@ -59,7 +59,6 @@
     <string name="search">Buscar</string>
     <string name="updater">Actualizador</string>
     <string name="network_condition">Condición de la red</string>
-    <string name="network_condition_desc">Tipos de red para ejecutar actualizaciones automáticamente</string>
     <string name="unmetered">Ilimitada</string>
     <string name="not_roaming">Sin itinerancia</string>
     <string name="automatic_updates">Actualizaciones automáticas</string>
