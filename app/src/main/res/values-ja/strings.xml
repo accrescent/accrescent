@@ -1,2 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_list">アプリ</string>
+    <string name="app_updates">アップデート</string>
+    <string name="settings">設定</string>
+    <string name="install">インストール</string>
+    <string name="uninstall">アンインストール</string>
+    <string name="update">更新する</string>
+    <string name="open">開く</string>
+    <string name="require_user_action_desc">アプリの誤インストールを防ぐため、常に確認を求める</string>
+    <string name="customization">カスタム化</string>
+    <string name="installed">インストール済み</string>
+    <string name="require_user_action">インストール確認のプロンプト</string>
+</resources>
