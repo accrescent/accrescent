@@ -60,6 +60,7 @@ android {
             "in",
             "it",
             "iw",
+            "ja",
             "ko",
             "ms",
             "nb-rNO",
