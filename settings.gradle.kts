@@ -5,5 +5,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Accroissant"
+rootProject.name = "Accrescent"
 include(":app")

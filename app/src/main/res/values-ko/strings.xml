@@ -46,7 +46,7 @@
     <string name="source_code">소스 코드</string>
     <string name="about">정보</string>
     <string name="customization">사용자화</string>
-    <string name="source_code_desc">Accroissant의 소스 코드 보기</string>
+    <string name="source_code_desc">Accrescent의 소스 코드 보기</string>
     <string name="open_link">링크 열기</string>
     <string name="require_user_action_desc">실수로 앱을 설치하는 것을 방지하기 위해 항상 확인 메시지 표시</string>
     <string name="uninstall_confirm">이 앱을 제거하겠습니까\?</string>

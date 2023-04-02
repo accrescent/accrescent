@@ -44,7 +44,7 @@
     <string name="install_blocked">安装被管理员阻止</string>
     <string name="uninstall_blocked">卸载被管理员阻止</string>
     <string name="require_user_action_desc">始终提示确认，以防止意外安装应用</string>
-    <string name="source_code_desc">查看 Accroissant 的源代码</string>
+    <string name="source_code_desc">查看 Accrescent 的源代码</string>
     <string name="uninstall_confirm">卸载此应用？</string>
     <string name="install_confirm_desc">您确定要在设备上安装此应用吗？</string>
     <string name="install_confirm">安装这个应用？</string>

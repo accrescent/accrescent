@@ -46,7 +46,7 @@
     <string name="customization">Personalisierung</string>
     <string name="about">Über</string>
     <string name="source_code">Quellcode</string>
-    <string name="source_code_desc">Accroissants Quellcode ansehen</string>
+    <string name="source_code_desc">Accrescents Quellcode ansehen</string>
     <string name="open_link">Link öffnen</string>
     <string name="require_user_action">Aufforderung zum Bestätigen einer Installation</string>
     <string name="require_user_action_desc">Immer Bestätigung fordern, um versehentliche App-Installationen zu verhindern</string>

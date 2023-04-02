@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-Only the latest version of Accroissant is supported.
+Only the latest version of Accrescent is supported.
 
 ## Reporting a vulnerability
 

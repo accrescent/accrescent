@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="app_name" translatable="false">Accroissant</string>
+    <string name="app_name" translatable="false">Accrescent</string>
     <string name="app_list">Apps</string>
     <string name="installed">Installed</string>
     <string name="app_updates">Updates</string>
@@ -17,7 +17,7 @@
     <string name="dynamic_color_desc">Theme the app based on the system color palette</string>
     <string name="about">About</string>
     <string name="source_code">Source code</string>
-    <string name="source_code_desc">View Accroissant\'s source code</string>
+    <string name="source_code_desc">View Accrescent\'s source code</string>
     <string name="open_link">Open link</string>
     <string name="swipe_refresh">Swipe down to refresh</string>
     <string name="no_apps_installed">No apps installed</string>

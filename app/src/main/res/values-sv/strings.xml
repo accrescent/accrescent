@@ -46,7 +46,7 @@
     <string name="customization">Anpassning</string>
     <string name="about">Om</string>
     <string name="source_code">Källkod</string>
-    <string name="source_code_desc">Visa Accroissants källkod</string>
+    <string name="source_code_desc">Visa Accrescents källkod</string>
     <string name="open_link">Öppna länk</string>
     <string name="require_user_action">Bevilja en bekräftelse för installationen</string>
     <string name="yes">Ja</string>
