@@ -47,4 +47,13 @@
     <string name="update_available">Atualização disponível</string>
     <string name="update_finished">Atualização concluída</string>
     <string name="update_success">%1$s foi atualizado com sucesso.</string>
+    <string name="failed_download_repodata">Falha ao baixar dados do repositório: %1$s</string>
+    <string name="failed_verify_repodata">Falha ao verificar dados do repositório: %1$s</string>
+    <string name="failed_decode_repodata">Falha ao decodificar dados do repositório: %1$s</string>
+    <string name="error_parsing_files">Erro ao analisar os arquivos do aplicativo: %1$s</string>
+    <string name="base_apk_not_valid">base.apk não é um APK válido</string>
+    <string name="network_condition">Condição da rede</string>
+    <string name="updater">Atualizador</string>
+    <string name="update_failure">Falha na atualização</string>
+    <string name="any">Qualquer</string>
 </resources>
