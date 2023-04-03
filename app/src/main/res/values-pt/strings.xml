@@ -57,4 +57,12 @@
 \nEsperado: %1$s</string>
     <string name="uninstall_confirm">Desinstalar este aplicativo\?</string>
     <string name="install_confirm_desc">Tem certeza de que deseja instalar este aplicativo no seu dispositivo\?</string>
+    <string name="updater">Atualizador</string>
+    <string name="automatic_updates">Atualizações automáticas</string>
+    <string name="network_condition">Condição da rede</string>
+    <string name="update_available">Atualização disponível</string>
+    <string name="update_failure">Falha na atualização</string>
+    <string name="any">Qualquer</string>
+    <string name="update_success">%1$s foi atualizado com sucesso.</string>
+    <string name="update_finished">Atualização concluída</string>
 </resources>
