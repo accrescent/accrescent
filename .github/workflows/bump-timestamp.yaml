@@ -21,7 +21,7 @@ jobs:
           TIMESTAMP=$(curl -s https://store.accrescent.app/repodata.0.json | jq '.timestamp')
           sed -i -E "s/^$CONSTANT = [[:digit:]]*$/$CONSTANT = $TIMESTAMP/" $FILE
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         env:
           message: Bump MIN_TIMESTAMP
         with:
