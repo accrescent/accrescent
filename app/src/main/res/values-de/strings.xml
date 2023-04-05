@@ -64,4 +64,8 @@
     <string name="automatic_updates_desc">Ob Apps automatisch aktualisiert werden sollen. Wenn deaktiviert, wird stattdessen eine Benachrichtigung angezeigt.</string>
     <string name="any">Alle</string>
     <string name="automatic_updates">Automatische updates</string>
+    <string name="updater">Updater</string>
+    <string name="unmetered">Unbegrenzt</string>
+    <string name="network_condition">Netzwerkbedingung</string>
+    <string name="not_roaming">Kein roaming</string>
 </resources>
