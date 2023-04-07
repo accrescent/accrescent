@@ -18,4 +18,6 @@
     <string name="couldnt_open_app">Malsukcesis lanĉi programon</string>
     <string name="installed">Instalitaj</string>
     <string name="uninstall">Malinstali</string>
+    <string name="require_user_action">Instalu konfirman prompton</string>
+    <string name="require_user_action_desc">Ĉiam petu konfirmon por malhelpi hazarde instali aplikaĵojn</string>
 </resources>
