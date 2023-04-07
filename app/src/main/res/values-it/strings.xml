@@ -57,4 +57,15 @@
     <string name="yes">Sì</string>
     <string name="no">No</string>
     <string name="search">Cerca</string>
+    <string name="any">Qualsiasi</string>
+    <string name="update_failure">Errore di aggiornamento</string>
+    <string name="update_available">Aggiornamento disponibile</string>
+    <string name="updater">Aggiornamenti</string>
+    <string name="network_condition">Condizione di rete</string>
+    <string name="not_roaming">Non in roaming</string>
+    <string name="automatic_updates">Aggiornamenti automatici</string>
+    <string name="automatic_updates_desc">Se aggiornare automaticamente le app. Se disattivati, mostra una notifica.</string>
+    <string name="unmetered">Non a consumo</string>
+    <string name="update_finished">Aggiornamento completato</string>
+    <string name="update_success">%1$s è stato aggiornato con successo.</string>
 </resources>
