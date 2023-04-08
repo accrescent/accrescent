@@ -56,4 +56,6 @@
     <string name="updater">Atualizador</string>
     <string name="update_failure">Falha na atualização</string>
     <string name="any">Qualquer</string>
+    <string name="device_density_unsupported">a densidade da tela do seu dispositivo não é suportada</string>
+    <string name="version_downgrade">a versão %1$d é menor que o mínimo %2$d</string>
 </resources>
