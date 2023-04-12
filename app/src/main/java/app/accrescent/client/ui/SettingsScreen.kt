@@ -61,7 +61,7 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
 
     Column(
         modifier
-            .padding(horizontal = 32.dp)
+            .padding(horizontal = 20.dp)
             .verticalScroll(rememberScrollState()),
     ) {
         if (context.isPrivileged()) {
