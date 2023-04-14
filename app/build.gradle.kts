@@ -105,6 +105,7 @@ android {
         freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
     composeOptions {
