@@ -116,7 +116,7 @@ android {
         includeInApk = false
         includeInBundle = false
     }
-    packagingOptions {
+    packaging {
         resources.excludes.addAll(listOf(
             "DebugProbesKt.bin",
             "META-INF/**.version",
