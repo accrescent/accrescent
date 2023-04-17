@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="installed">Instalováno</string>
+    <string name="app_updates">Aktualizace</string>
+    <string name="settings">Nastavení</string>
+    <string name="install">Instalace</string>
+    <string name="app_list">Aplikace</string>
+    <string name="uninstall">Odinstalovat</string>
+</resources>
