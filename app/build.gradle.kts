@@ -51,6 +51,7 @@ android {
         versionName = "0.12.2"
         resourceConfigurations.addAll(listOf(
             "az",
+            "cs",
             "da",
             "de",
             "en",
