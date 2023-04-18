@@ -54,7 +54,18 @@
     <string name="uninstall_confirm_desc">App zal worden verwijderd van uw apparaat, samen met alle gegevens.</string>
     <string name="search">Zoek</string>
     <string name="yes">Ja</string>
-    <string name="no">Geen</string>
+    <string name="no">Nee</string>
     <string name="install_confirm_desc">Weet u zeker dat u deze app op uw apparaat wilt installeren\?</string>
     <string name="uninstall_confirm">Deze app verwijderen\?</string>
+    <string name="updater">Updater</string>
+    <string name="network_condition">Netwerkconditie</string>
+    <string name="update_failure">Update mislukt</string>
+    <string name="update_success">"%1$s is  succesvol  geüpdate"</string>
+    <string name="update_finished">Update is klaar</string>
+    <string name="update_available">"Update  beschikbaar"</string>
+    <string name="automatic_updates_desc">Of Apps automatisch moeten worden geüpdate. Toont een melding indien het is uitgeschakeld.</string>
+    <string name="automatic_updates">Automatische updates</string>
+    <string name="any">Elk</string>
+    <string name="not_roaming">Geen roaming</string>
+    <string name="unmetered">Ongemeten</string>
 </resources>
