@@ -1,5 +1,5 @@
 plugins {
-    id("com.google.devtools.ksp") version "1.8.10-1.0.9" apply false
+    id("com.google.devtools.ksp") version "1.8.20-1.0.11" apply false
 }
 
 buildscript {
@@ -10,7 +10,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:8.0.0")
         classpath("com.google.dagger:hilt-android-gradle-plugin:2.45")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20")
     }
 }
 
