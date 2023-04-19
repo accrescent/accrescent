@@ -27,7 +27,7 @@ fun <T : Any> Intent.getParcelableExtraCompat(name: String, clazz: Class<T>): T?
     }
 }
 
-fun PackageManager.getInstalledPackagesCompat(flags: Int): List<PackageInfo> {
+fun PackageManager.getInstalledPackagesCompat(flags: Int = 0): List<PackageInfo> {
     return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
         @Suppress("DEPRECATION")
         this.getInstalledPackages(flags)

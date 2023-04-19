@@ -36,7 +36,7 @@ class AutoUpdateWorker @AssistedInject constructor(
         try {
             repoDataRepository.fetchRepoData()
 
-            val packagesToUpdate = context.packageManager.getInstalledPackagesCompat(0)
+            val packagesToUpdate = context.packageManager.getInstalledPackagesCompat()
                 .filter { repoDataRepository.appExists(it.packageName) }
                 .filter {
                     repoDataRepository
