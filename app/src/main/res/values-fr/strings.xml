@@ -57,4 +57,15 @@
     <string name="uninstall_confirm">Désinstaller cette application \?</string>
     <string name="uninstall_confirm_desc">L’application sera supprimée de votre appareil avec toutes ses données.</string>
     <string name="search">Recherche</string>
+    <string name="not_roaming">Pas d’itinérance</string>
+    <string name="update_available">Mise à jour disponible</string>
+    <string name="updater">Logiciel de mises à jour</string>
+    <string name="network_condition">Condition réseau</string>
+    <string name="any">Tous</string>
+    <string name="unmetered">Non compté</string>
+    <string name="automatic_updates">Mises à jour automatiques</string>
+    <string name="automatic_updates_desc">Pour mettre à jour les applications automatiquement. Affiche sinon une notification si désactivée.</string>
+    <string name="update_finished">Mise à jour terminée</string>
+    <string name="update_failure">Échec de la mise à jour</string>
+    <string name="update_success">%1$s a été mis à jour avec succès.</string>
 </resources>
