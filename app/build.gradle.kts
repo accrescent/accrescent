@@ -160,7 +160,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     ksp("androidx.room:room-compiler:2.5.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.45")
+    kapt("com.google.dagger:hilt-android-compiler:2.46")
 
     lintChecks("com.slack.lint.compose:compose-lint-checks:1.2.0")
 }
