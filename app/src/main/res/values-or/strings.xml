@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="yes">ହଁ</string>
+    <string name="no">ନାହିଁ</string>
+    <string name="search">ସନ୍ଧାନ</string>
+    <string name="any">ଯେକୌଣସି</string>
+    <string name="settings">ସେଟିଂ</string>
+    <string name="about">ଵିଷୟରେ</string>
+    <string name="version">ସଂସ୍କରଣ: %1$s</string>
+    <string name="network_condition">ନେଟୱର୍କ ଅଵସ୍ଥା</string>
+</resources>
