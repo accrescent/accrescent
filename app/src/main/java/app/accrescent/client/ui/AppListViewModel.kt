@@ -10,7 +10,6 @@ import androidx.lifecycle.viewModelScope
 import app.accrescent.client.Accrescent
 import app.accrescent.client.R
 import app.accrescent.client.data.AppInstallStatuses
-import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.getPackageInstallStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -37,14 +36,13 @@ class AppListViewModel @Inject constructor(
     init {
         val flow = apps.onEach { apps ->
             for (app in apps) {
-                try {
-                    val versionCode = repoDataRepository.getAppRepoData(app.id).versionCode
-                    appInstallStatuses.statuses[app.id] = context
-                        .packageManager
-                        .getPackageInstallStatus(app.id, versionCode)
+                val latestVersionCode = try {
+                    repoDataRepository.getAppRepoData(app.id).versionCode
                 } catch (e: Exception) {
-                    appInstallStatuses.statuses[app.id] = InstallStatus.UNKNOWN
+                    null
                 }
+                appInstallStatuses.statuses[app.id] =
+                    context.packageManager.getPackageInstallStatus(app.id, latestVersionCode)
             }
         }
         viewModelScope.launch {

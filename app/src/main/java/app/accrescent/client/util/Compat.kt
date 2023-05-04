@@ -52,7 +52,7 @@ fun PackageManager.getPackageArchiveInfoForFd(fd: Int, flags: Int): PackageInfo?
     return getPackageArchiveInfoCompat("/proc/self/fd/$fd", flags)
 }
 
-fun PackageManager.getPackageInstallStatus(appId: String, versionCode: Long): InstallStatus {
+fun PackageManager.getPackageInstallStatus(appId: String, versionCode: Long?): InstallStatus {
     return try {
         val pkgInfo = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             @Suppress("DEPRECATION")
@@ -60,7 +60,7 @@ fun PackageManager.getPackageInstallStatus(appId: String, versionCode: Long): In
         } else {
             this.getPackageInfo(appId, PackageManager.PackageInfoFlags.of(0))
         }
-        if (versionCode > pkgInfo.longVersionCode) {
+        if (versionCode?.let { it > pkgInfo.longVersionCode } == true) {
             InstallStatus.UPDATABLE
         } else {
             InstallStatus.INSTALLED

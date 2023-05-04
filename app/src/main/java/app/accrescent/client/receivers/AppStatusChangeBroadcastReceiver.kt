@@ -45,7 +45,7 @@ class AppStatusChangeBroadcastReceiver : BroadcastReceiver() {
                     val versionCode = try {
                         repoDataRepository.getAppRepoData(appId).versionCode
                     } catch (e: Exception) {
-                        return@launch
+                        null
                     }
                     val status = context.packageManager.getPackageInstallStatus(appId, versionCode)
                     appInstallStatuses.statuses[appId] = status
