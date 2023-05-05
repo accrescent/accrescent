@@ -8,18 +8,6 @@
 
             <!-- ISRG Root X2 -->
             <pin digest="SHA-256">diGVwiVYbubAI3RW4hB9xU8e/CH2GnkuvVFZE8zmgzI=</pin>
-
-            <!-- Let's Encrypt R3 -->
-            <pin digest="SHA-256">jQJTbIh0grw0/1TkHSumWb+Fs0Ggogr621gT3PvPKG0=</pin>
-
-            <!-- Let's Encrypt E1 -->
-            <pin digest="SHA-256">J2/oqMTsdhFWW/n85tys6b4yDBtb6idZayIEBx7QTxA=</pin>
-
-            <!-- Let's Encrypt R4 -->
-            <pin digest="SHA-256">5VReIRNHJBiRxVSgOTTN6bdJZkpZ0m1hX+WPd5kPLQM=</pin>
-
-            <!-- Let's Encrypt E2 -->
-            <pin digest="SHA-256">vZNucrIS7293MQLGt304+UKXMi78JTlrwyeUIuDIknA=</pin>
         </pin-set>
     </domain-config>
 </network-security-config>
