@@ -1,2 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="settings">ക്രമീകരണങ്ങൾ</string>
+    <string name="app_list">പ്രയോഗങ്ങൾ</string>
+    <string name="cant_find_app">ക്ഷമിക്കണം, ഞങ്ങൾക്ക് ആ പ്രയോഗം കണ്ടെത്താൻ കഴിഞ്ഞില്ല</string>
+    <string name="app_doesnt_support_device">പ്രയോഗം നിങ്ങളുടെ ഉപകരണത്തെ പിന്തുണയ്ക്കുന്നില്ല: %1$s</string>
+    <string name="device_density_unsupported">നിങ്ങളുടെ ഉപകരണത്തിന്റെ സ്‌ക്രീൻ സാന്ദ്രത പിന്തുണയ്ക്കുന്നില്ല</string>
+    <string name="open">തുറക്കുക</string>
+    <string name="user_action_required">ഉപയോക്തൃ പ്രവർത്തനം ആവശ്യമാണ്</string>
+    <string name="couldnt_open_app">പ്രയോഗം തുറക്കാനായില്ല</string>
+    <string name="about">കുറിച്ച്</string>
+    <string name="version">പതിപ്പ്: %1$s</string>
+    <string name="device_abi_unsupported">നിങ്ങളുടെ ഉപകരണത്തിന്റെ വാസ്തുവിദ്യ പിന്തുണയ്ക്കുന്നില്ല</string>
+    <string name="version_downgrade">%1$d പതിപ്പ് ഏറ്റവും കുറഞ്ഞ %2$d എന്നതിനേക്കാൾ കുറവാണ്</string>
+    <string name="update">നവീകരിക്കുക</string>
+    <string name="network_error">ശൃംഖല പിശക്: %1$s</string>
+    <string name="app_verification_failed">പ്രയോഗം പരിശോധിച്ചുറപ്പിക്കൽ പരാജയപ്പെട്ടു: %1$s</string>
+    <string name="installed">സ്ഥാപിച്ചത്</string>
+    <string name="app_updates">നവീകരണങ്ങൾ</string>
+    <string name="require_user_action">സ്ഥാപിക്കുന്നത് സ്ഥിരീകരണ നിര്‍ദ്ദേശം</string>
+    <string name="customization">ഇഷ്ടാനുസൃതമാക്കുക</string>
+    <string name="up_to_date">എല്ലാ പ്രയോഗങ്ങളും കാലികമാണ്</string>
+    <string name="open_link">ശൃംഗലാംഗം തുറക്കുക</string>
+    <string name="swipe_refresh">പുതുക്കാൻ താഴേക്ക് വലിക്കുക</string>
+    <string name="version_mismatch">പ്രതീക്ഷിക്കുന്ന പതിപ്പ് %1$s, യഥാർത്ഥമായത് %2$s ആണ്</string>
+    <string name="sig_verify_failed">ഒപ്പ് പരിശോധന പരാജയപ്പെട്ടു</string>
+    <string name="yes">അതെ</string>
+    <string name="no">അല്ല</string>
+    <string name="search">തിരയുക</string>
+    <string name="network_condition">ശൃംഖലയുടെ അവസ്ഥ</string>
+    <string name="any">ഏതെങ്കിലും</string>
+    <string name="update_success">%1$s വിജയകരമായി നവീകരിച്ചു.</string>
+    <string name="update_failure">നവീകരണം പരാജയപ്പെട്ടു</string>
+    <string name="update_finished">നവീകരണം പൂർത്തിയായി</string>
+    <string name="update_available">നവീകരണം ലഭ്യമാണ്</string>
+    <string name="automatic_updates_desc">പ്രയോഗങ്ങൾ സ്വയമേവ നവീകരികണോ എന്ന്. പ്രവർത്തനരഹിതമാക്കിയാൽ പകരം ഒരു അറിയിപ്പ് കാണിക്കുന്നു.</string>
+    <string name="automatic_updates">യാന്ത്രിക നവീകരണങ്ങൾ</string>
+    <string name="unmetered">അളക്കാത്തത്</string>
+    <string name="updater">നവീകരണകാരൻ</string>
+    <string name="uninstall_confirm">ഈ പ്രയോഗം നീക്കം ചെയ്യണോ\?</string>
+    <string name="install_confirm">ഈ പ്രയോഗം സ്ഥാപികണോ\?</string>
+    <string name="base_apk_not_valid">base.apk ഒരു സാധുവായ APK അല്ല</string>
+    <string name="dynamic_color">ചലനാത്മകമായ നിറം /</string>
+    <string name="uninstall">നീക്കം ചെയ്യുക</string>
+    <string name="install">സ്ഥാപിക്കുക</string>
+    <string name="no_apps_installed">പ്രയോഗങ്ങളൊന്നും സ്ഥാപിച്ചിട്ടില്ല</string>
+    <string name="install_confirm_desc">നിങ്ങളുടെ ഉപകരണത്തിൽ ഈ പ്രയോഗം സ്ഥാപിക്കണമെന്ന് തീർച്ചയാണോ\?</string>
+</resources>
