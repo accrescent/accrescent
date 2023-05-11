@@ -63,7 +63,7 @@
     <string name="unmetered">Безліміт</string>
     <string name="any">Усі</string>
     <string name="automatic_updates">Автоматичні оновлення</string>
-    <string name="automatic_updates_desc">Чи оновлювати програми автоматично. Якщо вимкнено, показуватиме сповіщення.</string>
+    <string name="automatic_updates_desc">Чи оновлювати застосунки автоматично. Якщо вимкнено, показуватиме сповіщення.</string>
     <string name="update_available">Доступне оновлення</string>
     <string name="update_finished">Оновлення завершено</string>
     <string name="update_failure">Помилка оновлення</string>
