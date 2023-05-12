@@ -154,7 +154,7 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.8.1")
     implementation("com.google.accompanist:accompanist-navigation-animation:0.30.1")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.30.1")
-    implementation("com.google.android.material:material:1.8.0")
+    implementation("com.google.android.material:material:1.9.0")
     implementation("com.google.dagger:hilt-android:2.45")
     implementation("io.coil-kt:coil-compose:2.3.0")
     implementation("org.bouncycastle:bcprov-jdk18on:1.73")
