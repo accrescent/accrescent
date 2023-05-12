@@ -8,8 +8,8 @@
     <string name="uninstall">Disinstalla</string>
     <string name="update">Aggiorna</string>
     <string name="open">Apri</string>
-    <string name="dynamic_color">Tema dinamico / Material You</string>
-    <string name="dynamic_color_desc">Imposta il tema dell\'applicazione in base alla palette dei colori del sistema</string>
+    <string name="dynamic_color">Colore dinamico / Material You</string>
+    <string name="dynamic_color_desc">Aspetto dell\'applicazione basato sulla tavolozza dei colori del sistema</string>
     <string name="swipe_refresh">Trascina verso il basso per aggiornare</string>
     <string name="no_apps_installed">Nessuna applicazione installata</string>
     <string name="up_to_date">Tutte le applicazioni sono aggiornate</string>
@@ -20,11 +20,11 @@
     <string name="failed_download_files">Impossibile scaricare i file necessari: %1$s</string>
     <string name="failed_download_repodata">Impossibile scaricare i dati del repository: %1$s</string>
     <string name="error_parsing_files">Errore nell\'analisi dei file delle applicazioni: %1$s</string>
-    <string name="app_doesnt_support_device">L\'applicazione non supporta il tuo dispositivo: %1$s</string>
+    <string name="app_doesnt_support_device">L\'applicazione non è compatibile con il tuo dispositivo: %1$s</string>
     <string name="unknown_host_error">Errore di host sconosciuto: %1$s</string>
     <string name="version">Versione: %1$s</string>
     <string name="version_code">Codice versione: %1$d</string>
-    <string name="device_abi_unsupported">l\'architettura del tuo dispositivo non è supportata</string>
+    <string name="device_abi_unsupported">l\'architettura del tuo dispositivo non è accettata</string>
     <string name="app_signer_mismatch">applicazione non firmata dai firmatari richiesti.
 \nPrevisto: %1$s</string>
     <string name="no_app_signers">nessun firmatario dell\'applicazione trovato.
@@ -36,7 +36,7 @@
     <string name="sig_verify_failed">verifica della firma non riuscita</string>
     <string name="install_blocked">installazione bloccata dall\'amministratore</string>
     <string name="couldnt_open_app">Impossibile aprire l\'applicazione</string>
-    <string name="device_density_unsupported">la densità dello schermo del tuo dispositivo non è supportata</string>
+    <string name="device_density_unsupported">la densità dello schermo del tuo dispositivo non è accettata</string>
     <string name="app_id_mismatch">l\'ID %1$s dell\'applicazione non corrisponde all\'ID %2$s previsto</string>
     <string name="failed_verify_repodata">Impossibile verificare i dati del repository: %1$s</string>
     <string name="user_restriction">Errore di restrizione dell\'utente: %1$s</string>
@@ -61,10 +61,10 @@
     <string name="update_failure">Errore di aggiornamento</string>
     <string name="update_available">Aggiornamento disponibile</string>
     <string name="updater">Aggiornamenti</string>
-    <string name="network_condition">Condizione di rete</string>
+    <string name="network_condition">Stato della rete</string>
     <string name="not_roaming">Non in roaming</string>
     <string name="automatic_updates">Aggiornamenti automatici</string>
-    <string name="automatic_updates_desc">Se aggiornare automaticamente le app. Se disattivati, mostra una notifica.</string>
+    <string name="automatic_updates_desc">Se aggiornare automaticamente le app. Se disattivata, mostra una notifica.</string>
     <string name="unmetered">Non a consumo</string>
     <string name="update_finished">Aggiornamento completato</string>
     <string name="update_success">%1$s è stato aggiornato con successo.</string>
