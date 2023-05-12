@@ -159,7 +159,7 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.3.0")
     implementation("org.bouncycastle:bcprov-jdk18on:1.73")
     implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     ksp("androidx.room:room-compiler:2.5.1")
     kapt("com.google.dagger:hilt-android-compiler:2.45")
