@@ -155,14 +155,14 @@ dependencies {
     implementation("com.google.accompanist:accompanist-navigation-animation:0.30.1")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.30.1")
     implementation("com.google.android.material:material:1.9.0")
-    implementation("com.google.dagger:hilt-android:2.45")
+    implementation("com.google.dagger:hilt-android:2.46")
     implementation("io.coil-kt:coil-compose:2.3.0")
     implementation("org.bouncycastle:bcprov-jdk18on:1.73")
     implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     ksp("androidx.room:room-compiler:2.5.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.45")
+    kapt("com.google.dagger:hilt-android-compiler:2.46")
 
     lintChecks("com.slack.lint.compose:compose-lint-checks:1.2.0")
 }
