@@ -156,7 +156,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.30.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("com.google.dagger:hilt-android:2.46.1")
-    implementation("io.coil-kt:coil-compose:2.3.0")
+    implementation("io.coil-kt:coil-compose:2.4.0")
     implementation("org.bouncycastle:bcprov-jdk18on:1.73")
     implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
