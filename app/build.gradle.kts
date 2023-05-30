@@ -3,12 +3,12 @@ import java.util.Properties
 
 plugins {
     id("com.android.application")
-    id("app.accrescent.tools.bundletool") version "0.1.2"
+    id("app.accrescent.tools.bundletool")
     id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
     id("kotlin-android")
     id("kotlin-kapt")
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.21"
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 val keystorePropertiesFile = rootProject.file("keystore.properties")
