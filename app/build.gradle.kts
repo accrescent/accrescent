@@ -6,8 +6,8 @@ plugins {
     id("app.accrescent.tools.bundletool")
     id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
-    id("kotlin-android")
-    id("kotlin-kapt")
+    id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.kapt")
     id("org.jetbrains.kotlin.plugin.serialization")
 }
 
