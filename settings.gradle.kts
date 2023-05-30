@@ -5,5 +5,12 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
 rootProject.name = "Accrescent"
 include(":app")
