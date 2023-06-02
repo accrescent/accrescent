@@ -1,9 +1,10 @@
 package app.accrescent.client.workers
 
+import android.app.NotificationManager
 import android.content.Context
 import android.content.pm.PackageInfo
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.getSystemService
 import androidx.hilt.work.HiltWorker
 import androidx.work.Constraints
 import androidx.work.CoroutineWorker
@@ -17,6 +18,7 @@ import app.accrescent.client.R
 import app.accrescent.client.data.PreferencesManager
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.data.net.AppRepoData
+import app.accrescent.client.util.NotificationUtil
 import app.accrescent.client.util.PackageManager
 import app.accrescent.client.util.getInstalledPackagesCompat
 import dagger.assisted.Assisted
@@ -60,13 +62,15 @@ class AutoUpdateWorker @AssistedInject constructor(
     }
 
     private fun showUpdateNotification(index: Int, packageInfo: PackageInfo, repoData: AppRepoData) {
-        val notificationManager = NotificationManagerCompat.from(context)
+        val notificationManager = context.getSystemService<NotificationManager>()!!
 
         val packageLabel = context.packageManager.getApplicationLabel(packageInfo.applicationInfo)
+        val pendingIntent = NotificationUtil.createPendingIntentForAppId(context, packageInfo.packageName)
         val notification = NotificationCompat.Builder(context, UPDATE_AVAILABLE_CHANNEL)
             .setContentTitle(packageLabel)
             .setContentText("${packageInfo.versionName} -> ${repoData.version}")
             .setSmallIcon(R.drawable.ic_baseline_update_24)
+            .setContentIntent(pendingIntent)
             .setAutoCancel(true)
 
         @Suppress("MissingPermission")

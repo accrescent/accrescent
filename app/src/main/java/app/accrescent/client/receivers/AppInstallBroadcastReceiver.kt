@@ -1,6 +1,7 @@
 package app.accrescent.client.receivers
 
 import android.Manifest
+import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -9,12 +10,13 @@ import android.content.pm.PackageInstaller
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.getSystemService
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ProcessLifecycleOwner
 import app.accrescent.client.Accrescent
 import app.accrescent.client.R
 import app.accrescent.client.data.RepoDataRepository
+import app.accrescent.client.util.NotificationUtil
 import app.accrescent.client.util.getParcelableExtraCompat
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.runBlocking
@@ -32,7 +34,7 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
         val packageName = intent.getCharSequenceExtra(PackageInstaller.EXTRA_PACKAGE_NAME).toString()
         val appName = runBlocking { repoDataRepository.getApp(packageName) }?.name
 
-        val notificationManager = NotificationManagerCompat.from(context)
+        val notificationManager = context.getSystemService<NotificationManager>()!!
 
         when (intent.getIntExtra(PackageInstaller.EXTRA_STATUS, -999)) {
             PackageInstaller.STATUS_PENDING_USER_ACTION -> {
@@ -66,11 +68,13 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
             PackageInstaller.STATUS_SUCCESS -> {
                 if (!context.hasNotificationPrivileges()) return
 
+                val pendingIntent = NotificationUtil.createPendingIntentForAppId(context, packageName)
                 val notification =
                     NotificationCompat.Builder(context, Accrescent.UPDATE_FINISHED_CHANNEL)
                         .setSmallIcon(R.drawable.ic_baseline_file_download_done_24)
                         .setContentTitle(context.getString(R.string.update_finished))
                         .setContentText(context.getString(R.string.update_success, appName))
+                        .setContentIntent(pendingIntent)
                         .setAutoCancel(true)
                         .build()
 
@@ -80,11 +84,13 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
             PackageInstaller.STATUS_FAILURE -> {
                 if (!context.hasNotificationPrivileges()) return
 
+                val pendingIntent = NotificationUtil.createPendingIntentForAppId(context, packageName)
                 val notification =
                     NotificationCompat.Builder(context, Accrescent.UPDATE_FINISHED_CHANNEL)
                         .setSmallIcon(R.drawable.ic_baseline_error_outline_24)
                         .setContentTitle(context.getString(R.string.update_failure))
                         .setContentText(appName)
+                        .setContentIntent(pendingIntent)
                         .setAutoCancel(true)
                         .build()
 
