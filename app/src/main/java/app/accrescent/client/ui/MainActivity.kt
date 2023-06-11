@@ -280,7 +280,8 @@ fun MainContent(
                     searchQuery = searchQuery.value.text,
                     modifier = Modifier.padding(padding),
                     snackbarHostState = snackbarHostState,
-                    filter = { it == InstallStatus.INSTALLED || it == InstallStatus.UPDATABLE },
+                    filter = { it == InstallStatus.INSTALLED || it == InstallStatus.UPDATABLE
+                            || it == InstallStatus.DISABLED },
                     noFilterResultsText = stringResource(R.string.no_apps_installed),
                 )
             }

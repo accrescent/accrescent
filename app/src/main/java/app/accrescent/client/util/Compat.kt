@@ -62,6 +62,8 @@ fun PackageManager.getPackageInstallStatus(appId: String, versionCode: Long?): I
         }
         if (versionCode?.let { it > pkgInfo.longVersionCode } == true) {
             InstallStatus.UPDATABLE
+        } else if (!pkgInfo.applicationInfo.enabled) {
+            InstallStatus.DISABLED
         } else {
             InstallStatus.INSTALLED
         }
