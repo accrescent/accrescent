@@ -1,7 +1,7 @@
 [versions]
 accompanist = "0.30.1"
 agp = "8.0.2"
-bouncycastle = "1.73"
+bouncycastle = "1.74"
 bundletool-plugin = "0.1.2"
 coil = "2.4.0"
 compose-bom = "2023.05.01"
