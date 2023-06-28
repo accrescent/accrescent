@@ -15,6 +15,7 @@ class SettingsViewModel @Inject constructor(private val preferencesManager: Pref
     val requireUserAction = preferencesManager.requireUserAction
     var automaticUpdates = preferencesManager.automaticUpdates
     val updaterNetworkType = preferencesManager.networkType
+    val pitchBlackBackground = preferencesManager.pitchBlackBackground
 
     suspend fun setDynamicColor(dynamicColor: Boolean) =
         preferencesManager.setDynamicColor(dynamicColor)
@@ -29,4 +30,7 @@ class SettingsViewModel @Inject constructor(private val preferencesManager: Pref
 
     suspend fun setAutomaticUpdates(automaticUpdates: Boolean) =
         preferencesManager.setAutomaticUpdates(automaticUpdates)
+
+    suspend fun setPitchBlackBackground(pitchBlackBackground: Boolean) =
+        preferencesManager.setPitchBlackBackground(pitchBlackBackground)
 }

@@ -77,18 +77,26 @@ class MainActivity : ComponentActivity() {
         setContent {
             val systemUiController = rememberSystemUiController()
             val useDarkIcons = !isSystemInDarkTheme()
+            val viewModel: SettingsViewModel = hiltViewModel()
+            val dynamicColor by viewModel.dynamicColor.collectAsState(false)
+            val pitchBlackBackground by viewModel.pitchBlackBackground.collectAsState(false)
+            val darkTheme = isSystemInDarkTheme()
 
             SideEffect {
                 systemUiController.setSystemBarsColor(
-                    color = Color.Transparent,
+                    color = if (darkTheme && pitchBlackBackground) {
+                        Color.Black
+                    } else {
+                        Color.Transparent
+                    },
                     darkIcons = useDarkIcons,
                 )
             }
 
-            val viewModel: SettingsViewModel = hiltViewModel()
-            val dynamicColor by viewModel.dynamicColor.collectAsState(false)
-
-            AccrescentTheme(dynamicColor = dynamicColor) {
+            AccrescentTheme(
+                dynamicColor = dynamicColor,
+                pitchBlackBackground = pitchBlackBackground
+            ) {
                 MainContent(
                     systemUiController,
                     appId

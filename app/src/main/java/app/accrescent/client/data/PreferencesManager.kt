@@ -42,6 +42,9 @@ class PreferencesManager @Inject constructor(@ApplicationContext private val con
     val networkType = data.map { preferences ->
         preferences[PreferencesKeys.UPDATER_NETWORK_TYPE] ?: NetworkType.CONNECTED.name
     }
+    val pitchBlackBackground = data.map { preferences ->
+        preferences[PreferencesKeys.PITCH_BLACK_BACKGROUND] ?: false
+    }
 
     suspend fun setDynamicColor(dynamicColor: Boolean) {
         context.dataStore.edit {
@@ -67,10 +70,17 @@ class PreferencesManager @Inject constructor(@ApplicationContext private val con
         }
     }
 
+    suspend fun setPitchBlackBackground(pitchBlackBackground: Boolean) {
+        context.dataStore.edit {
+            it[PreferencesKeys.PITCH_BLACK_BACKGROUND] = pitchBlackBackground
+        }
+    }
+
     private object PreferencesKeys {
         val DYNAMIC_COLOR = booleanPreferencesKey("dynamic_color")
         val REQUIRE_USER_ACTION = booleanPreferencesKey("require_user_action")
         val AUTOMATIC_UPDATES = booleanPreferencesKey("automatic_updates")
         val UPDATER_NETWORK_TYPE = stringPreferencesKey("updater_network_type")
+        val PITCH_BLACK_BACKGROUND = booleanPreferencesKey("pitch_black_background")
     }
 }

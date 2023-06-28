@@ -58,6 +58,7 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
     val requireUserAction by viewModel.requireUserAction.collectAsState(!context.isPrivileged())
     val automaticUpdates by viewModel.automaticUpdates.collectAsState(true)
     val networkType by viewModel.updaterNetworkType.collectAsState(NetworkType.CONNECTED.name)
+    val pitchBlackBackground by viewModel.pitchBlackBackground.collectAsState(false)
 
     Column(
         modifier
@@ -86,6 +87,16 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             Switch(
                 checked = dynamicColor,
                 onCheckedChange = { coroutineScope.launch { viewModel.setDynamicColor(it) } },
+            )
+        }
+        Setting(
+            label = stringResource(R.string.pitch_black_background),
+            description = stringResource(R.string.pitch_black_background_desc),
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Switch(
+                checked = pitchBlackBackground,
+                onCheckedChange = { coroutineScope.launch { viewModel.setPitchBlackBackground(it) } },
             )
         }
         val networkTypeNames = persistentListOf(

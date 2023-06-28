@@ -7,6 +7,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val LightColorPalette = lightColorScheme(
@@ -72,13 +73,29 @@ private val DarkColorPalette = darkColorScheme(
 @Composable
 fun AccrescentTheme(
     dynamicColor: Boolean,
+    pitchBlackBackground: Boolean,
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
+    val pitchBlackBackgroundDynamicDarkColorScheme = dynamicDarkColorScheme(LocalContext.current).copy(
+        background = Color.Black,
+        surface = Color.Black
+    )
     val colors = when {
-        dynamicColor && darkTheme -> dynamicDarkColorScheme(LocalContext.current)
+        dynamicColor && darkTheme -> if (pitchBlackBackground) {
+            pitchBlackBackgroundDynamicDarkColorScheme
+        } else {
+            dynamicDarkColorScheme(LocalContext.current)
+        }
         dynamicColor && !darkTheme -> dynamicLightColorScheme(LocalContext.current)
-        darkTheme -> DarkColorPalette
+        darkTheme -> if (pitchBlackBackground) {
+            DarkColorPalette.copy(
+                background = Color.Black,
+                surface = Color.Black
+            )
+        } else {
+            DarkColorPalette
+        }
         else -> LightColorPalette
     }
 

@@ -69,4 +69,6 @@
     <string name="update_finished">Update finished</string>
     <string name="update_failure">Update failure</string>
     <string name="update_success">%1$s has been updated successfully.</string>
+    <string name="pitch_black_background">Pitch black background</string>
+    <string name="pitch_black_background_desc">Change background to pitch black when dark theme is on</string>
 </resources>
