@@ -45,4 +45,5 @@
     <string name="install">സ്ഥാപിക്കുക</string>
     <string name="no_apps_installed">പ്രയോഗങ്ങളൊന്നും സ്ഥാപിച്ചിട്ടില്ല</string>
     <string name="install_confirm_desc">നിങ്ങളുടെ ഉപകരണത്തിൽ ഈ പ്രയോഗം സ്ഥാപിക്കണമെന്ന് തീർച്ചയാണോ\?</string>
+    <string name="not_roaming">അലയല്‍ അല്ല</string>
 </resources>
