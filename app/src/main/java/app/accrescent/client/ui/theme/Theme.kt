@@ -1,5 +1,6 @@
 package app.accrescent.client.ui.theme
 
+import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -69,15 +70,22 @@ private val DarkColorPalette = darkColorScheme(
     primary = md_theme_dark_primary,
 )
 
+/**
+ * The base Accrescent theme composable.
+ *
+ * @param dynamicColor whether to use dynamic color. This parameter is ignored on Android 11 and
+ * below.
+ */
 @Composable
 fun AccrescentTheme(
     dynamicColor: Boolean,
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
+    val useDynamicColor = dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
     val colors = when {
-        dynamicColor && darkTheme -> dynamicDarkColorScheme(LocalContext.current)
-        dynamicColor && !darkTheme -> dynamicLightColorScheme(LocalContext.current)
+        useDynamicColor && darkTheme -> dynamicDarkColorScheme(LocalContext.current)
+        useDynamicColor && !darkTheme -> dynamicLightColorScheme(LocalContext.current)
         darkTheme -> DarkColorPalette
         else -> LightColorPalette
     }

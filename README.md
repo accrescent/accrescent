@@ -28,7 +28,7 @@ following features:
 
 - App signing key pinning
 - Signed repository metadata
-- Automatic, unprivileged, unattended updates
+- Automatic, unprivileged, unattended updates (Android 12+)
 - First-class support for split APKs
 - No remote APK signing
 - Meaningful quality control for submitted apps
@@ -36,7 +36,7 @@ following features:
 
 ...and more. See the [features page] on the website for details.
 
-Accrescent currently runs on Android 12 and up.
+Accrescent currently runs on Android 10 and up.
 
 Contributions are welcome! If you're interested in helping out, be sure to check
 out the [contributing guidelines] for tips on getting started.

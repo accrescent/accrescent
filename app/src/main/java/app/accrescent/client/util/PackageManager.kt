@@ -80,7 +80,9 @@ class PackageManager @Inject constructor(
             ?: throw InvalidObjectException(context.getString(R.string.base_apk_not_valid))
 
         val sessionParams = SessionParams(SessionParams.MODE_FULL_INSTALL)
-        sessionParams.setRequireUserAction(SessionParams.USER_ACTION_NOT_REQUIRED)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            sessionParams.setRequireUserAction(SessionParams.USER_ACTION_NOT_REQUIRED)
+        }
         sessionParams.setInstallLocation(pkgInfo.installLocation)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             sessionParams.setPackageSource(PackageInstaller.PACKAGE_SOURCE_STORE)

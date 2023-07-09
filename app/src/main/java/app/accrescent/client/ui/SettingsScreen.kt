@@ -2,6 +2,7 @@ package app.accrescent.client.ui
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -77,16 +78,18 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
                 )
             }
         }
-        SettingGroupLabel(stringResource(R.string.customization), Modifier.padding(top = 16.dp))
-        Setting(
-            label = stringResource(R.string.dynamic_color),
-            description = stringResource(R.string.dynamic_color_desc),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Switch(
-                checked = dynamicColor,
-                onCheckedChange = { coroutineScope.launch { viewModel.setDynamicColor(it) } },
-            )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            SettingGroupLabel(stringResource(R.string.customization), Modifier.padding(top = 16.dp))
+            Setting(
+                label = stringResource(R.string.dynamic_color),
+                description = stringResource(R.string.dynamic_color_desc),
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Switch(
+                    checked = dynamicColor,
+                    onCheckedChange = { coroutineScope.launch { viewModel.setDynamicColor(it) } },
+                )
+            }
         }
         val networkTypeNames = persistentListOf(
             stringResource(R.string.any),
@@ -99,15 +102,17 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             NetworkType.UNMETERED,
         )
         SettingGroupLabel(stringResource(R.string.updater), Modifier.padding(top = 16.dp))
-        Setting(
-            label = stringResource(R.string.automatic_updates),
-            description = stringResource(R.string.automatic_updates_desc),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Switch(
-                checked = automaticUpdates,
-                onCheckedChange = { coroutineScope.launch { viewModel.setAutomaticUpdates(it) } },
-            )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            Setting(
+                label = stringResource(R.string.automatic_updates),
+                description = stringResource(R.string.automatic_updates_desc),
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Switch(
+                    checked = automaticUpdates,
+                    onCheckedChange = { coroutineScope.launch { viewModel.setAutomaticUpdates(it) } },
+                )
+            }
         }
         ListPreference(
             label = stringResource(R.string.network_condition),
