@@ -40,13 +40,13 @@ android {
     }
 
     namespace = "app.accrescent.client"
-    compileSdk = 33
+    compileSdk = 34
     buildToolsVersion = "33.0.2"
 
     defaultConfig {
         applicationId = "app.accrescent.client"
         minSdk = 31
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 30
         versionName = "0.12.5"
         resourceConfigurations.addAll(listOf(
