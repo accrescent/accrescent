@@ -67,27 +67,35 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
     ) {
         if (context.isPrivileged()) {
             SettingGroupLabel(stringResource(R.string.app_updates), Modifier.padding(top = 16.dp))
+            val setRequireUserAction: (Boolean) -> Unit = {
+                coroutineScope.launch { viewModel.setRequireUserAction(it) }
+            }
             Setting(
                 label = stringResource(R.string.require_user_action),
                 description = stringResource(R.string.require_user_action_desc),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth()
+                    .clickable { setRequireUserAction(!dynamicColor) },
             ) {
                 Switch(
                     checked = requireUserAction,
-                    onCheckedChange = { coroutineScope.launch { viewModel.setRequireUserAction(it) } },
+                    onCheckedChange = { setRequireUserAction(it) },
                 )
             }
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             SettingGroupLabel(stringResource(R.string.customization), Modifier.padding(top = 16.dp))
+            val setDynamicColor: (Boolean) -> Unit = {
+                coroutineScope.launch { viewModel.setDynamicColor(it) }
+            }
             Setting(
                 label = stringResource(R.string.dynamic_color),
                 description = stringResource(R.string.dynamic_color_desc),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth()
+                    .clickable { setDynamicColor(!dynamicColor) },
             ) {
                 Switch(
                     checked = dynamicColor,
-                    onCheckedChange = { coroutineScope.launch { viewModel.setDynamicColor(it) } },
+                    onCheckedChange = { setDynamicColor(it) },
                 )
             }
         }
@@ -103,14 +111,18 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
         )
         SettingGroupLabel(stringResource(R.string.updater), Modifier.padding(top = 16.dp))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val setAutomaticUpdates: (Boolean) -> Unit = {
+                coroutineScope.launch { viewModel.setAutomaticUpdates(it) }
+            }
             Setting(
                 label = stringResource(R.string.automatic_updates),
                 description = stringResource(R.string.automatic_updates_desc),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth()
+                    .clickable { coroutineScope.launch { viewModel.setAutomaticUpdates(!automaticUpdates) } },
             ) {
                 Switch(
                     checked = automaticUpdates,
-                    onCheckedChange = { coroutineScope.launch { viewModel.setAutomaticUpdates(it) } },
+                    onCheckedChange = { setAutomaticUpdates(it) },
                 )
             }
         }
@@ -123,16 +135,20 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             },
         )
         SettingGroupLabel(stringResource(R.string.about), Modifier.padding(top = 16.dp))
+        val sourceCodeIntent: () -> Unit = {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_CODE_URL))
+            if (intent.resolveActivity(context.packageManager) != null) {
+                context.startActivity(intent)
+            }
+        }
         Setting(
             label = stringResource(R.string.source_code),
             description = stringResource(R.string.source_code_desc),
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth()
+                .clickable { sourceCodeIntent() },
         ) {
             IconButton(onClick = {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_CODE_URL))
-                if (intent.resolveActivity(context.packageManager) != null) {
-                    context.startActivity(intent)
-                }
+                sourceCodeIntent()
             }) {
                 Icon(Icons.Rounded.OpenInNew, stringResource(R.string.open_link))
             }
