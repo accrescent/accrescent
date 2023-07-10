@@ -87,6 +87,9 @@ class PackageManager @Inject constructor(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             sessionParams.setPackageSource(PackageInstaller.PACKAGE_SOURCE_STORE)
         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            sessionParams.setRequestUpdateOwnership(true)
+        }
         val sessionId = packageInstaller.createSession(sessionParams)
         val session = packageInstaller.openSession(sessionId)
 
