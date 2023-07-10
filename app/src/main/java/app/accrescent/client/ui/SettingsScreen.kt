@@ -20,7 +20,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.OpenInNew
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -70,11 +69,12 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             Setting(
                 label = stringResource(R.string.require_user_action),
                 description = stringResource(R.string.require_user_action_desc),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth()
+                    .clickable { coroutineScope.launch { viewModel.setRequireUserAction(!requireUserAction) } },
             ) {
                 Switch(
                     checked = requireUserAction,
-                    onCheckedChange = { coroutineScope.launch { viewModel.setRequireUserAction(it) } },
+                    onCheckedChange = null,
                 )
             }
         }
@@ -83,11 +83,12 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             Setting(
                 label = stringResource(R.string.dynamic_color),
                 description = stringResource(R.string.dynamic_color_desc),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth()
+                    .clickable { coroutineScope.launch { viewModel.setDynamicColor(!dynamicColor) } },
             ) {
                 Switch(
                     checked = dynamicColor,
-                    onCheckedChange = { coroutineScope.launch { viewModel.setDynamicColor(it) } },
+                    onCheckedChange = null,
                 )
             }
         }
@@ -106,11 +107,12 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             Setting(
                 label = stringResource(R.string.automatic_updates),
                 description = stringResource(R.string.automatic_updates_desc),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth()
+                    .clickable { coroutineScope.launch { viewModel.setAutomaticUpdates(!automaticUpdates) } },
             ) {
                 Switch(
                     checked = automaticUpdates,
-                    onCheckedChange = { coroutineScope.launch { viewModel.setAutomaticUpdates(it) } },
+                    onCheckedChange = null,
                 )
             }
         }
@@ -126,16 +128,15 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
         Setting(
             label = stringResource(R.string.source_code),
             description = stringResource(R.string.source_code_desc),
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth()
+                .clickable {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_CODE_URL))
+                    if (intent.resolveActivity(context.packageManager) != null) {
+                        context.startActivity(intent)
+                    }
+                },
         ) {
-            IconButton(onClick = {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_CODE_URL))
-                if (intent.resolveActivity(context.packageManager) != null) {
-                    context.startActivity(intent)
-                }
-            }) {
-                Icon(Icons.Rounded.OpenInNew, stringResource(R.string.open_link))
-            }
+            Icon(Icons.Rounded.OpenInNew, stringResource(R.string.open_link))
         }
     }
 }
