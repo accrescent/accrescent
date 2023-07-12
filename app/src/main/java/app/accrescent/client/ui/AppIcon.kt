@@ -12,7 +12,7 @@ import coil.compose.SubcomposeAsyncImage
 fun AppIcon(appId: String, modifier: Modifier = Modifier) {
     SubcomposeAsyncImage(
         "$REPOSITORY_URL/apps/$appId/icon.png",
-        "App icon",
+        null,
         modifier.clip(CircleShape),
         loading = { CircularProgressIndicator() },
     )
