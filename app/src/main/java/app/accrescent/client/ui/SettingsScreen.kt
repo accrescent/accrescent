@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -36,6 +37,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
@@ -70,7 +72,11 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
                 label = stringResource(R.string.require_user_action),
                 description = stringResource(R.string.require_user_action_desc),
                 modifier = Modifier.fillMaxWidth()
-                    .clickable { coroutineScope.launch { viewModel.setRequireUserAction(!requireUserAction) } },
+                    .toggleable(
+                        value = requireUserAction,
+                        role = Role.Switch,
+                        onValueChange = { coroutineScope.launch { viewModel.setRequireUserAction(it) } }
+                    )
             ) {
                 Switch(
                     checked = requireUserAction,
@@ -84,7 +90,11 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
                 label = stringResource(R.string.dynamic_color),
                 description = stringResource(R.string.dynamic_color_desc),
                 modifier = Modifier.fillMaxWidth()
-                    .clickable { coroutineScope.launch { viewModel.setDynamicColor(!dynamicColor) } },
+                    .toggleable(
+                        value = dynamicColor,
+                        role = Role.Switch,
+                        onValueChange = { coroutineScope.launch { viewModel.setDynamicColor(it) } }
+                    )
             ) {
                 Switch(
                     checked = dynamicColor,
@@ -108,7 +118,11 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
                 label = stringResource(R.string.automatic_updates),
                 description = stringResource(R.string.automatic_updates_desc),
                 modifier = Modifier.fillMaxWidth()
-                    .clickable { coroutineScope.launch { viewModel.setAutomaticUpdates(!automaticUpdates) } },
+                    .toggleable(
+                        value = automaticUpdates,
+                        role = Role.Switch,
+                        onValueChange = { coroutineScope.launch { viewModel.setAutomaticUpdates(it) } }
+                    )
             ) {
                 Switch(
                     checked = automaticUpdates,
@@ -160,7 +174,7 @@ fun Setting(
     content: @Composable () -> Unit
 ) {
     Row(
-        modifier = modifier.semantics(mergeDescendants = true) {},
+        modifier = modifier,
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
