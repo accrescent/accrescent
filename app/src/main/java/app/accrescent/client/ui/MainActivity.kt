@@ -165,7 +165,7 @@ fun MainContent(
                     scrollBehavior = settingsScrollBehavior,
                     navigationIcon = {
                         IconButton(onClick = { navController.popBackStack() }) {
-                          Icon(Icons.Default.ArrowBack, null)
+                          Icon(Icons.Default.ArrowBack, stringResource(R.string.back_button))
                         }
                     },
                 )

@@ -103,7 +103,7 @@ fun ExpandedSearchView(
         ) {
             Icon(
                 imageVector = Icons.Default.ArrowBack,
-                contentDescription = null
+                contentDescription = stringResource(R.string.back_button)
             )
         }
         OutlinedTextField(
