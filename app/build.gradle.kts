@@ -40,15 +40,15 @@ android {
     }
 
     namespace = "app.accrescent.client"
-    compileSdk = 33
-    buildToolsVersion = "33.0.2"
+    compileSdk = 34
+    buildToolsVersion = "34.0.0"
 
     defaultConfig {
         applicationId = "app.accrescent.client"
-        minSdk = 31
-        targetSdk = 33
-        versionCode = 30
-        versionName = "0.12.5"
+        minSdk = 29
+        targetSdk = 34
+        versionCode = 32
+        versionName = "0.13.1"
         resourceConfigurations.addAll(listOf(
             "az",
             "cs",
@@ -112,7 +112,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.7"
+        kotlinCompilerExtensionVersion = "1.4.8"
     }
 
     dependenciesInfo {

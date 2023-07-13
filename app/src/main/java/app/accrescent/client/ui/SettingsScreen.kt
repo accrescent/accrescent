@@ -2,6 +2,7 @@ package app.accrescent.client.ui
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -13,13 +14,13 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.OpenInNew
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -36,6 +37,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
@@ -69,24 +71,36 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             Setting(
                 label = stringResource(R.string.require_user_action),
                 description = stringResource(R.string.require_user_action_desc),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth()
+                    .toggleable(
+                        value = requireUserAction,
+                        role = Role.Switch,
+                        onValueChange = { coroutineScope.launch { viewModel.setRequireUserAction(it) } }
+                    )
             ) {
                 Switch(
                     checked = requireUserAction,
-                    onCheckedChange = { coroutineScope.launch { viewModel.setRequireUserAction(it) } },
+                    onCheckedChange = null,
                 )
             }
         }
-        SettingGroupLabel(stringResource(R.string.customization), Modifier.padding(top = 16.dp))
-        Setting(
-            label = stringResource(R.string.dynamic_color),
-            description = stringResource(R.string.dynamic_color_desc),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Switch(
-                checked = dynamicColor,
-                onCheckedChange = { coroutineScope.launch { viewModel.setDynamicColor(it) } },
-            )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            SettingGroupLabel(stringResource(R.string.customization), Modifier.padding(top = 16.dp))
+            Setting(
+                label = stringResource(R.string.dynamic_color),
+                description = stringResource(R.string.dynamic_color_desc),
+                modifier = Modifier.fillMaxWidth()
+                    .toggleable(
+                        value = dynamicColor,
+                        role = Role.Switch,
+                        onValueChange = { coroutineScope.launch { viewModel.setDynamicColor(it) } }
+                    )
+            ) {
+                Switch(
+                    checked = dynamicColor,
+                    onCheckedChange = null,
+                )
+            }
         }
         val networkTypeNames = persistentListOf(
             stringResource(R.string.any),
@@ -99,15 +113,22 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             NetworkType.UNMETERED,
         )
         SettingGroupLabel(stringResource(R.string.updater), Modifier.padding(top = 16.dp))
-        Setting(
-            label = stringResource(R.string.automatic_updates),
-            description = stringResource(R.string.automatic_updates_desc),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Switch(
-                checked = automaticUpdates,
-                onCheckedChange = { coroutineScope.launch { viewModel.setAutomaticUpdates(it) } },
-            )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            Setting(
+                label = stringResource(R.string.automatic_updates),
+                description = stringResource(R.string.automatic_updates_desc),
+                modifier = Modifier.fillMaxWidth()
+                    .toggleable(
+                        value = automaticUpdates,
+                        role = Role.Switch,
+                        onValueChange = { coroutineScope.launch { viewModel.setAutomaticUpdates(it) } }
+                    )
+            ) {
+                Switch(
+                    checked = automaticUpdates,
+                    onCheckedChange = null,
+                )
+            }
         }
         ListPreference(
             label = stringResource(R.string.network_condition),
@@ -121,16 +142,15 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
         Setting(
             label = stringResource(R.string.source_code),
             description = stringResource(R.string.source_code_desc),
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth()
+                .clickable {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_CODE_URL))
+                    if (intent.resolveActivity(context.packageManager) != null) {
+                        context.startActivity(intent)
+                    }
+                },
         ) {
-            IconButton(onClick = {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_CODE_URL))
-                if (intent.resolveActivity(context.packageManager) != null) {
-                    context.startActivity(intent)
-                }
-            }) {
-                Icon(Icons.Rounded.OpenInNew, stringResource(R.string.open_link))
-            }
+            Icon(Icons.Rounded.OpenInNew, stringResource(R.string.open_link))
         }
     }
 }
@@ -154,7 +174,7 @@ fun Setting(
     content: @Composable () -> Unit
 ) {
     Row(
-        modifier = modifier.semantics(mergeDescendants = true) {},
+        modifier = modifier,
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {

@@ -57,4 +57,15 @@
     <string name="uninstall_confirm_desc">Appen kommer att tas bort från din enhet tillsammans med all dess data.</string>
     <string name="require_user_action_desc">Be alltid om en bekräftelse för att förhindra att appar installeras av misstag</string>
     <string name="search">Sök</string>
+    <string name="updater">Uppdaterare</string>
+    <string name="network_condition">Nätverkstillstånd</string>
+    <string name="not_roaming">Roamar inte</string>
+    <string name="automatic_updates">Automatiska uppdateringar</string>
+    <string name="update_available">Uppdatering tillgänglig</string>
+    <string name="update_finished">Uppdatering slutförd</string>
+    <string name="update_failure">Uppdatering misslyckades</string>
+    <string name="update_success">%1$s har uppdaterats framgångsrikt.</string>
+    <string name="any">Alla</string>
+    <string name="unmetered">Omätad</string>
+    <string name="automatic_updates_desc">Om appar ska uppdateras automatiskt. Visar en avisering istället om det är inaktiverat.</string>
 </resources>
