@@ -18,6 +18,16 @@ A novel Android app store focused on security, privacy, and usability.
 
 Currently in early alpha.
 
+## Screenshots
+
+|   Home Page  |  App Details |
+| ------------ | ------------ |
+| ![Img 1](https://accrescent.app/meta/screenshots/home.jpeg) | ![Img 2](https://accrescent.app/meta/screenshots/app-details.jpeg) |
+
+| Settings Menu | Material You |
+| ------------- | ------------ |
+| ![Img 3](https://accrescent.app/meta/screenshots/settings.jpeg) | ![Img 4](https://accrescent.app/meta/screenshots/settings-material-you.jpeg) |
+
 ## About
 
 Accrescent is a private and secure Android app store built with modern features
