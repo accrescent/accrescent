@@ -20,13 +20,13 @@ Currently in early alpha.
 
 ## Screenshots
 
-| Home Page | App Details |
+|   Home Page  |  App Details |
 | ------------ | ------------ |
-| ![Screenshot 1](metadata/en-US/images/screenshots/screenshot_1_2023.jpg) | ![Screenshot 2](metadata/en-US/images/screenshots/screenshot_2_2023.jpg) |
+| ![Img 1](https://accrescent.app/meta/screenshots/home.jpeg) | ![Img 2](https://accrescent.app/meta/screenshots/app-details.jpeg) |
 
 | Settings Menu | Material You |
-| ------------ | ------------ |
-| ![Screenshot 3](metadata/en-US/images/screenshots/screenshot_3_2023.jpg) | ![Screenshot 4](metadata/en-US/images/screenshots/screenshot_4_2023.jpg) |
+| ------------- | ------------ |
+| ![Img 3](https://accrescent.app/meta/screenshots/settings.jpeg) | ![Img 4](https://accrescent.app/meta/screenshots/settings-material-you.jpeg) |
 
 ## About
 
