@@ -12,6 +12,7 @@ import app.accrescent.client.data.InstallStatus
 
 fun Context.registerReceiverNotExported(receiver: BroadcastReceiver, filter: IntentFilter) {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        @Suppress("UnspecifiedRegisterReceiverFlag")
         registerReceiver(receiver, filter)
     } else {
         registerReceiver(receiver, filter, RECEIVER_NOT_EXPORTED)
