@@ -68,4 +68,5 @@
     <string name="update_finished">Оновлення завершено</string>
     <string name="update_failure">Помилка оновлення</string>
     <string name="update_success">%1$s успішно оновлено.</string>
+    <string name="back_button">Назад</string>
 </resources>
