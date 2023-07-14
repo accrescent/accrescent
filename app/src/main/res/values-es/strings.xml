@@ -68,4 +68,7 @@
     <string name="update_success">%1$s se actualizó correctamente.</string>
     <string name="any">Cualquiera</string>
     <string name="automatic_updates_desc">Ya sea para actualizar automáticamente la aplicación. Si está deshabilitado, muestra una notificación en su lugar.</string>
+    <string name="back_button">Atrás</string>
+    <string name="enable">Activar</string>
+    <string name="couldnt_open_appinfo">No se ha podido abrir AppInfo</string>
 </resources>
