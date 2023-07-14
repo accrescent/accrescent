@@ -50,6 +50,7 @@ class Accrescent : Application(), Configuration.Provider {
         val br = AppStatusChangeBroadcastReceiver()
         val filter = IntentFilter().apply {
             addAction(Intent.ACTION_PACKAGE_ADDED)
+            addAction(Intent.ACTION_PACKAGE_CHANGED)
             addAction(Intent.ACTION_PACKAGE_REMOVED)
             addAction(Intent.ACTION_PACKAGE_FULLY_REMOVED)
             addDataScheme("package")
