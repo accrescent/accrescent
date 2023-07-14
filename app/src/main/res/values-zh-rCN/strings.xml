@@ -69,4 +69,6 @@
     <string name="update_success">%1$s 已成功更新。</string>
     <string name="update_available">更新可用</string>
     <string name="back_button">返回</string>
+    <string name="enable">启用</string>
+    <string name="couldnt_open_appinfo">无法打开应用信息</string>
 </resources>
