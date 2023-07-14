@@ -1,3 +1,3 @@
 package app.accrescent.client.data
 
-enum class InstallStatus { INSTALLABLE, UPDATABLE, INSTALLED, LOADING, UNKNOWN }
+enum class InstallStatus { INSTALLABLE, UPDATABLE, DISABLED, INSTALLED, LOADING, UNKNOWN }

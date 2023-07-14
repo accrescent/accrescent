@@ -87,6 +87,7 @@ fun AppDetailsScreen(
                 }
             },
             onOpenClicked = { viewModel.openApp(viewModel.uiState.appId) },
+            onOpenAppInfoClicked = { viewModel.openAppInfo(viewModel.uiState.appId) },
             downloadProgress = downloadProgress,
         )
         else -> AppNotFoundError()
@@ -127,6 +128,7 @@ fun AppDetails(
     onInstallClicked: () -> Unit,
     onUninstallClicked: () -> Unit,
     onOpenClicked: () -> Unit,
+    onOpenAppInfoClicked: () -> Unit,
     downloadProgress: DownloadProgress?,
 ) {
     val context = LocalContext.current
@@ -160,7 +162,8 @@ fun AppDetails(
         ) {
             when (installStatus) {
                 InstallStatus.INSTALLED,
-                InstallStatus.UPDATABLE ->
+                InstallStatus.UPDATABLE,
+                InstallStatus.DISABLED ->
                     // We can't uninstall ourselves if we're a priv-app
                     if (!(context.isPrivileged() && id == BuildConfig.APPLICATION_ID)) {
                         OutlinedButton(
@@ -189,6 +192,7 @@ fun AppDetails(
                                 waitingForSize = true
                                 onInstallClicked()
                             }
+                            InstallStatus.DISABLED -> onOpenAppInfoClicked()
                             InstallStatus.INSTALLED -> onOpenClicked()
                             InstallStatus.LOADING,
                             InstallStatus.UNKNOWN -> Unit
@@ -200,6 +204,8 @@ fun AppDetails(
                             Text(stringResource(R.string.install))
                         InstallStatus.UPDATABLE ->
                             Text(stringResource(R.string.update))
+                        InstallStatus.DISABLED ->
+                            Text(stringResource(R.string.enable))
                         InstallStatus.INSTALLED ->
                             Text(stringResource(R.string.open))
                         InstallStatus.LOADING ->

@@ -2,6 +2,9 @@ package app.accrescent.client.ui
 
 import android.app.Application
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.provider.Settings
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -153,6 +156,22 @@ class AppDetailsViewModel @Inject constructor(
             return
         } else {
             context.startActivity(intent)
+        }
+    }
+
+    fun openAppInfo(appId: String) {
+        uiState.error = null
+
+        val context = getApplication<Accrescent>().applicationContext
+        val uri = Uri.parse("package:$appId")
+
+        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, uri)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        if (intent.resolveActivity(context.packageManager) == null) {
+            uiState.error = context.getString(R.string.couldnt_open_appinfo)
+            return
+        } else {
+            context.startActivity(intent);
         }
     }
 }

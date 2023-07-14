@@ -8,6 +8,7 @@
     <string name="install">Install</string>
     <string name="uninstall">Uninstall</string>
     <string name="update">Update</string>
+    <string name="enable">Enable</string>
     <string name="open">Open</string>
     <string name="unknown" translatable="false">\?\?\?</string>
     <string name="require_user_action">Install confirmation prompt</string>
@@ -25,6 +26,7 @@
     <string name="user_action_required">User action required</string>
     <string name="cant_find_app">Sorry, we couldn\'t find that app</string>
     <string name="couldnt_open_app">Could not open app</string>
+    <string name="couldnt_open_appinfo">Could not open AppInfo</string>
     <string name="network_error">Network error: %1$s</string>
     <string name="app_verification_failed">App verification failed: %1$s</string>
     <string name="failed_download_files">Failed to download necessary files: %1$s</string>
