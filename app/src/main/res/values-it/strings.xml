@@ -69,4 +69,6 @@
     <string name="update_finished">Aggiornamento completato</string>
     <string name="update_success">%1$s è stato aggiornato con successo.</string>
     <string name="back_button">Indietro</string>
+    <string name="enable">Attiva</string>
+    <string name="couldnt_open_appinfo">Impossibile aprire informazioni app</string>
 </resources>
