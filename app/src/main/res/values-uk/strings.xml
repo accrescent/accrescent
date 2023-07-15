@@ -69,4 +69,6 @@
     <string name="update_failure">Помилка оновлення</string>
     <string name="update_success">%1$s успішно оновлено.</string>
     <string name="back_button">Назад</string>
+    <string name="enable">Увімкнути</string>
+    <string name="couldnt_open_appinfo">Не вдалося відкрити AppInfo</string>
 </resources>
