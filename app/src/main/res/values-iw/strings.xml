@@ -68,4 +68,7 @@
     <string name="automatic_updates">עדכונים אוטומטיים</string>
     <string name="automatic_updates_desc">האם לעדכן יישומים אוטומטית. מציג התראה במקום אם מושבת.</string>
     <string name="update_success">%1$s עודכן בהצלחה.</string>
+    <string name="back_button">חזרה</string>
+    <string name="enable">הפעלה</string>
+    <string name="couldnt_open_appinfo">לא ניתן לפתוח את פרטי היישומון</string>
 </resources>
