@@ -69,4 +69,6 @@
     <string name="unmetered">Omätad</string>
     <string name="automatic_updates_desc">Om appar ska uppdateras automatiskt. Visar en avisering istället om det är inaktiverat.</string>
     <string name="back_button">Bakåt</string>
+    <string name="enable">Aktivera</string>
+    <string name="couldnt_open_appinfo">Kunde inte öppna AppInfo</string>
 </resources>
