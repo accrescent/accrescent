@@ -68,5 +68,7 @@
     <string name="update_success">%1$s zostało pomyślnie zaktualizowane.</string>
     <string name="automatic_updates_desc">Czy automatycznie aktualizować aplikacje. Zamiast tego pokazuje powiadomienie, jeśli jest wyłączone.</string>
     <string name="update_finished">Zakończono aktualizację</string>
-        <string name="back_button">Wróć</string>
+    <string name="back_button">Wróć</string>
+    <string name="enable">Włącz</string>
+    <string name="couldnt_open_appinfo">Nie można otworzyć AppInfo</string>
 </resources>
