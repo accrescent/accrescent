@@ -68,4 +68,7 @@
     <string name="update_available">Actualizare disponibilă</string>
     <string name="update_finished">Actualizare terminată</string>
     <string name="update_failure">Actualizare nereușită</string>
+    <string name="back_button">Înapoi</string>
+    <string name="enable">Activează</string>
+    <string name="couldnt_open_appinfo">Nu s-a putut deschide AppInfo</string>
 </resources>
