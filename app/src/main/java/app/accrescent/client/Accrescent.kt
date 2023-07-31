@@ -9,14 +9,20 @@ import android.content.IntentFilter
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import androidx.work.NetworkType
+import app.accrescent.client.data.PreferencesManager
 import app.accrescent.client.receivers.AppStatusChangeBroadcastReceiver
 import app.accrescent.client.util.registerReceiverNotExported
 import app.accrescent.client.workers.AutoUpdateWorker
 import dagger.hilt.android.HiltAndroidApp
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @HiltAndroidApp
 class Accrescent : Application(), Configuration.Provider {
+    @Inject
+    lateinit var preferencesManager: PreferencesManager
+
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
 
@@ -45,7 +51,10 @@ class Accrescent : Application(), Configuration.Provider {
             )
         )
 
-        AutoUpdateWorker.enqueue(applicationContext, NetworkType.CONNECTED)
+        val networkType = runBlocking { preferencesManager.networkType.firstOrNull() }
+            ?.let { NetworkType.valueOf(it) }
+            ?: NetworkType.CONNECTED
+        AutoUpdateWorker.enqueue(applicationContext, networkType)
 
         val br = AppStatusChangeBroadcastReceiver()
         val filter = IntentFilter().apply {
