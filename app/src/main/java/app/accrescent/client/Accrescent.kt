@@ -13,6 +13,7 @@ import app.accrescent.client.data.PreferencesManager
 import app.accrescent.client.receivers.AppStatusChangeBroadcastReceiver
 import app.accrescent.client.util.registerReceiverNotExported
 import app.accrescent.client.workers.AutoUpdateWorker
+import app.accrescent.client.workers.RepositoryRefreshWorker
 import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.runBlocking
@@ -54,6 +55,7 @@ class Accrescent : Application(), Configuration.Provider {
         val networkType = runBlocking { preferencesManager.networkType.firstOrNull() }
             ?.let { NetworkType.valueOf(it) }
             ?: NetworkType.CONNECTED
+        RepositoryRefreshWorker.enqueue(applicationContext, networkType)
         AutoUpdateWorker.enqueue(applicationContext, networkType)
 
         val br = AppStatusChangeBroadcastReceiver()

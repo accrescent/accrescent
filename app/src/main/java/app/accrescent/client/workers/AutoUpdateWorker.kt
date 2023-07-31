@@ -36,8 +36,6 @@ class AutoUpdateWorker @AssistedInject constructor(
 ) : CoroutineWorker(context, workerParams) {
     override suspend fun doWork(): Result {
         try {
-            repoDataRepository.fetchRepoData()
-
             val packagesToUpdate = context.packageManager.getInstalledPackagesCompat()
                 .filter { repoDataRepository.appExists(it.packageName) }
                 .filter {
