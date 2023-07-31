@@ -23,12 +23,17 @@ class RepositoryRefreshWorker @AssistedInject constructor(
             repoDataRepository.fetchRepoData()
             Result.success()
         } catch (e: Exception) {
-            Result.failure()
+            if (runAttemptCount >= MAX_RUN_ATTEMPTS) {
+                Result.failure()
+            } else {
+                Result.retry()
+            }
         }
     }
 
     companion object {
         private const val UPDATER_WORK_NAME = "REFRESH_REPOSITORY"
+        private const val MAX_RUN_ATTEMPTS = 5
 
         fun enqueue(context: Context, networkType: NetworkType) {
             val updateRequest = PeriodicWorkRequestBuilder<RepositoryRefreshWorker>(Duration.ofHours(4))

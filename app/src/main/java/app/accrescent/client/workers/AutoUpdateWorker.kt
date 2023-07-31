@@ -53,7 +53,11 @@ class AutoUpdateWorker @AssistedInject constructor(
                 }
             }
         } catch (e: Exception) {
-            return Result.failure()
+            if (runAttemptCount >= MAX_RUN_ATTEMPTS) {
+                Result.failure()
+            } else {
+                Result.retry()
+            }
         }
 
         return Result.success()
@@ -77,6 +81,7 @@ class AutoUpdateWorker @AssistedInject constructor(
 
     companion object {
         private const val UPDATER_WORK_NAME = "UPDATE_APPS"
+        private const val MAX_RUN_ATTEMPTS = 5
 
         fun enqueue(context: Context, networkType: NetworkType) {
             val constraints = Constraints(
