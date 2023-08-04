@@ -68,4 +68,7 @@
     <string name="automatic_updates">자동 업데이트</string>
     <string name="automatic_updates_desc">앱을 자동으로 업데이트할지 여부입니다. 비활성화된 경우 대신 알림을 표시합니다.</string>
     <string name="update_available">업데이트 가능</string>
+    <string name="enable">활성화</string>
+    <string name="couldnt_open_appinfo">앱 정보를 열 수 없음</string>
+    <string name="back_button">뒤로 가기</string>
 </resources>
