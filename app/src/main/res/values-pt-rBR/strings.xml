@@ -58,4 +58,17 @@
     <string name="any">Qualquer</string>
     <string name="device_density_unsupported">a densidade da tela do seu dispositivo não é suportada</string>
     <string name="version_downgrade">a versão %1$d é menor que o mínimo %2$d</string>
+    <string name="app_signer_mismatch">aplicativo não assinado pelo(s) signatário(s) necessário(s).
+\nEsperado: %1$s</string>
+    <string name="no_app_signers">Nenhum assinante de aplicativo encontrado.
+\nEsperado: %1$s</string>
+    <string name="app_id_mismatch">O ID do aplicativo %1$s não corresponde ao ID esperado %2$s</string>
+    <string name="version_code_mismatch">código de versão esperado %1$d, atual é %2$d</string>
+    <string name="repodata_timestamp_less">timestamp do repositório de dados é anterior ao valor salvo</string>
+    <string name="couldnt_open_appinfo">Não foi possível abrir o AppInfo</string>
+    <string name="unmetered">Ilimitado</string>
+    <string name="not_roaming">Sem roaming</string>
+    <string name="automatic_updates_desc">Se atualizar os aplicativos automaticamente. Mostra uma notificação caso esteja desativado.</string>
+    <string name="back_button">Voltar</string>
+    <string name="enable">Habilitar</string>
 </resources>
