@@ -65,4 +65,10 @@
     <string name="any">Qualquer</string>
     <string name="update_success">%1$s foi atualizado com sucesso.</string>
     <string name="update_finished">Atualização concluída</string>
+    <string name="unmetered">Ilimitado</string>
+    <string name="not_roaming">Não está em roaming</string>
+    <string name="automatic_updates_desc">Se atualizar os aplicativos automaticamente. Mostra uma notificação caso esteja desativado.</string>
+    <string name="back_button">Voltar</string>
+    <string name="enable">Habilitar</string>
+    <string name="couldnt_open_appinfo">Não foi possível abrir o AppInfo</string>
 </resources>
