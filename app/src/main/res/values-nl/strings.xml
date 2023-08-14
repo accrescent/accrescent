@@ -68,4 +68,7 @@
     <string name="any">Elk</string>
     <string name="not_roaming">Geen roaming</string>
     <string name="unmetered">Ongemeten</string>
+    <string name="enable">Zet aan</string>
+    <string name="couldnt_open_appinfo">Kon AppInfo niet openen</string>
+    <string name="back_button">Terug</string>
 </resources>
