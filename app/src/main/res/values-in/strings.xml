@@ -57,4 +57,18 @@
     <string name="version_code_mismatch">kode versi yang diharapkan %1$d, yang sebenarnya adalah %2$d</string>
     <string name="repodata_timestamp_less">timestamp repodata kurang dari nilai yang disimpan</string>
     <string name="search">Pencarian</string>
+    <string name="updater">Perbarui</string>
+    <string name="network_condition">Kondisi jaringan</string>
+    <string name="any">Apapun</string>
+    <string name="unmetered">Tidak terukur</string>
+    <string name="not_roaming">Tidak roaming</string>
+    <string name="automatic_updates">Pembaruan otomatis</string>
+    <string name="automatic_updates_desc">Apakah akan memperbarui aplikasi secara otomatis. Tampilkan pemberitahuan jika dinonaktifkan.</string>
+    <string name="update_available">Pembaruan Tersedia</string>
+    <string name="update_finished">Pembaruan selesai</string>
+    <string name="update_failure">Pembaruan gagal</string>
+    <string name="update_success">%1$s telah berhasil diperbarui.</string>
+    <string name="back_button">Kembali</string>
+    <string name="enable">Aktifkan</string>
+    <string name="couldnt_open_appinfo">Tidak dapat membuka Appinfo</string>
 </resources>
