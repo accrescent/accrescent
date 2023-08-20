@@ -68,4 +68,6 @@
     <string name="unmetered">Unbegrenzt</string>
     <string name="network_condition">Netzwerkbedingung</string>
     <string name="not_roaming">Kein roaming</string>
+    <string name="back_button">Zurück</string>
+    <string name="enable">Aktivieren</string>
 </resources>
