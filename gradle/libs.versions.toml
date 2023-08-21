@@ -1,6 +1,6 @@
 [versions]
 accompanist = "0.30.1"
-agp = "8.2.0-alpha12"
+agp = "8.2.0-alpha16"
 bouncycastle = "1.76"
 bundletool-plugin = "0.1.2"
 coil = "2.4.0"
