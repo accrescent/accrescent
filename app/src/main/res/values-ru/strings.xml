@@ -68,4 +68,7 @@
     <string name="user_restriction">Ошибка ограничения пользователя: %1$s</string>
     <string name="any">Любой</string>
     <string name="update_success">Приложение %1$s было успешно обновлено.</string>
+    <string name="enable">Включить</string>
+    <string name="back_button">Назад</string>
+    <string name="couldnt_open_appinfo">Невозможно открыть AppInfo</string>
 </resources>
