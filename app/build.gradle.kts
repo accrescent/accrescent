@@ -138,7 +138,6 @@ android {
 }
 
 dependencies {
-    implementation(libs.accompanist.navanimation)
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.bouncycastle)
     implementation(libs.coil)

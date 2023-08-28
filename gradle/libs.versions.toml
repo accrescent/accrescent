@@ -20,7 +20,6 @@ serialization = "1.6.0"
 work = "2.8.1"
 
 [libraries]
-accompanist-navanimation = { group = "com.google.accompanist", name = "accompanist-navigation-animation", version.ref = "accompanist" }
 accompanist-systemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "accompanist" }
 bouncycastle = { group = "org.bouncycastle", name = "bcprov-jdk18on", version.ref = "bouncycastle" }
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
