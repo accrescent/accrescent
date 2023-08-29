@@ -14,10 +14,10 @@
     <string name="open">Відкрити</string>
     <string name="customization">Кастомізація</string>
     <string name="require_user_action">Запит на підтвердження встановлення</string>
-    <string name="about">Про нас</string>
-    <string name="source_code_desc">Переглянути вихідний код Accrescent</string>
+    <string name="about">Про застосунок</string>
+    <string name="source_code_desc">Перегляньте вихідний код Accrescent</string>
     <string name="no_apps_installed">Немає встановлених застосунків</string>
-    <string name="up_to_date">Всі актуальні застосунки</string>
+    <string name="up_to_date">Всі застосунки оновлені</string>
     <string name="network_error">Помилка мережі: %1$s</string>
     <string name="app_verification_failed">Не вдалося перевірити застосунок: %1$s</string>
     <string name="failed_download_files">Не вдалося завантажити необхідні файли: %1$s</string>
@@ -36,7 +36,7 @@
     <string name="app_updates">Оновлення</string>
     <string name="update">Оновити</string>
     <string name="dynamic_color">Динамічний колір / Material You</string>
-    <string name="dynamic_color_desc">Тема застосунку на основі системної колірної палітри</string>
+    <string name="dynamic_color_desc">Тема застосунку на основі системної палітри кольорів</string>
     <string name="source_code">Вихідний код</string>
     <string name="open_link">Відкрити посилання</string>
     <string name="swipe_refresh">Проведіть вниз, щоб оновити</string>
