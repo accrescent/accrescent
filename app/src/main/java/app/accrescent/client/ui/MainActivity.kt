@@ -52,7 +52,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
 import app.accrescent.client.R
@@ -60,9 +63,6 @@ import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.ROOT_DOMAIN
 import app.accrescent.client.ui.common.SearchAppBar
 import app.accrescent.client.ui.theme.AccrescentTheme
-import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.google.accompanist.navigation.animation.composable
-import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.systemuicontroller.SystemUiController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
@@ -114,7 +114,7 @@ fun MainContent(
     appId: String?
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
-    val navController = rememberAnimatedNavController()
+    val navController = rememberNavController()
     val screens = listOf(Screen.AppList, Screen.InstalledApps, Screen.AppUpdates)
 
     val showBottomBar =
@@ -224,7 +224,7 @@ fun MainContent(
                 }
             }
         }) { padding ->
-        AnimatedNavHost(
+        NavHost(
             navController = navController,
             startDestination = startDestination,
         ) {
