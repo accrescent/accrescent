@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.accrescent.bundletool)
     alias(libs.plugins.dagger)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
 }
@@ -159,13 +158,9 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.serialization)
     implementation(libs.work.runtime)
-    kapt(libs.dagger.compiler)
-    kapt(libs.hilt.compiler)
+    ksp(libs.dagger.compiler)
+    ksp(libs.hilt.compiler)
     ksp(libs.room.compiler)
 
     lintChecks(libs.compose.lint)
-}
-
-kapt {
-    correctErrorTypes = true
 }
