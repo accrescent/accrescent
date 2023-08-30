@@ -2,7 +2,7 @@
 accompanist = "0.32.0"
 agp = "8.2.0-beta01"
 bouncycastle = "1.76"
-bundletool-plugin = "0.1.2"
+bundletool-plugin = "0.2.0"
 coil = "2.4.0"
 compose-bom = "2023.08.00"
 compose-lint = "1.2.0"

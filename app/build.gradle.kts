@@ -136,6 +136,17 @@ android {
     }
 }
 
+if (useKeystoreProperties) {
+    bundletool {
+        signingConfig {
+            storeFile = file(keystoreProperties["storeFile"]!!)
+            storePassword = keystoreProperties["storePassword"] as String
+            keyAlias = keystoreProperties["keyAlias"] as String
+            keyPassword = keystoreProperties["keyPassword"] as String
+        }
+    }
+}
+
 dependencies {
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.bouncycastle)
