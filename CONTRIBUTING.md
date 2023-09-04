@@ -17,6 +17,14 @@ functions under the hood, but some will be added in the future.
 The project's coding style and conventions are outlined below. Please check your
 branch against them before making a PR to expeditide the review process.
 
+## Building
+
+Accrescent uses [Gradle dependency verification] for its dependencies. If you
+run into a build error related to dependency verification and you aren't on
+Linux, temporarily delete `gradle/verification-metadata.xml` and try again. Only
+the Linux version of aapt2 is represented in the verification metadata, so it
+won't verify if you're on another OS.
+
 ## Code style
 
 - Wrap lines at 100 columns. This isn't a hard limit, but will be enforced
@@ -67,6 +75,7 @@ Report all vulnerabilities in accordance with Accrescent's [security policy].
 [@lberrymage:matrix.org]: https://matrix.to/#/@lberrymage:matrix.org
 [Jetpack Compose]: https://developer.android.com/jetpack/compose
 [Android Jetpack]: https://developer.android.com/jetpack/
+[Gradle dependency verification]: https://docs.gradle.org/current/userguide/dependency_verification.html
 [meta repository]: https://github.com/accrescent/meta
 [public roadmap]: https://github.com/orgs/accrescent/projects/2
 [security policy]: SECURITY.md
