@@ -3,5 +3,9 @@
   "extends": [
     "config:base",
     ":disableDependencyDashboard"
-  ]
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "commitMessageAction": "Update lock file"
+  }
 }
