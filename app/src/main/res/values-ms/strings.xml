@@ -68,4 +68,7 @@
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
     <string name="search">Carian</string>
+    <string name="back_button">Kembali</string>
+    <string name="couldnt_open_appinfo">Tidak boleh buka aplikasi</string>
+    <string name="enable">Aktifkan</string>
 </resources>
