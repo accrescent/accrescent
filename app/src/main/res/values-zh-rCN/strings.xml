@@ -10,7 +10,7 @@
     <string name="open">打开</string>
     <string name="dynamic_color">动态色彩 / Material You</string>
     <string name="dynamic_color_desc">应用主题跟随系统颜色</string>
-    <string name="swipe_refresh">拉下刷新</string>
+    <string name="swipe_refresh">下拉以刷新</string>
     <string name="no_apps_installed">没有已安装的应用</string>
     <string name="up_to_date">所有的应用已更新</string>
     <string name="user_action_required">需要用户进行操作</string>
