@@ -67,7 +67,7 @@
     <string name="updater">Updater</string>
     <string name="unmetered">Unbegrenzt</string>
     <string name="network_condition">Netzwerkbedingung</string>
-    <string name="not_roaming">Kein roaming</string>
+    <string name="not_roaming">Kein Roaming</string>
     <string name="back_button">Zurück</string>
     <string name="enable">Aktivieren</string>
     <string name="couldnt_open_appinfo">App-Info konnte nicht geöffnet werden</string>
