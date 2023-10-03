@@ -148,7 +148,7 @@ if (useKeystoreProperties) {
 }
 
 dependencies {
-    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.activity.compose)
     implementation(libs.bouncycastle)
     implementation(libs.coil)
     implementation(platform(libs.compose.bom))
