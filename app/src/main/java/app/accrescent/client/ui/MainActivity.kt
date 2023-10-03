@@ -1,12 +1,14 @@
 package app.accrescent.client.ui
 
 import android.Manifest
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
@@ -16,10 +18,10 @@ import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -42,11 +44,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -62,36 +64,22 @@ import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.ROOT_DOMAIN
 import app.accrescent.client.ui.common.SearchAppBar
 import app.accrescent.client.ui.theme.AccrescentTheme
-import com.google.accompanist.systemuicontroller.SystemUiController
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
         val appId = intent.getStringExtra(Intent.EXTRA_PACKAGE_NAME)
 
         setContent {
-            val systemUiController = rememberSystemUiController()
-            val useDarkIcons = !isSystemInDarkTheme()
-
-            SideEffect {
-                systemUiController.setSystemBarsColor(
-                    color = Color.Transparent,
-                    darkIcons = useDarkIcons,
-                )
-            }
-
             val viewModel: SettingsViewModel = hiltViewModel()
             val dynamicColor by viewModel.dynamicColor.collectAsState(false)
 
             AccrescentTheme(dynamicColor = dynamicColor) {
-                MainContent(
-                    systemUiController,
-                    appId
-                )
+                MainContent(appId)
             }
         }
 
@@ -108,22 +96,25 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainContent(
-    systemUiController: SystemUiController,
-    appId: String?
-) {
+fun MainContent(appId: String?) {
     val snackbarHostState = remember { SnackbarHostState() }
     val navController = rememberNavController()
     val screens = listOf(Screen.AppList, Screen.InstalledApps, Screen.AppUpdates)
 
     val showBottomBar =
         navController.currentBackStackEntryAsState().value?.destination?.route in screens.map { it.route }
-    val surfaceColor = MaterialTheme.colorScheme.surface
-    val surfaceColorEl2 = MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp)
+    val surfaceColor = MaterialTheme.colorScheme.surface.toArgb()
+    val bottomAppBarColor = MaterialTheme
+        .colorScheme
+        .surfaceColorAtElevation(BottomAppBarDefaults.ContainerElevation)
+        .toArgb()
+    val activity = LocalContext.current as? Activity
     SideEffect {
-        systemUiController.setNavigationBarColor(
-            if (showBottomBar) surfaceColorEl2 else surfaceColor
-        )
+        activity?.window?.navigationBarColor = if (showBottomBar) {
+            bottomAppBarColor
+        } else {
+            surfaceColor
+        }
     }
     val searchQuery = remember { mutableStateOf(TextFieldValue()) }
 
