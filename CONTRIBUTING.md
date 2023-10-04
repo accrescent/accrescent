@@ -80,5 +80,5 @@ Report all vulnerabilities in accordance with Accrescent's [security policy].
 [Android Jetpack]: https://developer.android.com/jetpack/
 [Gradle dependency verification]: https://docs.gradle.org/current/userguide/dependency_verification.html
 [meta repository]: https://github.com/accrescent/meta
-[public roadmap]: https://github.com/orgs/accrescent/projects/2
+[public roadmap]: https://github.com/orgs/accrescent/projects/4/views/2
 [security policy]: SECURITY.md
