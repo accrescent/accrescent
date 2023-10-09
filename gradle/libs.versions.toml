@@ -1,5 +1,5 @@
 [versions]
-activity-compose = "1.8.0-rc01"
+activity-compose = "1.8.0"
 agp = "8.2.0-beta06"
 bouncycastle = "1.76"
 bundletool-plugin = "0.2.1"
