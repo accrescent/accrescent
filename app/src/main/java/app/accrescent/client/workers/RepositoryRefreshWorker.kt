@@ -1,6 +1,7 @@
 package app.accrescent.client.workers
 
 import android.content.Context
+import androidx.hilt.work.HiltWorker
 import androidx.work.Constraints
 import androidx.work.CoroutineWorker
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -13,6 +14,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import java.time.Duration
 
+@HiltWorker
 class RepositoryRefreshWorker @AssistedInject constructor(
     @Assisted val context: Context,
     @Assisted val workerParams: WorkerParameters,
