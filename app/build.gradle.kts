@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
 }
 
 val keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -81,7 +82,6 @@ android {
 
         ksp {
             arg("room.generateKotlin", true.toString())
-            arg("room.schemaLocation", "$projectDir/schemas")
         }
     }
 
@@ -146,6 +146,10 @@ if (useKeystoreProperties) {
             keyPassword = keystoreProperties["keyPassword"] as String
         }
     }
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
 
 dependencies {
