@@ -20,4 +20,5 @@
     <string name="uninstall">Malinstali</string>
     <string name="require_user_action">Instalu konfirman prompton</string>
     <string name="require_user_action_desc">Ĉiam petu konfirmon por malhelpi hazarde instali aplikaĵojn</string>
+    <string name="enable">Ebligi</string>
 </resources>
