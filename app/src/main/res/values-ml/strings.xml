@@ -47,4 +47,5 @@
     <string name="install_confirm_desc">നിങ്ങളുടെ ഉപകരണത്തിൽ ഈ പ്രയോഗം സ്ഥാപിക്കണമെന്ന് തീർച്ചയാണോ\?</string>
     <string name="not_roaming">അലയല്‍ അല്ല</string>
     <string name="user_restriction">ഉപയോക്തൃ നിയന്ത്രണ പിശക്: %1$s</string>
+    <string name="enable">സജ്ജമാക്കുക</string>
 </resources>
