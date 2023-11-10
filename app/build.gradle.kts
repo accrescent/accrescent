@@ -18,10 +18,8 @@ if (useKeystoreProperties) {
     keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
-    }
+kotlin {
+    jvmToolchain(11)
 }
 
 android {
