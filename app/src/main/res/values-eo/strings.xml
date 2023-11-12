@@ -18,8 +18,8 @@
     <string name="couldnt_open_app">Malsukcesis lanĉi programon</string>
     <string name="installed">Instalitaj</string>
     <string name="uninstall">Malinstali</string>
-    <string name="require_user_action">Instalu konfirman prompton</string>
-    <string name="require_user_action_desc">Ĉiam petu konfirmon por malhelpi hazarde instali aplikaĵojn</string>
+    <string name="require_user_action">Instala konfirman prompton</string>
+    <string name="require_user_action_desc">Ĉiam peti konfirmon por malhelpi hazarde instali aplikaĵojn</string>
     <string name="enable">Ebligi</string>
     <string name="automatic_updates">Aŭtomataj ĝisdatigoj</string>
     <string name="failed_decode_repodata">Mulsukcesis malĉifri datumon pri la kod-deponejo: %1$s</string>
