@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_list">Applicazioni</string>
-    <string name="installed">Installato</string>
+    <string name="app_list">Apps</string>
+    <string name="installed">Installed</string>
     <string name="app_updates">Aggiornamenti</string>
     <string name="settings">Impostazioni</string>
     <string name="install">Installa</string>
@@ -21,7 +21,7 @@
     <string name="failed_download_repodata">Impossibile scaricare i dati del repository: %1$s</string>
     <string name="error_parsing_files">Errore nell\'analisi dei file delle applicazioni: %1$s</string>
     <string name="app_doesnt_support_device">L\'applicazione non è compatibile con il tuo dispositivo: %1$s</string>
-    <string name="unknown_host_error">Errore di host sconosciuto: %1$s</string>
+    <string name="unknown_host_error">%1$sErrore di %1$s%1$s%1$shost sconosciuto: %1$s</string>
     <string name="version">Versione: %1$s</string>
     <string name="version_code">Codice versione: %1$d</string>
     <string name="device_abi_unsupported">l\'architettura del tuo dispositivo non è accettata</string>
