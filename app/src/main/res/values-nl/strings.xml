@@ -62,7 +62,7 @@
     <string name="update_failure">Update mislukt</string>
     <string name="update_success">"%1$s is  succesvol  geüpdate"</string>
     <string name="update_finished">Update is klaar</string>
-    <string name="update_available">"Update  beschikbaar"</string>
+    <string name="update_available">Update beschikbaar</string>
     <string name="automatic_updates_desc">Of Apps automatisch moeten worden geüpdate. Toont een melding indien het is uitgeschakeld.</string>
     <string name="automatic_updates">Automatische updates</string>
     <string name="any">Elk</string>
