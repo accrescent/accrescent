@@ -32,6 +32,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import app.accrescent.client.BuildConfig
@@ -59,11 +60,13 @@ fun AppDetailsScreen(
                 CircularProgressIndicator(Modifier.size(72.dp))
             }
         }
+
         viewModel.uiState.appExists -> AppDetails(
             id = viewModel.uiState.appId,
             name = viewModel.uiState.appName,
             versionName = viewModel.uiState.versionName,
             versionCode = viewModel.uiState.versionCode,
+            shortDescription = viewModel.uiState.shortDescription,
             installStatus = installStatus ?: InstallStatus.LOADING,
             onInstallClicked = {
                 if (
@@ -124,6 +127,7 @@ fun AppDetails(
     name: String,
     versionName: String,
     versionCode: Long,
+    shortDescription: String,
     installStatus: InstallStatus,
     onInstallClicked: () -> Unit,
     onUninstallClicked: () -> Unit,
@@ -142,6 +146,12 @@ fun AppDetails(
         AppIcon(id, Modifier.size(128.dp))
         Spacer(Modifier.size(8.dp))
         Text(name, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.SemiBold)
+        Text(
+            text = shortDescription,
+            style = MaterialTheme.typography.bodyMedium,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(horizontal = 40.dp),
+        )
         Column(Modifier.width(256.dp), verticalArrangement = Arrangement.Center) {
             Spacer(Modifier.height(16.dp))
             Text(

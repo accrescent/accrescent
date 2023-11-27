@@ -74,6 +74,8 @@ class AppDetailsViewModel @Inject constructor(
                 uiState.copy(
                     versionName = untrustedInfo.version,
                     versionCode = untrustedInfo.versionCode,
+                    shortDescription = untrustedInfo.shortDescription
+                        ?: context.getString(R.string.no_description_provided),
                 )
             } catch (e: ConnectException) {
                 uiState.copy(

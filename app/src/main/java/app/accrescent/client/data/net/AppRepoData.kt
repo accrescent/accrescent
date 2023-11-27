@@ -10,4 +10,5 @@ data class AppRepoData(
     @SerialName("abi_splits") val abiSplits: List<String>,
     @SerialName("density_splits") val densitySplits: List<String>,
     @SerialName("lang_splits") val langSplits: List<String>,
+    @SerialName("short_description") val shortDescription: String? = null,
 )

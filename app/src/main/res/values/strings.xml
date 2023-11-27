@@ -72,4 +72,5 @@
     <string name="update_failure">Update failure</string>
     <string name="update_success">%1$s has been updated successfully.</string>
     <string name="back_button">Back</string>
+    <string name="no_description_provided">(no description provided)</string>
 </resources>
