@@ -69,8 +69,8 @@ class Accrescent : Application(), Configuration.Provider {
         registerReceiverNotExported(br, filter)
     }
 
-    override fun getWorkManagerConfiguration() =
-        Configuration.Builder().setWorkerFactory(workerFactory).build()
+    override val workManagerConfiguration: Configuration
+        get() = Configuration.Builder().setWorkerFactory(workerFactory).build()
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
