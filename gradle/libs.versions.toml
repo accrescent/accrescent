@@ -17,7 +17,7 @@ material = "1.10.0"
 nav-compose = "2.7.5"
 room = "2.6.1"
 serialization = "1.6.2"
-work = "2.8.1"
+work = "2.9.0"
 
 [libraries]
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
