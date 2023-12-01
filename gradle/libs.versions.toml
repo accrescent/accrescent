@@ -2,7 +2,7 @@
 activity-compose = "1.8.1"
 agp = "8.2.0"
 bouncycastle = "1.77"
-bundletool-plugin = "0.2.2"
+bundletool-plugin = "0.2.3"
 coil = "2.5.0"
 compose-bom = "2023.10.01"
 compose-lint = "1.2.0"
