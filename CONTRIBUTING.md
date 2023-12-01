@@ -25,9 +25,6 @@ Linux, temporarily delete `gradle/verification-metadata.xml` and try again. Only
 the Linux version of aapt2 is represented in the verification metadata, so it
 won't verify if you're on another OS.
 
-You currently need to use Android Studio Beta to build Accrescent because it
-uses a beta version of the Android Gradle Plugin.
-
 ## Code style
 
 - Wrap lines at 100 columns. This isn't a hard limit, but will be enforced
