@@ -47,7 +47,7 @@ class Accrescent : Application(), Configuration.Provider {
                 NotificationChannel(
                     UPDATE_FINISHED_CHANNEL,
                     getString(R.string.update_finished),
-                    NotificationManager.IMPORTANCE_DEFAULT
+                    NotificationManager.IMPORTANCE_LOW,
                 )
             )
         )
