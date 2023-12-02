@@ -39,7 +39,7 @@
     <string name="user_action_required">Uzanto-ago bezonata</string>
     <string name="failed_verify_repodata">Malsukcesis verigi datumon pri la kod-deponejo: %1$s</string>
     <string name="version_mismatch">anticipata versio %1$s, reala estas %2$s</string>
-    <string name="update_available">Ĝisdatigo havebla</string>
+    <string name="update_available">Ĝisdatigo disponebla</string>
     <string name="unmetered">Senmezurita</string>
     <string name="device_abi_unsupported">la arkitekturo de via aparato ne estas subtenata</string>
     <string name="update_finished">Ĝisdatigo finiĝis</string>
@@ -71,4 +71,5 @@
     <string name="install_confirm">Ĉu instali ĉi tiun aplikaĵon\?</string>
     <string name="unknown_host_error">Eraro de nekonita ĉefkomputilo: %1$s</string>
     <string name="app_id_mismatch">ID de la aplikaĵo %1$s ne kongruas kun la anticipita ID %2$s</string>
+    <string name="no_description_provided">(neniu priskribo provizita)</string>
 </resources>
