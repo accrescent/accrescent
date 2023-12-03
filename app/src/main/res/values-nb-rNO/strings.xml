@@ -48,7 +48,7 @@
     <string name="no">Nei</string>
     <string name="uninstall_confirm_desc">Programmet og all dets data vil bli fjernet fra enheten din.</string>
     <string name="require_user_action">Installer påkrevd bekreftelse</string>
-    <string name="require_user_action_desc">Spør alltid om bekreftelse for å forhindre utilsiktet installasjon av programmer.</string>
+    <string name="require_user_action_desc">Spør alltid om bekreftelse for å forhindre utilsiktet installasjon av programmer</string>
     <string name="source_code">Kildekode</string>
     <string name="open_link">Åpne lenke</string>
     <string name="customization">Tilpasning</string>
