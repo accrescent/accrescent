@@ -71,4 +71,5 @@
     <string name="automatic_updates_desc">Se atualizar os aplicativos automaticamente. Mostra uma notificação caso esteja desativado.</string>
     <string name="back_button">Voltar</string>
     <string name="enable">Habilitar</string>
+    <string name="no_description_provided">(descrição indisponível )</string>
 </resources>
