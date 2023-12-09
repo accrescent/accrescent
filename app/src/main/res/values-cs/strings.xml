@@ -28,7 +28,7 @@
     <string name="error_parsing_files">Chyba při zpracování souborů aplikace: %1$s</string>
     <string name="network_condition">Stav sítě</string>
     <string name="customization">Přizpůsobit</string>
-    <string name="no_apps_installed">Aplikace nejsou nainstalovány</string>
+    <string name="no_apps_installed">Žádné aplikace nebyly nainstalovány</string>
     <string name="up_to_date">Všechny aplikace jsou aktuální</string>
     <string name="app_verification_failed">Ověření aplikace selhalo: %1$s</string>
     <string name="failed_download_repodata">Nepodařilo se stáhnout repodata: %1$s</string>
@@ -56,8 +56,8 @@
     <string name="automatic_updates">Automatické aktualizace</string>
     <string name="automatic_updates_desc">Automatické aktualizace aplikací. Pokud je tato funkce vypnuta, zobrazí se notifikace.</string>
     <string name="update_available">Dostupné aktualizace</string>
-    <string name="dynamic_color">Dynamické barvy / Material You</string>
-    <string name="about">Informace</string>
+    <string name="dynamic_color">Dynamická barva / Material You</string>
+    <string name="about">O aplikaci</string>
     <string name="source_code">Zdrojový kód</string>
     <string name="source_code_desc">Zobrazit zdrojový kód Accrescentu</string>
     <string name="open_link">Otevřít odkaz</string>
@@ -71,4 +71,5 @@
     <string name="enable">Povolit</string>
     <string name="require_user_action">Výzva k potvrzení instalace</string>
     <string name="require_user_action_desc">Vždy si vyžádejte potvrzení, abyste zabránili náhodné instalaci aplikací</string>
+    <string name="no_description_provided">(nebyl uveden žádný popis)</string>
 </resources>
