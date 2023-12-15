@@ -71,4 +71,5 @@
     <string name="back_button">Înapoi</string>
     <string name="enable">Activează</string>
     <string name="couldnt_open_appinfo">Nu s-a putut deschide AppInfo</string>
+    <string name="no_description_provided">(fără descriere)</string>
 </resources>
