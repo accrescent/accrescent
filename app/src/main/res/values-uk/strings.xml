@@ -5,7 +5,7 @@
 \nОчікується: %1$s</string>
     <string name="app_signer_mismatch">застосунок не підписано необхідними підписантом(ами).
 \nОчікується: %1$s</string>
-    <string name="repodata_timestamp_less">мітка часу реподанних менше збереженого значення</string>
+    <string name="repodata_timestamp_less">мітка часу даних репозиторію менше збереженого значення</string>
     <string name="app_list">Застосунки</string>
     <string name="installed">Встановлено</string>
     <string name="settings">Налаштування</string>
@@ -22,7 +22,7 @@
     <string name="app_verification_failed">Не вдалося перевірити застосунок: %1$s</string>
     <string name="failed_download_files">Не вдалося завантажити необхідні файли: %1$s</string>
     <string name="failed_download_repodata">Не вдалося завантажити дані репозиторію: %1$s</string>
-    <string name="failed_verify_repodata">Не вдалося верифікувати реподані: %1$s</string>
+    <string name="failed_verify_repodata">Не вдалося перевірити дані репозиторію: %1$s</string>
     <string name="failed_decode_repodata">Не вдалося декодувати дані репозиторію: %1$s</string>
     <string name="app_doesnt_support_device">Застосунок не підтримує ваш пристрій: %1$s</string>
     <string name="user_restriction">Помилка обмеження користувача: %1$s</string>
@@ -71,4 +71,5 @@
     <string name="back_button">Назад</string>
     <string name="enable">Увімкнути</string>
     <string name="couldnt_open_appinfo">Не вдалося відкрити AppInfo</string>
+    <string name="no_description_provided">(опис не надано)</string>
 </resources>
