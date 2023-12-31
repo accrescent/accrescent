@@ -21,9 +21,9 @@
     <string name="network_error">Помилка мережі: %1$s</string>
     <string name="app_verification_failed">Не вдалося перевірити застосунок: %1$s</string>
     <string name="failed_download_files">Не вдалося завантажити необхідні файли: %1$s</string>
-    <string name="failed_download_repodata">Не вдалося завантажити реподані: %1$s</string>
+    <string name="failed_download_repodata">Не вдалося завантажити дані репозиторію: %1$s</string>
     <string name="failed_verify_repodata">Не вдалося верифікувати реподані: %1$s</string>
-    <string name="failed_decode_repodata">Не вдалося декодувати реподані: %1$s</string>
+    <string name="failed_decode_repodata">Не вдалося декодувати дані репозиторію: %1$s</string>
     <string name="app_doesnt_support_device">Застосунок не підтримує ваш пристрій: %1$s</string>
     <string name="user_restriction">Помилка обмеження користувача: %1$s</string>
     <string name="device_density_unsupported">щільність екрану вашого пристрою не підтримується</string>
