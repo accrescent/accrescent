@@ -1,2 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="couldnt_open_app">تعذر فتح التطبيق</string>
+    <string name="failed_decode_repodata">فشل فك تشفير repodata: %1$s</string>
+    <string name="dynamic_color_desc">نسق التطبيق استنادا إلى لوحة ألوان النظام</string>
+    <string name="error_parsing_files">خطأ في تحليل ملفات التطبيق: %1$s</string>
+    <string name="source_code_desc">عرض الكود المصدري ل Accrescent</string>
+    <string name="up_to_date">جميع التطبيقات محدثة</string>
+    <string name="app_verification_failed">فشل التحقق من التطبيق: %1$s</string>
+    <string name="user_action_required">إجراء المستخدم مطلوب</string>
+    <string name="failed_verify_repodata">فشل التحقق من repodata: %1$s</string>
+    <string name="update">تحديث</string>
+    <string name="installed">المثبتة</string>
+    <string name="failed_download_files">فشل تنزيل الملفات الضرورية:%1$s</string>
+    <string name="network_error">خطأ في الشبكة: %1$s</string>
+    <string name="source_code">مصدر الرمز</string>
+    <string name="app_list">تطبيقات</string>
+    <string name="open_link">فتح الرابط</string>
+    <string name="uninstall">الغاء التثبيت</string>
+    <string name="customization">التخصيص</string>
+    <string name="cant_find_app">عذرا ، لم نتمكن من العثور على هذا التطبيق</string>
+    <string name="couldnt_open_appinfo">تعذر فتح AppInfo</string>
+    <string name="about">حول</string>
+    <string name="require_user_action_desc">المطالبة دائما بالموافقة لمنع تثبيت التطبيقات عن طريق الخطأ</string>
+    <string name="dynamic_color">اللون الديناميكي / مادتك</string>
+    <string name="open">فتح</string>
+    <string name="enable">مكن</string>
+    <string name="swipe_refresh">اسحب لأسفل للتحديث</string>
+    <string name="failed_download_repodata">فشل تنزيل repodata: %1$s</string>
+    <string name="app_updates">التحديثات</string>
+    <string name="app_doesnt_support_device">التطبيق لا يدعم جهازك: %1$s</string>
+    <string name="settings">الاعدادات</string>
+    <string name="install">ثبت</string>
+    <string name="no_apps_installed">لا توجد تطبيقات مثبتة</string>
+    <string name="unknown_host_error">خطأ مضيف غير معروف: %1$s</string>
+</resources>
