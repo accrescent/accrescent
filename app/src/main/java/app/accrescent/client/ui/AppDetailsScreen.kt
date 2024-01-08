@@ -44,6 +44,7 @@ import app.accrescent.client.util.isPrivileged
 @Composable
 fun AppDetailsScreen(
     snackbarHostState: SnackbarHostState,
+    modifier: Modifier = Modifier,
     viewModel: AppDetailsViewModel = hiltViewModel(),
 ) {
     val context = LocalContext.current
@@ -56,7 +57,7 @@ fun AppDetailsScreen(
 
     when {
         viewModel.uiState.isFetchingData -> {
-            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Box(modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator(Modifier.size(72.dp))
             }
         }
@@ -92,9 +93,10 @@ fun AppDetailsScreen(
             onOpenClicked = { viewModel.openApp(viewModel.uiState.appId) },
             onOpenAppInfoClicked = { viewModel.openAppInfo(viewModel.uiState.appId) },
             downloadProgress = downloadProgress,
+            modifier,
         )
 
-        else -> AppNotFoundError()
+        else -> AppNotFoundError(modifier)
     }
 
     if (installConfirmDialog) {
@@ -272,8 +274,8 @@ fun AppDetails(
 }
 
 @Composable
-fun AppNotFoundError() {
-    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+fun AppNotFoundError(modifier: Modifier = Modifier) {
+    Box(modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Card(
             Modifier
                 .fillMaxWidth()
