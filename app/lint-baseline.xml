@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 7.4.2" type="baseline" client="gradle" dependencies="false" name="AGP (7.4.2)" variant="all" version="7.4.2">
-
-    <issue
-        id="ComposeContentEmitterReturningValues"
-        message="Composable functions should either emit content into the composition or return a value, but not both.&#xA;If a composable should offer additional control surfaces to its caller, those control surfaces or callbacks should be provided as parameters to the composable function by the caller.&#xA;See https://slackhq.github.io/compose-lints/rules/#do-not-emit-content-and-return-a-result for more information."
-        errorLine1="@Composable"
-        errorLine2="^">
-        <location
-            file="src/main/java/app/accrescent/client/ui/AppDetailsScreen.kt"
-            line="120"
-            column="1"/>
-    </issue>
+<issues format="6" by="lint 8.2.1" type="baseline" client="gradle" dependencies="false" name="AGP (8.2.1)" variant="all" version="8.2.1">
 
     <issue
         id="ComposeModifierMissing"
@@ -19,7 +8,7 @@
         errorLine2="    ~~~~~~~~~~~~~~~~">
         <location
             file="src/main/java/app/accrescent/client/ui/AppDetailsScreen.kt"
-            line="44"
+            line="45"
             column="5"/>
     </issue>
 
@@ -30,7 +19,7 @@
         errorLine2="    ~~~~~~~~~~">
         <location
             file="src/main/java/app/accrescent/client/ui/AppDetailsScreen.kt"
-            line="121"
+            line="126"
             column="5"/>
     </issue>
 
@@ -41,7 +30,7 @@
         errorLine2="    ~~~~~~~~~~~~~~~~">
         <location
             file="src/main/java/app/accrescent/client/ui/AppDetailsScreen.kt"
-            line="248"
+            line="274"
             column="5"/>
     </issue>
 
@@ -63,30 +52,19 @@
         errorLine2="    ~~~~~~~~~~">
         <location
             file="src/main/java/app/accrescent/client/ui/common/ExpandableSearchBar.kt"
-            line="35"
+            line="34"
             column="5"/>
     </issue>
 
     <issue
         id="ComposeModifierMissing"
         message="This @Composable function emits content but doesn&apos;t have a modifier parameter.&#xA;See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
-        errorLine1="fun MainContent("
+        errorLine1="fun MainContent(appId: String?) {"
         errorLine2="    ~~~~~~~~~~~">
         <location
             file="src/main/java/app/accrescent/client/ui/MainActivity.kt"
-            line="106"
+            line="99"
             column="5"/>
-    </issue>
-
-    <issue
-        id="ComposeMultipleContentEmitters"
-        message="Composable functions should only be emitting content into the composition from one source at their top level.&#xA;See https://slackhq.github.io/compose-lints/rules/#do-not-emit-multiple-pieces-of-content for more information."
-        errorLine1="@Composable"
-        errorLine2="^">
-        <location
-            file="src/main/java/app/accrescent/client/ui/AppDetailsScreen.kt"
-            line="120"
-            column="1"/>
     </issue>
 
     <issue
@@ -96,7 +74,7 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/java/app/accrescent/client/ui/common/ExpandableSearchBar.kt"
-            line="77"
+            line="75"
             column="21"/>
     </issue>
 
