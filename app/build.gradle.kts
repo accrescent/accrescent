@@ -48,6 +48,7 @@ android {
         versionCode = 38
         versionName = "0.16.0"
         resourceConfigurations.addAll(listOf(
+            "ar",
             "az",
             "cs",
             "da",
