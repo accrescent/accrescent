@@ -4,11 +4,12 @@ import android.content.Context
 import app.accrescent.client.R
 import app.accrescent.client.data.net.AppRepoData
 import app.accrescent.client.data.net.RepoData
-import app.accrescent.client.util.openHttpConnection
 import app.accrescent.client.util.verifySignature
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.serialization.json.Json
-import java.io.ByteArrayOutputStream
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import java.io.IOException
 import java.net.URL
 import java.security.GeneralSecurityException
 import javax.inject.Inject
@@ -17,6 +18,7 @@ private val format = Json { ignoreUnknownKeys = true }
 
 class RepoDataFetcherImpl @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val okHttpClient: OkHttpClient,
 ) : RepoDataFetcher {
     override fun fetchRepoData(): RepoData {
         val repoDataUrl = "$REPOSITORY_URL/repodata.$PUBKEY_VERSION.json"
@@ -38,10 +40,12 @@ class RepoDataFetcherImpl @Inject constructor(
     }
 
     private fun fetchFileString(url: URL): String {
-        val outBuf = ByteArrayOutputStream()
+        val request = Request.Builder().url(url).build()
 
-        url.openHttpConnection().use { it.downloadTo(outBuf) }
-
-        return outBuf.toString()
+        return okHttpClient
+            .newCall(request)
+            .execute()
+            .use { it.body?.string() }
+            ?: throw IOException("request body expected but not found")
     }
 }

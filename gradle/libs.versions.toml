@@ -15,6 +15,7 @@ ksp = "1.9.21-1.0.16"
 lifecycle = "2.6.2"
 material = "1.11.0"
 nav-compose = "2.7.6"
+okhttp = "4.12.0"
 room = "2.6.1"
 serialization = "1.6.2"
 work = "2.9.0"
@@ -40,6 +41,7 @@ lifecycle-process = { group = "androidx.lifecycle", name = "lifecycle-process", 
 lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 navcompose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "nav-compose" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
