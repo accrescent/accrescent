@@ -65,6 +65,7 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
                     notificationManager.notify(sessionId, notification)
                 }
             }
+
             PackageInstaller.STATUS_SUCCESS -> {
                 if (!context.hasNotificationPrivileges()) return
 
@@ -81,6 +82,7 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
                 @Suppress("MissingPermission")
                 notificationManager.notify(sessionId, notification)
             }
+
             PackageInstaller.STATUS_FAILURE -> {
                 if (!context.hasNotificationPrivileges()) return
 

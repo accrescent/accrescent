@@ -7,7 +7,6 @@ import app.accrescent.client.data.net.RepoData
 import app.accrescent.client.util.openHttpConnection
 import app.accrescent.client.util.verifySignature
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.io.ByteArrayOutputStream
 import java.net.URL

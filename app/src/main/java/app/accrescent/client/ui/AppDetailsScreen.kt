@@ -93,6 +93,7 @@ fun AppDetailsScreen(
             onOpenAppInfoClicked = { viewModel.openAppInfo(viewModel.uiState.appId) },
             downloadProgress = downloadProgress,
         )
+
         else -> AppNotFoundError()
     }
 
@@ -186,6 +187,7 @@ fun AppDetails(
                             Text(stringResource(R.string.uninstall))
                         }
                     }
+
                 else -> Unit
             }
             if (!(installStatus == InstallStatus.INSTALLED && id == BuildConfig.APPLICATION_ID)) {
@@ -202,6 +204,7 @@ fun AppDetails(
                                 waitingForSize = true
                                 onInstallClicked()
                             }
+
                             InstallStatus.DISABLED -> onOpenAppInfoClicked()
                             InstallStatus.INSTALLED -> onOpenClicked()
                             InstallStatus.LOADING,
@@ -212,18 +215,23 @@ fun AppDetails(
                     when (installStatus) {
                         InstallStatus.INSTALLABLE ->
                             Text(stringResource(R.string.install))
+
                         InstallStatus.UPDATABLE ->
                             Text(stringResource(R.string.update))
+
                         InstallStatus.DISABLED ->
                             Text(stringResource(R.string.enable))
+
                         InstallStatus.INSTALLED ->
                             Text(stringResource(R.string.open))
+
                         InstallStatus.LOADING ->
                             CircularProgressIndicator(
                                 modifier = Modifier.size(24.dp),
                                 color = MaterialTheme.colorScheme.onPrimary,
                                 strokeWidth = 3.dp
                             )
+
                         InstallStatus.UNKNOWN ->
                             Text(stringResource(R.string.unknown))
                     }

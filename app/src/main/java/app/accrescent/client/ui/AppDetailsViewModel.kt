@@ -173,7 +173,7 @@ class AppDetailsViewModel @Inject constructor(
             uiState.error = context.getString(R.string.couldnt_open_appinfo)
             return
         } else {
-            context.startActivity(intent);
+            context.startActivity(intent)
         }
     }
 }

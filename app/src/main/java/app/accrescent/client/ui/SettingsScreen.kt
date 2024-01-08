@@ -71,7 +71,8 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             Setting(
                 label = stringResource(R.string.require_user_action),
                 description = stringResource(R.string.require_user_action_desc),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .toggleable(
                         value = requireUserAction,
                         role = Role.Switch,
@@ -89,7 +90,8 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             Setting(
                 label = stringResource(R.string.dynamic_color),
                 description = stringResource(R.string.dynamic_color_desc),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .toggleable(
                         value = dynamicColor,
                         role = Role.Switch,
@@ -117,7 +119,8 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             Setting(
                 label = stringResource(R.string.automatic_updates),
                 description = stringResource(R.string.automatic_updates_desc),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .toggleable(
                         value = automaticUpdates,
                         role = Role.Switch,
@@ -142,7 +145,8 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
         Setting(
             label = stringResource(R.string.source_code),
             description = stringResource(R.string.source_code_desc),
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .clickable {
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_CODE_URL))
                     if (intent.resolveActivity(context.packageManager) != null) {

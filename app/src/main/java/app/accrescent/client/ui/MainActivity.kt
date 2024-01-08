@@ -53,9 +53,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
@@ -155,7 +155,7 @@ fun MainContent(appId: String?) {
                     scrollBehavior = settingsScrollBehavior,
                     navigationIcon = {
                         IconButton(onClick = { navController.popBackStack() }) {
-                          Icon(Icons.Default.ArrowBack, stringResource(R.string.back_button))
+                            Icon(Icons.Default.ArrowBack, stringResource(R.string.back_button))
                         }
                     },
                 )
@@ -223,17 +223,21 @@ fun MainContent(appId: String?) {
                     Screen.InstalledApps.route,
                     Screen.AppUpdates.route ->
                         slideInHorizontally(animationSpec = tween(350)) { -it }
+
                     else -> null
                 }
             }, exitTransition = {
                 when (targetState.destination.route) {
                     "${Screen.AppDetails.route}/{appId}" ->
                         fadeOut(animationSpec = tween(350))
+
                     Screen.InstalledApps.route,
                     Screen.AppUpdates.route ->
                         slideOutHorizontally(animationSpec = tween(350)) { -it }
+
                     Screen.Settings.route ->
                         fadeOut(animationSpec = tween(350))
+
                     else -> null
                 }
             }) {
@@ -248,20 +252,26 @@ fun MainContent(appId: String?) {
                 when (initialState.destination.route) {
                     Screen.AppList.route ->
                         slideInHorizontally(animationSpec = tween(350)) { it }
+
                     Screen.AppUpdates.route ->
                         slideInHorizontally(animationSpec = tween(350)) { -it }
+
                     else -> null
                 }
             }, exitTransition = {
                 when (targetState.destination.route) {
                     "${Screen.AppDetails.route}/{appId}" ->
                         fadeOut(animationSpec = tween(350))
+
                     Screen.AppList.route ->
                         slideOutHorizontally(animationSpec = tween(350)) { it }
+
                     Screen.AppUpdates.route ->
                         slideOutHorizontally(animationSpec = tween(350)) { -it }
+
                     Screen.Settings.route ->
                         fadeOut(animationSpec = tween(350))
+
                     else -> null
                 }
             }) {
@@ -270,8 +280,10 @@ fun MainContent(appId: String?) {
                     searchQuery = searchQuery.value.text,
                     modifier = Modifier.padding(padding),
                     snackbarHostState = snackbarHostState,
-                    filter = { it == InstallStatus.INSTALLED || it == InstallStatus.UPDATABLE
-                            || it == InstallStatus.DISABLED },
+                    filter = {
+                        it == InstallStatus.INSTALLED || it == InstallStatus.UPDATABLE
+                                || it == InstallStatus.DISABLED
+                    },
                     noFilterResultsText = stringResource(R.string.no_apps_installed),
                 )
             }
@@ -280,17 +292,21 @@ fun MainContent(appId: String?) {
                     Screen.InstalledApps.route,
                     Screen.AppList.route ->
                         slideInHorizontally(animationSpec = tween(350)) { it }
+
                     else -> null
                 }
             }, exitTransition = {
                 when (targetState.destination.route) {
                     "${Screen.AppDetails.route}/{appId}" ->
                         fadeOut(animationSpec = tween(350))
+
                     Screen.AppList.route,
                     Screen.InstalledApps.route ->
                         slideOutHorizontally(animationSpec = tween(350)) { it }
+
                     Screen.Settings.route ->
                         fadeOut(animationSpec = tween(350))
+
                     else -> null
                 }
             }) {
@@ -318,6 +334,7 @@ fun MainContent(appId: String?) {
                         Screen.AppUpdates.route ->
                             slideInVertically(animationSpec = tween(400)) { it } +
                                     fadeIn(animationSpec = tween(400))
+
                         else -> null
                     }
                 },
@@ -328,6 +345,7 @@ fun MainContent(appId: String?) {
                         Screen.AppUpdates.route ->
                             slideOutVertically(animationSpec = tween(600)) { it } +
                                     fadeOut(animationSpec = tween(400))
+
                         else -> null
                     }
                 }
@@ -341,6 +359,7 @@ fun MainContent(appId: String?) {
                     Screen.AppUpdates.route ->
                         slideInVertically(animationSpec = tween(400)) { -it } +
                                 fadeIn(animationSpec = tween(400))
+
                     else -> null
                 }
             }, exitTransition = {
@@ -350,6 +369,7 @@ fun MainContent(appId: String?) {
                     Screen.AppUpdates.route ->
                         slideOutVertically(animationSpec = tween(600)) { -it } +
                                 fadeOut(animationSpec = tween(400))
+
                     else -> null
                 }
             }) {
