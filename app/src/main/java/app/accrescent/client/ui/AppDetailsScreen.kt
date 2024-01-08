@@ -135,11 +135,12 @@ fun AppDetails(
     onOpenClicked: () -> Unit,
     onOpenAppInfoClicked: () -> Unit,
     downloadProgress: DownloadProgress?,
+    modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
     var waitingForSize by remember { mutableStateOf(false) }
 
-    Column {
+    Column(modifier) {
         Column(
             Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
