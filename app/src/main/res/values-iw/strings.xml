@@ -71,4 +71,5 @@
     <string name="back_button">חזרה</string>
     <string name="enable">הפעלה</string>
     <string name="couldnt_open_appinfo">לא ניתן לפתוח את פרטי היישומון</string>
+    <string name="no_description_provided">(לא סופק תיאור)</string>
 </resources>
