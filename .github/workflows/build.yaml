@@ -13,5 +13,6 @@ jobs:
           distribution: temurin
           java-version: 17
           cache: gradle
+      - uses: gradle/actions/setup-gradle@v3
       - name: Build with Gradle
         run: ./gradlew build
