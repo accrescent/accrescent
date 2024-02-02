@@ -18,7 +18,7 @@ import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.OpenInNew
+import androidx.compose.material.icons.rounded.OpenInNew
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -154,7 +154,7 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
                     }
                 },
         ) {
-            Icon(Icons.AutoMirrored.Rounded.OpenInNew, stringResource(R.string.open_link))
+            Icon(Icons.Rounded.OpenInNew, stringResource(R.string.open_link))
         }
     }
 }
