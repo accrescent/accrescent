@@ -142,133 +142,131 @@ fun AppDetails(
     val context = LocalContext.current
     var waitingForSize by remember { mutableStateOf(false) }
 
-    Column(modifier) {
-        Column(
-            Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            AppIcon(id, Modifier.size(128.dp))
-            Spacer(Modifier.size(8.dp))
-            Text(name, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.SemiBold)
+    Column(
+        modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        AppIcon(id, Modifier.size(128.dp))
+        Spacer(Modifier.size(8.dp))
+        Text(name, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.SemiBold)
+        Text(
+            text = shortDescription,
+            style = MaterialTheme.typography.bodyMedium,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(horizontal = 40.dp),
+        )
+        Column(Modifier.width(256.dp), verticalArrangement = Arrangement.Center) {
+            Spacer(Modifier.height(16.dp))
             Text(
-                text = shortDescription,
-                style = MaterialTheme.typography.bodyMedium,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(horizontal = 40.dp),
+                stringResource(R.string.version, versionName),
+                style = MaterialTheme.typography.titleSmall,
+                fontFamily = FontFamily.Monospace,
             )
-            Column(Modifier.width(256.dp), verticalArrangement = Arrangement.Center) {
-                Spacer(Modifier.height(16.dp))
-                Text(
-                    stringResource(R.string.version, versionName),
-                    style = MaterialTheme.typography.titleSmall,
-                    fontFamily = FontFamily.Monospace,
-                )
-                Text(
-                    stringResource(R.string.version_code, versionCode),
-                    style = MaterialTheme.typography.titleSmall,
-                    fontFamily = FontFamily.Monospace,
-                )
+            Text(
+                stringResource(R.string.version_code, versionCode),
+                style = MaterialTheme.typography.titleSmall,
+                fontFamily = FontFamily.Monospace,
+            )
+        }
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .padding(18.dp)
+        ) {
+            when (installStatus) {
+                InstallStatus.INSTALLED,
+                InstallStatus.UPDATABLE,
+                InstallStatus.DISABLED ->
+                    // We can't uninstall ourselves if we're a priv-app
+                    if (!(context.isPrivileged() && id == BuildConfig.APPLICATION_ID)) {
+                        OutlinedButton(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .weight(1f)
+                                .padding(horizontal = 6.dp),
+                            onClick = { onUninstallClicked() },
+                        ) {
+                            Text(stringResource(R.string.uninstall))
+                        }
+                    }
+
+                else -> Unit
             }
-            Row(
-                Modifier
-                    .fillMaxWidth()
-                    .padding(18.dp)
-            ) {
-                when (installStatus) {
-                    InstallStatus.INSTALLED,
-                    InstallStatus.UPDATABLE,
-                    InstallStatus.DISABLED ->
-                        // We can't uninstall ourselves if we're a priv-app
-                        if (!(context.isPrivileged() && id == BuildConfig.APPLICATION_ID)) {
-                            OutlinedButton(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .weight(1f)
-                                    .padding(horizontal = 6.dp),
-                                onClick = { onUninstallClicked() },
-                            ) {
-                                Text(stringResource(R.string.uninstall))
-                            }
-                        }
-
-                    else -> Unit
-                }
-                if (!(installStatus == InstallStatus.INSTALLED && id == BuildConfig.APPLICATION_ID)) {
-                    Button(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .weight(1f)
-                            .padding(horizontal = 6.dp),
-                        enabled = downloadProgress == null && !waitingForSize,
-                        onClick = {
-                            when (installStatus) {
-                                InstallStatus.INSTALLABLE,
-                                InstallStatus.UPDATABLE -> {
-                                    waitingForSize = true
-                                    onInstallClicked()
-                                }
-
-                                InstallStatus.DISABLED -> onOpenAppInfoClicked()
-                                InstallStatus.INSTALLED -> onOpenClicked()
-                                InstallStatus.LOADING,
-                                InstallStatus.UNKNOWN -> Unit
-                            }
-                        },
-                    ) {
+            if (!(installStatus == InstallStatus.INSTALLED && id == BuildConfig.APPLICATION_ID)) {
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f)
+                        .padding(horizontal = 6.dp),
+                    enabled = downloadProgress == null && !waitingForSize,
+                    onClick = {
                         when (installStatus) {
-                            InstallStatus.INSTALLABLE ->
-                                Text(stringResource(R.string.install))
+                            InstallStatus.INSTALLABLE,
+                            InstallStatus.UPDATABLE -> {
+                                waitingForSize = true
+                                onInstallClicked()
+                            }
 
-                            InstallStatus.UPDATABLE ->
-                                Text(stringResource(R.string.update))
-
-                            InstallStatus.DISABLED ->
-                                Text(stringResource(R.string.enable))
-
-                            InstallStatus.INSTALLED ->
-                                Text(stringResource(R.string.open))
-
-                            InstallStatus.LOADING ->
-                                CircularProgressIndicator(
-                                    modifier = Modifier.size(24.dp),
-                                    color = MaterialTheme.colorScheme.onPrimary,
-                                    strokeWidth = 3.dp
-                                )
-
-                            InstallStatus.UNKNOWN ->
-                                Text(stringResource(R.string.unknown))
+                            InstallStatus.DISABLED -> onOpenAppInfoClicked()
+                            InstallStatus.INSTALLED -> onOpenClicked()
+                            InstallStatus.LOADING,
+                            InstallStatus.UNKNOWN -> Unit
                         }
+                    },
+                ) {
+                    when (installStatus) {
+                        InstallStatus.INSTALLABLE ->
+                            Text(stringResource(R.string.install))
+
+                        InstallStatus.UPDATABLE ->
+                            Text(stringResource(R.string.update))
+
+                        InstallStatus.DISABLED ->
+                            Text(stringResource(R.string.enable))
+
+                        InstallStatus.INSTALLED ->
+                            Text(stringResource(R.string.open))
+
+                        InstallStatus.LOADING ->
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(24.dp),
+                                color = MaterialTheme.colorScheme.onPrimary,
+                                strokeWidth = 3.dp
+                            )
+
+                        InstallStatus.UNKNOWN ->
+                            Text(stringResource(R.string.unknown))
                     }
                 }
             }
         }
+    }
 
-        Box(Modifier.fillMaxSize()) {
-            Column(
-                modifier = Modifier.align(Alignment.BottomCenter),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                if (waitingForSize && downloadProgress == null) {
-                    CircularProgressIndicator(modifier = Modifier.size(96.dp))
-                    // Spacer to align this indicator with the other when it appears
-                    Text("", Modifier.padding(top = 16.dp))
-                } else if (downloadProgress != null) {
-                    waitingForSize = false
+    Box(Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier.align(Alignment.BottomCenter),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            if (waitingForSize && downloadProgress == null) {
+                CircularProgressIndicator(modifier = Modifier.size(96.dp))
+                // Spacer to align this indicator with the other when it appears
+                Text("", Modifier.padding(top = 16.dp))
+            } else if (downloadProgress != null) {
+                waitingForSize = false
 
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(96.dp),
-                        progress = downloadProgress.part.toFloat() / downloadProgress.total,
-                    )
+                CircularProgressIndicator(
+                    modifier = Modifier.size(96.dp),
+                    progress = downloadProgress.part.toFloat() / downloadProgress.total,
+                )
 
-                    val partMb = "%.1f".format(downloadProgress.part.toFloat() / 1_000_000)
-                    val totalMb = "%.1f".format(downloadProgress.total.toFloat() / 1_000_000)
+                val partMb = "%.1f".format(downloadProgress.part.toFloat() / 1_000_000)
+                val totalMb = "%.1f".format(downloadProgress.total.toFloat() / 1_000_000)
 
-                    Text("$partMb MB / $totalMb MB", Modifier.padding(top = 16.dp))
-                }
-
-                Text(id, Modifier.padding(top = 48.dp))
+                Text("$partMb MB / $totalMb MB", Modifier.padding(top = 16.dp))
             }
+
+            Text(id, Modifier.padding(top = 48.dp))
         }
     }
 }
