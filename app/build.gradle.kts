@@ -66,6 +66,7 @@ android {
             "ms",
             "nb-rNO",
             "nl",
+            "nn",
             "or",
             "pl",
             "pt",
