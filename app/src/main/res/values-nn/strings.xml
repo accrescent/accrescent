@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_list">Appar</string>
-    <string name="installed">Installert</string>
+    <string name="installed">Installerte</string>
     <string name="app_updates">Oppdateringar</string>
     <string name="settings">Innstillingar</string>
     <string name="install">Installer</string>
@@ -9,12 +9,12 @@
     <string name="update">Oppdater</string>
     <string name="enable">Slå på</string>
     <string name="open">Opna</string>
-    <string name="customization">Tilpass</string>
-    <string name="dynamic_color">Dynamiske fargar (Material You)</string>
+    <string name="customization">Tilpassing</string>
+    <string name="dynamic_color">Dynamiske fargar («Material You»)</string>
     <string name="source_code">Kjeldekode</string>
     <string name="source_code_desc">Vis kjeldekoden til Accrescent</string>
     <string name="open_link">Opna lenkje</string>
-    <string name="dynamic_color_desc">Brukar systemfargane til å tilpasse utsjånaden til appen</string>
+    <string name="dynamic_color_desc">Fargelegg appen ved å bruka systemet sin fargepalett</string>
     <string name="up_to_date">Alle appane er oppdaterte</string>
     <string name="user_action_required">Handling krevst</string>
     <string name="cant_find_app">Fann ikkje appen</string>
@@ -24,7 +24,7 @@
     <string name="app_doesnt_support_device">Appen støttar ikkje denne eininga: %1$s</string>
     <string name="version">Versjon: %1$s</string>
     <string name="version_code">Versjonskode: %1$d</string>
-    <string name="app_signer_mismatch">appen er ikkje signert av riktig instans.
+    <string name="app_signer_mismatch">appen er ikkje signert av riktig underskrivar.
 \nFølgjande er forventa: %1$s</string>
     <string name="version_mismatch">forventa versjon %1$s, men faktisk versjon er %2$s</string>
     <string name="app_verification_failed">Feil ved stadfesting av app: %1$s</string>
@@ -37,8 +37,8 @@
     <string name="no">Nei</string>
     <string name="any">Alle</string>
     <string name="automatic_updates">Automatiske oppdateringar</string>
-    <string name="automatic_updates_desc">Slå av/på automatiske oppdateringar av appar. Når denne funksjonen er slått av, vert varslingar viste i staden.</string>
-    <string name="update_finished">Oppdatering er fullført</string>
+    <string name="automatic_updates_desc">Slå på/av automatiske app-oppdateringar. Viss dette valet er slått av, vert varslingar viste i staden.</string>
+    <string name="update_finished">Oppdatering fullført</string>
     <string name="update_failure">Feil ved oppdatering</string>
     <string name="back_button">Tilbake</string>
     <string name="require_user_action_desc">Be alltid om stadfesting for å hindra at appar vert installerte ved eit uhell</string>
@@ -49,6 +49,26 @@
     <string name="failed_decode_repodata">Feil ved dekoding av pakkebrønndata: %1$s</string>
     <string name="install_confirm_desc">Er du sikker på at du vil installera denne appen på eininga?</string>
     <string name="search">Søk</string>
-    <string name="update_available">Oppdatering er tilgjengeleg</string>
+    <string name="update_available">Oppdatering tilgjengeleg</string>
     <string name="failed_download_files">Feil ved nedlasting av nødvendige filer: %1$s</string>
+    <string name="require_user_action">Stadfest før installering</string>
+    <string name="swipe_refresh">Sveip ned for å oppfriska</string>
+    <string name="error_parsing_files">Feil ved tolking av appfiler: %1$s</string>
+    <string name="unknown_host_error">Ukjend vert: %1$s</string>
+    <string name="user_restriction">Brukaravgrensingsfeil: %1$s</string>
+    <string name="device_density_unsupported">skjermtettleiken til eininga er ikkje støtta</string>
+    <string name="device_abi_unsupported">arkitekturen til eininga er ikkje støtta</string>
+    <string name="no_app_signers">fann ingen underskrivar av appen.
+\nFølgjande er forventa: %1$s</string>
+    <string name="app_id_mismatch">forventa app-ID %2$s, men fekk ID %1$s</string>
+    <string name="base_apk_not_valid">base.apk er ikkje ein gyldig APK</string>
+    <string name="repodata_timestamp_less">tidsstempel for pakkebrønndata er lågare enn lagra verdi</string>
+    <string name="install_blocked">installasjon er blokkert av administrator</string>
+    <string name="uninstall_blocked">avinstallasjon er blokkert av administrator</string>
+    <string name="uninstall_confirm_desc">Appen og appdata vert fjerna frå eininga.</string>
+    <string name="updater">Oppdateringshandsamar</string>
+    <string name="not_roaming">Ikkje nettveksling («roaming»)</string>
+    <string name="unmetered">Ikkje forbruksmålt</string>
+    <string name="no_description_provided">(inga skildring er gjeven ut)</string>
+    <string name="network_condition">Nettverkstilstand</string>
 </resources>
