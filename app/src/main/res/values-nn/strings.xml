@@ -68,7 +68,7 @@
     <string name="uninstall_confirm_desc">Appen og appdata vert fjerna frå eininga.</string>
     <string name="updater">Oppdateringshandsamar</string>
     <string name="not_roaming">Ikkje nettveksling («roaming»)</string>
-    <string name="unmetered">Ikkje forbruksmålt</string>
+    <string name="unmetered">Ikkje forbruksmålte</string>
     <string name="no_description_provided">(inga skildring er gjeven ut)</string>
-    <string name="network_condition">Nettverkstilstand</string>
+    <string name="network_condition">Tillatne nettverk</string>
 </resources>
