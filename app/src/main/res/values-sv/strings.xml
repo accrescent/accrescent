@@ -48,14 +48,8 @@
     <string name="source_code">Källkod</string>
     <string name="source_code_desc">Visa Accrescents källkod</string>
     <string name="open_link">Öppna länk</string>
-    <string name="require_user_action">Bevilja en bekräftelse för installationen</string>
     <string name="yes">Ja</string>
-    <string name="install_confirm">Installera denna app\?</string>
-    <string name="install_confirm_desc">Är du säker på att du vill installera den här appen på din enhet\?</string>
-    <string name="uninstall_confirm">Avinstallera appen\?</string>
     <string name="no">Ingen</string>
-    <string name="uninstall_confirm_desc">Appen kommer att tas bort från din enhet tillsammans med all dess data.</string>
-    <string name="require_user_action_desc">Be alltid om en bekräftelse för att förhindra att appar installeras av misstag</string>
     <string name="search">Sök</string>
     <string name="updater">Uppdaterare</string>
     <string name="network_condition">Nätverkstillstånd</string>

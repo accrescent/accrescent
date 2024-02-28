@@ -17,7 +17,6 @@
     <string name="app_verification_failed">പ്രയോഗം പരിശോധിച്ചുറപ്പിക്കൽ പരാജയപ്പെട്ടു: %1$s</string>
     <string name="installed">സ്ഥാപിച്ചത്</string>
     <string name="app_updates">നവീകരണങ്ങൾ</string>
-    <string name="require_user_action">സ്ഥാപിക്കുന്നത് സ്ഥിരീകരണ നിര്‍ദ്ദേശം</string>
     <string name="customization">ഇഷ്ടാനുസൃതമാക്കുക</string>
     <string name="up_to_date">എല്ലാ പ്രയോഗങ്ങളും കാലികമാണ്</string>
     <string name="open_link">ശൃംഗലാംഗം തുറക്കുക</string>
@@ -37,14 +36,11 @@
     <string name="automatic_updates">യാന്ത്രിക നവീകരണങ്ങൾ</string>
     <string name="unmetered">അളക്കാത്തത്</string>
     <string name="updater">നവീകരണകാരൻ</string>
-    <string name="uninstall_confirm">ഈ പ്രയോഗം നീക്കം ചെയ്യണോ\?</string>
-    <string name="install_confirm">ഈ പ്രയോഗം സ്ഥാപികണോ\?</string>
     <string name="base_apk_not_valid">base.apk ഒരു സാധുവായ APK അല്ല</string>
     <string name="dynamic_color">ചലനാത്മകമായ നിറം /</string>
     <string name="uninstall">നീക്കം ചെയ്യുക</string>
     <string name="install">സ്ഥാപിക്കുക</string>
     <string name="no_apps_installed">പ്രയോഗങ്ങളൊന്നും സ്ഥാപിച്ചിട്ടില്ല</string>
-    <string name="install_confirm_desc">നിങ്ങളുടെ ഉപകരണത്തിൽ ഈ പ്രയോഗം സ്ഥാപിക്കണമെന്ന് തീർച്ചയാണോ\?</string>
     <string name="not_roaming">അലയല്‍ അല്ല</string>
     <string name="user_restriction">ഉപയോക്തൃ നിയന്ത്രണ പിശക്: %1$s</string>
     <string name="enable">സജ്ജമാക്കുക</string>

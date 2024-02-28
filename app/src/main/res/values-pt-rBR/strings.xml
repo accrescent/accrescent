@@ -3,8 +3,6 @@
     <string name="installed">Instalado</string>
     <string name="update">Atualizar</string>
     <string name="open">Abrir</string>
-    <string name="require_user_action_desc">Sempre solicite confirmação para evitar a instalação acidental de aplicativos</string>
-    <string name="require_user_action">Prompt de confirmação para instalar</string>
     <string name="dynamic_color">Cor dinâmica / Material You</string>
     <string name="no_apps_installed">Nenhum aplicativo instalado</string>
     <string name="network_error">Erro de rede: %1$s</string>
@@ -29,16 +27,12 @@
     <string name="up_to_date">Todos os aplicativos estão atualizados</string>
     <string name="cant_find_app">Não foi possível encontrar esse aplicativo</string>
     <string name="couldnt_open_app">Não foi possível abrir o aplicativo</string>
-    <string name="uninstall_confirm">Desinstalar este aplicativo\?</string>
-    <string name="install_confirm">Instalar este aplicativo\?</string>
     <string name="sig_verify_failed">verificação de assinatura falhou</string>
     <string name="version_code">Código da versão: %1$d</string>
     <string name="version_mismatch">versão esperada %1$s, atual é %2$s</string>
     <string name="version">Versão: %1$s</string>
     <string name="no">Não</string>
-    <string name="uninstall_confirm_desc">O aplicativo será removido do seu dispositivo junto com todos os seus dados.</string>
     <string name="yes">Sim</string>
-    <string name="install_confirm_desc">Tem certeza de que deseja instalar este aplicativo no seu dispositivo\?</string>
     <string name="install_blocked">instalação bloqueada pelo administrador</string>
     <string name="app_doesnt_support_device">O aplicativo não é compatível com seu dispositivo: %1$s</string>
     <string name="dynamic_color_desc">Colorir o aplicativo com base na paleta de cores do sistema</string>

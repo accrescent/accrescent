@@ -7,10 +7,8 @@
     <string name="uninstall">アンインストール</string>
     <string name="update">アップデート</string>
     <string name="open">開く</string>
-    <string name="require_user_action_desc">アプリの誤インストールを防ぐため、常に確認を求める</string>
     <string name="customization">カスタマイズ</string>
     <string name="installed">インストール済み</string>
-    <string name="require_user_action">インストール確認のプロンプト</string>
     <string name="no">いいえ</string>
     <string name="yes">はい</string>
     <string name="source_code">ソースコード</string>

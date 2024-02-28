@@ -47,16 +47,10 @@
     <string name="source_code">Broncode</string>
     <string name="source_code_desc">Bekijk Accrescent\'s broncode</string>
     <string name="open_link">Open link</string>
-    <string name="require_user_action">Bevestigingsprompt installeren</string>
-    <string name="require_user_action_desc">Altijd om bevestiging vragen om te voorkomen dat apps per ongeluk worden geïnstalleerd</string>
     <string name="customization">Aanpassing</string>
-    <string name="install_confirm">Installeer deze app\?</string>
-    <string name="uninstall_confirm_desc">App zal worden verwijderd van uw apparaat, samen met alle gegevens.</string>
     <string name="search">Zoek</string>
     <string name="yes">Ja</string>
     <string name="no">Nee</string>
-    <string name="install_confirm_desc">Weet u zeker dat u deze app op uw apparaat wilt installeren\?</string>
-    <string name="uninstall_confirm">Deze app verwijderen\?</string>
     <string name="updater">Updater</string>
     <string name="network_condition">Netwerkconditie</string>
     <string name="update_failure">Update mislukt</string>

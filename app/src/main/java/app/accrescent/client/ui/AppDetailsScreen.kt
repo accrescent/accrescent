@@ -21,14 +21,12 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -39,7 +37,6 @@ import app.accrescent.client.BuildConfig
 import app.accrescent.client.R
 import app.accrescent.client.data.DownloadProgress
 import app.accrescent.client.data.InstallStatus
-import app.accrescent.client.util.isPrivileged
 
 @Composable
 fun AppDetailsScreen(
@@ -47,13 +44,8 @@ fun AppDetailsScreen(
     modifier: Modifier = Modifier,
     viewModel: AppDetailsViewModel = hiltViewModel(),
 ) {
-    val context = LocalContext.current
     val installStatus = viewModel.installStatuses[viewModel.uiState.appId]
     val downloadProgress = viewModel.downloadProgresses[viewModel.uiState.appId]
-    val requireUserAction by viewModel.requireUserAction.collectAsState(!context.isPrivileged())
-
-    var installConfirmDialog by remember { mutableStateOf(false) }
-    var uninstallConfirmDialog by remember { mutableStateOf(false) }
 
     when {
         viewModel.uiState.isFetchingData -> {
@@ -69,27 +61,8 @@ fun AppDetailsScreen(
             versionCode = viewModel.uiState.versionCode,
             shortDescription = viewModel.uiState.shortDescription,
             installStatus = installStatus ?: InstallStatus.LOADING,
-            onInstallClicked = {
-                if (
-                    context.isPrivileged() &&
-                    installStatus == InstallStatus.INSTALLABLE &&
-                    requireUserAction
-                ) {
-                    installConfirmDialog = true
-                } else {
-                    viewModel.installApp(viewModel.uiState.appId)
-                }
-            },
-            onUninstallClicked = {
-                // When uninstalling in privileged mode, the OS doesn't create a
-                // confirmation dialog. To prevent users from mistakenly deleting
-                // important app data, create our own dialog in this case.
-                if (context.isPrivileged()) {
-                    uninstallConfirmDialog = true
-                } else {
-                    viewModel.uninstallApp(viewModel.uiState.appId)
-                }
-            },
+            onInstallClicked = { viewModel.installApp(viewModel.uiState.appId) },
+            onUninstallClicked = { viewModel.uninstallApp(viewModel.uiState.appId) },
             onOpenClicked = { viewModel.openApp(viewModel.uiState.appId) },
             onOpenAppInfoClicked = { viewModel.openAppInfo(viewModel.uiState.appId) },
             downloadProgress = downloadProgress,
@@ -97,23 +70,6 @@ fun AppDetailsScreen(
         )
 
         else -> AppNotFoundError(modifier)
-    }
-
-    if (installConfirmDialog) {
-        ActionConfirmDialog(
-            title = stringResource(R.string.install_confirm),
-            description = stringResource(R.string.install_confirm_desc),
-            onDismiss = { installConfirmDialog = false },
-            onConfirm = { viewModel.installApp(viewModel.uiState.appId) }
-        )
-    }
-    if (uninstallConfirmDialog) {
-        ActionConfirmDialog(
-            title = stringResource(R.string.uninstall_confirm),
-            description = stringResource(R.string.uninstall_confirm_desc),
-            onDismiss = { uninstallConfirmDialog = false },
-            onConfirm = { viewModel.uninstallApp(viewModel.uiState.appId) }
-        )
     }
 
     if (viewModel.uiState.error != null) {
@@ -139,7 +95,6 @@ fun AppDetails(
     downloadProgress: DownloadProgress?,
     modifier: Modifier = Modifier,
 ) {
-    val context = LocalContext.current
     var waitingForSize by remember { mutableStateOf(false) }
 
     Column(
@@ -177,19 +132,15 @@ fun AppDetails(
             when (installStatus) {
                 InstallStatus.INSTALLED,
                 InstallStatus.UPDATABLE,
-                InstallStatus.DISABLED ->
-                    // We can't uninstall ourselves if we're a priv-app
-                    if (!(context.isPrivileged() && id == BuildConfig.APPLICATION_ID)) {
-                        OutlinedButton(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .weight(1f)
-                                .padding(horizontal = 6.dp),
-                            onClick = { onUninstallClicked() },
-                        ) {
-                            Text(stringResource(R.string.uninstall))
-                        }
-                    }
+                InstallStatus.DISABLED -> OutlinedButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f)
+                        .padding(horizontal = 6.dp),
+                    onClick = { onUninstallClicked() },
+                ) {
+                    Text(stringResource(R.string.uninstall))
+                }
 
                 else -> Unit
             }

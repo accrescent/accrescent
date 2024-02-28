@@ -8,7 +8,6 @@
     <string name="uninstall">Nyahpasang</string>
     <string name="update">Kemas kini</string>
     <string name="open">Buka</string>
-    <string name="require_user_action">Pasang gesaan pengesahan</string>
     <string name="dynamic_color">Warna dinamik / Bahan Anda</string>
     <string name="about">Tentang</string>
     <string name="source_code">Kod sumber</string>
@@ -25,7 +24,6 @@
     <string name="failed_verify_repodata">Gagal mengesahkan repodata: %1$s</string>
     <string name="error_parsing_files">Ralat menghuraikan fail aplikasi: %1$s</string>
     <string name="unknown_host_error">Ralat hos tidak diketahui: %1$s</string>
-    <string name="require_user_action_desc">Sentiasa gesa untuk pengesahan untuk mengelakkan memasang aplikasi secara tidak sengaja</string>
     <string name="customization">Pengubahsuaian</string>
     <string name="dynamic_color_desc">Tema aplikasi berdasarkan palet warna sistem</string>
     <string name="no_apps_installed">Tiada aplikasi dipasang</string>
@@ -61,10 +59,6 @@
     <string name="sig_verify_failed">pengesahan tandatangan gagal</string>
     <string name="install_blocked">pemasangan disekat oleh pentadbir</string>
     <string name="uninstall_blocked">nyahpasang disekat oleh pentadbir</string>
-    <string name="install_confirm">Pasang aplikasi ini\?</string>
-    <string name="install_confirm_desc">Adakah anda pasti mahu memasang aplikasi ini pada peranti anda\?</string>
-    <string name="uninstall_confirm">Nyahpasang aplikasi ini\?</string>
-    <string name="uninstall_confirm_desc">Aplikasi akan dialih keluar daripada peranti anda bersama-sama dengan semua datanya.</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
     <string name="search">Carian</string>

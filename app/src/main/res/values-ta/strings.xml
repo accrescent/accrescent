@@ -3,7 +3,6 @@
     <string name="app_updates">புதுப்பிப்புகள்</string>
     <string name="settings">அமைப்புகள்</string>
     <string name="uninstall">நிறுவல் நீக்கவும்</string>
-    <string name="require_user_action">நிறுவுதல் உறுதிப்படுத்துதல் தூண்டுதல்</string>
     <string name="customization">தனிப்பயனாக்கம்</string>
     <string name="dynamic_color">மாறும் வண்ணம் / மடீரியல் யூ</string>
     <string name="about">ஆக்ரசெண்ட் பற்றி</string>
@@ -26,16 +25,11 @@
     <string name="sig_verify_failed">கையொப்ப சரிபார்க்க முடியவில்லை</string>
     <string name="install_blocked">நிறுவல் நிர்வாகியால் தடுக்கப்பட்டது</string>
     <string name="uninstall_blocked">நிறுவல் நீக்கம் நிர்வாகியால் தடுக்கப்பட்டது</string>
-    <string name="install_confirm">இந்த செயலியை நிறுவவா\?</string>
-    <string name="install_confirm_desc">உங்கள் சாதனத்தில் இந்தப் செயலியை நிச்சயமாக நிறுவ விரும்புகிறீர்களா\?</string>
-    <string name="uninstall_confirm">இந்த செயலியை நிறுவல் நீக்கவா\?</string>
-    <string name="uninstall_confirm_desc">இந்த செயலி மற்றும் அதன் எல்லா தரவையும் சேர்த்து உங்கள் சாதனத்தில் இருந்து அகற்றப்படும்.</string>
     <string name="yes">ஆம்</string>
     <string name="no">இல்லை</string>
     <string name="install">நிறுவு</string>
     <string name="update">புதுப்பி</string>
     <string name="source_code_desc">ஆக்ரசெண்டின் மூலக் குறியீட்டைப் பார்க்கவும்</string>
-    <string name="require_user_action_desc">தற்செயலாக செயலிகளை நிறுவுவதைத் தடுக்க எப்போதும் உறுதிப்படுத்தல் கேட்கவும்</string>
     <string name="dynamic_color_desc">கணினி வண்ணத் தட்டு அடிப்படையில் செயலியை தீம் செய்யவும்</string>
     <string name="no_apps_installed">செயலிகள் எதுவும் நிறுவப்படவில்லை</string>
     <string name="up_to_date">எல்லா செயலிகளும் புதுப்பித்த நிலையில் உள்ளன</string>

@@ -47,7 +47,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.work.NetworkType
 import app.accrescent.client.R
 import app.accrescent.client.data.SOURCE_CODE_URL
-import app.accrescent.client.util.isPrivileged
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.launch
@@ -57,7 +56,6 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
     val dynamicColor by viewModel.dynamicColor.collectAsState(false)
-    val requireUserAction by viewModel.requireUserAction.collectAsState(!context.isPrivileged())
     val automaticUpdates by viewModel.automaticUpdates.collectAsState(true)
     val networkType by viewModel.updaterNetworkType.collectAsState(NetworkType.CONNECTED.name)
 
@@ -66,25 +64,6 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             .padding(horizontal = 20.dp)
             .verticalScroll(rememberScrollState()),
     ) {
-        if (context.isPrivileged()) {
-            SettingGroupLabel(stringResource(R.string.app_updates), Modifier.padding(top = 16.dp))
-            Setting(
-                label = stringResource(R.string.require_user_action),
-                description = stringResource(R.string.require_user_action_desc),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .toggleable(
-                        value = requireUserAction,
-                        role = Role.Switch,
-                        onValueChange = { coroutineScope.launch { viewModel.setRequireUserAction(it) } }
-                    )
-            ) {
-                Switch(
-                    checked = requireUserAction,
-                    onCheckedChange = null,
-                )
-            }
-        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             SettingGroupLabel(stringResource(R.string.customization), Modifier.padding(top = 16.dp))
             Setting(

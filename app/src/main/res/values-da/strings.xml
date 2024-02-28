@@ -48,13 +48,7 @@
     <string name="source_code">Kilde Kode</string>
     <string name="source_code_desc">Se Accrescent\'s kilde kode</string>
     <string name="open_link">Åben link</string>
-    <string name="require_user_action">Bekræftelse af installation</string>
-    <string name="require_user_action_desc">Bed altid om en bekræftelse for at undgå utilsigtet installation af apps</string>
-    <string name="uninstall_confirm">Afinstaller denne app\?</string>
-    <string name="install_confirm">Installer denne app\?</string>
-    <string name="uninstall_confirm_desc">Appen vil blive fjernet fra din enhed sammen med alle dens data.</string>
     <string name="yes">Ja</string>
     <string name="no">Nej</string>
-    <string name="install_confirm_desc">Er du sikker på, at du vil installere denne app på din enhed\?</string>
     <string name="search">Søg</string>
 </resources>

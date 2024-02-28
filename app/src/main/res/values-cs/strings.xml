@@ -18,8 +18,6 @@
 \nOčekávané: %1$s</string>
     <string name="device_density_unsupported">Hustota displeje vašeho zařízení není podporována</string>
     <string name="device_abi_unsupported">Architektura vašeho zařízení není podporována</string>
-    <string name="uninstall_confirm">Odinstalovat tuto aplikaci\?</string>
-    <string name="uninstall_confirm_desc">Aplikace bude ze zařízení odstraněna i se všemi svými daty.</string>
     <string name="yes">Ano</string>
     <string name="back_button">Zpět</string>
     <string name="dynamic_color_desc">Motiv aplikace podle systémové palety barev</string>
@@ -45,8 +43,6 @@
     <string name="sig_verify_failed">Ověření podpisu se nezdařilo</string>
     <string name="install_blocked">Instalace blokována administrátorem</string>
     <string name="uninstall_blocked">Odinstalace blokována administátorem</string>
-    <string name="install_confirm">Instalovat tuto aplikaci\?</string>
-    <string name="install_confirm_desc">Opravdu chcete tuto aplikaci nainstalovat do svého zařízení\?</string>
     <string name="no">Ne</string>
     <string name="search">Vyhledat</string>
     <string name="updater">Aktualizátor</string>
@@ -69,7 +65,5 @@
     <string name="update_failure">Aktualizace selhala</string>
     <string name="update_success">%1$s byly úspěšně aktualizovány.</string>
     <string name="enable">Povolit</string>
-    <string name="require_user_action">Výzva k potvrzení instalace</string>
-    <string name="require_user_action_desc">Vždy si vyžádejte potvrzení, abyste zabránili náhodné instalaci aplikací</string>
     <string name="no_description_provided">(nebyl uveden žádný popis)</string>
 </resources>

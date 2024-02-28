@@ -8,14 +8,10 @@
     <string name="uninstall">Sil</string>
     <string name="update">Yenilə</string>
     <string name="open">Açın</string>
-    <string name="require_user_action">Quraşdırmanı təsdiqləmək üçün sorğu</string>
-    <string name="require_user_action_desc">Tətbiqlərin təsadüfi quraşdırılmasının qarşısını almaq üçün həmişə Təsdiq tələb edin</string>
     <string name="customization">Quraşdırma</string>
     <string name="dynamic_color">Dinamik rəng / Maddi Sən</string>
     <string name="dynamic_color_desc">Tətbiqi Sistem rəng palitrası əsasında dizayn edin</string>
-    <string name="install_confirm_desc">Bu proqramı cihazınıza quraşdırmaq istədiyinizə əminsinizmi\?</string>
     <string name="device_density_unsupported">cihazınızın ekran sıxlığı dəstəklənmir</string>
-    <string name="uninstall_confirm_desc">Tətbiq bütün məlumatları ilə birlikdə cihazınızdan silinəcəkdir.</string>
     <string name="about">Haqqında</string>
     <string name="source_code">Mənbə kodu</string>
     <string name="source_code_desc">Accrescent-in mənbə koduna baxın</string>

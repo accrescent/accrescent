@@ -48,12 +48,6 @@
     <string name="about">Informazioni</string>
     <string name="customization">Personalizzazione</string>
     <string name="open_link">Apri il link</string>
-    <string name="require_user_action">Richiesta di conferma dell\'installazione</string>
-    <string name="require_user_action_desc">Chiedi sempre conferma per evitare l\'installazione accidentale di app</string>
-    <string name="install_confirm">Installare questa app\?</string>
-    <string name="install_confirm_desc">Sei sicuro di voler installare questa app sul tuo dispositivo\?</string>
-    <string name="uninstall_confirm">Disinstallare questa app\?</string>
-    <string name="uninstall_confirm_desc">L\'app verrà rimossa dal tuo dispositivo insieme a tutti i suoi dati.</string>
     <string name="yes">Sì</string>
     <string name="no">No</string>
     <string name="search">Cerca</string>

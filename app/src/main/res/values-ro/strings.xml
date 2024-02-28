@@ -43,14 +43,8 @@
     <string name="repodata_timestamp_less">timpul datelor din depozit e mai mic decât valoarea salvată</string>
     <string name="version_mismatch">versiunea așteptată este %1$s, versiunea actuală este %2$s</string>
     <string name="version_code_mismatch">codul versiunii așteptat este %1$d, cel actual este %2$d</string>
-    <string name="require_user_action">Cerere de confirmare a instalării</string>
-    <string name="require_user_action_desc">Cere mereu confirmarea pentru a preveni instalarea accidentală a aplicațiilor</string>
-    <string name="install_confirm">Instalezi această aplicație\?</string>
     <string name="no">Nu</string>
     <string name="yes">Da</string>
-    <string name="uninstall_confirm_desc">Aplicația va fi eliminată din aparatul tău împreună cu toate datele sale.</string>
-    <string name="uninstall_confirm">Dezinstalezi această aplicație\?</string>
-    <string name="install_confirm_desc">Sigur dorești să instalezi această aplicație în aparatul tău\?</string>
     <string name="search">Caută</string>
     <string name="open_link">Deschide legătura</string>
     <string name="customization">Personalizare</string>

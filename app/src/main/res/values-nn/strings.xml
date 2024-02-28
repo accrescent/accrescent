@@ -31,8 +31,6 @@
     <string name="version_downgrade">versjon %1$d er lågare enn nedre versjonsgrense %2$d</string>
     <string name="version_code_mismatch">forventa versjonskode %1$d, men faktisk versjonskode er %2$d</string>
     <string name="sig_verify_failed">Klarte ikkje stadfesta signatur</string>
-    <string name="install_confirm">Vil du installera denne appen?</string>
-    <string name="uninstall_confirm">Vil du avinstallera denne appen?</string>
     <string name="yes">Ja</string>
     <string name="no">Nei</string>
     <string name="any">Alle</string>
@@ -41,17 +39,14 @@
     <string name="update_finished">Oppdatering fullført</string>
     <string name="update_failure">Feil ved oppdatering</string>
     <string name="back_button">Tilbake</string>
-    <string name="require_user_action_desc">Be alltid om stadfesting for å hindra at appar vert installerte ved eit uhell</string>
     <string name="about">Om</string>
     <string name="no_apps_installed">Ingen appar er installerte</string>
     <string name="couldnt_open_appinfo">Klarte ikkje opna info om appen</string>
     <string name="failed_verify_repodata">Feil ved stadfesting av pakkebrønndata: %1$s</string>
     <string name="failed_decode_repodata">Feil ved dekoding av pakkebrønndata: %1$s</string>
-    <string name="install_confirm_desc">Er du sikker på at du vil installera denne appen på eininga?</string>
     <string name="search">Søk</string>
     <string name="update_available">Oppdatering tilgjengeleg</string>
     <string name="failed_download_files">Feil ved nedlasting av nødvendige filer: %1$s</string>
-    <string name="require_user_action">Stadfest før installering</string>
     <string name="swipe_refresh">Sveip ned for å oppfriska</string>
     <string name="error_parsing_files">Feil ved tolking av appfiler: %1$s</string>
     <string name="unknown_host_error">Ukjend vert: %1$s</string>
@@ -65,7 +60,6 @@
     <string name="repodata_timestamp_less">tidsstempel for pakkebrønndata er lågare enn lagra verdi</string>
     <string name="install_blocked">installasjon er blokkert av administrator</string>
     <string name="uninstall_blocked">avinstallasjon er blokkert av administrator</string>
-    <string name="uninstall_confirm_desc">Appen og appdata vert fjerna frå eininga.</string>
     <string name="updater">Oppdateringshandsamar</string>
     <string name="not_roaming">Ikkje nettveksling («roaming»)</string>
     <string name="unmetered">Ikkje forbruksmålte</string>

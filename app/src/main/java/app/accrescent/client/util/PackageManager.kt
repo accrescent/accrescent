@@ -41,7 +41,7 @@ class PackageManager @Inject constructor(
     }
 
     fun uninstallApp(appId: String) {
-        // Honor UserManager restrictions in privileged mode
+        // Detect UserManager restrictions
         val uninstallBlockedByAdmin = context
             .getSystemService(UserManager::class.java)
             .hasUserRestriction(UserManager.DISALLOW_UNINSTALL_APPS)
@@ -60,15 +60,10 @@ class PackageManager @Inject constructor(
 
     private fun installApp(apks: List<Apk>) {
         val um = context.getSystemService(UserManager::class.java)
-        val installBlockedByAdmin = if (context.isPrivileged()) {
-            // We're in privileged mode, so check that installing apps is allowed since the OS
-            // package manager won't check for us.
-            um.hasUserRestriction(UserManager.DISALLOW_INSTALL_APPS)
-        } else {
+        val installBlockedByAdmin =
             um.hasUserRestriction(UserManager.DISALLOW_INSTALL_APPS) ||
                     um.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES) ||
                     um.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES_GLOBALLY)
-        }
         if (installBlockedByAdmin) {
             throw UserRestrictionException(context.getString(R.string.install_blocked))
         }

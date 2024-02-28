@@ -21,7 +21,6 @@
     <string name="cant_find_app">عذرًا، لم نتمكن من العثور على هذا التطبيق</string>
     <string name="couldnt_open_appinfo">تعذر فتح AppInfo</string>
     <string name="about">نبذة عنا</string>
-    <string name="require_user_action_desc">المطالبة دائما بالموافقة لمنع تثبيت التطبيقات عن طريق الخطأ</string>
     <string name="dynamic_color">اللون الديناميكي / مادتك</string>
     <string name="open">فتح</string>
     <string name="enable">مكن</string>
@@ -35,10 +34,7 @@
     <string name="unknown_host_error">خطأ مضيف غير معروف: %1$s</string>
     <string name="no_description_provided">(لم يقدم أي وصف)</string>
     <string name="uninstall_blocked">إلغاء الحظر المحظور من قبل المشرف</string>
-    <string name="install_confirm">تثبيت هذا التطبيق؟</string>
-    <string name="uninstall_confirm_desc">ستتم إزالة التطبيق من جهازك مع جميع بياناته.</string>
     <string name="automatic_updates">التحديثات التلقائية</string>
-    <string name="require_user_action">موجه تأكيد تثبيت</string>
     <string name="app_id_mismatch">معرّف التطبيق %1$s لا يطابق المعرّف المتوقع %2$s</string>
     <string name="user_restriction">خطأ في تقييد المستخدم: %1$s</string>
     <string name="version">الإصدار: %1$s</string>
@@ -56,8 +52,6 @@
     <string name="repodata_timestamp_less">الطابع الزمني لـrepodata أقل من القيمة المحفوظة</string>
     <string name="sig_verify_failed">فشل التحقق من صحة التوقيع</string>
     <string name="install_blocked">حُظر التثبيت من قبل المشرف</string>
-    <string name="install_confirm_desc">هل أنت متأكد أنك تريد تثبيت هذا التطبيق على جهازك؟</string>
-    <string name="uninstall_confirm">إلغاء تثبيت هذا التطبيق؟</string>
     <string name="yes">نعم</string>
     <string name="no">لا</string>
     <string name="search">بحث</string>

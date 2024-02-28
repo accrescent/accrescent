@@ -41,10 +41,6 @@
     <string name="source_code">Исходный код</string>
     <string name="open_link">Открыть ссылку</string>
     <string name="source_code_desc">Посмотреть исходный код Accrescent</string>
-    <string name="install_confirm">Установить это приложение\?</string>
-    <string name="install_confirm_desc">Вы уверены, что хотите установить это приложение на ваше устройство\?</string>
-    <string name="uninstall_confirm">Удалить это приложение\?</string>
-    <string name="uninstall_confirm_desc">Приложение будет удалено с вашего устройства вместе со всеми его данными.</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="search">Поиск</string>
@@ -59,8 +55,6 @@
     <string name="unmetered">Не измеряно</string>
     <string name="not_roaming">Не в роуминге</string>
     <string name="automatic_updates">Автоматические обновления</string>
-    <string name="require_user_action">Запрос подтверждения установки</string>
-    <string name="require_user_action_desc">Всегда запрашивать подтверждение для предотвращения случайной установки приложений</string>
     <string name="dynamic_color_desc">Установить тему приложения на основе системной цветовой палитры</string>
     <string name="dynamic_color">Динамический цвет / Material You</string>
     <string name="no_apps_installed">Нет установленных приложений</string>

@@ -8,8 +8,6 @@
     <string name="install">התקן</string>
     <string name="app_updates">עדכונים</string>
     <string name="open">פתוח</string>
-    <string name="require_user_action">בקשת אישור התקנה</string>
-    <string name="require_user_action_desc">בקש תמיד אישור כדי למנוע התקנת אפליקציות בטעות</string>
     <string name="customization">התאמה אישית</string>
     <string name="dynamic_color">צבע דינמי / חומר אתה</string>
     <string name="dynamic_color_desc">ערכת נושא של האפליקציה בהתבסס על לוח הצבעים של המערכת</string>
@@ -31,7 +29,6 @@
     <string name="failed_decode_repodata">פענוח הנתונים המחודש נכשל: %1$s</string>
     <string name="error_parsing_files">שגיאה בניתוח קבצי אפליקציה: %1$s</string>
     <string name="app_doesnt_support_device">האפליקציה לא תומכת במכשיר שלך: %1$s</string>
-    <string name="install_confirm">להתקין את האפליקציה הזו\?</string>
     <string name="app_signer_mismatch">האפליקציה לא חתומה על ידי החותמים הנדרשים.
 \nצפוי: %1$s</string>
     <string name="version_downgrade">גרסה %1$d קטנה מהמינימום %2$d</string>
@@ -40,8 +37,6 @@
     <string name="base_apk_not_valid">base.apk אינו APK חוקי</string>
     <string name="no_app_signers">לא נמצאו חותמי אפליקציה.
 \nצפוי: %1$s</string>
-    <string name="uninstall_confirm">להסיר את ההתקנה של אפליקציה זו\?</string>
-    <string name="uninstall_confirm_desc">האפליקציה תוסר מהמכשיר שלך יחד עם כל הנתונים שלה.</string>
     <string name="search">חיפוש</string>
     <string name="user_restriction">שגיאת הגבלת משתמש: %1$s</string>
     <string name="unknown_host_error">שגיאת מארח לא ידועה: %1$s</string>
@@ -54,7 +49,6 @@
     <string name="sig_verify_failed">אימות החתימה נכשל</string>
     <string name="install_blocked">ההתקנה נחסמה על-ידי מנהל המערכת</string>
     <string name="uninstall_blocked">הסרת התקנה נחסמה על-ידי מנהל המערכת</string>
-    <string name="install_confirm_desc">האם אתה בטוח שברצונך להתקין אפליקציה זו במכשיר שלך\?</string>
     <string name="yes">כן</string>
     <string name="no">לא</string>
     <string name="network_condition">מצב רשת</string>

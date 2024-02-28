@@ -48,14 +48,8 @@
     <string name="customization">Personalización</string>
     <string name="about">Acerca de</string>
     <string name="source_code">Código fuente</string>
-    <string name="require_user_action">Aviso para confirmar la instalación</string>
-    <string name="require_user_action_desc">Pedir siempre confirmación para evitar la instalación accidental de aplicaciones</string>
     <string name="no">No</string>
-    <string name="uninstall_confirm">¿Desinstalar esta aplicación\?</string>
-    <string name="install_confirm_desc">¿Estás seguro de que quieres instalar esta aplicación en tu dispositivo\?</string>
-    <string name="install_confirm">¿Instalar esta aplicación\?</string>
     <string name="yes">Sí</string>
-    <string name="uninstall_confirm_desc">La aplicación se eliminará de tu dispositivo junto con todos sus datos.</string>
     <string name="search">Buscar</string>
     <string name="updater">Actualizador</string>
     <string name="network_condition">Condición de la red</string>

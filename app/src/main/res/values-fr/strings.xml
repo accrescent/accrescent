@@ -50,12 +50,6 @@
     <string name="open_link">Ouvrir le lien</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
-    <string name="require_user_action">Invite de confirmation d’installation</string>
-    <string name="require_user_action_desc">Toujours demander une confirmation pour éviter d’installer accidentellement des applications</string>
-    <string name="install_confirm">Installer cette application \?</string>
-    <string name="install_confirm_desc">Êtes-vous sûr de vouloir installer cette application sur votre appareil \?</string>
-    <string name="uninstall_confirm">Désinstaller cette application \?</string>
-    <string name="uninstall_confirm_desc">L’application sera supprimée de votre appareil avec toutes ses données.</string>
     <string name="search">Recherche</string>
     <string name="not_roaming">Pas d’itinérance</string>
     <string name="update_available">Mise à jour disponible</string>

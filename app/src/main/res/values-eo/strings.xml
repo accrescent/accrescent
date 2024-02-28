@@ -18,13 +18,10 @@
     <string name="couldnt_open_app">Malsukcesis lanĉi programon</string>
     <string name="installed">Instalitaj</string>
     <string name="uninstall">Malinstali</string>
-    <string name="require_user_action">Instala konfirman prompton</string>
-    <string name="require_user_action_desc">Ĉiam peti konfirmon por malhelpi hazarde instali aplikaĵojn</string>
     <string name="enable">Ebligi</string>
     <string name="automatic_updates">Aŭtomataj ĝisdatigoj</string>
     <string name="failed_decode_repodata">Mulsukcesis malĉifri datumon pri la kod-deponejo: %1$s</string>
     <string name="dynamic_color_desc">Apliki la kolorpaletro de la sistemo al ĉi tiu programo</string>
-    <string name="uninstall_confirm">Ĉu malinstali ĉi tiun aplikaĵon\?</string>
     <string name="any">Ajna</string>
     <string name="error_parsing_files">Eraro dum analizado de aplikaj dosieroj: %1$s</string>
     <string name="version_code">Versiokodo: %1$d</string>
@@ -57,9 +54,7 @@
     <string name="not_roaming">Ne retmigrula</string>
     <string name="app_signer_mismatch">aplikaĵo ne subskribita de necesa(j) subskribanto(j).
 \nAnticipis: %1$s</string>
-    <string name="uninstall_confirm_desc">Aplikaĵo estos forigita de via aparato kune kun ĉiuj ĝiaj datumoj.</string>
     <string name="search">Serĉi</string>
-    <string name="install_confirm_desc">Ĉu vi certas, ke vi volas instali ĉi tiun aplikaĵon sur via aparato\?</string>
     <string name="repodata_timestamp_less">datumon pri la kod-datenojn tempomarko malpli ol konservita valoro</string>
     <string name="swipe_refresh">Glitu malsupren por refreŝigi</string>
     <string name="failed_download_repodata">Malsukcesis elŝuti datumon pri la kod-datenojn: %1$s</string>
@@ -68,7 +63,6 @@
     <string name="no_app_signers">neniuj aplikaĵsubskribintoj trovitaj.
 \nAnticipita: %1$s</string>
     <string name="install_blocked">instalo blokita de administranto</string>
-    <string name="install_confirm">Ĉu instali ĉi tiun aplikaĵon\?</string>
     <string name="unknown_host_error">Eraro de nekonita ĉefkomputilo: %1$s</string>
     <string name="app_id_mismatch">ID de la aplikaĵo %1$s ne kongruas kun la anticipita ID %2$s</string>
     <string name="no_description_provided">(neniu priskribo provizita)</string>

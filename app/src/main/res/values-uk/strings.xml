@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="require_user_action_desc">Завжди запитувати підтвердження, щоб запобігти випадковому встановленню застосунків</string>
     <string name="no_app_signers">підписантів застосунку не знайдено.
 \nОчікується: %1$s</string>
     <string name="app_signer_mismatch">застосунок не підписано необхідними підписантом(ами).
@@ -13,7 +12,6 @@
     <string name="uninstall">Видалити</string>
     <string name="open">Відкрити</string>
     <string name="customization">Кастомізація</string>
-    <string name="require_user_action">Запит на підтвердження встановлення</string>
     <string name="about">Про застосунок</string>
     <string name="source_code_desc">Перегляньте вихідний код Accrescent</string>
     <string name="no_apps_installed">Немає встановлених застосунків</string>
@@ -44,7 +42,6 @@
     <string name="cant_find_app">Вибачте, ми не змогли знайти цей застосунок</string>
     <string name="couldnt_open_app">Не вдалося відкрити застосунок</string>
     <string name="unknown_host_error">Невідома помилка хоста: %1$s</string>
-    <string name="install_confirm_desc">Ви впевнені, що хочете встановити цей застосунок на свій пристрій\?</string>
     <string name="error_parsing_files">Помилка розбору файлів застосунку: %1$s</string>
     <string name="version">Версія: %1$s</string>
     <string name="version_code">Код версії: %1$d</string>
@@ -53,9 +50,6 @@
     <string name="sig_verify_failed">перевірка підпису не пройшла</string>
     <string name="install_blocked">інсталяція заблокована адміністратором</string>
     <string name="uninstall_blocked">видалення заблоковане адміністратором</string>
-    <string name="install_confirm">Встановити цей застосунок\?</string>
-    <string name="uninstall_confirm">Видалити цей застосунок\?</string>
-    <string name="uninstall_confirm_desc">Застосунок буде видалено з вашого пристрою разом з усіма даними.</string>
     <string name="search">Пошук</string>
     <string name="updater">Оновлювач</string>
     <string name="network_condition">Стан мережі</string>
