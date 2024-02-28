@@ -257,7 +257,7 @@ fun AppDetails(
 
                 CircularProgressIndicator(
                     modifier = Modifier.size(96.dp),
-                    progress = downloadProgress.part.toFloat() / downloadProgress.total,
+                    progress = { downloadProgress.part.toFloat() / downloadProgress.total },
                 )
 
                 val partMb = "%.1f".format(downloadProgress.part.toFloat() / 1_000_000)
