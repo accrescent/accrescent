@@ -65,4 +65,5 @@
     <string name="enable">활성화</string>
     <string name="couldnt_open_appinfo">앱 정보를 열 수 없음</string>
     <string name="back_button">뒤로 가기</string>
+    <string name="no_description_provided">(설명 제공 안함)</string>
 </resources>
