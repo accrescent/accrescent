@@ -65,4 +65,5 @@
     <string name="back_button">Kembali</string>
     <string name="enable">Aktifkan</string>
     <string name="couldnt_open_appinfo">Tidak dapat membuka Appinfo</string>
+    <string name="no_description_provided">(tidak ada deskripsi yang disediakan)</string>
 </resources>
