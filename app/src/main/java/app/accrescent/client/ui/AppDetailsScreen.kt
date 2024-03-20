@@ -217,7 +217,7 @@ fun AppDetails(
                 Text("$partMb MB / $totalMb MB", Modifier.padding(top = 16.dp))
             }
 
-            Text(id, Modifier.padding(top = 48.dp))
+            Text(id, Modifier.padding(top = 48.dp, bottom = 24.dp))
         }
     }
 }
