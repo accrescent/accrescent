@@ -65,4 +65,5 @@
     <string name="back_button">Retour</string>
     <string name="couldnt_open_appinfo">Impossible d\'ouvrir AppInfo</string>
     <string name="enable">Activer</string>
+    <string name="no_description_provided">(aucune description n\'a été fournie)</string>
 </resources>
