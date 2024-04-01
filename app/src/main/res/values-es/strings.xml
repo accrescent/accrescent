@@ -3,11 +3,11 @@
     <string name="app_list">Aplicaciónes</string>
     <string name="installed">Instalado</string>
     <string name="app_updates">Actualizaciones</string>
-    <string name="settings">Opciones</string>
+    <string name="settings">Configuración</string>
     <string name="install">Instalar</string>
     <string name="uninstall">Desinstalar</string>
     <string name="open">Abrir</string>
-    <string name="dynamic_color">Color dinámico / \'Material You\'</string>
+    <string name="dynamic_color">Color dinámico/«Material You»</string>
     <string name="swipe_refresh">Deslizar hacia abajo para refrescar</string>
     <string name="no_apps_installed">No hay aplicaciones instaladas</string>
     <string name="up_to_date">Todas las aplicaciones están actualizadas</string>
@@ -15,7 +15,7 @@
     <string name="cant_find_app">Disculpa, no encontramos esa aplicación</string>
     <string name="failed_download_files">Error al descargar los archivos necesarios: %1$s</string>
     <string name="error_parsing_files">Error al analizar los archivos de la aplicación: %1$s</string>
-    <string name="app_doesnt_support_device">La aplicación no soporta tu dispositivo: %1$s</string>
+    <string name="app_doesnt_support_device">La aplicación no admite su dispositivo: %1$s</string>
     <string name="unknown_host_error">Error de anfitrión desconocido: %1$s</string>
     <string name="version">Versión: %1$s</string>
     <string name="device_abi_unsupported">la arquitectura de su dispositivo no es compatible</string>
@@ -61,7 +61,7 @@
     <string name="update_failure">Actualización fallida</string>
     <string name="update_success">%1$s se actualizó correctamente.</string>
     <string name="any">Cualquiera</string>
-    <string name="automatic_updates_desc">Ya sea para actualizar automáticamente la aplicación. Si está deshabilitado, muestra una notificación en su lugar.</string>
+    <string name="automatic_updates_desc">Indica si se debe actualizar automáticamente la aplicación. Si se desactiva, se muestra una notificación.</string>
     <string name="back_button">Atrás</string>
     <string name="enable">Activar</string>
     <string name="couldnt_open_appinfo">No se ha podido abrir AppInfo</string>
