@@ -19,11 +19,11 @@
     <string name="unknown_host_error">Error de anfitrión desconocido: %1$s</string>
     <string name="version">Versión: %1$s</string>
     <string name="device_abi_unsupported">la arquitectura de su dispositivo no es compatible</string>
-    <string name="version_downgrade">versión %1$d es menor que el mínimo %2$d</string>
-    <string name="app_id_mismatch">app ID %1$s no coincide con el ID esperado %2$s</string>
-    <string name="version_mismatch">versión esperada %1$s, la actual es %2$s</string>
-    <string name="version_code_mismatch">código de la versión esperada %1$d, actual es %2$d</string>
-    <string name="base_apk_not_valid">base.apk no es una APK valida</string>
+    <string name="version_downgrade">la versión %1$d es menor que la mínima, %2$d</string>
+    <string name="app_id_mismatch">el identificador de aplicación %1$s no coincide con el esperado, %2$s</string>
+    <string name="version_mismatch">se esperaba la versión %1$s; se obtuvo %2$s</string>
+    <string name="version_code_mismatch">se esperabe el código de versión %1$d; se obtuvo %2$d</string>
+    <string name="base_apk_not_valid">base.apk no es un APK válido</string>
     <string name="failed_download_repodata">Fallo en la descarga de datos del repositorio: %1$s</string>
     <string name="failed_verify_repodata">Fallo al verificar los datos del repositorio: %1$s</string>
     <string name="failed_decode_repodata">Fallo en la decodificación de los datos del repositorio: %1$s</string>
