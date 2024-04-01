@@ -22,7 +22,7 @@
     <string name="version_downgrade">la versión %1$d es menor que la mínima, %2$d</string>
     <string name="app_id_mismatch">el identificador de aplicación %1$s no coincide con el esperado, %2$s</string>
     <string name="version_mismatch">se esperaba la versión %1$s; se obtuvo %2$s</string>
-    <string name="version_code_mismatch">se esperabe el código de versión %1$d; se obtuvo %2$d</string>
+    <string name="version_code_mismatch">código de versión esperado %1$d, la actual es %2$d</string>
     <string name="base_apk_not_valid">base.apk no es un APK válido</string>
     <string name="failed_download_repodata">Fallo en la descarga de datos del repositorio: %1$s</string>
     <string name="failed_verify_repodata">Fallo al verificar los datos del repositorio: %1$s</string>
