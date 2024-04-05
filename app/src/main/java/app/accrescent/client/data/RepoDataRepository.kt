@@ -37,7 +37,7 @@ class RepoDataRepository @Inject constructor(
         // updating them
         val apps = repoData
             .apps
-            .map { (appId, app) -> App(appId, app.name, app.minVersionCode, app.iconHash) }
+            .map { (appId, app) -> App(appId, app.name, app.minVersionCode) }
         repoDataLocalDataSource.saveApps(*apps.toTypedArray())
         repoDataLocalDataSource.deleteRemovedApps(apps.map { it.id })
 

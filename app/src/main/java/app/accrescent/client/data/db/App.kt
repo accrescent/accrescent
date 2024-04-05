@@ -9,5 +9,4 @@ data class App(
     @PrimaryKey val id: String,
     val name: String,
     @ColumnInfo(name = "min_version_code") val minVersionCode: Int,
-    @ColumnInfo(name = "icon_hash") val iconHash: String,
 )
