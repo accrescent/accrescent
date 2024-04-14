@@ -8,6 +8,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -15,13 +16,13 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.OpenInNew
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -34,7 +35,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -173,6 +173,31 @@ fun Setting(
 }
 
 @Composable
+fun RadioListItem(
+    modifier: Modifier = Modifier,
+    text: String = "",
+    selected: Boolean = false,
+    onClick: () -> Unit = {},
+) {
+    Row(
+        modifier = Modifier
+            .clickable { onClick() }
+            .padding(vertical = 12.dp)
+            .then(modifier),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            modifier = Modifier.weight(1f),
+            text = text,
+            style = MaterialTheme.typography.bodyMedium,
+            fontSize = 16.sp
+        )
+        Spacer(modifier = Modifier.padding(horizontal = 8.dp))
+        RadioButton(selected = selected, onClick = null)
+    }
+}
+
+@Composable
 fun ListPreference(
     label: String,
     entries: ImmutableList<String>,
@@ -207,16 +232,14 @@ fun ListPreference(
                 text = {
                     LazyColumn {
                         itemsIndexed(entries) { index, entry ->
-                            Text(
-                                text = if (index == currentValueIndex) "$entry   ✓" else entry,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .clip(RoundedCornerShape(20.dp))
-                                    .clickable {
-                                        onSelectionChanged(index)
-                                        showDialog = false
-                                    }
-                                    .padding(horizontal = 15.dp, vertical = 12.dp),
+                            RadioListItem(
+                                modifier = Modifier.fillMaxWidth(),
+                                text = entry,
+                                selected = index == currentValueIndex,
+                                onClick = {
+                                    onSelectionChanged(index)
+                                    showDialog = false
+                                }
                             )
                         }
                     }
