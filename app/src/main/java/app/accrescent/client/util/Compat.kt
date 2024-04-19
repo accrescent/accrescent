@@ -30,7 +30,6 @@ fun <T : Any> Intent.getParcelableExtraCompat(name: String, clazz: Class<T>): T?
 
 fun PackageManager.getInstalledPackagesCompat(flags: Int = 0): List<PackageInfo> {
     return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-        @Suppress("DEPRECATION")
         this.getInstalledPackages(flags)
     } else {
         this.getInstalledPackages(PackageManager.PackageInfoFlags.of(flags.toLong()))
@@ -39,7 +38,6 @@ fun PackageManager.getInstalledPackagesCompat(flags: Int = 0): List<PackageInfo>
 
 fun PackageManager.getPackageArchiveInfoCompat(archiveFilePath: String, flags: Int): PackageInfo? {
     return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-        @Suppress("DEPRECATION")
         this.getPackageArchiveInfo(archiveFilePath, flags)
     } else {
         this.getPackageArchiveInfo(
@@ -56,7 +54,6 @@ fun PackageManager.getPackageArchiveInfoForFd(fd: Int, flags: Int): PackageInfo?
 fun PackageManager.getPackageInstallStatus(appId: String, versionCode: Long?): InstallStatus {
     return try {
         val pkgInfo = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-            @Suppress("DEPRECATION")
             this.getPackageInfo(appId, 0)
         } else {
             this.getPackageInfo(appId, PackageManager.PackageInfoFlags.of(0))
