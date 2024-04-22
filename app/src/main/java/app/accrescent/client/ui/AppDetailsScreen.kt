@@ -150,7 +150,9 @@ fun AppDetails(
                         .fillMaxWidth()
                         .weight(1f)
                         .padding(horizontal = 6.dp),
-                    enabled = downloadProgress == null && !waitingForSize,
+                    enabled = downloadProgress == null &&
+                            !waitingForSize &&
+                            installStatus != InstallStatus.INSTALLED_FROM_ANOTHER_SOURCE,
                     onClick = {
                         when (installStatus) {
                             InstallStatus.INSTALLABLE,
@@ -161,6 +163,7 @@ fun AppDetails(
 
                             InstallStatus.DISABLED -> onOpenAppInfoClicked()
                             InstallStatus.INSTALLED -> onOpenClicked()
+                            InstallStatus.INSTALLED_FROM_ANOTHER_SOURCE,
                             InstallStatus.LOADING,
                             InstallStatus.UNKNOWN -> Unit
                         }
@@ -178,6 +181,9 @@ fun AppDetails(
 
                         InstallStatus.INSTALLED ->
                             Text(stringResource(R.string.open))
+
+                        InstallStatus.INSTALLED_FROM_ANOTHER_SOURCE ->
+                            Text(stringResource(R.string.installed_from_another_source))
 
                         InstallStatus.LOADING ->
                             CircularProgressIndicator(

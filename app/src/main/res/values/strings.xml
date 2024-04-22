@@ -3,6 +3,7 @@
     <string name="app_name" translatable="false">Accrescent</string>
     <string name="app_list">Apps</string>
     <string name="installed">Installed</string>
+    <string name="installed_from_another_source">App installed from another source</string>
     <string name="app_updates">Updates</string>
     <string name="settings">Settings</string>
     <string name="install">Install</string>

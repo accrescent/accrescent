@@ -8,7 +8,10 @@ import android.content.IntentFilter
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
+import app.accrescent.client.BuildConfig
 import app.accrescent.client.data.InstallStatus
+
+private const val PACKAGE_INSTALLER_APP_ID = "com.google.android.packageinstaller"
 
 fun Context.registerReceiverNotExported(receiver: BroadcastReceiver, filter: IntentFilter) {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
@@ -58,7 +61,26 @@ fun PackageManager.getPackageInstallStatus(appId: String, versionCode: Long?): I
         } else {
             this.getPackageInfo(appId, PackageManager.PackageInfoFlags.of(0))
         }
-        if (versionCode?.let { it > pkgInfo.longVersionCode } == true) {
+        val installerOfRecord = getInstallerOfRecord(pkgInfo.packageName)
+
+        // This package is considered installed from another source if and only if all of the
+        // following statements hold:
+        //
+        // 1. The installer of record is not us
+        // 2. The installer of record is not null
+        // 3. Either the package is not us or the installer of record is not the system
+        //    PackageInstaller
+        //
+        // Note that we don't consider ourself installed by another source if we are installed via
+        // the system PackageInstaller even though we do for other apps.
+        if (
+            installerOfRecord != BuildConfig.APPLICATION_ID &&
+            installerOfRecord != null &&
+            (pkgInfo.packageName != BuildConfig.APPLICATION_ID ||
+                    installerOfRecord != PACKAGE_INSTALLER_APP_ID)
+        ) {
+            InstallStatus.INSTALLED_FROM_ANOTHER_SOURCE
+        } else if (versionCode?.let { it > pkgInfo.longVersionCode } == true) {
             InstallStatus.UPDATABLE
         } else if (!pkgInfo.applicationInfo.enabled) {
             InstallStatus.DISABLED
@@ -67,5 +89,25 @@ fun PackageManager.getPackageInstallStatus(appId: String, versionCode: Long?): I
         }
     } catch (e: PackageManager.NameNotFoundException) {
         InstallStatus.INSTALLABLE
+    }
+}
+
+/**
+ * Returns the installer of record for the given [appId]
+ *
+ * @return the installer of record for the given app, or null if the app was not installed by a
+ * package or if the installing package itself has been uninstalled
+ */
+private fun PackageManager.getInstallerOfRecord(appId: String): String? {
+    return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+        try {
+            @Suppress("DEPRECATION")
+            getInstallerPackageName(appId)
+        } catch (e: IllegalArgumentException) {
+            null
+        }
+    } else {
+        // getInstallSourceInfo should never throw because we hold QUERY_ALL_PACKAGES
+        getInstallSourceInfo(appId).installingPackageName
     }
 }
