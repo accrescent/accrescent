@@ -192,7 +192,7 @@ fun AppDetails(
                 }
             }
         }
-        Column {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
             if (waitingForSize && downloadProgress == null) {
                 CircularProgressIndicator(modifier = Modifier.size(96.dp))
                 // Spacer to align this indicator with the other when it appears
@@ -209,10 +209,12 @@ fun AppDetails(
                 val totalMb = "%.1f".format(downloadProgress.total.toFloat() / 1_000_000)
 
                 Text("$partMb MB / $totalMb MB", Modifier.padding(top = 16.dp))
+            } else {
+                Spacer(modifier = Modifier.size(96.dp))
+                Text("", Modifier.padding(top = 16.dp))
             }
-
-            Text(id)
         }
+        Text(id)
     }
 }
 
