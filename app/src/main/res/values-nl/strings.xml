@@ -65,6 +65,6 @@
     <string name="enable">Zet aan</string>
     <string name="couldnt_open_appinfo">Kon AppInfo niet openen</string>
     <string name="back_button">Terug</string>
-    <string name="no_description_provided">(geen beschrijving gegeven)</string>
+    <string name="no_description_provided">(geen beschrijving beschikbaar)</string>
     <string name="installed_from_another_source">App geïnstalleerd van andere bron</string>
 </resources>
