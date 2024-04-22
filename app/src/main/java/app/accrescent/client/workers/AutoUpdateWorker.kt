@@ -45,15 +45,16 @@ class AutoUpdateWorker @AssistedInject constructor(
                 .filter {
                     val installerOfRecord = getInstallerOfRecord(it.packageName)
 
-                    // Only attempt to update apps which either:
+                    // Only attempt to update an app when either:
                     //
-                    // 1. We are the installer of record for
-                    // 2. Have no installer of record
-                    // 3. Were installed by the system PackageInstaller app, such as when the user
-                    // installs from a downloaded APK
+                    // 1. We are the installer of record for it
+                    // 2. It has no installer of record
+                    // 3. We are updating ourself and we were installed by the system
+                    // PackageInstaller app, such as when the user installs from a downloaded APK
                     installerOfRecord == BuildConfig.APPLICATION_ID ||
                             installerOfRecord == null ||
-                            installerOfRecord == PACKAGE_INSTALLER_APP_ID
+                            installerOfRecord == PACKAGE_INSTALLER_APP_ID &&
+                            it.packageName == BuildConfig.APPLICATION_ID
                 }
                 .filter {
                     repoDataRepository
