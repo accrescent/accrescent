@@ -3,6 +3,7 @@ package app.accrescent.client.workers
 import android.app.NotificationManager
 import android.content.Context
 import android.content.pm.PackageInfo
+import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.content.getSystemService
 import androidx.hilt.work.HiltWorker
@@ -14,6 +15,7 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import app.accrescent.client.Accrescent.Companion.UPDATE_AVAILABLE_CHANNEL
+import app.accrescent.client.BuildConfig
 import app.accrescent.client.R
 import app.accrescent.client.data.PreferencesManager
 import app.accrescent.client.data.RepoDataRepository
@@ -25,6 +27,8 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.first
 import java.time.Duration
+
+private const val PACKAGE_INSTALLER_APP_ID = "com.google.android.packageinstaller"
 
 @HiltWorker
 class AutoUpdateWorker @AssistedInject constructor(
@@ -38,6 +42,19 @@ class AutoUpdateWorker @AssistedInject constructor(
         try {
             val packagesToUpdate = context.packageManager.getInstalledPackagesCompat()
                 .filter { repoDataRepository.appExists(it.packageName) }
+                .filter {
+                    val installerOfRecord = getInstallerOfRecord(it.packageName)
+
+                    // Only attempt to update apps which either:
+                    //
+                    // 1. We are the installer of record for
+                    // 2. Have no installer of record
+                    // 3. Were installed by the system PackageInstaller app, such as when the user
+                    // installs from a downloaded APK
+                    installerOfRecord == BuildConfig.APPLICATION_ID ||
+                            installerOfRecord == null ||
+                            installerOfRecord == PACKAGE_INSTALLER_APP_ID
+                }
                 .filter {
                     repoDataRepository
                         .getAppRepoData(it.packageName)
@@ -61,6 +78,26 @@ class AutoUpdateWorker @AssistedInject constructor(
         }
 
         return Result.success()
+    }
+
+    /**
+     * Returns the installer of record for the given [appId]
+     *
+     * @return the installer of record for the given app, or null if the app was not installed by a
+     * package or if the installing package itself has been uninstalled
+     */
+    private fun getInstallerOfRecord(appId: String): String? {
+        return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+            try {
+                @Suppress("DEPRECATION")
+                context.packageManager.getInstallerPackageName(appId)
+            } catch (e: IllegalArgumentException) {
+                null
+            }
+        } else {
+            // getInstallSourceInfo should never throw because we hold QUERY_ALL_PACKAGES
+            context.packageManager.getInstallSourceInfo(appId).installingPackageName
+        }
     }
 
     private fun showUpdateNotification(index: Int, packageInfo: PackageInfo, repoData: AppRepoData) {
