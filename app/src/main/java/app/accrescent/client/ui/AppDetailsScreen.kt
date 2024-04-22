@@ -192,13 +192,7 @@ fun AppDetails(
                 }
             }
         }
-    }
-
-    Box(Modifier.fillMaxSize()) {
-        Column(
-            modifier = Modifier.align(Alignment.BottomCenter),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
+        Column {
             if (waitingForSize && downloadProgress == null) {
                 CircularProgressIndicator(modifier = Modifier.size(96.dp))
                 // Spacer to align this indicator with the other when it appears
@@ -217,7 +211,7 @@ fun AppDetails(
                 Text("$partMb MB / $totalMb MB", Modifier.padding(top = 16.dp))
             }
 
-            Text(id, Modifier.padding(top = 48.dp))
+            Text(id)
         }
     }
 }
