@@ -16,8 +16,8 @@ import java.time.Duration
 
 @HiltWorker
 class RepositoryRefreshWorker @AssistedInject constructor(
-    @Assisted val context: Context,
-    @Assisted val workerParams: WorkerParameters,
+    @Assisted context: Context,
+    @Assisted workerParams: WorkerParameters,
     private val repoDataRepository: RepoDataRepository,
 ) : CoroutineWorker(context, workerParams) {
     override suspend fun doWork(): Result {

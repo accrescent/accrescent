@@ -30,18 +30,18 @@ import java.time.Duration
 
 @HiltWorker
 class AutoUpdateWorker @AssistedInject constructor(
-    @Assisted val context: Context,
-    @Assisted val workerParams: WorkerParameters,
+    @Assisted context: Context,
+    @Assisted workerParams: WorkerParameters,
     private val preferencesManager: PreferencesManager,
     private val repoDataRepository: RepoDataRepository,
     private val packageManager: PackageManager,
 ) : CoroutineWorker(context, workerParams) {
     override suspend fun doWork(): Result {
         try {
-            val packagesToUpdate = context.packageManager.getInstalledPackagesCompat()
+            val packagesToUpdate = applicationContext.packageManager.getInstalledPackagesCompat()
                 .filter { repoDataRepository.appExists(it.packageName) }
                 .filter {
-                    context.packageManager.getPackageInstallStatus(
+                    applicationContext.packageManager.getPackageInstallStatus(
                         it.packageName,
                         null,
                     ) != InstallStatus.INSTALLED_FROM_ANOTHER_SOURCE
@@ -72,11 +72,13 @@ class AutoUpdateWorker @AssistedInject constructor(
     }
 
     private fun showUpdateNotification(index: Int, packageInfo: PackageInfo, repoData: AppRepoData) {
-        val notificationManager = context.getSystemService<NotificationManager>()!!
+        val notificationManager = applicationContext.getSystemService<NotificationManager>()!!
 
-        val packageLabel = context.packageManager.getApplicationLabel(packageInfo.applicationInfo)
-        val pendingIntent = NotificationUtil.createPendingIntentForAppId(context, packageInfo.packageName)
-        val notification = NotificationCompat.Builder(context, UPDATE_AVAILABLE_CHANNEL)
+        val packageLabel = applicationContext.packageManager
+            .getApplicationLabel(packageInfo.applicationInfo)
+        val pendingIntent = NotificationUtil
+            .createPendingIntentForAppId(applicationContext, packageInfo.packageName)
+        val notification = NotificationCompat.Builder(applicationContext, UPDATE_AVAILABLE_CHANNEL)
             .setContentTitle(packageLabel)
             .setContentText("${packageInfo.versionName} -> ${repoData.version}")
             .setSmallIcon(R.drawable.ic_baseline_update_24)
