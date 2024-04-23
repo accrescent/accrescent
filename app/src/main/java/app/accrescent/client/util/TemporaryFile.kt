@@ -1,3 +1,5 @@
+// See LICENSE.grapheneos for additional copyright information for this file.
+
 package app.accrescent.client.util
 
 import android.os.ParcelFileDescriptor
