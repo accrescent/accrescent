@@ -11,7 +11,8 @@ import android.os.Build
 import app.accrescent.client.BuildConfig
 import app.accrescent.client.data.InstallStatus
 
-private const val PACKAGE_INSTALLER_APP_ID = "com.google.android.packageinstaller"
+private const val AOSP_PACKAGE_INSTALLER_APP_ID = "com.android.packageinstaller"
+private const val GOOGLE_PACKAGE_INSTALLER_APP_ID = "com.google.android.packageinstaller"
 
 fun Context.registerReceiverNotExported(receiver: BroadcastReceiver, filter: IntentFilter) {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
@@ -77,7 +78,8 @@ fun PackageManager.getPackageInstallStatus(appId: String, versionCode: Long?): I
             installerOfRecord != BuildConfig.APPLICATION_ID &&
             installerOfRecord != null &&
             (pkgInfo.packageName != BuildConfig.APPLICATION_ID ||
-                    installerOfRecord != PACKAGE_INSTALLER_APP_ID)
+                    installerOfRecord != AOSP_PACKAGE_INSTALLER_APP_ID &&
+                    installerOfRecord != GOOGLE_PACKAGE_INSTALLER_APP_ID)
         ) {
             InstallStatus.INSTALLED_FROM_ANOTHER_SOURCE
         } else if (versionCode?.let { it > pkgInfo.longVersionCode } == true) {
