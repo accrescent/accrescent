@@ -31,10 +31,11 @@ import androidx.compose.ui.unit.dp
 import app.accrescent.client.R
 
 @Composable
-fun SearchIcon() {
+fun SearchIcon(modifier: Modifier = Modifier) {
     Icon(
         imageVector = Icons.Default.Search,
-        contentDescription = stringResource(R.string.search)
+        contentDescription = stringResource(R.string.search),
+        modifier = modifier,
     )
 }
 

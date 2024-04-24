@@ -89,7 +89,7 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainContent(appId: String?) {
+fun MainContent(appId: String?, modifier: Modifier = Modifier) {
     val snackbarHostState = remember { SnackbarHostState() }
     val navController = rememberNavController()
     val screens = listOf(Screen.AppList, Screen.InstalledApps, Screen.AppUpdates)
@@ -110,9 +110,9 @@ fun MainContent(appId: String?) {
 
     Scaffold(
         modifier = if (currentDestination?.route == Screen.Settings.route) {
-            Modifier.nestedScroll(settingsScrollBehavior.nestedScrollConnection)
+            modifier.nestedScroll(settingsScrollBehavior.nestedScrollConnection)
         } else {
-            Modifier
+            modifier
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {

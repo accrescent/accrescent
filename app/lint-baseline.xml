@@ -2,46 +2,13 @@
 <issues format="6" by="lint 8.3.2" type="baseline" client="gradle" dependencies="false" name="AGP (8.3.2)" variant="all" version="8.3.2">
 
     <issue
-        id="ComposeModifierMissing"
-        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
-        errorLine1="fun CenteredText(message: String) {"
-        errorLine2="    ~~~~~~~~~~~~">
-        <location
-            file="src/main/java/app/accrescent/client/ui/CenteredText.kt"
-            line="12"
-            column="5"/>
-    </issue>
-
-    <issue
-        id="ComposeModifierMissing"
-        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
-        errorLine1="fun SearchIcon() {"
-        errorLine2="    ~~~~~~~~~~">
-        <location
-            file="src/main/java/app/accrescent/client/ui/common/ExpandableSearchBar.kt"
-            line="34"
-            column="5"/>
-    </issue>
-
-    <issue
-        id="ComposeModifierMissing"
-        message="This @Composable function emits content but doesn&apos;t have a modifier parameter.See https://slackhq.github.io/compose-lints/rules/#when-should-i-expose-modifier-parameters for more information."
-        errorLine1="fun MainContent(appId: String?) {"
-        errorLine2="    ~~~~~~~~~~~">
-        <location
-            file="src/main/java/app/accrescent/client/ui/MainActivity.kt"
-            line="92"
-            column="5"/>
-    </issue>
-
-    <issue
         id="ComposeMutableParameters"
         message="Using mutable objects as state in Compose will cause your users to see incorrect or stale data in your app.Mutable objects that are not observable, such as ArrayList&lt;T> or a mutable data class, cannot be observed by Compose to trigger recomposition when they change.See https://slackhq.github.io/compose-lints/rules/#do-not-use-inherently-mutable-types-as-parameters for more information."
         errorLine1="    textFieldValue: MutableState&lt;TextFieldValue>,"
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/java/app/accrescent/client/ui/common/ExpandableSearchBar.kt"
-            line="75"
+            line="76"
             column="21"/>
     </issue>
 
