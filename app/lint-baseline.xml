@@ -1,26 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <issues format="6" by="lint 8.3.2" type="baseline" client="gradle" dependencies="false" name="AGP (8.3.2)" variant="all" version="8.3.2">
 
-    <issue
-        id="ComposeMutableParameters"
-        message="Using mutable objects as state in Compose will cause your users to see incorrect or stale data in your app.Mutable objects that are not observable, such as ArrayList&lt;T> or a mutable data class, cannot be observed by Compose to trigger recomposition when they change.See https://slackhq.github.io/compose-lints/rules/#do-not-use-inherently-mutable-types-as-parameters for more information."
-        errorLine1="    textFieldValue: MutableState&lt;TextFieldValue>,"
-        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/app/accrescent/client/ui/common/ExpandableSearchBar.kt"
-            line="76"
-            column="21"/>
-    </issue>
-
-    <issue
-        id="ComposeMutableParameters"
-        message="Using mutable objects as state in Compose will cause your users to see incorrect or stale data in your app.Mutable objects that are not observable, such as ArrayList&lt;T> or a mutable data class, cannot be observed by Compose to trigger recomposition when they change.See https://slackhq.github.io/compose-lints/rules/#do-not-use-inherently-mutable-types-as-parameters for more information."
-        errorLine1="    value: MutableState&lt;TextFieldValue>,"
-        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/app/accrescent/client/ui/common/SearchAppBar.kt"
-            line="17"
-            column="12"/>
-    </issue>
-
 </issues>

@@ -16,7 +16,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -73,11 +72,12 @@ fun CollapsedSearchView(
 
 @Composable
 fun ExpandedSearchView(
-    textFieldValue: MutableState<TextFieldValue>,
+    textFieldValue: TextFieldValue,
     onSearchDisplayChanged: (String) -> Unit,
     onSearchDisplayClosed: () -> Unit,
     onExpandedChanged: (Boolean) -> Unit,
-    modifier: Modifier = Modifier
+    onValueChange: (TextFieldValue) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val focusManager = LocalFocusManager.current
 
@@ -99,7 +99,7 @@ fun ExpandedSearchView(
             onClick = {
                 onSearchDisplayClosed()
                 onExpandedChanged(false)
-                textFieldValue.value = TextFieldValue("")
+                onValueChange(TextFieldValue(""))
             }
         ) {
             Icon(
@@ -108,9 +108,9 @@ fun ExpandedSearchView(
             )
         }
         OutlinedTextField(
-            value = textFieldValue.value,
+            value = textFieldValue,
             onValueChange = {
-                textFieldValue.value = it
+                onValueChange(it)
                 onSearchDisplayChanged(it.text)
             },
             trailingIcon = {

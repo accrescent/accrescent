@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -14,7 +13,8 @@ import androidx.compose.ui.text.input.TextFieldValue
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchAppBar(
-    value: MutableState<TextFieldValue>,
+    value: TextFieldValue,
+    onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
     title: String = "",
     onSearchDisplayChanged: (String) -> Unit = {},
@@ -36,6 +36,7 @@ fun SearchAppBar(
                         onSearchDisplayChanged = onSearchDisplayChanged,
                         onSearchDisplayClosed = onSearchDisplayClosed,
                         onExpandedChanged = onExpandedChanged,
+                        onValueChange = onValueChange,
                         modifier = modifier
                     )
 
