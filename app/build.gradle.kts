@@ -132,7 +132,6 @@ android {
     }
 
     lint {
-        baseline = file("lint-baseline.xml")
         enable += "ComposeM2Api"
         error += "ComposeM2Api"
     }
