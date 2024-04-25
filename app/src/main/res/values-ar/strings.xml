@@ -65,4 +65,5 @@
     <string name="update_finished">انتهى التحديث</string>
     <string name="update_failure">فشل التحديث</string>
     <string name="back_button">رجوع</string>
+    <string name="installed_from_another_source">ثبّت التطبيق من مصدر آخر</string>
 </resources>
