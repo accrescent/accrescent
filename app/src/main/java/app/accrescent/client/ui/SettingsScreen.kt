@@ -46,6 +46,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.work.NetworkType
 import app.accrescent.client.R
+import app.accrescent.client.data.DONATE_URL
 import app.accrescent.client.data.SOURCE_CODE_URL
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
@@ -121,6 +122,20 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             },
         )
         SettingGroupLabel(stringResource(R.string.about), Modifier.padding(top = 16.dp))
+        Setting(
+            label = stringResource(R.string.donate),
+            description = stringResource(R.string.donate_desc),
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(DONATE_URL))
+                    if (intent.resolveActivity(context.packageManager) != null) {
+                        context.startActivity(intent)
+                    }
+                },
+        ) {
+            Icon(Icons.AutoMirrored.Rounded.OpenInNew, stringResource(R.string.open_link))
+        }
         Setting(
             label = stringResource(R.string.source_code),
             description = stringResource(R.string.source_code_desc),
