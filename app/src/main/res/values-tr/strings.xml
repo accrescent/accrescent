@@ -67,4 +67,6 @@
     <string name="enable">Etkinleştir</string>
     <string name="couldnt_open_appinfo">AppInfo açılamadı</string>
     <string name="installed_from_another_source">Başka bir kaynaktan kurulan uygulama</string>
+    <string name="donate">Bağış yap</string>
+    <string name="donate_desc">Accrescent\'i desteklemek için bağış yapın</string>
 </resources>
