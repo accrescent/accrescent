@@ -66,4 +66,7 @@
     <string name="enable">Activează</string>
     <string name="couldnt_open_appinfo">Nu s-a putut deschide AppInfo</string>
     <string name="no_description_provided">(fără descriere)</string>
+    <string name="donate">Donează</string>
+    <string name="donate_desc">Donează pentru a susține Accrescent</string>
+    <string name="installed_from_another_source">Aplicație instalată din altă sursă</string>
 </resources>
