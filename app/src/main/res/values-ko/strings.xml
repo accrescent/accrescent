@@ -66,4 +66,7 @@
     <string name="couldnt_open_appinfo">앱 정보를 열 수 없음</string>
     <string name="back_button">뒤로 가기</string>
     <string name="no_description_provided">(설명 제공 안함)</string>
+    <string name="donate">기부금</string>
+    <string name="donate_desc">Accrescent 지원을 위해 기부</string>
+    <string name="installed_from_another_source">다른 소스에서 설치된 앱</string>
 </resources>
