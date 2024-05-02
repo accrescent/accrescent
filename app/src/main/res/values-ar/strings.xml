@@ -66,4 +66,7 @@
     <string name="update_failure">فشل التحديث</string>
     <string name="back_button">رجوع</string>
     <string name="installed_from_another_source">ثبّت التطبيق من مصدر آخر</string>
+    <string name="update_success">حُدّث %1$s بنجاح.</string>
+    <string name="donate">تبرّع</string>
+    <string name="donate_desc">تبرّع لدعم Accrescent</string>
 </resources>
