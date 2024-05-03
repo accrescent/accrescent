@@ -67,4 +67,6 @@
     <string name="couldnt_open_appinfo">No se ha podido abrir AppInfo</string>
     <string name="no_description_provided">(sin descripción)</string>
     <string name="installed_from_another_source">Aplicación instalada desde otra fuente</string>
+    <string name="donate_desc">Done para apoyar a Accrescent</string>
+    <string name="donate">Donar</string>
 </resources>
