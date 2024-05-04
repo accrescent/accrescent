@@ -67,4 +67,6 @@
     <string name="back_button">Terug</string>
     <string name="no_description_provided">(geen beschrijving beschikbaar)</string>
     <string name="installed_from_another_source">App geïnstalleerd van andere bron</string>
+    <string name="donate">Doneren</string>
+    <string name="donate_desc">Doneer om Accrescent te steunen</string>
 </resources>
