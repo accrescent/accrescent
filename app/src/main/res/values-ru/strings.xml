@@ -67,4 +67,6 @@
     <string name="couldnt_open_appinfo">Невозможно открыть AppInfo</string>
     <string name="no_description_provided">(описание не было предоставлено)</string>
     <string name="installed_from_another_source">Приложение установлено из другого источника</string>
+    <string name="donate">Пожертвовать</string>
+    <string name="donate_desc">Внесите материальный вклад в разработку Accrescent</string>
 </resources>
