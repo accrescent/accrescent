@@ -66,4 +66,7 @@
     <string name="no_description_provided">(inga skildring er gjeven ut)</string>
     <string name="network_condition">Tillatne nettverk</string>
     <string name="installed_from_another_source">Appen er installert frå ei anna kjelde</string>
+    <string name="update_success">%1$s er no oppdatert.</string>
+    <string name="donate">Gje pengegåve</string>
+    <string name="donate_desc">Gje ei pengegåve til støtte for Accrescent</string>
 </resources>
