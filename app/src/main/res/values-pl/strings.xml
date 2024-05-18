@@ -66,4 +66,7 @@
     <string name="enable">Włącz</string>
     <string name="couldnt_open_appinfo">Nie można otworzyć AppInfo</string>
     <string name="no_description_provided">(bez opisu)</string>
+    <string name="donate">Wspomóż finansowo</string>
+    <string name="donate_desc">Przekaż wsparcie finansowe dla Accrescent</string>
+    <string name="installed_from_another_source">Aplikacje zainstalowane z innego źródła</string>
 </resources>
