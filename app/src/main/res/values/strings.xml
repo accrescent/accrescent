@@ -22,6 +22,7 @@
     <string name="source_code_desc">View Accrescent\'s source code</string>
     <string name="open_link">Open link</string>
     <string name="swipe_refresh">Swipe down to refresh</string>
+    <string name="swipe_refreshing">Refreshing content…</string>
     <string name="no_apps_installed">No apps installed</string>
     <string name="up_to_date">All apps are up-to-date</string>
     <string name="user_action_required">User action required</string>

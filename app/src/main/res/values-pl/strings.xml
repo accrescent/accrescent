@@ -24,6 +24,7 @@
     <string name="app_list">Aplikacje</string>
     <string name="install">Zainstaluj</string>
     <string name="swipe_refresh">Przeciągnij w dół, aby odświeżyć</string>
+    <string name="swipe_refreshing">Odświeżam zawartość…</string>
     <string name="app_verification_failed">Weryfikacja aplikacji nie powiodła się: %1$s</string>
     <string name="failed_download_files">Nie udało się pobrać niezbędnych plików: %1$s</string>
     <string name="version">Wersja: %1$s</string>

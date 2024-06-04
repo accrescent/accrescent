@@ -28,6 +28,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.LiveRegionMode
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.liveRegion
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -54,6 +58,7 @@ fun AppList(
         .sortedBy { it.name.lowercase().indexOf(searchQuery.lowercase()) }
 
     val refreshScope = rememberCoroutineScope()
+    val refreshingMessage = stringResource(R.string.swipe_refreshing)
     val state = rememberPullRefreshState(viewModel.isRefreshing, onRefresh = {
         refreshScope.launch {
             viewModel.refreshRepoData()
@@ -118,7 +123,16 @@ fun AppList(
         PullRefreshIndicator(
             refreshing = viewModel.isRefreshing,
             state = state,
-            modifier = Modifier.align(Alignment.TopCenter),
+            modifier = Modifier
+                .semantics {
+                    liveRegion = LiveRegionMode.Polite
+                    contentDescription = if (viewModel.isRefreshing) {
+                        refreshingMessage
+                    } else {
+                        ""
+                    }
+                }
+                .align(Alignment.TopCenter),
             backgroundColor = MaterialTheme.colorScheme.secondaryContainer,
             contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
         )
