@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.accrescent.bundletool)
     alias(libs.plugins.dagger)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
@@ -111,9 +112,6 @@ android {
     buildFeatures {
         buildConfig = true
         compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.12"
     }
 
     dependenciesInfo {
