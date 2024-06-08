@@ -52,14 +52,14 @@
     <string name="yes">Ja</string>
     <string name="no">Nee</string>
     <string name="updater">Bijwerken</string>
-    <string name="network_condition">Netwerkvoorwaarde</string>
+    <string name="network_condition">Netwerkbeperkingen</string>
     <string name="update_failure">Update mislukt</string>
     <string name="update_success">%1$s is bijgewerkt.</string>
     <string name="update_finished">Update voltooid</string>
     <string name="update_available">Update beschikbaar</string>
     <string name="automatic_updates_desc">Of apps automatisch moeten worden bijgewerkt. Toont in plaats daarvan een melding indien uitgeschakeld.</string>
     <string name="automatic_updates">Automatische updates</string>
-    <string name="any">Elke</string>
+    <string name="any">Elke netwerkverbinding</string>
     <string name="not_roaming">Geen roaming</string>
     <string name="unmetered">Onbeperkt</string>
     <string name="enable">Activeren</string>
