@@ -42,7 +42,7 @@
     <string name="open">Openen</string>
     <string name="no_apps_installed">Geen apps geïnstalleerd</string>
     <string name="failed_verify_repodata">Kan repodata niet verifiëren: %1$s</string>
-    <string name="swipe_refresh">Omlaag vegen om te verversen</string>
+    <string name="swipe_refresh">Omlaag vegen om te vernieuwen</string>
     <string name="about">Over</string>
     <string name="source_code">Broncode</string>
     <string name="source_code_desc">Accrescent\'s broncode weergegeven</string>
@@ -69,4 +69,5 @@
     <string name="installed_from_another_source">App geïnstalleerd van andere bron</string>
     <string name="donate">Doneren</string>
     <string name="donate_desc">Steun Accrescent met een donatie</string>
+    <string name="swipe_refreshing">Inhoud vernieuwen…</string>
 </resources>
