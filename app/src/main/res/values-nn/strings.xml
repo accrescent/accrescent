@@ -69,4 +69,5 @@
     <string name="update_success">%1$s er no oppdatert.</string>
     <string name="donate">Gje pengegåve</string>
     <string name="donate_desc">Gje ei pengegåve til støtte for Accrescent</string>
+    <string name="swipe_refreshing">Oppdaterer innhald …</string>
 </resources>
