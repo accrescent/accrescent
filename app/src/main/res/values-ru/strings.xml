@@ -69,4 +69,5 @@
     <string name="installed_from_another_source">Приложение установлено из другого источника</string>
     <string name="donate">Пожертвовать</string>
     <string name="donate_desc">Внесите материальный вклад в разработку Accrescent</string>
+    <string name="swipe_refreshing">Обновление контента…</string>
 </resources>
