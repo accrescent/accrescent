@@ -67,19 +67,16 @@ fun PackageManager.getPackageInstallStatus(appId: String, versionCode: Long?): I
         // This package is considered installed from another source if and only if all of the
         // following statements hold:
         //
-        // 1. The installer of record is not us
+        // 1. The installer of record is not Accrescent
         // 2. The installer of record is not null
-        // 3. Either the package is not us or the installer of record is not the system
-        //    PackageInstaller
+        // 3. The package is not Accrescent
         //
-        // Note that we don't consider ourself installed by another source if we are installed via
-        // the system PackageInstaller even though we do for other apps.
+        // Note that Accrescent never considers itself installed by another source. This behavior
+        // ensures that Accrescent is always responsible for updating itself.
         if (
             installerOfRecord != BuildConfig.APPLICATION_ID &&
             installerOfRecord != null &&
-            (pkgInfo.packageName != BuildConfig.APPLICATION_ID ||
-                    installerOfRecord != AOSP_PACKAGE_INSTALLER_APP_ID &&
-                    installerOfRecord != GOOGLE_PACKAGE_INSTALLER_APP_ID)
+            pkgInfo.packageName != BuildConfig.APPLICATION_ID
         ) {
             InstallStatus.INSTALLED_FROM_ANOTHER_SOURCE
         } else if (versionCode?.let { it > pkgInfo.longVersionCode } == true) {
