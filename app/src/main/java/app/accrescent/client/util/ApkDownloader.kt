@@ -3,7 +3,6 @@ package app.accrescent.client.util
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.pm.Signature
-import android.content.res.Resources
 import android.os.Build
 import android.util.DisplayMetrics
 import android.util.Log
@@ -18,6 +17,7 @@ import java.io.InvalidObjectException
 import java.net.URL
 import java.security.GeneralSecurityException
 import java.security.MessageDigest
+import java.util.Locale
 import javax.inject.Inject
 
 private const val TAG = "ApkDownloader"
@@ -99,7 +99,7 @@ class ApkDownloader @Inject constructor(
 
         // Opportunistically resolve language split
         if (appInfo.langSplits.isNotEmpty()) {
-            val deviceLang = Resources.getSystem().configuration.locales[0].language
+            val deviceLang = Locale.getDefault().language
             if (appInfo.langSplits.contains(deviceLang)) {
                 Log.d(TAG, "Preferred language: $deviceLang")
                 apkNames += "split.$deviceLang.apk"
