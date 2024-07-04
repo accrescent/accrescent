@@ -32,6 +32,9 @@ class PreferencesManager @Inject constructor(@ApplicationContext private val con
     val dynamicColor = data.map { preferences ->
         preferences[PreferencesKeys.DYNAMIC_COLOR] ?: false
     }
+    val theme = data.map { preferences ->
+        preferences[PreferencesKeys.THEME] ?: Theme.SYSTEM.name
+    }
     val automaticUpdates = data.map { preferences ->
         preferences[PreferencesKeys.AUTOMATIC_UPDATES] ?: true
     }
@@ -42,6 +45,12 @@ class PreferencesManager @Inject constructor(@ApplicationContext private val con
     suspend fun setDynamicColor(dynamicColor: Boolean) {
         context.dataStore.edit {
             it[PreferencesKeys.DYNAMIC_COLOR] = dynamicColor
+        }
+    }
+
+    suspend fun setTheme(theme: Theme) {
+        context.dataStore.edit {
+            it[PreferencesKeys.THEME] = theme.name
         }
     }
 
@@ -59,6 +68,7 @@ class PreferencesManager @Inject constructor(@ApplicationContext private val con
 
     private object PreferencesKeys {
         val DYNAMIC_COLOR = booleanPreferencesKey("dynamic_color")
+        val THEME = stringPreferencesKey("theme")
         val AUTOMATIC_UPDATES = booleanPreferencesKey("automatic_updates")
         val UPDATER_NETWORK_TYPE = stringPreferencesKey("updater_network_type")
     }

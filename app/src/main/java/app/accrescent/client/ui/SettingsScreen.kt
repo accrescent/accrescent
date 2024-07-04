@@ -48,6 +48,7 @@ import androidx.work.NetworkType
 import app.accrescent.client.R
 import app.accrescent.client.data.DONATE_URL
 import app.accrescent.client.data.SOURCE_CODE_URL
+import app.accrescent.client.data.Theme
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.launch
@@ -57,6 +58,7 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
     val dynamicColor by viewModel.dynamicColor.collectAsState(false)
+    val theme by viewModel.theme.collectAsState(Theme.SYSTEM.name)
     val automaticUpdates by viewModel.automaticUpdates.collectAsState(true)
     val networkType by viewModel.updaterNetworkType.collectAsState(NetworkType.CONNECTED.name)
 
@@ -65,8 +67,8 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             .padding(horizontal = 20.dp)
             .verticalScroll(rememberScrollState()),
     ) {
+        SettingGroupLabel(stringResource(R.string.customization), Modifier.padding(top = 16.dp))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            SettingGroupLabel(stringResource(R.string.customization), Modifier.padding(top = 16.dp))
             Setting(
                 label = stringResource(R.string.dynamic_color),
                 description = stringResource(R.string.dynamic_color_desc),
@@ -84,6 +86,16 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
                 )
             }
         }
+        val themeNames = persistentListOf("Dark", "Light", "System")
+        val themeValues = persistentListOf(Theme.DARK, Theme.LIGHT, Theme.SYSTEM)
+        ListPreference(
+            label = stringResource(R.string.theme),
+            entries = themeNames,
+            currentValueIndex = themeValues.indexOf(Theme.valueOf(theme)),
+            onSelectionChanged = {
+                coroutineScope.launch { viewModel.setTheme(themeValues[it]) }
+            }
+        )
         val networkTypeNames = persistentListOf(
             stringResource(R.string.any),
             stringResource(R.string.not_roaming),

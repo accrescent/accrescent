@@ -17,6 +17,7 @@ import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -55,6 +56,7 @@ import androidx.navigation.navDeepLink
 import app.accrescent.client.R
 import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.ROOT_DOMAIN
+import app.accrescent.client.data.Theme
 import app.accrescent.client.ui.common.SearchAppBar
 import app.accrescent.client.ui.theme.AccrescentTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -70,8 +72,16 @@ class MainActivity : ComponentActivity() {
         setContent {
             val viewModel: SettingsViewModel = hiltViewModel()
             val dynamicColor by viewModel.dynamicColor.collectAsState(false)
+            val theme by viewModel.theme.collectAsState(Theme.SYSTEM.name)
 
-            AccrescentTheme(dynamicColor = dynamicColor) {
+            AccrescentTheme(
+                dynamicColor = dynamicColor,
+                darkTheme = when (Theme.valueOf(theme)) {
+                    Theme.DARK -> true
+                    Theme.LIGHT -> false
+                    Theme.SYSTEM -> isSystemInDarkTheme()
+                }
+            ) {
                 MainContent(appId)
             }
         }
