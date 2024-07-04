@@ -70,4 +70,5 @@
     <string name="donate_desc">Done para apoyar a Accrescent</string>
     <string name="donate">Donar</string>
     <string name="swipe_refreshing">Refrescando el contenido…</string>
+    <string name="theme">Tema</string>
 </resources>
