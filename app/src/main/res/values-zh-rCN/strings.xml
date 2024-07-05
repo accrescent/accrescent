@@ -70,4 +70,5 @@
     <string name="donate">捐赠</string>
     <string name="donate_desc">捐赠支持 Accrescent</string>
     <string name="swipe_refreshing">正在刷新内容…</string>
+    <string name="theme">主题</string>
 </resources>
