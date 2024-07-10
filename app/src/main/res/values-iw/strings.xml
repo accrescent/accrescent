@@ -66,4 +66,9 @@
     <string name="enable">הפעלה</string>
     <string name="couldnt_open_appinfo">לא ניתן לפתוח את פרטי היישומון</string>
     <string name="no_description_provided">(לא סופק תיאור)</string>
+    <string name="installed_from_another_source">היישום הותקן ממקור אחר</string>
+    <string name="theme">ערכת עיצוב</string>
+    <string name="swipe_refreshing">התוכן מתרענן…</string>
+    <string name="donate">תרומה</string>
+    <string name="donate_desc">נא לתרום כדי לתמוך ב־Accrescent</string>
 </resources>
