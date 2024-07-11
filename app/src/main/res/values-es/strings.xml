@@ -68,7 +68,7 @@
     <string name="no_description_provided">(sin descripción)</string>
     <string name="installed_from_another_source">Aplicación instalada desde otra fuente</string>
     <string name="donate_desc">Done para apoyar a Accrescent</string>
-    <string name="donate">Donar</string>
+    <string name="donate">donar</string>
     <string name="swipe_refreshing">Refrescando el contenido…</string>
     <string name="theme">Tema</string>
 </resources>
