@@ -24,7 +24,7 @@
     <string name="unknown_host_error">Errore di host sconosciuto: %1$s</string>
     <string name="version">Versione: %1$s</string>
     <string name="version_code">Codice versione: %1$d</string>
-    <string name="device_abi_unsupported">l\'architettura del tuo dispositivo non è accettata</string>
+    <string name="device_abi_unsupported">l\'architettura del tuo dispositivo non è supportata</string>
     <string name="app_signer_mismatch">applicazione non firmata dai firmatari richiesti.
 \nPrevisto: %1$s</string>
     <string name="no_app_signers">nessun firmatario dell\'applicazione trovato.
@@ -33,15 +33,15 @@
     <string name="version_mismatch">prevista la versione %1$s, quella effettiva è %2$s</string>
     <string name="version_code_mismatch">previsto il codice versione %1$d, quello effettivo è %2$d</string>
     <string name="base_apk_not_valid">base.apk non è un APK valido</string>
-    <string name="sig_verify_failed">verifica della firma non riuscita</string>
+    <string name="sig_verify_failed">verifica della firma fallita</string>
     <string name="install_blocked">installazione bloccata dall\'amministratore</string>
     <string name="couldnt_open_app">Impossibile aprire l\'applicazione</string>
-    <string name="device_density_unsupported">la densità dello schermo del tuo dispositivo non è accettata</string>
+    <string name="device_density_unsupported">la densità dello schermo del tuo dispositivo non è supportata</string>
     <string name="app_id_mismatch">l\'ID %1$s dell\'applicazione non corrisponde all\'ID %2$s previsto</string>
     <string name="failed_verify_repodata">Impossibile verificare i dati del repository: %1$s</string>
     <string name="user_restriction">Errore di restrizione dell\'utente: %1$s</string>
     <string name="failed_decode_repodata">Impossibile decodificare i dati del repository: %1$s</string>
-    <string name="repodata_timestamp_less">timestamp dei dati del repository inferiore al valore salvato</string>
+    <string name="repodata_timestamp_less">marca temporale dei dati del repository inferiore al valore salvato</string>
     <string name="uninstall_blocked">disinstallazione bloccata dall\'amministratore</string>
     <string name="source_code">Codice sorgente</string>
     <string name="source_code_desc">Visualizza il codice sorgente di Accrescent</string>
@@ -52,16 +52,16 @@
     <string name="no">No</string>
     <string name="search">Cerca</string>
     <string name="any">Qualsiasi</string>
-    <string name="update_failure">Errore di aggiornamento</string>
+    <string name="update_failure">Aggiornamento fallito</string>
     <string name="update_available">Aggiornamento disponibile</string>
     <string name="updater">Aggiornamenti</string>
     <string name="network_condition">Stato della rete</string>
     <string name="not_roaming">Non in roaming</string>
     <string name="automatic_updates">Aggiornamenti automatici</string>
-    <string name="automatic_updates_desc">Se aggiornare automaticamente le app. Se disattivata, mostra una notifica.</string>
+    <string name="automatic_updates_desc">Se aggiornare automaticamente le app. Se disattivata, mostra solo una notifica.</string>
     <string name="unmetered">Non a consumo</string>
     <string name="update_finished">Aggiornamento completato</string>
-    <string name="update_success">%1$s è stato aggiornato con successo.</string>
+    <string name="update_success">%1$s è stato aggiornato correttamente.</string>
     <string name="back_button">Indietro</string>
     <string name="enable">Attiva</string>
     <string name="couldnt_open_appinfo">Impossibile aprire informazioni app</string>
