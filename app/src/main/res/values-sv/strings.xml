@@ -69,4 +69,6 @@
     <string name="donate">Donera</string>
     <string name="donate_desc">Donera för att stödja Accrescent</string>
     <string name="installed_from_another_source">App installerad från annan källa</string>
+    <string name="theme">Tema</string>
+    <string name="swipe_refreshing">Uppdaterar innehåll…</string>
 </resources>
