@@ -8,11 +8,19 @@
     <string name="uninstall">Sil</string>
     <string name="update">Yenilə</string>
     <string name="open">Açın</string>
-    <string name="customization">Quraşdırma</string>
-    <string name="dynamic_color">Dinamik rəng / Maddi Sən</string>
+    <string name="customization">Fərdiləşdirmə</string>
+    <string name="dynamic_color">Dinamikalı rəng / Material You</string>
     <string name="dynamic_color_desc">Tətbiqi Sistem rəng palitrası əsasında dizayn edin</string>
     <string name="device_density_unsupported">cihazınızın ekran sıxlığı dəstəklənmir</string>
     <string name="about">Haqqında</string>
     <string name="source_code">Mənbə kodu</string>
     <string name="source_code_desc">Accrescent-in mənbə koduna baxın</string>
+    <string name="installed_from_another_source">Tətbiq başqa mənbədən quraşdırılıb</string>
+    <string name="theme">Tema</string>
+    <string name="enable">Aktivləşdir</string>
+    <string name="back_button">Geri</string>
+    <string name="open_link">Bağlantını aç</string>
+    <string name="swipe_refresh">Yeniləmək üçün aşağı sürüşdür</string>
+    <string name="donate">İanə et</string>
+    <string name="donate_desc">Accrescent-ə dəstək üçün ianə et</string>
 </resources>
