@@ -60,7 +60,7 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
     val dynamicColor by viewModel.dynamicColor.collectAsState(false)
     val theme by viewModel.theme.collectAsState(Theme.SYSTEM.name)
     val automaticUpdates by viewModel.automaticUpdates.collectAsState(true)
-    val networkType by viewModel.updaterNetworkType.collectAsState(NetworkType.CONNECTED.name)
+    val networkType by viewModel.updaterNetworkType.collectAsState(NetworkType.UNMETERED.name)
 
     Column(
         modifier

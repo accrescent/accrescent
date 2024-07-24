@@ -39,7 +39,7 @@ class PreferencesManager @Inject constructor(@ApplicationContext private val con
         preferences[PreferencesKeys.AUTOMATIC_UPDATES] ?: true
     }
     val networkType = data.map { preferences ->
-        preferences[PreferencesKeys.UPDATER_NETWORK_TYPE] ?: NetworkType.CONNECTED.name
+        preferences[PreferencesKeys.UPDATER_NETWORK_TYPE] ?: NetworkType.UNMETERED.name
     }
 
     suspend fun setDynamicColor(dynamicColor: Boolean) {

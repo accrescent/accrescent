@@ -54,7 +54,7 @@ class Accrescent : Application(), Configuration.Provider {
 
         val networkType = runBlocking { preferencesManager.networkType.firstOrNull() }
             ?.let { NetworkType.valueOf(it) }
-            ?: NetworkType.CONNECTED
+            ?: NetworkType.UNMETERED
         RepositoryRefreshWorker.enqueue(applicationContext, networkType)
         AutoUpdateWorker.enqueue(applicationContext, networkType)
 
