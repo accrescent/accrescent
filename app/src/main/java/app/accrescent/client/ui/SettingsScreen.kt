@@ -86,7 +86,11 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
                 )
             }
         }
-        val themeNames = persistentListOf("Dark", "Light", "System")
+        val themeNames = persistentListOf(
+            stringResource(R.string.dark),
+            stringResource(R.string.light),
+            stringResource(R.string.system),
+        )
         val themeValues = persistentListOf(Theme.DARK, Theme.LIGHT, Theme.SYSTEM)
         ListPreference(
             label = stringResource(R.string.theme),
