@@ -168,7 +168,6 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.material)
     implementation(libs.navcompose)
-    implementation(libs.okhttp.brotli)
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
     implementation(libs.serialization)

@@ -8,7 +8,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Cache
 import okhttp3.OkHttpClient
-import okhttp3.brotli.BrotliInterceptor
 import java.io.File
 import javax.inject.Singleton
 
@@ -28,6 +27,5 @@ object OkHttpModule {
                 maxSize = CACHE_SIZE,
             )
         )
-        .addInterceptor(BrotliInterceptor)
         .build()
 }
