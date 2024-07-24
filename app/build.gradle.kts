@@ -87,6 +87,12 @@ android {
         }
     }
 
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+
     buildTypes {
         debug {
             applicationIdSuffix = ".dev"
