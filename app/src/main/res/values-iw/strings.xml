@@ -71,4 +71,7 @@
     <string name="swipe_refreshing">התוכן מתרענן…</string>
     <string name="donate">תרומה</string>
     <string name="donate_desc">נא לתרום כדי לתמוך ב־Accrescent</string>
+    <string name="light">בהיר</string>
+    <string name="system">כמו המערכת</string>
+    <string name="dark">כהה</string>
 </resources>
