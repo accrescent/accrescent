@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="no_app_signers">підписантів застосунку не знайдено.
-\nОчікується: %1$s</string>
-    <string name="app_signer_mismatch">застосунок не підписано необхідними підписантом(ами).
-\nОчікується: %1$s</string>
-    <string name="repodata_timestamp_less">мітка часу даних репозиторію менше збереженого значення</string>
+    <string name="no_app_signers">підписувачів застосунку не знайдено.
+\nОчікувалося: %1$s</string>
+    <string name="app_signer_mismatch">застосунок не підписано необхідним(-и) підписувачем(-ами).
+\nОчікувалося: %1$s</string>
+    <string name="repodata_timestamp_less">мітка часу даних репозиторію менше за збережене значення</string>
     <string name="app_list">Застосунки</string>
     <string name="installed">Встановлено</string>
     <string name="settings">Налаштування</string>
     <string name="install">Встановити</string>
     <string name="uninstall">Видалити</string>
     <string name="open">Відкрити</string>
-    <string name="customization">Кастомізація</string>
+    <string name="customization">Персоналізація</string>
     <string name="about">Про застосунок</string>
     <string name="source_code_desc">Перегляньте вихідний код Accrescent</string>
     <string name="no_apps_installed">Немає встановлених застосунків</string>
@@ -24,11 +24,11 @@
     <string name="failed_decode_repodata">Не вдалося декодувати дані репозиторію: %1$s</string>
     <string name="app_doesnt_support_device">Застосунок не підтримує ваш пристрій: %1$s</string>
     <string name="user_restriction">Помилка обмеження користувача: %1$s</string>
-    <string name="device_density_unsupported">щільність екрану вашого пристрою не підтримується</string>
+    <string name="device_density_unsupported">щільність екрана вашого пристрою не підтримується</string>
     <string name="device_abi_unsupported">архітектура вашого пристрою не підтримується</string>
     <string name="base_apk_not_valid">base.apk не є дійсним APK</string>
-    <string name="version_mismatch">очікувана версія %1$s, фактична - %2$s</string>
-    <string name="version_code_mismatch">очікуваний код версії %1$d, фактичний - %2$d</string>
+    <string name="version_mismatch">очікувана версія %1$s, фактична – %2$s</string>
+    <string name="version_code_mismatch">очікуваний код версії %1$d, фактичний – %2$d</string>
     <string name="yes">Так</string>
     <string name="no">Ні</string>
     <string name="app_updates">Оновлення</string>
@@ -47,8 +47,8 @@
     <string name="version_code">Код версії: %1$d</string>
     <string name="version_downgrade">версія %1$d менша за мінімальну %2$d</string>
     <string name="app_id_mismatch">ідентифікатор застосунку %1$s не відповідає очікуваному ідентифікатору %2$s</string>
-    <string name="sig_verify_failed">перевірка підпису не пройшла</string>
-    <string name="install_blocked">інсталяція заблокована адміністратором</string>
+    <string name="sig_verify_failed">не вдалося перевірити підпис</string>
+    <string name="install_blocked">встановлення заблоковане адміністратором</string>
     <string name="uninstall_blocked">видалення заблоковане адміністратором</string>
     <string name="search">Пошук</string>
     <string name="updater">Оновлювач</string>
@@ -57,13 +57,21 @@
     <string name="unmetered">Безліміт</string>
     <string name="any">Усі</string>
     <string name="automatic_updates">Автоматичні оновлення</string>
-    <string name="automatic_updates_desc">Чи оновлювати застосунки автоматично. Якщо вимкнено, показуватиме сповіщення.</string>
+    <string name="automatic_updates_desc">Чи оновлювати застосунки автоматично. Якщо вимкнено, замість цього відображатимуться сповіщення.</string>
     <string name="update_available">Доступне оновлення</string>
     <string name="update_finished">Оновлення завершено</string>
-    <string name="update_failure">Помилка оновлення</string>
+    <string name="update_failure">Не вдалося оновити</string>
     <string name="update_success">%1$s успішно оновлено.</string>
     <string name="back_button">Назад</string>
     <string name="enable">Увімкнути</string>
     <string name="couldnt_open_appinfo">Не вдалося відкрити AppInfo</string>
     <string name="no_description_provided">(опис не надано)</string>
+    <string name="installed_from_another_source">Застосунок встановлено з іншого джерела</string>
+    <string name="theme">Тема</string>
+    <string name="dark">Темна</string>
+    <string name="light">Світла</string>
+    <string name="system">Як у системі</string>
+    <string name="swipe_refreshing">Оновлення вмісту…</string>
+    <string name="donate">Пожертвувати</string>
+    <string name="donate_desc">Пожертвуйте, щоб підтримати Accrescent</string>
 </resources>
