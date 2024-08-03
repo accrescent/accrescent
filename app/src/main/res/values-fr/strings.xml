@@ -66,4 +66,11 @@
     <string name="couldnt_open_appinfo">Impossible d\'ouvrir AppInfo</string>
     <string name="enable">Activer</string>
     <string name="no_description_provided">(aucune description n\'a été fournie)</string>
+    <string name="installed_from_another_source">Appli installée depuis une autre source</string>
+    <string name="dark">Sombre</string>
+    <string name="light">Clair</string>
+    <string name="system">Système</string>
+    <string name="theme">Thème</string>
+    <string name="donate">Donner</string>
+    <string name="donate_desc">Donner pour soutenir Accrescent</string>
 </resources>
