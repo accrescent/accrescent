@@ -71,4 +71,7 @@
     <string name="donate_desc">Steun Accrescent met een donatie</string>
     <string name="swipe_refreshing">Inhoud vernieuwen…</string>
     <string name="theme">Thema</string>
+    <string name="dark">Donker</string>
+    <string name="light">Licht</string>
+    <string name="system">Systeem</string>
 </resources>
