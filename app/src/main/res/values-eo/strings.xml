@@ -70,5 +70,8 @@
     <string name="system">Sistema</string>
     <string name="theme">Etoso</string>
     <string name="light">Hela</string>
-    <string name="donate">Doni</string>
+    <string name="donate">Donaci</string>
+    <string name="swipe_refreshing">Refreŝigante enhavon…</string>
+    <string name="donate_desc">Donaci por subteni Accrescent</string>
+    <string name="installed_from_another_source">Aplikaĵo instaliti el alia deveno</string>
 </resources>
