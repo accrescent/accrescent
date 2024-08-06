@@ -73,4 +73,5 @@
     <string name="light">Hell</string>
     <string name="system">System</string>
     <string name="theme">Design</string>
+    <string name="swipe_refreshing">Inhalte werden aktualisiert…</string>
 </resources>
