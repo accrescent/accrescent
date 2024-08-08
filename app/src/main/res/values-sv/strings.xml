@@ -71,4 +71,7 @@
     <string name="installed_from_another_source">App installerad från annan källa</string>
     <string name="theme">Tema</string>
     <string name="swipe_refreshing">Uppdaterar innehåll…</string>
+    <string name="dark">Mörk</string>
+    <string name="light">Ljus</string>
+    <string name="system">System</string>
 </resources>
