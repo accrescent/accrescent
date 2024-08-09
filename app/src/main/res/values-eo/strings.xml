@@ -66,4 +66,12 @@
     <string name="unknown_host_error">Eraro de nekonita ĉefkomputilo: %1$s</string>
     <string name="app_id_mismatch">ID de la aplikaĵo %1$s ne kongruas kun la anticipita ID %2$s</string>
     <string name="no_description_provided">(neniu priskribo provizita)</string>
+    <string name="dark">Malhela</string>
+    <string name="system">Sistema</string>
+    <string name="theme">Etoso</string>
+    <string name="light">Hela</string>
+    <string name="donate">Donaci</string>
+    <string name="swipe_refreshing">Refreŝigante enhavon…</string>
+    <string name="donate_desc">Donaci por subteni Accrescent</string>
+    <string name="installed_from_another_source">Aplikaĵo instaliti el alia deveno</string>
 </resources>

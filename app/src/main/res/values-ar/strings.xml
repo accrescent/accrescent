@@ -71,4 +71,7 @@
     <string name="donate_desc">تبرّع لدعم Accrescent</string>
     <string name="swipe_refreshing">يحدّث المحتوى…</string>
     <string name="theme">السمة</string>
+    <string name="dark">داكن</string>
+    <string name="light">فاتح</string>
+    <string name="system">النظام</string>
 </resources>

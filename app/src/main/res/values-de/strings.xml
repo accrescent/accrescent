@@ -69,4 +69,9 @@
     <string name="donate">Spenden</string>
     <string name="donate_desc">Spenden zur Unterstützung von Accrescent</string>
     <string name="installed_from_another_source">Von einer anderen Quelle installierte App</string>
+    <string name="dark">Dunkel</string>
+    <string name="light">Hell</string>
+    <string name="system">System</string>
+    <string name="theme">Design</string>
+    <string name="swipe_refreshing">Inhalte werden aktualisiert…</string>
 </resources>
