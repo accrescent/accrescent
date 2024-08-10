@@ -66,4 +66,11 @@
     <string name="back_button">Voltar</string>
     <string name="enable">Habilitar</string>
     <string name="no_description_provided">(descrição indisponível )</string>
+    <string name="dark">Escuro</string>
+    <string name="theme">Tema</string>
+    <string name="light">Claro</string>
+    <string name="system">Sistema</string>
+    <string name="donate">Doação</string>
+    <string name="donate_desc">Contribua para apoiar o Accrescent</string>
+    <string name="installed_from_another_source">Aplicativo instalado de outra fonte</string>
 </resources>
