@@ -69,4 +69,8 @@
     <string name="donate">Contribuir</string>
     <string name="donate_desc">Contribuir para apoiar o Accrescent</string>
     <string name="installed_from_another_source">Aplicação instalada de outra fonte</string>
+    <string name="light">Claro</string>
+    <string name="system">Sistema</string>
+    <string name="dark">Escuro</string>
+    <string name="theme">Tema</string>
 </resources>
