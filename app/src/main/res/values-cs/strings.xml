@@ -66,4 +66,12 @@
     <string name="update_success">%1$s byly úspěšně aktualizovány.</string>
     <string name="enable">Povolit</string>
     <string name="no_description_provided">(nebyl uveden žádný popis)</string>
+    <string name="installed_from_another_source">Aplikace nainstalována z jiného zdroje</string>
+    <string name="dark">Tmavý</string>
+    <string name="light">Světlý</string>
+    <string name="system">Systém</string>
+    <string name="theme">Motiv</string>
+    <string name="swipe_refreshing">Aktualizace obsahu…</string>
+    <string name="donate">Přispět</string>
+    <string name="donate_desc">Přispět na vývoj Accrescent</string>
 </resources>
