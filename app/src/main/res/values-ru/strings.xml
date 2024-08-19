@@ -71,4 +71,7 @@
     <string name="donate_desc">Внесите материальный вклад в разработку Accrescent</string>
     <string name="swipe_refreshing">Обновление контента…</string>
     <string name="theme">Тема</string>
+    <string name="dark">Тёмная</string>
+    <string name="light">Светлая</string>
+    <string name="system">Системная</string>
 </resources>
