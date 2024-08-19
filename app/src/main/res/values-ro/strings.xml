@@ -71,4 +71,7 @@
     <string name="installed_from_another_source">Aplicație instalată din altă sursă</string>
     <string name="theme">Aspect</string>
     <string name="swipe_refreshing">Se actualizează conținutul…</string>
+    <string name="system">Sistem</string>
+    <string name="light">Luminos</string>
+    <string name="dark">Întunecos</string>
 </resources>
