@@ -18,7 +18,7 @@
     <string name="open">Megnyitás</string>
     <string name="about">Névjegy</string>
     <string name="open_link">Hivatkozás megnyitása</string>
-    <string name="swipe_refresh">A frissítéshez csúsztassa lefelé</string>
+    <string name="swipe_refresh">A frissítéshez húzza lefelé</string>
     <string name="swipe_refreshing">Tartalom frissítése…</string>
     <string name="no_apps_installed">Nincsenek telepített alkalmazások</string>
     <string name="up_to_date">Minden alkalmazás naprakész</string>
