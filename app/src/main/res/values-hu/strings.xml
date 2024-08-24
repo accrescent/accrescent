@@ -3,7 +3,7 @@
     <string name="device_abi_unsupported">az eszköz architektúrája nem támogatott</string>
     <string name="yes">Igen</string>
     <string name="no">Nem</string>
-    <string name="update_success">%1$s sikeresen frissítésre került.</string>
+    <string name="update_success">A(z) %1$s sikeresen frissítve lett.</string>
     <string name="dark">Sötét</string>
     <string name="installed">Telepített</string>
     <string name="donate_desc">Támogassa a fejlesztőket</string>
@@ -47,7 +47,7 @@
     <string name="unmetered">Méretlen</string>
     <string name="not_roaming">Barangolás nélküli</string>
     <string name="automatic_updates">Automatikus frissítések</string>
-    <string name="automatic_updates_desc">Függetlenül attól, hogy frissíti-e az alkalmazásokat automatikusan, megjelenít egy értesítést, akkor is ha le van tiltva.</string>
+    <string name="automatic_updates_desc">Függetlenül attól, hogy frissíti-e az alkalmazásokat automatikusan, akkor is megjelenít egy értesítést, ha le van tiltva.</string>
     <string name="update_finished">A frissítés befejeződött</string>
     <string name="update_failure">Frissítési hiba</string>
     <string name="update_available">Új frissítés érhető el</string>
