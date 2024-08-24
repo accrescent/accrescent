@@ -42,7 +42,7 @@
     <string name="uninstall_blocked">az eltávolítás letiltva az admin által</string>
     <string name="search">Keresés</string>
     <string name="updater">Frissítő</string>
-    <string name="network_condition">Hálózatállapot</string>
+    <string name="network_condition">A hálózat állapota</string>
     <string name="any">Bármely</string>
     <string name="unmetered">Méretlen</string>
     <string name="not_roaming">Barangolás nélküli</string>
