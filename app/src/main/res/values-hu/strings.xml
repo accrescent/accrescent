@@ -56,7 +56,7 @@
 \nVárt aláírás: %1$s</string>
     <string name="no_app_signers">nem található alkalmazás-aláíró.
 \nVárt aláírás: %1$s</string>
-    <string name="app_id_mismatch">A %1$s alkalmazásazonosító nem egyezik a várt %2$s azonosítóval</string>
+    <string name="app_id_mismatch">a(z) %1$s alkalmazásazonosító nem egyezik a várt %2$s azonosítóval</string>
     <string name="version_mismatch">várható verzió %1$s, a tényleges %2$s</string>
     <string name="version_code_mismatch">várható verziókód: %1$d, a tényleges %2$d</string>
     <string name="back_button">Vissza</string>
