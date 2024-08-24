@@ -51,7 +51,7 @@
     <string name="update_finished">A frissítés befejeződött</string>
     <string name="update_failure">Frissítési hiba</string>
     <string name="update_available">Frissítés elérhető</string>
-    <string name="device_density_unsupported">Az eszköz képernyőfelbontása nem támogatott</string>
+    <string name="device_density_unsupported">az eszköz képernyőfelbontása nem támogatott</string>
     <string name="app_signer_mismatch">az alkalmazást nem írták alá a szükséges aláíró(k).
 \nVárható: %1$s</string>
     <string name="no_app_signers">nem található alkalmazás-aláíró.
