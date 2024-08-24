@@ -36,7 +36,7 @@
     <string name="user_restriction">Felhasználói korlátozás hiba: %1$s</string>
     <string name="version">Verzió: %1$s</string>
     <string name="version_code">Verziókód: %1$d</string>
-    <string name="base_apk_not_valid">A base.apk nem érvényes APK</string>
+    <string name="base_apk_not_valid">a base.apk nem egy érvényes APK</string>
     <string name="sig_verify_failed">az aláírás ellenőrzése sikertelen</string>
     <string name="install_blocked">a telepítés letiltva az admin által</string>
     <string name="uninstall_blocked">az eltávolítás letiltva az admin által</string>
