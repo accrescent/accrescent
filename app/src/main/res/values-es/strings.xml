@@ -27,7 +27,7 @@
     <string name="failed_download_repodata">Fallo en la descarga de datos del repositorio: %1$s</string>
     <string name="failed_verify_repodata">Fallo al verificar los datos del repositorio: %1$s</string>
     <string name="failed_decode_repodata">Fallo en la decodificación de los datos del repositorio: %1$s</string>
-    <string name="repodata_timestamp_less">la marca del tiempo repodata es menor a el valor guardado</string>
+    <string name="repodata_timestamp_less">la marca del tiempo \"repodata\" es menor al valor guardado</string>
     <string name="sig_verify_failed">la verificacion de firma(s) ha fallado</string>
     <string name="install_blocked">instalación bloqueada por el admin</string>
     <string name="uninstall_blocked">desinstalación bloqueada por el administrador</string>
