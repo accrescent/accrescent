@@ -52,8 +52,8 @@
     <string name="update_failure">Frissítési hiba</string>
     <string name="update_available">Frissítés elérhető</string>
     <string name="device_density_unsupported">az eszköz képernyőfelbontása nem támogatott</string>
-    <string name="app_signer_mismatch">az alkalmazást nem írták alá a szükséges aláíró(k).
-\nVárható: %1$s</string>
+    <string name="app_signer_mismatch">az alkalmazást nem írta(\'k) alá a szükséges aláíró(k).
+\nVárt aláírás: %1$s</string>
     <string name="no_app_signers">nem található alkalmazás-aláíró.
 \nVárható: %1$s</string>
     <string name="app_id_mismatch">A %1$s alkalmazásazonosító nem egyezik a várt %2$s azonosítóval</string>
