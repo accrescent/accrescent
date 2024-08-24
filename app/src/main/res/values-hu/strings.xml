@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="device_abi_unsupported">Az eszköz architektúrája nem támogatott</string>
+    <string name="device_abi_unsupported">az eszköz architektúrája nem támogatott</string>
     <string name="yes">Igen</string>
     <string name="no">Nem</string>
     <string name="update_success">%1$s sikeresen frissítésre került.</string>
