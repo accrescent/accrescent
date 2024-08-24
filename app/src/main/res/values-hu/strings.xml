@@ -47,7 +47,7 @@
     <string name="unmetered">Méretlen</string>
     <string name="not_roaming">Barangolás nélküli</string>
     <string name="automatic_updates">Automatikus frissítések</string>
-    <string name="automatic_updates_desc">Az alkalmazások automatikus frissítése. Helyette értesítést jelenít meg, ha le van tiltva.</string>
+    <string name="automatic_updates_desc">Függetlenül attól, hogy frissíti-e az alkalmazásokat automatikusan, megjelenít egy értesítést, akkor is ha le van tiltva.</string>
     <string name="update_finished">A frissítés befejeződött</string>
     <string name="update_failure">Frissítési hiba</string>
     <string name="update_available">Frissítés elérhető</string>
