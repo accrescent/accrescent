@@ -50,7 +50,7 @@
     <string name="automatic_updates_desc">Függetlenül attól, hogy frissíti-e az alkalmazásokat automatikusan, megjelenít egy értesítést, akkor is ha le van tiltva.</string>
     <string name="update_finished">A frissítés befejeződött</string>
     <string name="update_failure">Frissítési hiba</string>
-    <string name="update_available">Frissítés elérhető</string>
+    <string name="update_available">Új frissítés érhető el</string>
     <string name="device_density_unsupported">az eszköz képernyőfelbontása nem támogatott</string>
     <string name="app_signer_mismatch">az alkalmazást nem írta(\'k) alá a szükséges aláíró(k).
 \nVárt aláírás: %1$s</string>
