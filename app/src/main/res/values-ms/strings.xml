@@ -65,4 +65,13 @@
     <string name="back_button">Kembali</string>
     <string name="couldnt_open_appinfo">Tidak boleh buka aplikasi</string>
     <string name="enable">Aktifkan</string>
+    <string name="theme">Tema</string>
+    <string name="no_description_provided">(tiada penerangan diberikan)</string>
+    <string name="dark">Gelap</string>
+    <string name="light">Terang</string>
+    <string name="system">Sistem</string>
+    <string name="swipe_refreshing">Menyegarkan konten…</string>
+    <string name="donate">Derma</string>
+    <string name="donate_desc">Derma untuk menyokong Accrescent</string>
+    <string name="installed_from_another_source">Aplikasi dipasang dari sumber lain</string>
 </resources>
