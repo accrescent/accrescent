@@ -69,4 +69,9 @@
     <string name="donate">기부금</string>
     <string name="donate_desc">Accrescent 지원을 위해 기부</string>
     <string name="installed_from_another_source">다른 소스에서 설치된 앱</string>
+    <string name="light">밝음</string>
+    <string name="theme">테마</string>
+    <string name="swipe_refreshing">새로고침 콘텐츠…</string>
+    <string name="dark">어두움</string>
+    <string name="system">시스템</string>
 </resources>
