@@ -44,8 +44,8 @@
     <string name="updater">Frissítő</string>
     <string name="network_condition">A hálózat állapota</string>
     <string name="any">Bármely</string>
-    <string name="unmetered">Méretlen</string>
-    <string name="not_roaming">Barangolás nélküli</string>
+    <string name="unmetered">Nem forgalomkorlátos</string>
+    <string name="not_roaming">Nem barangoló</string>
     <string name="automatic_updates">Automatikus frissítések</string>
     <string name="automatic_updates_desc">Függetlenül attól, hogy frissíti-e az alkalmazásokat automatikusan, akkor is megjelenít egy értesítést, ha le van tiltva.</string>
     <string name="update_finished">A frissítés befejeződött</string>
