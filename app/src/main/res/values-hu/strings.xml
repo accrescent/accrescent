@@ -6,7 +6,7 @@
     <string name="update_success">A(z) %1$s sikeresen frissítve lett.</string>
     <string name="dark">Sötét</string>
     <string name="installed">Telepített</string>
-    <string name="donate_desc">Támogassa a fejlesztőket</string>
+    <string name="donate_desc">Adományával támogassa a fejlesztőket</string>
     <string name="installed_from_another_source">Más forrásból telepített alkalmazás</string>
     <string name="light">Világos</string>
     <string name="system">Rendszer</string>
@@ -62,7 +62,7 @@
     <string name="back_button">Vissza</string>
     <string name="no_description_provided">(nincs leírás)</string>
     <string name="app_list">Alkalmazások</string>
-    <string name="donate">Támogatás</string>
+    <string name="donate">Adományozás</string>
     <string name="theme">Téma</string>
     <string name="settings">Beállítások</string>
     <string name="customization">Testreszabás</string>
