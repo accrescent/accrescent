@@ -4,18 +4,17 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.selection.toggleable
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.OpenInNew
@@ -35,6 +34,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -63,28 +63,21 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
     val networkType by viewModel.updaterNetworkType.collectAsState(NetworkType.UNMETERED.name)
 
     Column(
-        modifier
-            .padding(horizontal = 20.dp)
+        modifier = modifier
+            .padding(horizontal = 8.dp)
             .verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         SettingGroupLabel(stringResource(R.string.customization), Modifier.padding(top = 16.dp))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            Setting(
+            SwitchSetting(
+                checked = dynamicColor,
                 label = stringResource(R.string.dynamic_color),
                 description = stringResource(R.string.dynamic_color_desc),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .toggleable(
-                        value = dynamicColor,
-                        role = Role.Switch,
-                        onValueChange = { coroutineScope.launch { viewModel.setDynamicColor(it) } }
-                    )
-            ) {
-                Switch(
-                    checked = dynamicColor,
-                    onCheckedChange = null,
-                )
-            }
+                onValueChange = {
+                    coroutineScope.launch { viewModel.setDynamicColor(it) }
+                },
+            )
         }
         val themeNames = persistentListOf(
             stringResource(R.string.dark),
@@ -112,22 +105,14 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
         )
         SettingGroupLabel(stringResource(R.string.updater), Modifier.padding(top = 16.dp))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            Setting(
+            SwitchSetting(
+                checked = automaticUpdates,
                 label = stringResource(R.string.automatic_updates),
                 description = stringResource(R.string.automatic_updates_desc),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .toggleable(
-                        value = automaticUpdates,
-                        role = Role.Switch,
-                        onValueChange = { coroutineScope.launch { viewModel.setAutomaticUpdates(it) } }
-                    )
-            ) {
-                Switch(
-                    checked = automaticUpdates,
-                    onCheckedChange = null,
-                )
-            }
+                onValueChange = {
+                    coroutineScope.launch { viewModel.setAutomaticUpdates(it) }
+                },
+            )
         }
         ListPreference(
             label = stringResource(R.string.network_condition),
@@ -138,31 +123,27 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             },
         )
         SettingGroupLabel(stringResource(R.string.about), Modifier.padding(top = 16.dp))
-        Setting(
+        ButtonSetting(
             label = stringResource(R.string.donate),
             description = stringResource(R.string.donate_desc),
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(DONATE_URL))
-                    if (intent.resolveActivity(context.packageManager) != null) {
-                        context.startActivity(intent)
-                    }
-                },
+            onClick = {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(DONATE_URL))
+                if (intent.resolveActivity(context.packageManager) != null) {
+                    context.startActivity(intent)
+                }
+            }
         ) {
             Icon(Icons.AutoMirrored.Rounded.OpenInNew, stringResource(R.string.open_link))
         }
-        Setting(
+        ButtonSetting(
             label = stringResource(R.string.source_code),
             description = stringResource(R.string.source_code_desc),
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_CODE_URL))
-                    if (intent.resolveActivity(context.packageManager) != null) {
-                        context.startActivity(intent)
-                    }
-                },
+            onClick = {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_CODE_URL))
+                if (intent.resolveActivity(context.packageManager) != null) {
+                    context.startActivity(intent)
+                }
+            },
         ) {
             Icon(Icons.AutoMirrored.Rounded.OpenInNew, stringResource(R.string.open_link))
         }
@@ -173,19 +154,20 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
 fun SettingGroupLabel(text: String, modifier: Modifier = Modifier) {
     Text(
         text = text,
-        modifier = modifier.semantics { heading() },
+        modifier = modifier
+            .semantics { heading() }
+            .padding(horizontal = 8.dp),
         color = MaterialTheme.colorScheme.primary,
         style = MaterialTheme.typography.labelLarge,
     )
 }
 
 @Composable
-fun Setting(
+private fun Setting(
     label: String,
     description: String,
     modifier: Modifier = Modifier,
-    fillMaxWidth: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     Row(
         modifier = modifier,
@@ -193,14 +175,72 @@ fun Setting(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(
-            modifier = (if (fillMaxWidth) Modifier.fillMaxWidth() else Modifier.width(228.dp))
-                .padding(vertical = 16.dp)
+            modifier = Modifier
+                .padding(end = 8.dp)
+                .weight(1f),
         ) {
             Text(label, fontWeight = FontWeight.Bold)
             Text(description, style = MaterialTheme.typography.bodyMedium, lineHeight = 16.sp)
         }
         content()
     }
+}
+
+/**
+ * Modifier that wraps the existing Modifier with padding and rounded corners.
+ *
+ * @return A [Modifier] that adds padding and rounded corners to a composable.
+ */
+private fun Modifier.rounded(): Modifier =
+    clip(RoundedCornerShape(8.dp))
+        .then(this)
+        .padding(8.dp)
+
+@Composable
+fun SwitchSetting(
+    label: String,
+    description: String,
+    checked: Boolean,
+    onValueChange: (Boolean) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Setting(
+        modifier = modifier
+            .toggleable(
+                value = checked,
+                onValueChange = onValueChange,
+                role = Role.Switch,
+            )
+            .rounded(),
+        label = label,
+        description = description,
+    ) {
+        Switch(
+            checked = checked,
+            onCheckedChange = null,
+        )
+    }
+}
+
+@Composable
+fun ButtonSetting(
+    label: String,
+    description: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit,
+) {
+    Setting(
+        modifier = modifier
+            .clickable(
+                onClick = onClick,
+                role = Role.Button,
+            )
+            .rounded(),
+        label = label,
+        description = description,
+        content = content,
+    )
 }
 
 @Composable
@@ -211,14 +251,13 @@ fun RadioListItem(
     onClick: () -> Unit = {},
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .selectable(
                 selected = selected,
                 onClick = onClick,
                 role = Role.RadioButton
             )
-            .padding(vertical = 12.dp)
-            .then(modifier),
+            .rounded(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
@@ -240,20 +279,15 @@ fun ListPreference(
     modifier: Modifier = Modifier,
     onSelectionChanged: (index: Int) -> Unit,
 ) {
-    val interactionSource = remember { MutableInteractionSource() }
     var showDialog by remember {
         mutableStateOf(false)
     }
 
-    Setting(
+    ButtonSetting(
+        modifier = modifier,
         label = label,
         description = entries[currentValueIndex],
-        modifier = modifier
-            .clickable(
-                interactionSource = interactionSource,
-                indication = null,
-            ) { showDialog = true },
-        fillMaxWidth = true,
+        onClick = { showDialog = true },
     ) {
         if (showDialog) {
             AlertDialog(
