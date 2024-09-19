@@ -12,10 +12,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -266,8 +265,8 @@ fun ListPreference(
                 },
                 title = { Text(label) },
                 text = {
-                    LazyColumn {
-                        itemsIndexed(entries) { index, entry ->
+                    Column (modifier = Modifier.selectableGroup()) {
+                        entries.forEachIndexed { index, entry ->
                             RadioListItem(
                                 modifier = Modifier.fillMaxWidth(),
                                 text = entry,
