@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -212,7 +213,11 @@ fun RadioListItem(
 ) {
     Row(
         modifier = Modifier
-            .clickable { onClick() }
+            .selectable(
+                selected = selected,
+                onClick = onClick,
+                role = Role.RadioButton
+            )
             .padding(vertical = 12.dp)
             .then(modifier),
         verticalAlignment = Alignment.CenterVertically,
