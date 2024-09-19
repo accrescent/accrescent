@@ -11,9 +11,6 @@ import android.os.Build
 import app.accrescent.client.BuildConfig
 import app.accrescent.client.data.InstallStatus
 
-private const val AOSP_PACKAGE_INSTALLER_APP_ID = "com.android.packageinstaller"
-private const val GOOGLE_PACKAGE_INSTALLER_APP_ID = "com.google.android.packageinstaller"
-
 fun Context.registerReceiverNotExported(receiver: BroadcastReceiver, filter: IntentFilter) {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
         @Suppress("UnspecifiedRegisterReceiverFlag")
