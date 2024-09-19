@@ -1,6 +1,6 @@
 [versions]
 activity-compose = "1.9.1"
-agp = "8.5.2"
+agp = "8.6.1"
 bouncycastle = "1.78.1"
 bundletool-plugin = "0.2.4"
 coil = "2.7.0"
