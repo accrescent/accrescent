@@ -78,7 +78,7 @@ fun PackageManager.getPackageInstallStatus(appId: String, versionCode: Long?): I
             InstallStatus.INSTALLED_FROM_ANOTHER_SOURCE
         } else if (versionCode?.let { it > pkgInfo.longVersionCode } == true) {
             InstallStatus.UPDATABLE
-        } else if (!pkgInfo.applicationInfo.enabled) {
+        } else if (pkgInfo.applicationInfo?.enabled == false) {
             InstallStatus.DISABLED
         } else {
             InstallStatus.INSTALLED

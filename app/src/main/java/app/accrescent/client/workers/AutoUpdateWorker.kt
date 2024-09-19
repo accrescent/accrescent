@@ -74,8 +74,9 @@ class AutoUpdateWorker @AssistedInject constructor(
     private fun showUpdateNotification(index: Int, packageInfo: PackageInfo, repoData: AppRepoData) {
         val notificationManager = applicationContext.getSystemService<NotificationManager>()!!
 
-        val packageLabel = applicationContext.packageManager
-            .getApplicationLabel(packageInfo.applicationInfo)
+        val packageLabel = packageInfo.applicationInfo
+            ?.let { applicationContext.packageManager.getApplicationLabel(it) }
+            ?: packageInfo.packageName
         val pendingIntent = NotificationUtil
             .createPendingIntentForAppId(applicationContext, packageInfo.packageName)
         val notification = NotificationCompat.Builder(applicationContext, UPDATE_AVAILABLE_CHANNEL)
