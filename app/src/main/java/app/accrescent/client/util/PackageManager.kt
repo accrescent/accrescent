@@ -32,11 +32,12 @@ class PackageManager @Inject constructor(
         appId: String,
         onProgressUpdate: (DownloadProgress) -> Unit = {},
         onDownloadComplete: () -> Unit = {},
+        unarchiveId: Int? = null,
     ) {
         withContext(dispatcher) {
             val apks = apkDownloader.downloadApp(appId, onProgressUpdate)
             onDownloadComplete()
-            installApp(apks)
+            installApp(apks, unarchiveId)
         }
     }
 
@@ -58,7 +59,7 @@ class PackageManager @Inject constructor(
         context.packageManager.packageInstaller.uninstall(appId, pendingIntent.intentSender)
     }
 
-    private fun installApp(apks: List<Apk>) {
+    private fun installApp(apks: List<Apk>, unarchiveId: Int?) {
         val um = context.getSystemService(UserManager::class.java)
         val installBlockedByAdmin =
             um.hasUserRestriction(UserManager.DISALLOW_INSTALL_APPS) ||
@@ -84,6 +85,9 @@ class PackageManager @Inject constructor(
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
             sessionParams.setRequestUpdateOwnership(true)
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM && unarchiveId != null) {
+            sessionParams.setUnarchiveId(unarchiveId)
         }
         val sessionId = packageInstaller.createSession(sessionParams)
         val session = packageInstaller.openSession(sessionId)

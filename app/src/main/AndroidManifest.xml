@@ -73,5 +73,13 @@
         <receiver
             android:name=".receivers.AppUninstallBroadcastReceiver"
             android:exported="false" />
+
+        <receiver
+            android:name=".receivers.AppUnarchiveBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.UNARCHIVE_PACKAGE" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>
