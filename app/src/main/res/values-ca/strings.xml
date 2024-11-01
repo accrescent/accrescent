@@ -1,2 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="open">Obre</string>
+    <string name="customization">Personalització</string>
+    <string name="dynamic_color">Color dinàmic / Material You</string>
+    <string name="user_action_required">Acció de l\'usuari requerida</string>
+    <string name="couldnt_open_appinfo">No s\'ha pogut obrir AppInfo</string>
+    <string name="network_error">Error de xarxa: %1$s</string>
+    <string name="app_verification_failed">Ha fallat la verificació de l\'aplicació: %1$s</string>
+    <string name="failed_download_files">Error en descarregar els arxius necessaris: %1$s</string>
+    <string name="failed_download_repodata">Error en descarregar les dades del repositori: %1$s</string>
+    <string name="unknown_host_error">Error d\'amfitrió desconegut: %1$s</string>
+    <string name="version">Versió: %1$s</string>
+    <string name="version_code">Codi de versió: %1$d</string>
+    <string name="app_list">Aplicacions</string>
+    <string name="dark">Fosc</string>
+    <string name="settings">Paràmetres</string>
+    <string name="donate">Dona</string>
+    <string name="donate_desc">Dona suport Accrescent</string>
+    <string name="installed">Instal·lat</string>
+    <string name="installed_from_another_source">Aplicació instal·lada des d\'una altra font</string>
+    <string name="light">Clar</string>
+    <string name="app_updates">Actualitzacions</string>
+    <string name="enable">Activa</string>
+    <string name="system">Sistema</string>
+    <string name="install">Instal·la</string>
+    <string name="theme">Tema</string>
+    <string name="update">Actualitza</string>
+    <string name="uninstall">Desinstal·la</string>
+    <string name="about">Quant a</string>
+    <string name="source_code">Codi font</string>
+    <string name="source_code_desc">Veure el codi de font de Accrescent</string>
+    <string name="open_link">Obre l\'enllaç</string>
+    <string name="swipe_refresh">Llisca cap avall per refrescar</string>
+    <string name="swipe_refreshing">Actualitzant el contingut…</string>
+    <string name="no_apps_installed">No hi ha aplicacions instal·lades</string>
+    <string name="up_to_date">Totes les aplicacions estan actualitzades</string>
+    <string name="cant_find_app">Disculpa, no hem pogut trobar aquesta app</string>
+    <string name="couldnt_open_app">No es pot obrir l\'aplicació</string>
+</resources>
