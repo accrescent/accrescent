@@ -59,7 +59,7 @@
     <string name="any">Alle</string>
     <string name="automatic_updates">Automatische Updates</string>
     <string name="updater">Updater</string>
-    <string name="unmetered">Unbegrenzt</string>
+    <string name="unmetered">Nur Unbegrenzt</string>
     <string name="network_condition">Netzwerkbedingung</string>
     <string name="not_roaming">Kein Roaming</string>
     <string name="back_button">Zurück</string>
