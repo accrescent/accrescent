@@ -44,7 +44,7 @@
     <string name="unknown_host_error">அறியப்படாத தொகுப்பாளர் பிழை: %1$s</string>
     <string name="app_signer_mismatch">செயலியை தேவையான கையொப்பமிடுபவர்(கள்) மூலம் கையொப்பமிடப்படவில்லை.
 \nஎதிர்பார்க்கப்படுகிறது: %1$s</string>
-    <string name="version_downgrade">பதிப்பு %1$d குறைந்தபட்சத்தை %2$d விடக் குறைவாக உள்ளது</string>
+    <string name="version_downgrade">பதிப்பு %1$d குறைந்தபட்சம் %2$d ஐ விடக் குறைவாக உள்ளது</string>
     <string name="app_id_mismatch">செயலியின் ஐடி %1$s எதிர்பார்க்கப்படும் ஐடி %2$s உடன் பொருந்தவில்லை</string>
     <string name="version_mismatch">எதிர்பார்க்கப்படும் பதிப்பு %1$s, உண்மையானது %2$s</string>
     <string name="base_apk_not_valid">base.apk சரியான APK அல்ல</string>
