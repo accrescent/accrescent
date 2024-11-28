@@ -51,4 +51,27 @@
     <string name="repodata_timestamp_less">செமலியின் நேர முத்திரை சேமிக்கப்பட்ட மதிப்பை விட குறைவாக உள்ளது</string>
     <string name="failed_download_repodata">களஞ்சியத்தை பதிவிறக்குவதில் தோல்வி: %1$s</string>
     <string name="search">தேடல்</string>
+    <string name="no_description_provided">(எந்த விளக்கமும் வழங்கப்படவில்லை)</string>
+    <string name="theme">கருப்பொருள்</string>
+    <string name="update_available">புதுப்பிப்பு கிடைக்கிறது</string>
+    <string name="donate_desc">திரட்டலை ஆதரிக்க நன்கொடை</string>
+    <string name="installed_from_another_source">பயன்பாடு மற்றொரு மூலத்திலிருந்து நிறுவப்பட்டுள்ளது</string>
+    <string name="enable">இயக்கு</string>
+    <string name="unmetered">அளவிடப்படாதது</string>
+    <string name="not_roaming">ரோமிங் அல்ல</string>
+    <string name="automatic_updates">தானியங்கி புதுப்பிப்புகள்</string>
+    <string name="update_failure">புதுப்பிப்பு தோல்வி</string>
+    <string name="back_button">பின்</string>
+    <string name="update_success">%1$s வெற்றிகரமாகப் புதுப்பிக்கப்பட்டுள்ளது.</string>
+    <string name="couldnt_open_appinfo">அப்பின்ஃபோவை திறக்க முடியவில்லை</string>
+    <string name="updater">புதுப்பிப்பவர்</string>
+    <string name="network_condition">பிணைய நிலை</string>
+    <string name="any">ஏதேனும்</string>
+    <string name="dark">இருண்ட</string>
+    <string name="light">ஒளி</string>
+    <string name="system">மண்டலம்</string>
+    <string name="swipe_refreshing">புத்துணர்ச்சியூட்டும் உள்ளடக்கம்…</string>
+    <string name="automatic_updates_desc">பயன்பாடுகளை தானாக புதுப்பிக்க வேண்டுமா. முடக்கப்பட்டால் அதற்கு பதிலாக ஒரு அறிவிப்பைக் காட்டுகிறது.</string>
+    <string name="update_finished">புதுப்பிப்பு முடிந்தது</string>
+    <string name="donate">நன்கொடை</string>
 </resources>
