@@ -44,4 +44,13 @@
     <string name="not_roaming">അലയല്‍ അല്ല</string>
     <string name="user_restriction">ഉപയോക്തൃ നിയന്ത്രണ പിശക്: %1$s</string>
     <string name="enable">സജ്ജമാക്കുക</string>
+    <string name="swipe_refreshing">ഉള്ളടക്കം പുതുക്കുന്നു…</string>
+    <string name="couldnt_open_appinfo">പ്രയോഗ വിവരം തുറക്കാൻ കഴിഞ്ഞില്ല</string>
+    <string name="no_description_provided">(വിവരണം നൽകിയിട്ടില്ല)</string>
+    <string name="back_button">തിരികെ</string>
+    <string name="system">സംവിധാനം</string>
+    <string name="version_code">പതിപ്പ് ചട്ടം: %1$d</string>
+    <string name="app_id_mismatch">പ്രയോഗ തിരിച്ചറിയൽ %1$s പ്രതീക്ഷിക്കുന്ന തിരിച്ചറിയൽ %2$s-മായി പൊരുത്തപ്പെടുന്നില്ല</string>
+    <string name="donate">സംഭാവന ചെയ്യുക</string>
+    <string name="donate_desc">അക്രെസെൻ്റിനെ പിന്തുണയ്ക്കാൻ സംഭാവന നൽകുക</string>
 </resources>
