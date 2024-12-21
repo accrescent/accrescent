@@ -53,4 +53,9 @@
     <string name="app_id_mismatch">പ്രയോഗ തിരിച്ചറിയൽ %1$s പ്രതീക്ഷിക്കുന്ന തിരിച്ചറിയൽ %2$s-മായി പൊരുത്തപ്പെടുന്നില്ല</string>
     <string name="donate">സംഭാവന ചെയ്യുക</string>
     <string name="donate_desc">അക്രെസെൻ്റിനെ പിന്തുണയ്ക്കാൻ സംഭാവന നൽകുക</string>
+    <string name="installed_from_another_source">പ്രയോഗം സ്ഥാപിച്ചത് മറ്റൊരു ഉറവിടത്തിൽ നിന്നാണ്</string>
+    <string name="failed_download_files">ആവശ്യമായ രേഖകൾ ഇറക്കി വെക്കുന്നതിൽ പരാജയപ്പെട്ടു: %1$s</string>
+    <string name="dark">ഇരുട്ട്</string>
+    <string name="light">വെളിച്ചം</string>
+    <string name="theme">പ്രതിപാദ്യം</string>
 </resources>
