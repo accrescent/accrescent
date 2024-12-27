@@ -63,9 +63,9 @@
     <string name="update_failure">Échec de la mise à jour</string>
     <string name="update_success">%1$s a été mis à jour avec succès.</string>
     <string name="back_button">Retour</string>
-    <string name="couldnt_open_appinfo">Impossible d\'ouvrir AppInfo</string>
+    <string name="couldnt_open_appinfo">Impossible d’ouvrir AppInfo</string>
     <string name="enable">Activer</string>
-    <string name="no_description_provided">(aucune description n\'a été fournie)</string>
+    <string name="no_description_provided">(aucune description fournie)</string>
     <string name="installed_from_another_source">Appli installée depuis une autre source</string>
     <string name="dark">Sombre</string>
     <string name="light">Clair</string>
