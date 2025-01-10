@@ -12,7 +12,7 @@
     <string name="source_code">Código fonte</string>
     <string name="source_code_desc">Ver código fonte da aplicação</string>
     <string name="open_link">Abrir ligação</string>
-    <string name="swipe_refresh">Deslize abaixo para recarregar</string>
+    <string name="swipe_refresh">Deslize para baixo para recarregar</string>
     <string name="user_action_required">Requer intervenção do utilizador</string>
     <string name="couldnt_open_app">Não foi possível abrir a aplicação</string>
     <string name="network_error">Erro de rede: %1$s</string>
