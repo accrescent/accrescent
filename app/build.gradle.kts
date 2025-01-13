@@ -72,6 +72,7 @@ android {
             "or",
             "pl",
             "pt",
+            "pt-rBR",
             "ro",
             "ru",
             "sv",
