@@ -60,7 +60,7 @@
     <string name="couldnt_open_appinfo">Não foi possível abrir o AppInfo</string>
     <string name="unmetered">Ilimitado</string>
     <string name="not_roaming">Não estando roaming</string>
-    <string name="automatic_updates_desc">Se apps devem ser arualizados automaticamente. Mostra uma notificação caso esteja desativado.</string>
+    <string name="automatic_updates_desc">Se apps devem ser atualizados automaticamente. Mostra uma notificação caso esteja desativado.</string>
     <string name="back_button">Voltar</string>
     <string name="enable">Ativar</string>
     <string name="no_description_provided">(nenhuma descrição foi fornecida)</string>
