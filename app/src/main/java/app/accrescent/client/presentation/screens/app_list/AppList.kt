@@ -1,5 +1,6 @@
-package app.accrescent.client.ui
+package app.accrescent.client.presentation.screens.app_list
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -35,8 +36,12 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import app.accrescent.client.R
 import app.accrescent.client.data.InstallStatus
+import app.accrescent.client.presentation.components.AppCard
+import app.accrescent.client.presentation.components.CenteredText
+import app.accrescent.client.presentation.navigation.Screen
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -66,11 +71,15 @@ fun AppList(
         }
     })
     val listState = rememberLazyListState()
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+
     DisposableEffect(apps) {
-        val currentRoute = navController.currentDestination?.route
+        val currentScreen = navBackStackEntry?.destination?.route
+        Log.d("AppList", "currentScreen: $currentScreen")
+
         scope.launch {
             // restore the previous scroll state
-            val (index, offset) = viewModel.firstVisibleItems.getOrDefault(currentRoute, Pair(0, 0))
+            val (index, offset) = viewModel.firstVisibleItems.getOrDefault(currentScreen.toString(), Pair(0, 0))
             listState.scrollToItem(index, offset)
         }
         onDispose {
@@ -78,7 +87,7 @@ fun AppList(
             if (listState.firstVisibleItemIndex == 0 &&
                 listState.firstVisibleItemScrollOffset == 0
             ) return@onDispose
-            viewModel.firstVisibleItems[currentRoute] = Pair(
+            viewModel.firstVisibleItems[currentScreen.toString()] = Pair(
                 listState.firstVisibleItemIndex,
                 listState.firstVisibleItemScrollOffset
             )
@@ -107,7 +116,7 @@ fun AppList(
                             .fillMaxWidth()
                             .padding(horizontal = 16.dp, vertical = 8.dp)
                             .clip(CardDefaults.shape)
-                            .clickable { navController.navigate("${Screen.AppDetails.route}/${app.id}") },
+                            .clickable { navController.navigate(Screen.AppDetails(app.id)) },
                     )
                 }
             }

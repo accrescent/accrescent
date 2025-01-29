@@ -1,4 +1,4 @@
-package app.accrescent.client.ui
+package app.accrescent.client.presentation.components
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.CircularProgressIndicator
