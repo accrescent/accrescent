@@ -1,4 +1,4 @@
-package app.accrescent.client.ui.common
+package app.accrescent.client.presentation.components
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.RowScope

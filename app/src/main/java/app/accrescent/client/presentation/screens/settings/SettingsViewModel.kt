@@ -1,4 +1,4 @@
-package app.accrescent.client.ui
+package app.accrescent.client.presentation.screens.settings
 
 import android.content.Context
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package app.accrescent.client.ui
+package app.accrescent.client.presentation.screens.app_details
 
 import android.app.Application
 import android.content.Context
@@ -11,11 +11,13 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.toRoute
 import app.accrescent.client.Accrescent
 import app.accrescent.client.R
 import app.accrescent.client.data.AppInstallStatuses
 import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.RepoDataRepository
+import app.accrescent.client.presentation.navigation.Screen
 import app.accrescent.client.util.PackageManager
 import app.accrescent.client.util.UserRestrictionException
 import app.accrescent.client.util.getPackageInstallStatus
@@ -38,7 +40,8 @@ class AppDetailsViewModel @Inject constructor(
     private val packageManager: PackageManager,
     savedStateHandle: SavedStateHandle
 ) : AndroidViewModel(context as Application) {
-    private val appId = savedStateHandle.get<String>("appId")!!
+    private val appDetails = savedStateHandle.toRoute<Screen.AppDetails>()
+    private val appId = appDetails.appId
     val installStatuses = appInstallStatuses.statuses
     var downloadProgresses = appInstallStatuses.downloadProgresses
     var uiState by mutableStateOf(AppDetailsUiState(appId = appId))

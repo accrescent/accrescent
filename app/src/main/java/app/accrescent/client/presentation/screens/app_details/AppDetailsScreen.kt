@@ -1,4 +1,4 @@
-package app.accrescent.client.ui
+package app.accrescent.client.presentation.screens.app_details
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -37,6 +37,7 @@ import app.accrescent.client.BuildConfig
 import app.accrescent.client.R
 import app.accrescent.client.data.DownloadProgress
 import app.accrescent.client.data.InstallStatus
+import app.accrescent.client.presentation.components.AppIcon
 
 @Composable
 fun AppDetailsScreen(

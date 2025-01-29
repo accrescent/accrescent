@@ -13,14 +13,13 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -44,20 +43,18 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
-import androidx.navigation.navDeepLink
 import app.accrescent.client.R
-import app.accrescent.client.data.InstallStatus
-import app.accrescent.client.data.ROOT_DOMAIN
 import app.accrescent.client.data.Theme
-import app.accrescent.client.ui.common.SearchAppBar
+import app.accrescent.client.presentation.components.SearchAppBar
+import app.accrescent.client.presentation.navigation.Navigation
+import app.accrescent.client.presentation.navigation.Screen
+import app.accrescent.client.presentation.navigation.TopLevelScreen
+import app.accrescent.client.presentation.screens.settings.SettingsViewModel
 import app.accrescent.client.ui.theme.AccrescentTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -102,24 +99,23 @@ class MainActivity : ComponentActivity() {
 fun MainContent(appId: String?, modifier: Modifier = Modifier) {
     val snackbarHostState = remember { SnackbarHostState() }
     val navController = rememberNavController()
-    val screens = listOf(Screen.AppList, Screen.InstalledApps, Screen.AppUpdates)
-
-    val showBottomBar =
-        navController.currentBackStackEntryAsState().value?.destination?.route in screens.map { it.route }
-
     val searchQuery = remember { mutableStateOf(TextFieldValue()) }
 
     val startDestination =
-        if (appId != null) "${Screen.AppDetails.route}/{appId}" else Screen.AppList.route
+        if (appId != null) Screen.AppDetails(appId) else Screen.AppList
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
-
+    val showBottomBar = TopLevelScreen.entries.map { it.route::class }.any { route ->
+        currentDestination?.hierarchy?.any {
+            it.hasRoute(route)
+        } == true
+    }
     val settingsScrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(
         rememberTopAppBarState(),
     )
 
     Scaffold(
-        modifier = if (currentDestination?.route == Screen.Settings.route) {
+        modifier = if (currentDestination?.hasRoute(Screen.Settings::class) == true) {
             modifier.nestedScroll(settingsScrollBehavior.nestedScrollConnection)
         } else {
             modifier
@@ -130,14 +126,14 @@ fun MainContent(appId: String?, modifier: Modifier = Modifier) {
             // between AppListScreen and AppDetailsScreen. LookaheadLayout may provide a simpler
             // solution once Compose 1.3.0 becomes stable.
             AnimatedVisibility(
-                visible = currentDestination?.route == "${Screen.AppDetails.route}/{appId}",
+                visible = currentDestination?.hasRoute(Screen.AppDetails::class) == true,
                 enter = fadeIn(animationSpec = tween(400)),
                 exit = fadeOut(animationSpec = tween(400)),
             ) {
                 CenterAlignedTopAppBar(title = {})
             }
             AnimatedVisibility(
-                visible = currentDestination?.route == Screen.Settings.route,
+                visible = currentDestination?.hasRoute(Screen.Settings::class) == true,
                 enter = fadeIn(animationSpec = tween(400)),
                 exit = fadeOut(animationSpec = tween(400)),
             ) {
@@ -146,14 +142,18 @@ fun MainContent(appId: String?, modifier: Modifier = Modifier) {
                     scrollBehavior = settingsScrollBehavior,
                     navigationIcon = {
                         IconButton(onClick = { navController.popBackStack() }) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(R.string.back_button))
+                            Icon(
+                                Icons.AutoMirrored.Filled.ArrowBack,
+                                stringResource(R.string.back_button)
+                            )
                         }
                     },
                 )
             }
             AnimatedVisibility(
-                visible = currentDestination?.route != "${Screen.AppDetails.route}/{appId}"
-                        && currentDestination?.route != Screen.Settings.route,
+                visible = currentDestination?.hasRoute(Screen.AppDetails::class) == false && !currentDestination.hasRoute(
+                    Screen.Settings::class
+                ),
                 enter = fadeIn(animationSpec = tween(400)),
                 exit = fadeOut(animationSpec = tween(400)),
             ) {
@@ -163,10 +163,10 @@ fun MainContent(appId: String?, modifier: Modifier = Modifier) {
                     // keep the search bar open if query is not empty when returning from an other screen
                     expandedInitially = searchQuery.value.text.isNotEmpty()
                 ) {
-                    IconButton(onClick = { navController.navigate(Screen.Settings.route) }) {
+                    IconButton(onClick = { navController.navigate(Screen.Settings) }) {
                         Icon(
-                            imageVector = Screen.Settings.navIconSelected!!,
-                            contentDescription = stringResource(Screen.Settings.resourceId)
+                            imageVector = Icons.Outlined.Settings,
+                            contentDescription = stringResource(R.string.settings)
                         )
                     }
                 }
@@ -179,18 +179,18 @@ fun MainContent(appId: String?, modifier: Modifier = Modifier) {
                 exit = slideOutVertically(animationSpec = tween(400)) { it },
             ) {
                 NavigationBar {
-                    screens.forEach { screen ->
+                    TopLevelScreen.entries.forEach { screen ->
                         val selected =
-                            currentDestination?.hierarchy?.any { it.route == screen.route } == true
+                            currentDestination?.hierarchy?.any { it.hasRoute(screen.route::class) } == true
 
                         NavigationBarItem(
                             icon = {
                                 Icon(
-                                    if (selected) screen.navIconSelected!! else screen.navIcon!!,
-                                    contentDescription = stringResource(screen.resourceId)
+                                    if (selected) screen.navIconSelected else screen.navIcon,
+                                    contentDescription = stringResource(screen.title)
                                 )
                             },
-                            label = { Text(stringResource(screen.resourceId)) },
+                            label = { Text(stringResource(screen.title)) },
                             selected = selected,
                             onClick = {
                                 navController.navigate(screen.route) {
@@ -206,167 +206,13 @@ fun MainContent(appId: String?, modifier: Modifier = Modifier) {
                 }
             }
         }) { padding ->
-        NavHost(
+
+        Navigation(
+            modifier = Modifier.padding(padding),
             navController = navController,
             startDestination = startDestination,
-        ) {
-            composable(Screen.AppList.route, enterTransition = {
-                when (initialState.destination.route) {
-                    Screen.InstalledApps.route,
-                    Screen.AppUpdates.route ->
-                        slideInHorizontally(animationSpec = tween(350)) { -it }
-
-                    else -> null
-                }
-            }, exitTransition = {
-                when (targetState.destination.route) {
-                    "${Screen.AppDetails.route}/{appId}" ->
-                        fadeOut(animationSpec = tween(350))
-
-                    Screen.InstalledApps.route,
-                    Screen.AppUpdates.route ->
-                        slideOutHorizontally(animationSpec = tween(350)) { -it }
-
-                    Screen.Settings.route ->
-                        fadeOut(animationSpec = tween(350))
-
-                    else -> null
-                }
-            }) {
-                AppList(
-                    navController = navController,
-                    searchQuery = searchQuery.value.text,
-                    modifier = Modifier.padding(padding),
-                    snackbarHostState = snackbarHostState,
-                )
-            }
-            composable(Screen.InstalledApps.route, enterTransition = {
-                when (initialState.destination.route) {
-                    Screen.AppList.route ->
-                        slideInHorizontally(animationSpec = tween(350)) { it }
-
-                    Screen.AppUpdates.route ->
-                        slideInHorizontally(animationSpec = tween(350)) { -it }
-
-                    else -> null
-                }
-            }, exitTransition = {
-                when (targetState.destination.route) {
-                    "${Screen.AppDetails.route}/{appId}" ->
-                        fadeOut(animationSpec = tween(350))
-
-                    Screen.AppList.route ->
-                        slideOutHorizontally(animationSpec = tween(350)) { it }
-
-                    Screen.AppUpdates.route ->
-                        slideOutHorizontally(animationSpec = tween(350)) { -it }
-
-                    Screen.Settings.route ->
-                        fadeOut(animationSpec = tween(350))
-
-                    else -> null
-                }
-            }) {
-                AppList(
-                    navController = navController,
-                    searchQuery = searchQuery.value.text,
-                    modifier = Modifier.padding(padding),
-                    snackbarHostState = snackbarHostState,
-                    filter = {
-                        it == InstallStatus.INSTALLED || it == InstallStatus.UPDATABLE
-                                || it == InstallStatus.DISABLED
-                    },
-                    noFilterResultsText = stringResource(R.string.no_apps_installed),
-                )
-            }
-            composable(Screen.AppUpdates.route, enterTransition = {
-                when (initialState.destination.route) {
-                    Screen.InstalledApps.route,
-                    Screen.AppList.route ->
-                        slideInHorizontally(animationSpec = tween(350)) { it }
-
-                    else -> null
-                }
-            }, exitTransition = {
-                when (targetState.destination.route) {
-                    "${Screen.AppDetails.route}/{appId}" ->
-                        fadeOut(animationSpec = tween(350))
-
-                    Screen.AppList.route,
-                    Screen.InstalledApps.route ->
-                        slideOutHorizontally(animationSpec = tween(350)) { it }
-
-                    Screen.Settings.route ->
-                        fadeOut(animationSpec = tween(350))
-
-                    else -> null
-                }
-            }) {
-                AppList(
-                    navController = navController,
-                    searchQuery = searchQuery.value.text,
-                    modifier = Modifier.padding(padding),
-                    snackbarHostState = snackbarHostState,
-                    filter = { it == InstallStatus.UPDATABLE },
-                    noFilterResultsText = stringResource(R.string.up_to_date),
-                )
-            }
-            composable(
-                "${Screen.AppDetails.route}/{appId}", arguments = listOf(navArgument("appId") {
-                    type = NavType.StringType
-                    defaultValue = appId ?: ""
-                }),
-                deepLinks = listOf(navDeepLink {
-                    uriPattern = "https://${ROOT_DOMAIN}/app/{appId}"
-                }),
-                enterTransition = {
-                    when (initialState.destination.route) {
-                        Screen.AppList.route,
-                        Screen.InstalledApps.route,
-                        Screen.AppUpdates.route ->
-                            slideInVertically(animationSpec = tween(400)) { it } +
-                                    fadeIn(animationSpec = tween(400))
-
-                        else -> null
-                    }
-                },
-                exitTransition = {
-                    when (targetState.destination.route) {
-                        Screen.AppList.route,
-                        Screen.InstalledApps.route,
-                        Screen.AppUpdates.route ->
-                            slideOutVertically(animationSpec = tween(600)) { it } +
-                                    fadeOut(animationSpec = tween(400))
-
-                        else -> null
-                    }
-                }
-            ) {
-                AppDetailsScreen(snackbarHostState)
-            }
-            composable(Screen.Settings.route, enterTransition = {
-                when (initialState.destination.route) {
-                    Screen.AppList.route,
-                    Screen.InstalledApps.route,
-                    Screen.AppUpdates.route ->
-                        slideInVertically(animationSpec = tween(400)) { -it } +
-                                fadeIn(animationSpec = tween(400))
-
-                    else -> null
-                }
-            }, exitTransition = {
-                when (targetState.destination.route) {
-                    Screen.AppList.route,
-                    Screen.InstalledApps.route,
-                    Screen.AppUpdates.route ->
-                        slideOutVertically(animationSpec = tween(600)) { -it } +
-                                fadeOut(animationSpec = tween(400))
-
-                    else -> null
-                }
-            }) {
-                SettingsScreen(Modifier.padding(padding))
-            }
-        }
+            searchQuery = searchQuery.value.text,
+            snackbarHostState = snackbarHostState
+        )
     }
 }
