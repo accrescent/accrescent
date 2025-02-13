@@ -2,7 +2,7 @@
 <resources>
     <string name="app_verification_failed">Appverifiering misslyckades: %1$s</string>
     <string name="app_list">Appar</string>
-    <string name="installed">Installerad</string>
+    <string name="installed">Installerade</string>
     <string name="app_updates">Uppdateringar</string>
     <string name="settings">Inställningar</string>
     <string name="install">Installera</string>
@@ -14,13 +14,13 @@
     <string name="failed_download_files">Det gick inte att ladda ner nödvändiga filer: %1$s</string>
     <string name="swipe_refresh">Svep nedåt för att uppdatera</string>
     <string name="no_apps_installed">Inga appar installerade</string>
-    <string name="up_to_date">Alla appar är up-to-date</string>
+    <string name="up_to_date">Alla appar är uppdaterade</string>
     <string name="user_action_required">Användaråtgärd krävs</string>
     <string name="cant_find_app">Tyvärr kunde vi inte hitta den appen</string>
     <string name="couldnt_open_app">Kunde inte öppna appen</string>
     <string name="failed_decode_repodata">Misslyckades att avkoda repodata: %1$s</string>
     <string name="error_parsing_files">Misslyckades att analysera appfiler: %1$s</string>
-    <string name="app_doesnt_support_device">Appen har inte stöd för din enhet: %1$s</string>
+    <string name="app_doesnt_support_device">Appen stödjer inte din enhet: %1$s</string>
     <string name="unknown_host_error">Okänt värdfel: %1$s</string>
     <string name="user_restriction">Användarbegränsningsfel: %1$s</string>
     <string name="version">Version: %1$s</string>
@@ -30,10 +30,10 @@
 \nFörväntat: %1$s</string>
     <string name="no_app_signers">inga app-undertecknare hittades.
 \nFörväntat: %1$s</string>
-    <string name="version_downgrade">version %1$d är lägre än minimi %2$d</string>
+    <string name="version_downgrade">version %1$d är lägre än minimum %2$d</string>
     <string name="app_id_mismatch">app-ID %1$s matchar inte förväntat ID %2$s</string>
-    <string name="version_mismatch">förväntade version %1$s, den faktiska versionen är %2$s</string>
-    <string name="repodata_timestamp_less">tidsstämpel för repodata är tidigare än det sparade värdet</string>
+    <string name="version_mismatch">förväntad version %1$s, den faktiska är %2$s</string>
+    <string name="repodata_timestamp_less">tidsstämpel för repodata är mindre än det sparade värdet</string>
     <string name="sig_verify_failed">signaturverifiering misslyckades</string>
     <string name="install_blocked">installation blockerad av admin</string>
     <string name="uninstall_blocked">avinstallation blockerad av admin</string>
@@ -41,7 +41,7 @@
     <string name="failed_verify_repodata">Misslyckades att verifiera repodata: %1$s</string>
     <string name="failed_download_repodata">Nedladdning av repodata misslyckades: %1$s</string>
     <string name="version_code">Versionskod: %1$d</string>
-    <string name="version_code_mismatch">förväntade versionskod %1$d, den faktiska är %2$d</string>
+    <string name="version_code_mismatch">förväntad versionskod %1$d, den faktiska är %2$d</string>
     <string name="base_apk_not_valid">base.apk är inte en giltig APK</string>
     <string name="customization">Anpassning</string>
     <string name="about">Om</string>
@@ -49,23 +49,23 @@
     <string name="source_code_desc">Visa Accrescents källkod</string>
     <string name="open_link">Öppna länk</string>
     <string name="yes">Ja</string>
-    <string name="no">Ingen</string>
+    <string name="no">Nej</string>
     <string name="search">Sök</string>
     <string name="updater">Uppdaterare</string>
-    <string name="network_condition">Nätverkstillstånd</string>
-    <string name="not_roaming">Roamar inte</string>
+    <string name="network_condition">Nätverksvillkor</string>
+    <string name="not_roaming">Ej roaming</string>
     <string name="automatic_updates">Automatiska uppdateringar</string>
     <string name="update_available">Uppdatering tillgänglig</string>
     <string name="update_finished">Uppdatering slutförd</string>
     <string name="update_failure">Uppdatering misslyckades</string>
-    <string name="update_success">%1$s har uppdaterats framgångsrikt.</string>
+    <string name="update_success">%1$s har uppdaterats korrekt.</string>
     <string name="any">Alla</string>
-    <string name="unmetered">Omätad</string>
+    <string name="unmetered">Obegränsad</string>
     <string name="automatic_updates_desc">Om appar ska uppdateras automatiskt. Visar en avisering istället om det är inaktiverat.</string>
     <string name="back_button">Bakåt</string>
     <string name="enable">Aktivera</string>
     <string name="couldnt_open_appinfo">Kunde inte öppna AppInfo</string>
-    <string name="no_description_provided">(ingen beskrivning tillhandahålls)</string>
+    <string name="no_description_provided">(ingen beskrivning finns)</string>
     <string name="donate">Donera</string>
     <string name="donate_desc">Donera för att stödja Accrescent</string>
     <string name="installed_from_another_source">App installerad från annan källa</string>
