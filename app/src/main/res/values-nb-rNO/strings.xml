@@ -50,4 +50,21 @@
     <string name="customization">Tilpasning</string>
     <string name="about">Om</string>
     <string name="source_code_desc">Vis Accrescents kildekode</string>
+    <string name="installed_from_another_source">App installert fra en annen kilde</string>
+    <string name="search">Søk</string>
+    <string name="any">Hvilken som helst</string>
+    <string name="unmetered">Ubegrenset</string>
+    <string name="not_roaming">Uten roaming</string>
+    <string name="automatic_updates">Automatiske oppdateringer</string>
+    <string name="dark">Mørk</string>
+    <string name="light">Lys</string>
+    <string name="system">System</string>
+    <string name="theme">Tema</string>
+    <string name="enable">Aktiver</string>
+    <string name="swipe_refreshing">Oppfrisker innhold…</string>
+    <string name="couldnt_open_appinfo">Kunne ikke åpne AppInfo</string>
+    <string name="updater">Oppdaterer</string>
+    <string name="network_condition">Nettverks tilstand</string>
+    <string name="donate">Doner</string>
+    <string name="donate_desc">Doner for å støtte Accrescent</string>
 </resources>

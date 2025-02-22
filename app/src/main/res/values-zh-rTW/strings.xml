@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_list">App</string>
+    <string name="app_list">應用程式</string>
     <string name="installed">已安裝</string>
     <string name="app_updates">更新</string>
     <string name="settings">設置</string>
@@ -41,4 +41,35 @@
     <string name="sig_verify_failed">數位簽章確認失敗</string>
     <string name="install_blocked">安裝被管理員屏蔽</string>
     <string name="uninstall_blocked">卸載被管理員屏蔽</string>
+    <string name="swipe_refreshing">正在重新整理內容…</string>
+    <string name="theme">主題</string>
+    <string name="yes">是</string>
+    <string name="unmetered">非計量付費網路</string>
+    <string name="update_available">有更新可用</string>
+    <string name="any">任意網路</string>
+    <string name="source_code">原始碼</string>
+    <string name="source_code_desc">查看 Accrescent 的原始碼</string>
+    <string name="updater">更新器</string>
+    <string name="network_condition">網路條件</string>
+    <string name="not_roaming">非漫遊網路</string>
+    <string name="automatic_updates">自動更新</string>
+    <string name="update_success">%1$s 已成功更新。</string>
+    <string name="back_button">返回</string>
+    <string name="update_failure">更新失敗</string>
+    <string name="light">亮色</string>
+    <string name="system">跟隨系統</string>
+    <string name="no">否</string>
+    <string name="search">搜尋</string>
+    <string name="no_description_provided">（未提供描述）</string>
+    <string name="about">關於</string>
+    <string name="automatic_updates_desc">是否自動更新應用程式。若停用則改為顯示通知。</string>
+    <string name="dark">深色</string>
+    <string name="donate">捐款</string>
+    <string name="couldnt_open_appinfo">無法打開應用程式資訊</string>
+    <string name="installed_from_another_source">App 已從其他來源安裝</string>
+    <string name="enable">啟用</string>
+    <string name="customization">個人化</string>
+    <string name="open_link">打開連結</string>
+    <string name="donate_desc">捐款支持 Accrescent</string>
+    <string name="update_finished">更新完成</string>
 </resources>
