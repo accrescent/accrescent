@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="installed">Instalováno</string>
+    <string name="installed">Nainstalováno</string>
     <string name="app_updates">Aktualizace</string>
     <string name="settings">Nastavení</string>
     <string name="install">Instalace</string>
@@ -69,7 +69,7 @@
     <string name="installed_from_another_source">Aplikace nainstalována z jiného zdroje</string>
     <string name="dark">Tmavý</string>
     <string name="light">Světlý</string>
-    <string name="system">Systém</string>
+    <string name="system">Systémový</string>
     <string name="theme">Motiv</string>
     <string name="swipe_refreshing">Aktualizace obsahu…</string>
     <string name="donate">Přispět</string>
