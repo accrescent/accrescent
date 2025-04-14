@@ -1,2 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="install">Uzstādīt</string>
+    <string name="uninstall">Noņemt</string>
+    <string name="app_updates">Atjauninājumi</string>
+    <string name="installed">Uzstādītās</string>
+    <string name="installed_from_another_source">Lietotne uzstādīta no cita avota</string>
+    <string name="open_link">Atvērt saiti</string>
+    <string name="no_apps_installed">Nav uzstādīta neviena lietotne</string>
+    <string name="up_to_date">Visas lietotnes ir atjauninātas</string>
+    <string name="network_error">Tīkla kļūda: %1$s</string>
+    <string name="version">Versija: %1$s</string>
+    <string name="version_code">Versijas numurs: %1$d</string>
+    <string name="light">Gaišs</string>
+    <string name="dark">Tumšs</string>
+    <string name="system">Sistēmas</string>
+    <string name="swipe_refreshing">Atsvaidzina saturu…</string>
+    <string name="user_action_required">Nepieciešama lietotāja iejaukšanās</string>
+    <string name="couldnt_open_app">Nevarēja atvērt lietotni</string>
+    <string name="couldnt_open_appinfo">Nevarēja atvērt lietotnes info</string>
+    <string name="failed_download_files">Neizdevās lejupielādēt nepieciešamos failus: %1$s</string>
+    <string name="donate_desc">Veikt ziedojumu, lai atbalstītu Accrescent</string>
+    <string name="yes">Jā</string>
+    <string name="no">Nē</string>
+    <string name="search">Meklēt</string>
+    <string name="network_condition">Tīkla izmantošanas nosacījums</string>
+    <string name="any">Jebkurā</string>
+    <string name="unmetered">Tikai neierobežotā</string>
+    <string name="not_roaming">Nav viesabonējumā</string>
+    <string name="back_button">Atpakaļ</string>
+    <string name="update_available">Pieejams atjauninājums</string>
+    <string name="app_list">Lietotnes</string>
+    <string name="about">Par lietotni</string>
+    <string name="donate">Ziedot</string>
+    <string name="theme">Motīvs</string>
+    <string name="settings">Iestatījumi</string>
+    <string name="update">Atjaunināt</string>
+    <string name="open">Atvērt</string>
+    <string name="enable">Iespējot</string>
+    <string name="no_description_provided">(apraksts nav sniegts)</string>
+</resources>
