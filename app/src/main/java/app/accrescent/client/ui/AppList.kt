@@ -32,6 +32,8 @@ import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.intl.Locale
+import androidx.compose.ui.text.toLowerCase
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -100,7 +102,8 @@ fun AppList(
                 item { CenteredText(noFilterResultsText) }
             } else {
                 item { Spacer(Modifier.height(16.dp)) }
-                items(filteredApps, key = { app -> app.id }) { app ->
+                items(filteredApps.sortedBy { a -> a.name.toLowerCase(Locale.current) },
+                    key = { app -> app.id }) { app ->
                     AppCard(
                         app = app,
                         Modifier
