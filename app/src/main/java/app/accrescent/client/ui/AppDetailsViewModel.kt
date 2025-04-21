@@ -29,6 +29,7 @@ import java.net.ConnectException
 import java.net.UnknownHostException
 import java.security.GeneralSecurityException
 import javax.inject.Inject
+import androidx.core.net.toUri
 
 @HiltViewModel
 class AppDetailsViewModel @Inject constructor(
@@ -162,7 +163,7 @@ class AppDetailsViewModel @Inject constructor(
         uiState.error = null
 
         val context = getApplication<Accrescent>().applicationContext
-        val uri = Uri.parse("package:$appId")
+        val uri = "package:$appId".toUri()
 
         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, uri)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
