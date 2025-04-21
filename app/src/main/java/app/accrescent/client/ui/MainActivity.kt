@@ -134,7 +134,7 @@ fun MainContent(appId: String?, modifier: Modifier = Modifier) {
                 enter = fadeIn(animationSpec = tween(400)),
                 exit = fadeOut(animationSpec = tween(400)),
             ) {
-                CenterAlignedTopAppBar(title = {})
+                // Do nothing, don't include (an empty) top bar on app details screen
             }
             AnimatedVisibility(
                 visible = currentDestination?.route == Screen.Settings.route,
@@ -342,6 +342,7 @@ fun MainContent(appId: String?, modifier: Modifier = Modifier) {
                     }
                 }
             ) {
+
                 AppDetailsScreen(snackbarHostState)
             }
             composable(Screen.Settings.route, enterTransition = {
