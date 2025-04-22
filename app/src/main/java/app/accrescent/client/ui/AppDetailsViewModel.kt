@@ -3,7 +3,6 @@ package app.accrescent.client.ui
 import android.app.Application
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.provider.Settings
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
