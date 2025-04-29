@@ -1,2 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="source_code">Izvorni kod</string>
+    <string name="settings">Podešavanja</string>
+    <string name="app_list">Aplikacije</string>
+    <string name="donate">Donacije</string>
+    <string name="donate_desc">Donirajte da podržite Accrescent</string>
+    <string name="installed">Instalirano</string>
+    <string name="installed_from_another_source">Aplikacija je instalirana sa nekog drugog izvora</string>
+    <string name="app_updates">Ažuriranja</string>
+    <string name="install">Instaliraj</string>
+    <string name="enable">Uključi</string>
+    <string name="open">Otvori</string>
+    <string name="dynamic_color_desc">Prilagodi aplikaciju bazirano na paleti boja sistema</string>
+    <string name="dynamic_color">Dinamična boja / \"Material You\"</string>
+    <string name="system">Sistemski</string>
+    <string name="update">Ažuriranje</string>
+    <string name="customization">Prilagođavanje</string>
+    <string name="dark">Tamno</string>
+    <string name="source_code_desc">Pogledaj Accrescentov izvorni kod</string>
+    <string name="open_link">Otvori link</string>
+    <string name="about">O</string>
+    <string name="light">Svetlo</string>
+    <string name="theme">Tema</string>
+    <string name="uninstall">Deinstaliraj</string>
+</resources>
