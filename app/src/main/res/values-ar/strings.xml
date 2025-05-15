@@ -21,7 +21,7 @@
     <string name="cant_find_app">عذرًا، لم نتمكن من العثور على هذا التطبيق</string>
     <string name="couldnt_open_appinfo">تعذر فتح AppInfo</string>
     <string name="about">نبذة عنا</string>
-    <string name="dynamic_color">اللون الديناميكي / مادتك</string>
+    <string name="dynamic_color">اللون الديناميكي / ماتريال يو \"مادتك\"</string>
     <string name="open">فتح</string>
     <string name="enable">مكن</string>
     <string name="swipe_refresh">اسحب لأسفل للتحديث</string>
