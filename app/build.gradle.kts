@@ -42,13 +42,8 @@ android {
     compileSdk = 35
     buildToolsVersion = "35.0.0"
 
-    defaultConfig {
-        applicationId = "app.accrescent.client"
-        minSdk = 29
-        targetSdk = 35
-        versionCode = 49
-        versionName = "0.25.0"
-        resourceConfigurations.addAll(listOf(
+    androidResources {
+        localeFilters.addAll(listOf(
             "ar",
             "az",
             "bg",
@@ -90,6 +85,14 @@ android {
             "zh-rCN",
             "zh-rTW",
         ))
+    }
+
+    defaultConfig {
+        applicationId = "app.accrescent.client"
+        minSdk = 29
+        targetSdk = 35
+        versionCode = 49
+        versionName = "0.25.0"
     }
 
     bundle {
