@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import app.accrescent.client.data.REPOSITORY_URL
-import coil.compose.SubcomposeAsyncImage
+import coil3.compose.SubcomposeAsyncImage
 
 @Composable
 fun AppIcon(appId: String, modifier: Modifier = Modifier) {

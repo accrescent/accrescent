@@ -1,29 +1,30 @@
 [versions]
-activity-compose = "1.9.3"
-agp = "8.7.1"
-bouncycastle = "1.78.1"
+activity-compose = "1.10.1"
+agp = "8.10.1"
+bouncycastle = "1.81"
 bundletool-plugin = "0.2.4"
-coil = "2.7.0"
-compose-bom = "2024.10.00"
-compose-lint = "1.4.1"
-dagger = "2.52"
-datastore = "1.1.1"
+coil = "3.2.0"
+compose-bom = "2025.06.00"
+compose-lint = "1.4.2"
+dagger = "2.56.2"
+datastore = "1.1.7"
 hilt = "1.2.0"
-immutable = "0.3.8"
-kotlin = "2.0.21"
-ksp = "2.0.21-1.0.25"
-lifecycle = "2.8.6"
+immutable = "0.4.0"
+kotlin = "2.1.21"
+ksp = "2.1.21-2.0.2"
+lifecycle = "2.9.1"
 material = "1.12.0"
-nav-compose = "2.8.3"
+nav-compose = "2.9.0"
 okhttp = "4.12.0"
-room = "2.6.1"
-serialization = "1.7.3"
-work = "2.9.1"
+room = "2.7.1"
+serialization = "1.8.1"
+work = "2.10.1"
 
 [libraries]
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
 bouncycastle = { group = "org.bouncycastle", name = "bcprov-jdk18on", version.ref = "bouncycastle" }
-coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+coil = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 compose-lint = { group = "com.slack.lint.compose", name = "compose-lint-checks", version.ref = "compose-lint" }
 compose-material = { group = "androidx.compose.material", name = "material" }

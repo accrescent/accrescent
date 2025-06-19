@@ -135,6 +135,7 @@ android {
     }
     packaging {
         resources.excludes.addAll(listOf(
+            "**/MANIFEST.MF",
             "DebugProbesKt.bin",
             "META-INF/**.version",
             "kotlin-tooling-metadata.json",
@@ -169,6 +170,7 @@ dependencies {
     implementation(libs.activity.compose)
     implementation(libs.bouncycastle)
     implementation(libs.coil)
+    implementation(libs.coil.network.okhttp)
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.material)
     implementation(libs.compose.material.icons)
@@ -183,6 +185,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.material)
     implementation(libs.navcompose)
+    implementation(libs.okhttp)
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
     implementation(libs.serialization)
