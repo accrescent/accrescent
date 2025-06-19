@@ -1,12 +1,12 @@
 package app.accrescent.client.workers
 
-import android.annotation.TargetApi
 import android.content.Context
 import android.content.pm.PackageInstaller
 import android.content.pm.PackageManager.MATCH_ARCHIVED_PACKAGES
 import android.content.pm.PackageManager.PackageInfoFlags
 import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.Data
@@ -22,7 +22,7 @@ import android.content.pm.PackageManager as AndroidPackageManager
 private const val TAG = "UnarchiveWorker"
 
 @HiltWorker
-@TargetApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
+@RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
 class UnarchiveWorker @AssistedInject constructor(
     @Assisted context: Context,
     @Assisted workerParams: WorkerParameters,

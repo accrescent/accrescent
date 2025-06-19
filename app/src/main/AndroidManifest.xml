@@ -78,7 +78,8 @@
 
         <receiver
             android:name=".receivers.AppUnarchiveBroadcastReceiver"
-            android:exported="false">
+            android:exported="false"
+            tools:targetApi="35">
             <intent-filter>
                 <action android:name="android.intent.action.UNARCHIVE_PACKAGE" />
             </intent-filter>
