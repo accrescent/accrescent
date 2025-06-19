@@ -90,10 +90,6 @@ android {
             "zh-rCN",
             "zh-rTW",
         ))
-
-        ksp {
-            arg("room.generateKotlin", true.toString())
-        }
     }
 
     bundle {
@@ -160,6 +156,10 @@ if (useKeystoreProperties) {
             keyPassword = keystoreProperties["keyPassword"] as String
         }
     }
+}
+
+ksp {
+    arg("room.generateKotlin", true.toString())
 }
 
 room {
