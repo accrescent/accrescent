@@ -3,11 +3,11 @@ package app.accrescent.client.ui
 import android.app.Application
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.provider.Settings
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.core.net.toUri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
@@ -162,7 +162,7 @@ class AppDetailsViewModel @Inject constructor(
         uiState.error = null
 
         val context = getApplication<Accrescent>().applicationContext
-        val uri = Uri.parse("package:$appId")
+        val uri = "package:$appId".toUri()
 
         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, uri)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

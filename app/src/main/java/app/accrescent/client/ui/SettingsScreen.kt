@@ -1,7 +1,6 @@
 package app.accrescent.client.ui
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -43,6 +42,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.work.NetworkType
 import app.accrescent.client.R
@@ -127,7 +127,7 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             label = stringResource(R.string.donate),
             description = stringResource(R.string.donate_desc),
             onClick = {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(DONATE_URL))
+                val intent = Intent(Intent.ACTION_VIEW, DONATE_URL.toUri())
                 if (intent.resolveActivity(context.packageManager) != null) {
                     context.startActivity(intent)
                 }
@@ -139,7 +139,7 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
             label = stringResource(R.string.source_code),
             description = stringResource(R.string.source_code_desc),
             onClick = {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(SOURCE_CODE_URL))
+                val intent = Intent(Intent.ACTION_VIEW, SOURCE_CODE_URL.toUri())
                 if (intent.resolveActivity(context.packageManager) != null) {
                     context.startActivity(intent)
                 }
