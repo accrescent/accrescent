@@ -205,7 +205,8 @@ fun MainContent(appId: String?, modifier: Modifier = Modifier) {
                     }
                 }
             }
-        }) { padding ->
+        },
+    ) { padding ->
         NavHost(
             navController = navController,
             startDestination = startDestination,

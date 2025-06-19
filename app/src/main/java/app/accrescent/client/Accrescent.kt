@@ -30,8 +30,7 @@ class Accrescent : Application(), Configuration.Provider {
     override fun onCreate() {
         super.onCreate()
 
-        val notificationManager =
-            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannels(
             listOf(
                 NotificationChannel(

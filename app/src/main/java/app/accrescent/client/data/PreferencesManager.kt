@@ -30,13 +30,13 @@ class PreferencesManager @Inject constructor(@ApplicationContext private val con
         }
 
     val dynamicColor = data.map { preferences ->
-        preferences[PreferencesKeys.DYNAMIC_COLOR] ?: false
+        preferences[PreferencesKeys.DYNAMIC_COLOR] == true
     }
     val theme = data.map { preferences ->
         preferences[PreferencesKeys.THEME] ?: Theme.SYSTEM.name
     }
     val automaticUpdates = data.map { preferences ->
-        preferences[PreferencesKeys.AUTOMATIC_UPDATES] ?: true
+        preferences[PreferencesKeys.AUTOMATIC_UPDATES] != false
     }
     val networkType = data.map { preferences ->
         preferences[PreferencesKeys.UPDATER_NETWORK_TYPE] ?: NetworkType.UNMETERED.name

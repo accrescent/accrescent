@@ -299,7 +299,7 @@ fun ListPreference(
                 },
                 title = { Text(label) },
                 text = {
-                    Column (modifier = Modifier.selectableGroup()) {
+                    Column(modifier = Modifier.selectableGroup()) {
                         entries.forEachIndexed { index, entry ->
                             RadioListItem(
                                 modifier = Modifier.fillMaxWidth(),
