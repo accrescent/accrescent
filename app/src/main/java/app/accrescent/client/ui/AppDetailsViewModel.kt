@@ -29,6 +29,7 @@ import java.net.ConnectException
 import java.net.UnknownHostException
 import java.security.GeneralSecurityException
 import javax.inject.Inject
+import androidx.core.net.toUri
 
 @HiltViewModel
 class AppDetailsViewModel @Inject constructor(

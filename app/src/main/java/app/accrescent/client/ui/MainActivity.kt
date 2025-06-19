@@ -21,7 +21,6 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -134,7 +133,7 @@ fun MainContent(appId: String?, modifier: Modifier = Modifier) {
                 enter = fadeIn(animationSpec = tween(400)),
                 exit = fadeOut(animationSpec = tween(400)),
             ) {
-                CenterAlignedTopAppBar(title = {})
+                // Do nothing, don't include (an empty) top bar on app details screen
             }
             AnimatedVisibility(
                 visible = currentDestination?.route == Screen.Settings.route,
@@ -343,6 +342,7 @@ fun MainContent(appId: String?, modifier: Modifier = Modifier) {
                     }
                 }
             ) {
+
                 AppDetailsScreen(snackbarHostState)
             }
             composable(Screen.Settings.route, enterTransition = {

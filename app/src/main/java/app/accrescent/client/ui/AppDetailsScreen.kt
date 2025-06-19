@@ -5,12 +5,16 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -44,6 +48,7 @@ fun AppDetailsScreen(
     modifier: Modifier = Modifier,
     viewModel: AppDetailsViewModel = hiltViewModel(),
 ) {
+
     val installStatus = viewModel.installStatuses[viewModel.uiState.appId]
     val downloadProgress = viewModel.downloadProgresses[viewModel.uiState.appId]
 
@@ -98,13 +103,21 @@ fun AppDetails(
     var waitingForSize by remember { mutableStateOf(false) }
 
     Column(
-        modifier.fillMaxSize(),
+        modifier
+            .fillMaxHeight()
+            .wrapContentWidth()
+            .verticalScroll(rememberScrollState()),
+
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         AppIcon(id, Modifier.size(128.dp))
         Spacer(Modifier.size(8.dp))
-        Text(name, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.SemiBold)
+        Text(
+            text = name,
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.SemiBold)
         Text(
             text = shortDescription,
             style = MaterialTheme.typography.bodyMedium,
@@ -126,8 +139,9 @@ fun AppDetails(
         }
         Row(
             Modifier
+                .align(Alignment.CenterHorizontally)
                 .fillMaxWidth()
-                .padding(18.dp)
+                .padding(horizontal = 48.dp, vertical = 4.dp)
         ) {
             when (installStatus) {
                 InstallStatus.INSTALLED,
@@ -215,10 +229,7 @@ fun AppDetails(
                 val totalMb = "%.1f".format(downloadProgress.total.toFloat() / 1_000_000)
 
                 Text("$partMb MB / $totalMb MB", Modifier.padding(top = 16.dp))
-            } else {
-                Spacer(modifier = Modifier.size(96.dp))
-                Text("", Modifier.padding(top = 16.dp))
-            }
+            } else { /* do nothing */ }
         }
         Text(id)
     }
