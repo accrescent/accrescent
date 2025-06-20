@@ -31,6 +31,8 @@ compose-material = { group = "androidx.compose.material", name = "material" }
 compose-material-icons = { group = "androidx.compose.material", name = "material-icons-extended" }
 compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 dagger = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger" }
 dagger-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "dagger" }
 datastore = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }

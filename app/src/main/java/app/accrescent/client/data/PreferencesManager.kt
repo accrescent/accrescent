@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
+import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.work.NetworkType
@@ -41,6 +42,9 @@ class PreferencesManager @Inject constructor(@ApplicationContext private val con
     val networkType = data.map { preferences ->
         preferences[PreferencesKeys.UPDATER_NETWORK_TYPE] ?: NetworkType.UNMETERED.name
     }
+    val donateRequestLastSeen = data.map { preferences ->
+        preferences[PreferencesKeys.DONATE_REQUEST_LAST_SEEN] ?: 0
+    }
 
     suspend fun setDynamicColor(dynamicColor: Boolean) {
         context.dataStore.edit {
@@ -66,10 +70,17 @@ class PreferencesManager @Inject constructor(@ApplicationContext private val con
         }
     }
 
+    suspend fun setDonateRequestLastSeen(lastSeen: Long) {
+        context.dataStore.edit {
+            it[PreferencesKeys.DONATE_REQUEST_LAST_SEEN] = lastSeen
+        }
+    }
+
     private object PreferencesKeys {
         val DYNAMIC_COLOR = booleanPreferencesKey("dynamic_color")
         val THEME = stringPreferencesKey("theme")
         val AUTOMATIC_UPDATES = booleanPreferencesKey("automatic_updates")
         val UPDATER_NETWORK_TYPE = stringPreferencesKey("updater_network_type")
+        val DONATE_REQUEST_LAST_SEEN = longPreferencesKey("donate_request_last_seen")
     }
 }

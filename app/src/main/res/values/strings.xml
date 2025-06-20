@@ -5,6 +5,11 @@
     <string name="dark">Dark</string>
     <string name="donate">Donate</string>
     <string name="donate_desc">Donate to support Accrescent</string>
+    <string name="donate_card_heading">Donate today</string>
+    <string name="donate_card_desc">Accrescent needs your support to continue.</string>
+    <string name="donate_card_donate_btn">Donate</string>
+    <string name="donate_card_dismiss_btn">Close</string>
+    <string name="donate_card_info_btn">Learn more</string>
     <string name="installed">Installed</string>
     <string name="installed_from_another_source">App installed from another source</string>
     <string name="light">Light</string>

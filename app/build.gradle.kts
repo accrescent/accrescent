@@ -179,6 +179,8 @@ dependencies {
     implementation(libs.compose.material.icons)
     implementation(libs.compose.material3)
     implementation(libs.compose.ui)
+    implementation(libs.compose.ui.tooling)
+    implementation(libs.compose.ui.tooling.preview)
     implementation(libs.dagger)
     implementation(libs.datastore)
     implementation(libs.hilt.navcompose)
