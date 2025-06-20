@@ -21,12 +21,13 @@
         android:enableOnBackInvokedCallback="true"
         android:fullBackupContent="@xml/full_backup_content"
         android:icon="@mipmap/ic_launcher"
+        android:intentMatchingFlags="enforceIntentFilter"
         android:label="@string/app_name"
         android:memtagMode="async"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Accrescent"
-        tools:targetApi="tiramisu">
+        tools:targetApi="36">
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
