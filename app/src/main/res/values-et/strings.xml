@@ -72,4 +72,9 @@
     <string name="app_id_mismatch">rakenduse tunnus %1$s ei vasta eeldatavale tunnusele %2$s</string>
     <string name="any">Kõik ühendused</string>
     <string name="automatic_updates_desc">Kas rakenduste uuendamine peaks toimuma automaatselt. Kui valik on lülitatud välja, siis kuvame asjakohase teavituse.</string>
+    <string name="donate_card_heading">Toeta kohe</string>
+    <string name="donate_card_dismiss_btn">Sulge</string>
+    <string name="donate_card_info_btn">Lisateave</string>
+    <string name="donate_card_donate_btn">Toeta meid rahaliselt</string>
+    <string name="donate_card_desc">Jätkamiseks vajab Accrescent sinu toetust.</string>
 </resources>
