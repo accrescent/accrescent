@@ -37,7 +37,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -50,6 +49,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
@@ -79,8 +79,8 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val viewModel: SettingsViewModel = hiltViewModel()
-            val dynamicColor by viewModel.dynamicColor.collectAsState(false)
-            val theme by viewModel.theme.collectAsState(Theme.SYSTEM.name)
+            val dynamicColor by viewModel.dynamicColor.collectAsStateWithLifecycle(false)
+            val theme by viewModel.theme.collectAsStateWithLifecycle(Theme.SYSTEM.name)
 
             AccrescentTheme(
                 dynamicColor = dynamicColor,
@@ -118,7 +118,7 @@ fun MainContent(
 
     val showBottomBar =
         navController.currentBackStackEntryAsState().value?.destination?.route in screens.map { it.route }
-    val showDonateCard by viewModel.shouldShowDonateRequest().collectAsState(false)
+    val showDonateCard by viewModel.shouldShowDonateRequest().collectAsStateWithLifecycle(false)
 
     val searchQuery = remember { mutableStateOf(TextFieldValue()) }
 

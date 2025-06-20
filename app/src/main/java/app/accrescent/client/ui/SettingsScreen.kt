@@ -25,7 +25,6 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -44,6 +43,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.work.NetworkType
 import app.accrescent.client.R
 import app.accrescent.client.data.DONATE_URL
@@ -57,10 +57,10 @@ import kotlinx.coroutines.launch
 fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel = hiltViewModel()) {
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
-    val dynamicColor by viewModel.dynamicColor.collectAsState(false)
-    val theme by viewModel.theme.collectAsState(Theme.SYSTEM.name)
-    val automaticUpdates by viewModel.automaticUpdates.collectAsState(true)
-    val networkType by viewModel.updaterNetworkType.collectAsState(NetworkType.UNMETERED.name)
+    val dynamicColor by viewModel.dynamicColor.collectAsStateWithLifecycle(false)
+    val theme by viewModel.theme.collectAsStateWithLifecycle(Theme.SYSTEM.name)
+    val automaticUpdates by viewModel.automaticUpdates.collectAsStateWithLifecycle(true)
+    val networkType by viewModel.updaterNetworkType.collectAsStateWithLifecycle(NetworkType.UNMETERED.name)
 
     Column(
         modifier = modifier
