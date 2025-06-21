@@ -74,4 +74,9 @@
     <string name="dark">深色</string>
     <string name="light">浅色</string>
     <string name="system">系统决定</string>
+    <string name="donate_card_heading">今天就捐赠</string>
+    <string name="donate_card_desc">Accrescent 需要你的支持来继续下去。</string>
+    <string name="donate_card_donate_btn">捐赠</string>
+    <string name="donate_card_dismiss_btn">关闭</string>
+    <string name="donate_card_info_btn">了解更多</string>
 </resources>
