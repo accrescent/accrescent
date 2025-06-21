@@ -74,4 +74,9 @@
     <string name="app_doesnt_support_device">Az alkalmazás nem támogatja ezt az eszközt: %1$s</string>
     <string name="version_downgrade">a(z) %1$d verzió korábbi, mint a minimum %2$d</string>
     <string name="repodata_timestamp_less">a tárolóadat időbélyege korábbi, mint a mentett érték</string>
+    <string name="donate_card_desc">Az Accrescentnek szüksége van az Ön támogatására a folytatáshoz.</string>
+    <string name="donate_card_donate_btn">Adományozás</string>
+    <string name="donate_card_info_btn">Tudjon meg többet</string>
+    <string name="donate_card_heading">Adományozzon még ma</string>
+    <string name="donate_card_dismiss_btn">Bezárás</string>
 </resources>

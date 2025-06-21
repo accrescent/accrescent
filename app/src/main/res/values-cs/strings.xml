@@ -74,4 +74,9 @@
     <string name="swipe_refreshing">Aktualizace obsahu…</string>
     <string name="donate">Přispět</string>
     <string name="donate_desc">Přispět na vývoj aplikace Accrescent</string>
+    <string name="donate_card_heading">Přispějte</string>
+    <string name="donate_card_desc">Accrescent potřebuje vaši podporu, aby mohl pokračovat.</string>
+    <string name="donate_card_donate_btn">Přispět</string>
+    <string name="donate_card_dismiss_btn">Zavřít</string>
+    <string name="donate_card_info_btn">Zjistit více</string>
 </resources>

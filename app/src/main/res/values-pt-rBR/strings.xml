@@ -12,7 +12,7 @@
     <string name="unknown_host_error">Erro de host desconhecido: %1$s</string>
     <string name="uninstall_blocked">desinstalação bloqueada pelo administrador</string>
     <string name="search">Procurar</string>
-    <string name="app_list">Apps</string>
+    <string name="app_list">Aplicativos</string>
     <string name="source_code">Código fonte</string>
     <string name="app_updates">Atualizações</string>
     <string name="settings">Configurações</string>
