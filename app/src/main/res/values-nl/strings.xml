@@ -74,4 +74,9 @@
     <string name="dark">Donker</string>
     <string name="light">Licht</string>
     <string name="system">Systeem</string>
+    <string name="donate_card_info_btn">Meer informatie</string>
+    <string name="donate_card_desc">Accrescent heeft jouw steun nodig om door te gaan.</string>
+    <string name="donate_card_dismiss_btn">Sluiten</string>
+    <string name="donate_card_donate_btn">Doneren</string>
+    <string name="donate_card_heading">Vandaag doneren</string>
 </resources>
