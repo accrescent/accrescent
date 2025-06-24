@@ -74,4 +74,9 @@
     <string name="system">Sistema</string>
     <string name="dark">Scuro</string>
     <string name="light">Chiaro</string>
+    <string name="donate_card_heading">Dona oggi</string>
+    <string name="donate_card_desc">Accrescent ha bisogno del tuo supporto per continuare.</string>
+    <string name="donate_card_donate_btn">Dona</string>
+    <string name="donate_card_info_btn">Maggiori informazioni</string>
+    <string name="donate_card_dismiss_btn">Chiudi</string>
 </resources>
