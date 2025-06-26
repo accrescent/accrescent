@@ -66,7 +66,7 @@
     <string name="couldnt_open_appinfo">Impossible d’ouvrir AppInfo</string>
     <string name="enable">Activer</string>
     <string name="no_description_provided">(aucune description fournie)</string>
-    <string name="installed_from_another_source">Appli installée depuis une autre source</string>
+    <string name="installed_from_another_source">Application installée à partir d\'une autre source</string>
     <string name="dark">Sombre</string>
     <string name="light">Clair</string>
     <string name="system">Système</string>
@@ -74,4 +74,8 @@
     <string name="donate">Donner</string>
     <string name="donate_desc">Donner pour soutenir Accrescent</string>
     <string name="swipe_refreshing">Actualisation du contenu…</string>
+    <string name="donate_card_desc">Accrescent a besoin de votre soutien pour perdurer.</string>
+    <string name="donate_card_donate_btn">Faire un don</string>
+    <string name="donate_card_dismiss_btn">Fermer</string>
+    <string name="donate_card_info_btn">En savoir plus</string>
 </resources>
