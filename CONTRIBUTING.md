@@ -38,7 +38,6 @@ won't verify if you're on another OS.
 
 ## Code conventions
 
-- Use Kotlin for all Accrescent code. Java will not be accepted.
 - Avoid unnecessary third-party libraries. When a third-party library is needed,
   it should be well-maintained, widely used, and ideally written in a memory
   safe language.
