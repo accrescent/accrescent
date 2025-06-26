@@ -39,10 +39,6 @@ won't verify if you're on another OS.
 ## Code conventions
 
 - Use Kotlin for all Accrescent code. Java will not be accepted.
-- Use [Jetpack Compose] for UI where possible. UI using XML Views will only be
-  accepted if no viable Compose alternative exists. Since Jetpack Compose is
-  still fairly new, it's okay to use alpha/beta/rc libraries if necessary
-  (provided they meet the other contributing guidelines).
 - Avoid unnecessary third-party libraries. When a third-party library is needed,
   it should be well-maintained, widely used, and ideally written in a memory
   safe language.
