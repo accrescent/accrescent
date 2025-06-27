@@ -39,7 +39,7 @@
     <string name="swipe_refresh">Swipe ned for at opdatere</string>
     <string name="cant_find_app">Beklager, vi kunne ikke finde den app</string>
     <string name="up_to_date">Alle apps er opdateret</string>
-    <string name="no_app_signers">Ingen app-signerere fundet.\nForventede: %1$s</string>
+    <string name="no_app_signers">Ingen app-underskrivere fundet\nForventede: %1$s</string>
     <string name="device_density_unsupported">din enheds skærm opløsning er ikke understøttet</string>
     <string name="customization">Tilpas</string>
     <string name="about">Om</string>
@@ -72,4 +72,9 @@
     <string name="donate">Doner</string>
     <string name="donate_desc">Doner for at støtte Accrescent</string>
     <string name="installed_from_another_source">App installeret fra anden kilde</string>
+    <string name="donate_card_heading">Donér i dag</string>
+    <string name="donate_card_desc">Accrescent har brug for din hjælp til at fortsætte.</string>
+    <string name="donate_card_donate_btn">Donér</string>
+    <string name="donate_card_dismiss_btn">Luk</string>
+    <string name="donate_card_info_btn">Læs mere</string>
 </resources>
