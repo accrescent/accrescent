@@ -69,11 +69,14 @@
     <string name="installed_from_another_source">היישום הותקן ממקור אחר</string>
     <string name="theme">ערכת עיצוב</string>
     <string name="swipe_refreshing">התוכן מתרענן…</string>
-    <string name="donate">תרומה</string>
-    <string name="donate_desc">נא לתרום כדי לתמוך ב־Accrescent</string>
+    <string name="donate">לתרום</string>
+    <string name="donate_desc">תרמו כדי לתמוך ב־Accrescent</string>
     <string name="light">בהיר</string>
     <string name="system">כמו המערכת</string>
     <string name="dark">כהה</string>
     <string name="donate_card_heading">תרמו היום</string>
-    <string name="donate_card_desc">Accrescent צריכה את התמיכה שלכם כדי להמשיך</string>
+    <string name="donate_card_desc">Accrescent צריכה את התמיכה שלכם כדי להמשיך.</string>
+    <string name="donate_card_donate_btn">לתרום</string>
+    <string name="donate_card_dismiss_btn">סגור</string>
+    <string name="donate_card_info_btn">למד עוד</string>
 </resources>
