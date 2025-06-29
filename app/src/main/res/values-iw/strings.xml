@@ -74,4 +74,6 @@
     <string name="light">בהיר</string>
     <string name="system">כמו המערכת</string>
     <string name="dark">כהה</string>
+    <string name="donate_card_heading">תרמו היום</string>
+    <string name="donate_card_desc">Accrescent צריכה את התמיכה שלכם כדי להמשיך</string>
 </resources>
