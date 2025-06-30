@@ -74,4 +74,9 @@
     <string name="dark">داكن</string>
     <string name="light">فاتح</string>
     <string name="system">النظام</string>
+    <string name="donate_card_desc">يحتاج Accrescent إلى دعمكم للاستمرار.</string>
+    <string name="donate_card_donate_btn">تبرّع</string>
+    <string name="donate_card_info_btn">معرفة المزيد</string>
+    <string name="donate_card_heading">تبرّع الآن</string>
+    <string name="donate_card_dismiss_btn">أغلق</string>
 </resources>

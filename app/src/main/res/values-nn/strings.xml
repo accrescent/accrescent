@@ -74,4 +74,9 @@
     <string name="dark">Mørkt</string>
     <string name="light">Lyst</string>
     <string name="system">Systemstandard</string>
+    <string name="donate_card_heading">Gje ei pengegåve</string>
+    <string name="donate_card_desc">Accrescent treng støtte frå deg for å kunna halda fram.</string>
+    <string name="donate_card_donate_btn">Gje ei pengegåve</string>
+    <string name="donate_card_dismiss_btn">Lukk</string>
+    <string name="donate_card_info_btn">Les meir</string>
 </resources>

@@ -72,4 +72,9 @@
     <string name="no_app_signers">приложението не е подписано.\nОчаквано: %1$s</string>
     <string name="sig_verify_failed">грешка при потвърждаване на подписа</string>
     <string name="automatic_updates_desc">Дали приложенията да бъдат обновявани автоматично. Ако не е отметнато показва известие.</string>
+    <string name="donate_card_heading">Дарете днес</string>
+    <string name="donate_card_donate_btn">Даряване</string>
+    <string name="donate_card_dismiss_btn">Затваряне</string>
+    <string name="donate_card_info_btn">Научете повече</string>
+    <string name="donate_card_desc">За да продължи Accrescent се нуждае от вашата подкрепа.</string>
 </resources>
