@@ -34,7 +34,7 @@
     <string name="version_downgrade">גרסה %1$d נמוכה מהמזערית %2$d</string>
     <string name="version_code_mismatch">קוד גרסה מצופה %1$d, בפועל הוא %2$d</string>
     <string name="app_id_mismatch">מזהה היישום %1$s אינו תואם את המזהה המצופה %2$s</string>
-    <string name="base_apk_not_valid">base.apk אינו APK תקף</string>
+    <string name="base_apk_not_valid">base.apk הוא APK שגוי</string>
     <string name="no_app_signers">לא נמצאו חותמי יישומונים. \nאמור להיות: %1$s</string>
     <string name="search">חיפוש</string>
     <string name="user_restriction">שגיאת הגבלת משתמש: %1$s</string>
@@ -44,9 +44,9 @@
     <string name="device_density_unsupported">צפיפות המסך של המכשיר אינה נתמכת</string>
     <string name="device_abi_unsupported">ארכיטקטורת המכשיר שלך אינה נתמכת</string>
     <string name="version_mismatch">גרסה מצופה %1$s, בפועל היא %2$s</string>
-    <string name="repodata_timestamp_less">Repodata חותמת זמן קטנה מערך שמור</string>
+    <string name="repodata_timestamp_less">חותמת זמן ה־Repodata (נתוני מאגר) קטנה מהערך השמור</string>
     <string name="sig_verify_failed">אימות החתימה נכשל</string>
-    <string name="install_blocked">ההתקנה נחסמה על-ידי מנהל המערכת</string>
+    <string name="install_blocked">ההתקנה נחסמה על ידי מנהל המערכת</string>
     <string name="uninstall_blocked">הסרת התקנה נחסמה על-ידי מנהל המערכת</string>
     <string name="yes">כן</string>
     <string name="no">לא</string>
