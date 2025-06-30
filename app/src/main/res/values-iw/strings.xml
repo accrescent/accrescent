@@ -31,12 +31,11 @@
     <string name="app_doesnt_support_device">היישומון לא תומך במכשיר שלך: %1$s</string>
     <string name="app_signer_mismatch">האפליקציה לא חתומה על ידי החותמים הנדרשים.
 \nצפוי: %1$s</string>
-    <string name="version_downgrade">גרסה %1$d קטנה מהמינימום %2$d</string>
-    <string name="version_code_mismatch">קוד גרסה צפוי %1$d, בפועל הוא %2$d</string>
-    <string name="app_id_mismatch">מזהה אפליקציה %1$s אינו תואם את המזהה הצפוי %2$s</string>
-    <string name="base_apk_not_valid">base.apk אינו APK חוקי</string>
-    <string name="no_app_signers">לא נמצאו חותמי אפליקציה.
-\nצפוי: %1$s</string>
+    <string name="version_downgrade">גרסה %1$d נמוכה מהמזערית %2$d</string>
+    <string name="version_code_mismatch">קוד גרסה מצופה %1$d, בפועל הוא %2$d</string>
+    <string name="app_id_mismatch">מזהה היישום %1$s אינו תואם את המזהה המצופה %2$s</string>
+    <string name="base_apk_not_valid">base.apk אינו APK תקף</string>
+    <string name="no_app_signers">לא נמצאו חותמי יישומונים. \nאמור להיות: %1$s</string>
     <string name="search">חיפוש</string>
     <string name="user_restriction">שגיאת הגבלת משתמש: %1$s</string>
     <string name="unknown_host_error">שגיאת מארח לא ידועה: %1$s</string>
@@ -44,7 +43,7 @@
     <string name="version_code">קוד גרסה: %1$d</string>
     <string name="device_density_unsupported">צפיפות המסך של המכשיר אינה נתמכת</string>
     <string name="device_abi_unsupported">ארכיטקטורת המכשיר שלך אינה נתמכת</string>
-    <string name="version_mismatch">גרסה צפויה %1$s, בפועל היא %2$s</string>
+    <string name="version_mismatch">גרסה מצופה %1$s, בפועל היא %2$s</string>
     <string name="repodata_timestamp_less">Repodata חותמת זמן קטנה מערך שמור</string>
     <string name="sig_verify_failed">אימות החתימה נכשל</string>
     <string name="install_blocked">ההתקנה נחסמה על-ידי מנהל המערכת</string>
@@ -70,13 +69,13 @@
     <string name="theme">ערכת עיצוב</string>
     <string name="swipe_refreshing">התוכן מתרענן…</string>
     <string name="donate">לתרום</string>
-    <string name="donate_desc">תרמו כדי לתמוך ב־Accrescent</string>
+    <string name="donate_desc">נא לתרום כדי לתמוך ב־Accrescent</string>
     <string name="light">בהיר</string>
     <string name="system">כמו המערכת</string>
     <string name="dark">כהה</string>
-    <string name="donate_card_heading">תרמו היום</string>
-    <string name="donate_card_desc">Accrescent צריכה את התמיכה שלכם כדי להמשיך.</string>
+    <string name="donate_card_heading">נא לתרום עוד היום</string>
+    <string name="donate_card_desc">Accrescent צריכה את התמיכה שלך כדי להמשיך.</string>
     <string name="donate_card_donate_btn">לתרום</string>
-    <string name="donate_card_dismiss_btn">סגור</string>
-    <string name="donate_card_info_btn">למד עוד</string>
+    <string name="donate_card_dismiss_btn">סגירה</string>
+    <string name="donate_card_info_btn">מידע נוסף</string>
 </resources>
