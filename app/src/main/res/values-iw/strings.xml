@@ -29,8 +29,7 @@
     <string name="failed_decode_repodata">פענוח נתוני המאגר נכשל: %1$s</string>
     <string name="error_parsing_files">שגיאה בניתוח קובצי היישומון: %1$s</string>
     <string name="app_doesnt_support_device">היישומון לא תומך במכשיר שלך: %1$s</string>
-    <string name="app_signer_mismatch">האפליקציה לא חתומה על ידי החותמים הנדרשים.
-\nצפוי: %1$s</string>
+    <string name="app_signer_mismatch">היישומון לא חתום על ידי החותמים הנדרשים. \nאמור להיות: %1$s</string>
     <string name="version_downgrade">גרסה %1$d נמוכה מהמזערית %2$d</string>
     <string name="version_code_mismatch">קוד גרסה מצופה %1$d, בפועל הוא %2$d</string>
     <string name="app_id_mismatch">מזהה היישום %1$s אינו תואם את המזהה המצופה %2$s</string>
@@ -46,20 +45,20 @@
     <string name="version_mismatch">גרסה מצופה %1$s, בפועל היא %2$s</string>
     <string name="repodata_timestamp_less">חותמת זמן ה־Repodata (נתוני מאגר) קטנה מהערך השמור</string>
     <string name="sig_verify_failed">אימות החתימה נכשל</string>
-    <string name="install_blocked">ההתקנה נחסמה על ידי מנהל המערכת</string>
-    <string name="uninstall_blocked">הסרת התקנה נחסמה על-ידי מנהל המערכת</string>
+    <string name="install_blocked">ההתקנה נחסמה על ידי הנהלת המערכת</string>
+    <string name="uninstall_blocked">הסרת התקנה נחסמה על ידי הנהלת המערכת</string>
     <string name="yes">כן</string>
     <string name="no">לא</string>
     <string name="network_condition">מצב רשת</string>
-    <string name="any">הכול</string>
+    <string name="any">כשלהו</string>
     <string name="unmetered">לא מדודה</string>
     <string name="not_roaming">בלי נדידה</string>
     <string name="update_available">עדכון זמין</string>
     <string name="update_finished">העדכון הסתיים</string>
-    <string name="update_failure">כשל בעדכון</string>
+    <string name="update_failure">עדכון נכשל</string>
     <string name="updater">מעדכן</string>
     <string name="automatic_updates">עדכונים אוטומטיים</string>
-    <string name="automatic_updates_desc">האם לעדכן יישומים אוטומטית. מציג התראה במקום אם מושבת.</string>
+    <string name="automatic_updates_desc">האם לעדכן יישומונים אוטומטית. מציג התראה במקום אם מושבת.</string>
     <string name="update_success">%1$s עודכן בהצלחה.</string>
     <string name="back_button">חזרה</string>
     <string name="enable">הפעלה</string>
