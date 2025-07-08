@@ -7,6 +7,7 @@ import app.accrescent.client.data.net.RepoData
 import app.accrescent.client.util.verifySignature
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.serialization.json.Json
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.IOException
@@ -40,7 +41,7 @@ class RepoDataFetcherImpl @Inject constructor(
     }
 
     private fun fetchFileString(url: URL): String {
-        val request = Request.Builder().url(url).build()
+        val request = Request(url.toString().toHttpUrl())
 
         return okHttpClient
             .newCall(request)
