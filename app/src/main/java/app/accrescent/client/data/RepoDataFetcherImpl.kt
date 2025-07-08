@@ -10,7 +10,6 @@ import kotlinx.serialization.json.Json
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import java.io.IOException
 import java.net.URL
 import java.security.GeneralSecurityException
 import javax.inject.Inject
@@ -46,7 +45,6 @@ class RepoDataFetcherImpl @Inject constructor(
         return okHttpClient
             .newCall(request)
             .execute()
-            .use { it.body?.string() }
-            ?: throw IOException("request body expected but not found")
+            .use { it.body.string() }
     }
 }
