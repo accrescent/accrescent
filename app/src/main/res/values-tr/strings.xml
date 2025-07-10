@@ -74,4 +74,9 @@
     <string name="dark">Koyu</string>
     <string name="light">Açık</string>
     <string name="system">Sistem</string>
+    <string name="donate_card_heading">Bağış günü</string>
+    <string name="donate_card_desc">Accrescent devam edebilmek için desteğinize ihtiyaç duyuyor.</string>
+    <string name="donate_card_donate_btn">Bağış</string>
+    <string name="donate_card_dismiss_btn">Kapat</string>
+    <string name="donate_card_info_btn">Daha fazla bilgi edinin</string>
 </resources>
