@@ -9,7 +9,7 @@
     <string name="light">Jasny</string>
     <string name="system">Systemowy</string>
     <string name="theme">Motyw</string>
-<string name="app_updates">Aktualizacje</string>
+    <string name="app_updates">Aktualizacje</string>
     <string name="settings">Ustawienia</string>
     <string name="install">Zainstaluj</string>
     <string name="uninstall">Odinstaluj</string>
@@ -73,4 +73,9 @@
     <string name="update_success">%1$s zostało pomyślnie zaktualizowane.</string>
     <string name="back_button">Wróć</string>
     <string name="no_description_provided">(bez opisu)</string>
-    </resources>
+    <string name="donate_card_heading">Wesprzyj nas dziś</string>
+    <string name="donate_card_desc">Accrescent potrzebuje Twojego wsparcia aby kontynuować.</string>
+    <string name="donate_card_donate_btn">Przekaż</string>
+    <string name="donate_card_dismiss_btn">Zamknij</string>
+    <string name="donate_card_info_btn">Dowiedz się więcej</string>
+</resources>
