@@ -15,7 +15,7 @@ class MainViewModel @Inject constructor(
     private val preferencesManager: PreferencesManager,
 ) : ViewModel() {
     private companion object {
-        private val MIN_TIME_BETWEEN_DONATE_REQUESTS = 30.days
+        private val MIN_TIME_BETWEEN_DONATE_REQUESTS = 90.days
     }
 
     fun shouldShowDonateRequest(): Flow<Boolean> {
