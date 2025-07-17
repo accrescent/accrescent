@@ -45,6 +45,11 @@
     <string name="error_parsing_files">Lỗi chuyển đổi tệp ứng dụng: %1$s</string>
     <string name="app_doesnt_support_device">Ứng dụng không tương thích với thiết bị: %1$s</string>
     <string name="unknown_host_error">Lỗi chủ thể không xác định: %1$s</string>
-    <string name="yes">Có</string>
+    <string name="yes">Đồng ý</string>
     <string name="search">Tìm kiếm</string>
+    <string name="no">Không</string>
+    <string name="back_button">Quay lại</string>
+    <string name="no_description_provided">(không có miêu tả)</string>
+    <string name="version">Phiên bản: %1$s</string>
+    <string name="version_code">Phiên bản mã: %1$d</string>
 </resources>
