@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_list">Ứng dụng</string>
+    <string name="dark">Tối</string>
+    <string name="donate">Khuyên góp</string>
+    <string name="donate_desc">Khuyên góp để hỗ trợ Accrescent</string>
+    <string name="donate_card_heading">Khuyên góp ngay hôm nay</string>
+    <string name="donate_card_desc">Accrescent cần sự chung tay của bạn để phát triển</string>
 </resources>
