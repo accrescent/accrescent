@@ -43,4 +43,8 @@
     <string name="failed_verify_repodata">Xác thực dữ liệu nguồn không thành công: %1$s</string>
     <string name="failed_decode_repodata">Giải mã dữ liệu nguồn không thành công: %1$s</string>
     <string name="error_parsing_files">Lỗi chuyển đổi tệp ứng dụng: %1$s</string>
+    <string name="app_doesnt_support_device">Ứng dụng không tương thích với thiết bị: %1$s</string>
+    <string name="unknown_host_error">Lỗi chủ thể không xác định: %1$s</string>
+    <string name="yes">Có</string>
+    <string name="search">Tìm kiếm</string>
 </resources>
