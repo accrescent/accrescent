@@ -57,4 +57,7 @@
     <string name="device_abi_unsupported">kiến trúc của thiết bị bạn không được hỗ trợ</string>
     <string name="version_downgrade">phiên bản %1$d thấp hơn tối thiểu là %2$d</string>
     <string name="app_id_mismatch">ID của ứng dụng %1$s không khớp với ID trong dữ liệu %2$s</string>
+    <string name="app_signer_mismatch">ứng dụng không được ký bởi (những)người đăng ký.\nCần: %1$s</string>
+    <string name="no_app_signers">không tìm thấy người đăng ký của ứng dụng. \nCần: %1$s</string>
+    <string name="version_mismatch">phiên bản cần %1$s, phiên bản hiện tại là %2$s</string>
 </resources>
