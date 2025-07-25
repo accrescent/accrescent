@@ -74,4 +74,9 @@
     <string name="dark">Тёмная</string>
     <string name="light">Светлая</string>
     <string name="system">Системная</string>
+    <string name="donate_card_heading">Пожертвовать сегодня</string>
+    <string name="donate_card_desc">Для продолжения работы компании Accrescent необходима ваша поддержка.</string>
+    <string name="donate_card_donate_btn">Пожертвовать</string>
+    <string name="donate_card_dismiss_btn">Закрыть</string>
+    <string name="donate_card_info_btn">Узнать больше</string>
 </resources>
