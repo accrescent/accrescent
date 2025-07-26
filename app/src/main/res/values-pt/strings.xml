@@ -74,4 +74,9 @@
     <string name="dark">Escuro</string>
     <string name="theme">Tema</string>
     <string name="swipe_refreshing">A recarregar conteúdo…</string>
+    <string name="donate_card_heading">Doe hoje</string>
+    <string name="donate_card_desc">Accrescent precisa do seu apoio para continuar.</string>
+    <string name="donate_card_donate_btn">Doe</string>
+    <string name="donate_card_dismiss_btn">Fechar</string>
+    <string name="donate_card_info_btn">Saiba mais</string>
 </resources>

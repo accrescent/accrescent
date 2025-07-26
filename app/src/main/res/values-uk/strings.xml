@@ -74,4 +74,9 @@
     <string name="swipe_refreshing">Оновлення вмісту…</string>
     <string name="donate">Пожертвувати</string>
     <string name="donate_desc">Пожертвуйте, щоби підтримати Accrescent</string>
+    <string name="donate_card_heading">Пожертвуйте сьогодні</string>
+    <string name="donate_card_desc">Accrescent потребує вашої підтримки, щоб продовжувати.</string>
+    <string name="donate_card_donate_btn">Пожертвувати</string>
+    <string name="donate_card_dismiss_btn">Закрити</string>
+    <string name="donate_card_info_btn">Дізнатися більше</string>
 </resources>
