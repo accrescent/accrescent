@@ -87,6 +87,7 @@ android {
             "ta",
             "tr",
             "uk",
+            "vi",
             "zh-rCN",
             "zh-rTW",
         ))
