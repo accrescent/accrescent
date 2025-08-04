@@ -67,6 +67,13 @@ its legitimacy.
 Accrescent has a project on [Hosted Weblate] if you would like to help
 translate.
 
+## Sponsors
+
+Thank you to our sponsors for supporting us! Accrescent wouldn't be possible
+without you. Accrescent is sponsored by:
+
+- 🥇 Astra
+
 ## Trademark
 
 The name "Accrescent" and the Accrescent logo are common law trademarks owned by
