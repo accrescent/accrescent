@@ -97,8 +97,8 @@ android {
         applicationId = "app.accrescent.client"
         minSdk = 29
         targetSdk = 36
-        versionCode = 49
-        versionName = "0.25.0"
+        versionCode = 51
+        versionName = "0.26.0"
     }
 
     bundle {
