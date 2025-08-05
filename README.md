@@ -73,6 +73,7 @@ Thank you to our sponsors for supporting us! Accrescent wouldn't be possible
 without you. Accrescent is sponsored by:
 
 - 🥇 Astra
+- 🥇 Isai Garcia
 
 ## Trademark
 
