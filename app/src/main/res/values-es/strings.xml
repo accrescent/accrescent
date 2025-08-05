@@ -15,7 +15,7 @@
     <string name="cant_find_app">Disculpa, no encontramos esa aplicación</string>
     <string name="failed_download_files">Error al descargar los archivos necesarios: %1$s</string>
     <string name="error_parsing_files">Error al analizar los archivos de la aplicación: %1$s</string>
-    <string name="app_doesnt_support_device">La aplicación no admite su dispositivo: %1$s</string>
+    <string name="app_doesnt_support_device">La aplicación no es compatible con su dispositivo: %1$s</string>
     <string name="unknown_host_error">Error de anfitrión desconocido: %1$s</string>
     <string name="version">Versión: %1$s</string>
     <string name="device_abi_unsupported">la arquitectura de su dispositivo no es compatible</string>
@@ -63,15 +63,20 @@
     <string name="any">Cualquiera</string>
     <string name="automatic_updates_desc">Indica si se debe actualizar automáticamente la aplicación. Si se desactiva, se muestra una notificación.</string>
     <string name="back_button">Atrás</string>
-    <string name="enable">Activar</string>
+    <string name="enable">Habilitar</string>
     <string name="couldnt_open_appinfo">No se ha podido abrir AppInfo</string>
     <string name="no_description_provided">(sin descripción)</string>
     <string name="installed_from_another_source">Aplicación instalada desde otra fuente</string>
     <string name="donate_desc">Done para apoyar a Accrescent</string>
     <string name="donate">Donar</string>
-    <string name="swipe_refreshing">Refrescando el contenido…</string>
-    <string name="theme">Tema</string>
+    <string name="swipe_refreshing">Actualizando contenido…</string>
+    <string name="theme">Apariencia</string>
     <string name="dark">Oscuro</string>
     <string name="light">Claro</string>
     <string name="system">Del sistema</string>
+    <string name="donate_card_heading">Donar hoy</string>
+    <string name="donate_card_donate_btn">Donar</string>
+    <string name="donate_card_dismiss_btn">Cerrar</string>
+    <string name="donate_card_desc">Accresent necesita tu apoyo para continuar.</string>
+    <string name="donate_card_info_btn">Ver más</string>
 </resources>
