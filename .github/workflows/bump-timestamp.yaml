@@ -12,7 +12,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Update Constants.kt
         env:
           FILE: app/src/main/java/app/accrescent/client/data/Constants.kt
