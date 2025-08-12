@@ -72,4 +72,5 @@
     <string name="open_link">打開連結</string>
     <string name="donate_desc">捐款支持 Accrescent</string>
     <string name="update_finished">更新完成</string>
+    <string name="donate_card_heading">今天就捐贈</string>
 </resources>
