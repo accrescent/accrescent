@@ -72,4 +72,7 @@
     <string name="swipe_refreshing">Informacija naujinama…</string>
     <string name="donate">Paremti</string>
     <string name="donate_desc">Paremti „Accescent“ finansiškai</string>
+    <string name="donate_card_heading">Paremti šiandien</string>
+    <string name="donate_card_dismiss_btn">Uždaryti</string>
+    <string name="donate_card_info_btn">Sužinoti daugiau</string>
 </resources>
