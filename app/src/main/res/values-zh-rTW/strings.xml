@@ -31,7 +31,7 @@
     <string name="device_density_unsupported">不支持您的設備屏幕密度</string>
     <string name="device_abi_unsupported">不支持您的設備的架構</string>
     <string name="app_signer_mismatch">App 沒有被需要的簽署人簽署。\n預期的簽署人：%1$s</string>
-    <string name="no_app_signers">無 App 簽署人找到。\n預期的簽署人：%1$s</string>
+    <string name="no_app_signers">未找到應用簽名者。 \n預期的簽名者：%1$s</string>
     <string name="version_downgrade">版本 %1$d 少於 %2$d</string>
     <string name="app_id_mismatch">App ID %1$s 不符合預期的 ID %2$s</string>
     <string name="version_mismatch">預期版本 %1$s，接受了 %2$s</string>
@@ -73,4 +73,8 @@
     <string name="donate_desc">捐款支持 Accrescent</string>
     <string name="update_finished">更新完成</string>
     <string name="donate_card_heading">今天就捐贈</string>
+    <string name="donate_card_desc">Accrescent 需要你的支持來繼續下去。</string>
+    <string name="donate_card_donate_btn">捐贈</string>
+    <string name="donate_card_dismiss_btn">關閉</string>
+    <string name="donate_card_info_btn">了解更多</string>
 </resources>
