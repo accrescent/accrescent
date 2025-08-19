@@ -74,4 +74,9 @@
     <string name="swipe_refreshing">새로고침 콘텐츠…</string>
     <string name="dark">어두움</string>
     <string name="system">시스템</string>
+    <string name="donate_card_heading">오늘 기부</string>
+    <string name="donate_card_desc">Accrescent가 지속되기 위해서는 여러분의 지원이 필요합니다.</string>
+    <string name="donate_card_donate_btn">기부</string>
+    <string name="donate_card_dismiss_btn">닫기</string>
+    <string name="donate_card_info_btn">더 알아보기</string>
 </resources>
