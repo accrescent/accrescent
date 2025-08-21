@@ -74,4 +74,9 @@
     <string name="system">System</string>
     <string name="theme">Design</string>
     <string name="swipe_refreshing">Inhalte werden aktualisiert…</string>
+    <string name="donate_card_heading">jetzt spenden</string>
+    <string name="donate_card_donate_btn">Spenden</string>
+    <string name="donate_card_dismiss_btn">Schließen</string>
+    <string name="donate_card_info_btn">Erfahren Sie mehr</string>
+    <string name="donate_card_desc">Accrescent braucht Ihre Unterstützung um weiterzumachen.</string>
 </resources>
