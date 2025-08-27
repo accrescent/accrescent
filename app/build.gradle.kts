@@ -4,7 +4,6 @@ import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.accrescent.bundletool)
     alias(libs.plugins.dagger)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose.compiler)
@@ -149,17 +148,6 @@ android {
     lint {
         enable += "ComposeM2Api"
         error += "ComposeM2Api"
-    }
-}
-
-if (useKeystoreProperties) {
-    bundletool {
-        signingConfig {
-            storeFile = file(keystoreProperties["storeFile"]!!)
-            storePassword = keystoreProperties["storePassword"] as String
-            keyAlias = keystoreProperties["keyAlias"] as String
-            keyPassword = keystoreProperties["keyPassword"] as String
-        }
     }
 }
 
