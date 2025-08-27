@@ -8,7 +8,7 @@
     <string name="repodata_timestamp_less">ভাণ্ডারতথ্যের টাইমস্ট্যাম্প সংরক্ষিত মানের চেয়ে কম</string>
     <string name="about">সম্পর্কে</string>
     <string name="update">হালনাগাদ</string>
-    <string name="source_code_desc">অ্যাক্রেসেন্টের উৎস কোড দেখো</string>
+    <string name="source_code_desc">অ্যাক্রেসেন্টের উৎস কোড দেখুন</string>
     <string name="automatic_updates_desc">অ্যাপ স্বয়ংক্রিয়ভাবে হালনাগাদ হবে কিনা। নিষ্ক্রিয় হলে একটি বিজ্ঞপ্তি দেখায়।</string>
     <string name="app_updates">হালনাগাদ</string>
     <string name="app_list">অ্যাপ</string>
@@ -20,12 +20,12 @@
     <string name="light">আলো</string>
     <string name="system">সিস্টেম</string>
     <string name="theme">রঙ</string>
-    <string name="settings">পছন্দসমূহ</string>
+    <string name="settings">নিয়ন্ত্রণ সরঞ্জাম</string>
     <string name="install">ইন্সটল</string>
-    <string name="open">খুলো</string>
+    <string name="open">খুলুন</string>
     <string name="customization">বিশেষায়ন</string>
     <string name="dynamic_color">পরিবর্তনশীল রঙ / ম্যাটেরিয়াল ইউ</string>
-    <string name="dynamic_color_desc">অ্যাপের রঙ সিস্টেমের রঙের উপর পাল্টাও</string>
+    <string name="dynamic_color_desc">অ্যাপের রঙ সিস্টেমের রঙের উপর পাল্টান</string>
     <string name="no_apps_installed">কোন অ্যাপ ইন্সটল করা হয়নি</string>
     <string name="up_to_date">সব হালনাগাদকৃত</string>
     <string name="user_action_required">ব্যবহারকারী নজর আবশ্যক</string>
@@ -34,7 +34,7 @@
     <string name="couldnt_open_appinfo">অ্যাপইনফো খুলা যায়নি</string>
     <string name="network_error">নেটওয়ার্ক ত্রুটি: %1$s</string>
     <string name="app_verification_failed">অ্যাপ যাচাইকরণ ব্যর্থ: %1$s</string>
-    <string name="app_doesnt_support_device">অ্যাপ তোমার ডিভাইস সমর্থন করেনা: %1$s</string>
+    <string name="app_doesnt_support_device">অ্যাপ আপনার ডিভাইস সমর্থন করেনা: %1$s</string>
     <string name="failed_download_files">প্রয়োজনীয় ফাইল নামাতে ব্যর্থ: %1$s</string>
     <string name="failed_download_repodata">ভাণ্ডারতথ্য নামাতে ব্যর্থ: %1$s</string>
     <string name="failed_verify_repodata">ভাণ্ডারতথ্য যাচাই করতে ব্যর্থ: %1$s</string>
@@ -42,7 +42,7 @@
     <string name="error_parsing_files">অ্যাপ ফাইল পড়তে ত্রুটি: %1$s</string>
     <string name="unknown_host_error">অজানা হোস্ট ত্রুটি: %1$s</string>
     <string name="user_restriction">ব্যবহারকারী সীমাবদ্ধতা ত্রুটি: %1$s</string>
-    <string name="device_abi_unsupported">তোমার ডিভাইসের স্থাপত্য অসমর্থিত</string>
+    <string name="device_abi_unsupported">আপনার ডিভাইসের স্থাপত্য অসমর্থিত</string>
     <string name="version">সংস্করণ: %1$s</string>
     <string name="version_code">সংস্করণ সংকেত: %1$d</string>
     <string name="no_app_signers">কোন অ্যাপ স্বাক্ষরকারী পাওয়া যায়নি। \nআশাকৃত: %1$s</string>
@@ -65,10 +65,15 @@
     <string name="source_code">উৎস কোড</string>
     <string name="no">না</string>
     <string name="automatic_updates">স্বয়ংক্রিয় হালনাগাদ</string>
-    <string name="swipe_refresh">রিফ্রেশ করতে উপর থেকে টানো</string>
+    <string name="swipe_refresh">রিফ্রেশ করতে উপর থেকে টানুন</string>
     <string name="uninstall">অপসারণ</string>
-    <string name="open_link">সংযোগ খুলো</string>
+    <string name="open_link">সংযোগ খুলুন</string>
     <string name="app_signer_mismatch">অ্যাপ প্রয়োজনীয় স্বাক্ষরকারী(রা) স্বাক্ষর করেনি।\nআশাকৃত: %1$s</string>
     <string name="install_blocked">ব্যবস্থাপক(অ্যাডমিন) ইন্সটল অবরুদ্ধ করেছে</string>
-    <string name="device_density_unsupported">তোমার ডিভাইসের স্ক্রিন ঘনত্ব সমর্থন করেনা</string>
+    <string name="device_density_unsupported">আপনার ডিভাইসের স্ক্রিন ঘনত্ব সমর্থন করেনা</string>
+    <string name="donate_card_heading">আজই অনুদান দিন</string>
+    <string name="donate_card_desc">অ্যাক্রেসেন্ট চালু রাখতে হলে আপনার সমর্থন চাই।</string>
+    <string name="donate_card_donate_btn">অনুদান</string>
+    <string name="donate_card_dismiss_btn">বন্ধ</string>
+    <string name="donate_card_info_btn">আরো জানুন</string>
 </resources>
