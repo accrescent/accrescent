@@ -38,14 +38,12 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -65,7 +63,6 @@ import app.accrescent.client.data.DONATE_URL
 import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.ROOT_DOMAIN
 import app.accrescent.client.data.Theme
-import app.accrescent.client.ui.common.SearchAppBar
 import app.accrescent.client.ui.theme.AccrescentTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -120,8 +117,6 @@ fun MainContent(
         navController.currentBackStackEntryAsState().value?.destination?.route in screens.map { it.route }
     val showDonateCard by viewModel.shouldShowDonateRequest().collectAsStateWithLifecycle(false)
 
-    val searchQuery = remember { mutableStateOf(TextFieldValue()) }
-
     val startDestination =
         if (appId != null) "${Screen.AppDetails.route}/{appId}" else Screen.AppList.route
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -170,19 +165,17 @@ fun MainContent(
                 enter = fadeIn(animationSpec = tween(400)),
                 exit = fadeOut(animationSpec = tween(400)),
             ) {
-                SearchAppBar(
-                    value = searchQuery.value,
-                    onValueChange = { searchQuery.value = it },
-                    // keep the search bar open if query is not empty when returning from an other screen
-                    expandedInitially = searchQuery.value.text.isNotEmpty()
-                ) {
-                    IconButton(onClick = { navController.navigate(Screen.Settings.route) }) {
-                        Icon(
-                            imageVector = Screen.Settings.navIconSelected!!,
-                            contentDescription = stringResource(Screen.Settings.resourceId)
-                        )
+                CenterAlignedTopAppBar(
+                    title = {},
+                    actions = {
+                        IconButton(onClick = { navController.navigate(Screen.Settings.route) }) {
+                            Icon(
+                                imageVector = Screen.Settings.navIconSelected!!,
+                                contentDescription = stringResource(Screen.Settings.resourceId)
+                            )
+                        }
                     }
-                }
+                )
             }
         },
         bottomBar = {
@@ -254,7 +247,6 @@ fun MainContent(
                 }) {
                     AppList(
                         navController = navController,
-                        searchQuery = searchQuery.value.text,
                         snackbarHostState = snackbarHostState,
                     )
                 }
@@ -287,7 +279,6 @@ fun MainContent(
                 }) {
                     AppList(
                         navController = navController,
-                        searchQuery = searchQuery.value.text,
                         snackbarHostState = snackbarHostState,
                         filter = {
                             it == InstallStatus.INSTALLED || it == InstallStatus.UPDATABLE
@@ -321,7 +312,6 @@ fun MainContent(
                 }) {
                     AppList(
                         navController = navController,
-                        searchQuery = searchQuery.value.text,
                         snackbarHostState = snackbarHostState,
                         filter = { it == InstallStatus.UPDATABLE },
                         noFilterResultsText = stringResource(R.string.up_to_date),

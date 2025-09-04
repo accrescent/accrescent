@@ -43,7 +43,6 @@ import kotlinx.coroutines.launch
 @Composable
 fun AppList(
     navController: NavController,
-    searchQuery: String,
     modifier: Modifier = Modifier,
     snackbarHostState: SnackbarHostState = SnackbarHostState(),
     viewModel: AppListViewModel = hiltViewModel(),
@@ -54,8 +53,6 @@ fun AppList(
     val scope = rememberCoroutineScope()
     val installStatuses = viewModel.installStatuses
     val filteredApps = apps.filter { filter(installStatuses[it.id] ?: InstallStatus.LOADING) }
-        .filter { it.name.lowercase().contains(searchQuery.lowercase()) }
-        .sortedBy { it.name.lowercase().indexOf(searchQuery.lowercase()) }
 
     val refreshScope = rememberCoroutineScope()
     val refreshingMessage = stringResource(R.string.swipe_refreshing)
