@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.pullrefresh.PullRefreshIndicator
 import androidx.compose.material.pullrefresh.pullRefresh
@@ -19,7 +18,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
@@ -50,7 +48,6 @@ fun AppList(
     noFilterResultsText: String = "",
 ) {
     val apps by viewModel.apps.collectAsStateWithLifecycle(emptyList())
-    val scope = rememberCoroutineScope()
     val installStatuses = viewModel.installStatuses
     val filteredApps = apps.filter { filter(installStatuses[it.id] ?: InstallStatus.LOADING) }
 
@@ -59,35 +56,12 @@ fun AppList(
     val state = rememberPullRefreshState(viewModel.isRefreshing, onRefresh = {
         refreshScope.launch { viewModel.refreshRepoData() }
     })
-    val listState = rememberLazyListState()
-    DisposableEffect(apps) {
-        val currentRoute = navController.currentDestination?.route
-        scope.launch {
-            // restore the previous scroll state
-            val (index, offset) = viewModel.firstVisibleItems.getOrDefault(currentRoute, Pair(0, 0))
-            listState.scrollToItem(index, offset)
-        }
-        onDispose {
-            // save the scroll state, while it's not equal to 0 which can happen due to animations
-            if (listState.firstVisibleItemIndex == 0 &&
-                listState.firstVisibleItemScrollOffset == 0
-            ) return@onDispose
-            viewModel.firstVisibleItems[currentRoute] = Pair(
-                listState.firstVisibleItemIndex,
-                listState.firstVisibleItemScrollOffset
-            )
-        }
-    }
 
     Box(modifier.pullRefresh(state)) {
         val verticalArrangement =
             if (apps.isEmpty() || filteredApps.isEmpty()) Arrangement.Center else Arrangement.Top
 
-        LazyColumn(
-            Modifier.fillMaxSize(),
-            verticalArrangement = verticalArrangement,
-            state = listState
-        ) {
+        LazyColumn(Modifier.fillMaxSize(), verticalArrangement = verticalArrangement) {
             if (apps.isEmpty()) {
                 item { CenteredText(stringResource(R.string.swipe_refresh)) }
             } else if (filteredApps.isEmpty()) {
