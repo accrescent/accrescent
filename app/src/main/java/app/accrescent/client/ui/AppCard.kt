@@ -11,20 +11,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import app.accrescent.client.data.db.App
 
 @Composable
-fun AppCard(app: App, modifier: Modifier = Modifier) {
+fun AppCard(appId: String, name: String, modifier: Modifier = Modifier) {
     Card(modifier) {
         Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             AppIcon(
-                app.id,
+                appId,
                 Modifier
                     .padding(horizontal = 12.dp, vertical = 8.dp)
                     .size(48.dp),
             )
             Text(
-                app.name,
+                name,
                 modifier = Modifier.padding(vertical = 24.dp),
                 fontWeight = FontWeight.Medium,
             )

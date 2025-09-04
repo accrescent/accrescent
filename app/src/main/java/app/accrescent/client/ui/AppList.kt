@@ -102,7 +102,8 @@ fun AppList(
                 item { Spacer(Modifier.height(16.dp)) }
                 items(filteredApps, key = { app -> app.id }) { app ->
                     AppCard(
-                        app = app,
+                        appId = app.id,
+                        name = app.name,
                         Modifier
                             .fillMaxWidth()
                             .padding(horizontal = 16.dp, vertical = 8.dp)
