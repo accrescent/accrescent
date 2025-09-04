@@ -60,10 +60,7 @@ fun AppList(
     val refreshScope = rememberCoroutineScope()
     val refreshingMessage = stringResource(R.string.swipe_refreshing)
     val state = rememberPullRefreshState(viewModel.isRefreshing, onRefresh = {
-        refreshScope.launch {
-            viewModel.refreshRepoData()
-            viewModel.refreshInstallStatuses()
-        }
+        refreshScope.launch { viewModel.refreshRepoData() }
     })
     val listState = rememberLazyListState()
     DisposableEffect(apps) {

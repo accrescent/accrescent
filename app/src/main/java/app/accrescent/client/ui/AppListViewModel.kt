@@ -82,10 +82,4 @@ class AppListViewModel @Inject constructor(
             isRefreshing = false
         }
     }
-
-    fun refreshInstallStatuses() {
-        viewModelScope.launch {
-            apps.collect()
-        }
-    }
 }
