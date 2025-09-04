@@ -32,9 +32,6 @@ class AppListViewModel @Inject constructor(
 ) : AndroidViewModel(context as Application) {
     val apps = repoDataRepository.getApps()
 
-    // for saving and restoring the scroll state, mapped to the navigation route
-    var firstVisibleItems = mutableMapOf<String?, Pair<Int, Int>>()
-
     // Initialize install status for apps as they're added
     init {
         val flow = apps.onEach { apps ->
