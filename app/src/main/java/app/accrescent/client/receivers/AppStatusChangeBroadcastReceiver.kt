@@ -22,9 +22,7 @@ class AppStatusChangeBroadcastReceiver : BroadcastReceiver() {
 
     private val scope = CoroutineScope(SupervisorJob())
 
-    override fun onReceive(context: Context?, intent: Intent?) {
-        if (intent == null || context == null) return
-
+    override fun onReceive(context: Context, intent: Intent) {
         val pendingResult: PendingResult = goAsync()
 
         when (intent.action) {

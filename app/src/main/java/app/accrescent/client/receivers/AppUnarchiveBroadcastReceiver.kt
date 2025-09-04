@@ -13,9 +13,7 @@ private const val TAG = "AppUnarchiveBroadcastReceiver"
 
 @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
 class AppUnarchiveBroadcastReceiver : BroadcastReceiver() {
-    override fun onReceive(context: Context?, intent: Intent?) {
-        if (context == null || intent == null) return
-
+    override fun onReceive(context: Context, intent: Intent) {
         when (intent.action) {
             Intent.ACTION_UNARCHIVE_PACKAGE -> {
                 val packageName = intent

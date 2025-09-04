@@ -27,9 +27,7 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
     @Inject
     lateinit var repoDataRepository: RepoDataRepository
 
-    override fun onReceive(context: Context?, intent: Intent?) {
-        if (intent == null || context == null) return
-
+    override fun onReceive(context: Context, intent: Intent) {
         val sessionId = intent.getIntExtra(PackageInstaller.EXTRA_SESSION_ID, -999)
         val packageName = intent.getCharSequenceExtra(PackageInstaller.EXTRA_PACKAGE_NAME).toString()
         val appName = runBlocking { repoDataRepository.getApp(packageName) }?.name
