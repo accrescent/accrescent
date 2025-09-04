@@ -32,7 +32,6 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavController
 import app.accrescent.client.R
 import app.accrescent.client.data.InstallStatus
 import kotlinx.coroutines.launch
@@ -40,7 +39,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun AppList(
-    navController: NavController,
+    onClickApp: (appId: String) -> Unit,
     modifier: Modifier = Modifier,
     snackbarHostState: SnackbarHostState = SnackbarHostState(),
     viewModel: AppListViewModel = hiltViewModel(),
@@ -76,7 +75,7 @@ fun AppList(
                             .fillMaxWidth()
                             .padding(horizontal = 16.dp, vertical = 8.dp)
                             .clip(CardDefaults.shape)
-                            .clickable { navController.navigate("${Screen.AppDetails.route}/${app.id}") },
+                            .clickable { onClickApp(app.id) }
                     )
                 }
             }
