@@ -246,7 +246,7 @@ fun MainContent(
                     }
                 }) {
                     AppList(
-                        navController = navController,
+                        onClickApp = { navController.navigate("${Screen.AppDetails.route}/$it") },
                         snackbarHostState = snackbarHostState,
                     )
                 }
@@ -278,7 +278,7 @@ fun MainContent(
                     }
                 }) {
                     AppList(
-                        navController = navController,
+                        onClickApp = { navController.navigate("${Screen.AppDetails.route}/$it") },
                         snackbarHostState = snackbarHostState,
                         filter = {
                             it == InstallStatus.INSTALLED || it == InstallStatus.UPDATABLE
@@ -311,7 +311,7 @@ fun MainContent(
                     }
                 }) {
                     AppList(
-                        navController = navController,
+                        onClickApp = { navController.navigate("${Screen.AppDetails.route}/$it") },
                         snackbarHostState = snackbarHostState,
                         filter = { it == InstallStatus.UPDATABLE },
                         noFilterResultsText = stringResource(R.string.up_to_date),
