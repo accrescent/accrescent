@@ -48,14 +48,13 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
 import app.accrescent.client.R
 import app.accrescent.client.data.BLOG_FUTURE_OF_ACCRESCENT_URL
@@ -111,14 +110,14 @@ fun MainContent(
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val navController = rememberNavController()
-    val screens = listOf(Screen.AppList, Screen.InstalledApps, Screen.AppUpdates)
+    val routes = listOf(Route.AllApps, Route.InstalledApps, Route.UpdatableApps)
 
-    val showBottomBar =
-        navController.currentBackStackEntryAsState().value?.destination?.route in screens.map { it.route }
+    val showBottomBar = routes.any {
+        navController.currentBackStackEntryAsState().value?.destination?.hasRoute(it::class) == true
+    }
     val showDonateCard by viewModel.shouldShowDonateRequest().collectAsStateWithLifecycle(false)
 
-    val startDestination =
-        if (appId != null) "${Screen.AppDetails.route}/{appId}" else Screen.AppList.route
+    val startDestination = if (appId != null) Route.AppDetails(appId = appId) else Route.AllApps
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
 
@@ -127,7 +126,7 @@ fun MainContent(
     )
 
     Scaffold(
-        modifier = if (currentDestination?.route == Screen.Settings.route) {
+        modifier = if (currentDestination?.hasRoute<Route.Settings>() == true) {
             modifier.nestedScroll(settingsScrollBehavior.nestedScrollConnection)
         } else {
             modifier
@@ -138,14 +137,14 @@ fun MainContent(
             // between AppListScreen and AppDetailsScreen. LookaheadLayout may provide a simpler
             // solution once Compose 1.3.0 becomes stable.
             AnimatedVisibility(
-                visible = currentDestination?.route == "${Screen.AppDetails.route}/{appId}",
+                visible = currentDestination?.hasRoute<Route.AppDetails>() == true,
                 enter = fadeIn(animationSpec = tween(400)),
                 exit = fadeOut(animationSpec = tween(400)),
             ) {
                 CenterAlignedTopAppBar(title = {})
             }
             AnimatedVisibility(
-                visible = currentDestination?.route == Screen.Settings.route,
+                visible = currentDestination?.hasRoute<Route.Settings>() == true,
                 enter = fadeIn(animationSpec = tween(400)),
                 exit = fadeOut(animationSpec = tween(400)),
             ) {
@@ -160,18 +159,18 @@ fun MainContent(
                 )
             }
             AnimatedVisibility(
-                visible = currentDestination?.route != "${Screen.AppDetails.route}/{appId}"
-                        && currentDestination?.route != Screen.Settings.route,
+                visible = currentDestination?.hasRoute<Route.AppDetails>() != true
+                        && currentDestination?.hasRoute<Route.Settings>() != true,
                 enter = fadeIn(animationSpec = tween(400)),
                 exit = fadeOut(animationSpec = tween(400)),
             ) {
                 CenterAlignedTopAppBar(
                     title = {},
                     actions = {
-                        IconButton(onClick = { navController.navigate(Screen.Settings.route) }) {
+                        IconButton(onClick = { navController.navigate(Route.Settings) }) {
                             Icon(
-                                imageVector = Screen.Settings.navIconSelected!!,
-                                contentDescription = stringResource(Screen.Settings.resourceId)
+                                imageVector = Route.Settings.navIcon,
+                                contentDescription = stringResource(Route.Settings.descriptionResourceId)
                             )
                         }
                     }
@@ -185,21 +184,22 @@ fun MainContent(
                 exit = slideOutVertically(animationSpec = tween(400)) { it },
             ) {
                 NavigationBar {
-                    screens.forEach { screen ->
-                        val selected =
-                            currentDestination?.hierarchy?.any { it.route == screen.route } == true
+                    routes.forEach { route ->
+                        val selected = currentDestination
+                            ?.hierarchy
+                            ?.any { it.hasRoute(route::class) } == true
 
                         NavigationBarItem(
                             icon = {
                                 Icon(
-                                    if (selected) screen.navIconSelected!! else screen.navIcon!!,
-                                    contentDescription = stringResource(screen.resourceId)
+                                    if (selected) route.navIconSelected else route.navIcon,
+                                    contentDescription = stringResource(route.descriptionResourceId)
                                 )
                             },
-                            label = { Text(stringResource(screen.resourceId)) },
+                            label = { Text(stringResource(route.descriptionResourceId)) },
                             selected = selected,
                             onClick = {
-                                navController.navigate(screen.route) {
+                                navController.navigate(route) {
                                     popUpTo(navController.graph.findStartDestination().id) {
                                         saveState = true
                                     }
@@ -222,63 +222,60 @@ fun MainContent(
                 navController = navController,
                 startDestination = startDestination,
             ) {
-                composable(Screen.AppList.route, enterTransition = {
-                    when (initialState.destination.route) {
-                        Screen.InstalledApps.route,
-                        Screen.AppUpdates.route ->
+                composable<Route.AllApps>(enterTransition = {
+                    val dest = initialState.destination
+                    when {
+                        dest.hasRoute<Route.InstalledApps>() || dest.hasRoute<Route.UpdatableApps>() ->
                             slideInHorizontally(animationSpec = tween(350)) { -it }
 
                         else -> null
                     }
                 }, exitTransition = {
-                    when (targetState.destination.route) {
-                        "${Screen.AppDetails.route}/{appId}" ->
+                    val dest = targetState.destination
+                    when {
+                        dest.hasRoute<Route.AppDetails>() ->
                             fadeOut(animationSpec = tween(350))
 
-                        Screen.InstalledApps.route,
-                        Screen.AppUpdates.route ->
+                        dest.hasRoute<Route.InstalledApps>() ||
+                                dest.hasRoute<Route.UpdatableApps>() ->
                             slideOutHorizontally(animationSpec = tween(350)) { -it }
 
-                        Screen.Settings.route ->
-                            fadeOut(animationSpec = tween(350))
-
+                        dest.hasRoute<Route.Settings>() -> fadeOut(animationSpec = tween(350))
                         else -> null
                     }
                 }) {
                     AppList(
-                        onClickApp = { navController.navigate("${Screen.AppDetails.route}/$it") },
+                        onClickApp = { navController.navigate(Route.AppDetails(appId = it)) },
                         snackbarHostState = snackbarHostState,
                     )
                 }
-                composable(Screen.InstalledApps.route, enterTransition = {
-                    when (initialState.destination.route) {
-                        Screen.AppList.route ->
+                composable<Route.InstalledApps>(enterTransition = {
+                    val dest = initialState.destination
+                    when {
+                        dest.hasRoute<Route.AllApps>() ->
                             slideInHorizontally(animationSpec = tween(350)) { it }
 
-                        Screen.AppUpdates.route ->
+                        dest.hasRoute<Route.UpdatableApps>() ->
                             slideInHorizontally(animationSpec = tween(350)) { -it }
 
                         else -> null
                     }
                 }, exitTransition = {
-                    when (targetState.destination.route) {
-                        "${Screen.AppDetails.route}/{appId}" ->
-                            fadeOut(animationSpec = tween(350))
-
-                        Screen.AppList.route ->
+                    val dest = targetState.destination
+                    when {
+                        dest.hasRoute<Route.AppDetails>() -> fadeOut(animationSpec = tween(350))
+                        dest.hasRoute<Route.AllApps>() ->
                             slideOutHorizontally(animationSpec = tween(350)) { it }
 
-                        Screen.AppUpdates.route ->
+                        dest.hasRoute<Route.UpdatableApps>() ->
                             slideOutHorizontally(animationSpec = tween(350)) { -it }
 
-                        Screen.Settings.route ->
-                            fadeOut(animationSpec = tween(350))
-
+                        dest.hasRoute<Route.Settings>() -> fadeOut(animationSpec = tween(350))
                         else -> null
                     }
                 }) {
                     AppList(
-                        onClickApp = { navController.navigate("${Screen.AppDetails.route}/$it") },
+                        onClickApp = { navController.navigate(Route.AppDetails(appId = it)) },
                         snackbarHostState = snackbarHostState,
                         filter = {
                             it == InstallStatus.INSTALLED || it == InstallStatus.UPDATABLE
@@ -287,49 +284,44 @@ fun MainContent(
                         noFilterResultsText = stringResource(R.string.no_apps_installed),
                     )
                 }
-                composable(Screen.AppUpdates.route, enterTransition = {
-                    when (initialState.destination.route) {
-                        Screen.InstalledApps.route,
-                        Screen.AppList.route ->
+                composable<Route.UpdatableApps>(enterTransition = {
+                    val dest = initialState.destination
+                    when {
+                        dest.hasRoute<Route.InstalledApps>() ||
+                                dest.hasRoute<Route.AllApps>() ->
                             slideInHorizontally(animationSpec = tween(350)) { it }
 
                         else -> null
                     }
                 }, exitTransition = {
-                    when (targetState.destination.route) {
-                        "${Screen.AppDetails.route}/{appId}" ->
-                            fadeOut(animationSpec = tween(350))
-
-                        Screen.AppList.route,
-                        Screen.InstalledApps.route ->
+                    val dest = targetState.destination
+                    when {
+                        dest.hasRoute<Route.AppDetails>() -> fadeOut(animationSpec = tween(350))
+                        dest.hasRoute<Route.AllApps>() ||
+                                dest.hasRoute<Route.InstalledApps>() ->
                             slideOutHorizontally(animationSpec = tween(350)) { it }
 
-                        Screen.Settings.route ->
-                            fadeOut(animationSpec = tween(350))
-
+                        dest.hasRoute<Route.Settings>() -> fadeOut(animationSpec = tween(350))
                         else -> null
                     }
                 }) {
                     AppList(
-                        onClickApp = { navController.navigate("${Screen.AppDetails.route}/$it") },
+                        onClickApp = { navController.navigate(Route.AppDetails(appId = it)) },
                         snackbarHostState = snackbarHostState,
                         filter = { it == InstallStatus.UPDATABLE },
                         noFilterResultsText = stringResource(R.string.up_to_date),
                     )
                 }
-                composable(
-                    "${Screen.AppDetails.route}/{appId}", arguments = listOf(navArgument("appId") {
-                        type = NavType.StringType
-                        defaultValue = appId ?: ""
-                    }),
+                composable<Route.AppDetails>(
                     deepLinks = listOf(navDeepLink {
                         uriPattern = "https://${ROOT_DOMAIN}/app/{appId}"
                     }),
                     enterTransition = {
-                        when (initialState.destination.route) {
-                            Screen.AppList.route,
-                            Screen.InstalledApps.route,
-                            Screen.AppUpdates.route ->
+                        val dest = initialState.destination
+                        when {
+                            dest.hasRoute<Route.AllApps>() ||
+                                    dest.hasRoute<Route.InstalledApps>() ||
+                                    dest.hasRoute<Route.UpdatableApps>() ->
                                 slideInVertically(animationSpec = tween(400)) { it } +
                                         fadeIn(animationSpec = tween(400))
 
@@ -337,10 +329,11 @@ fun MainContent(
                         }
                     },
                     exitTransition = {
-                        when (targetState.destination.route) {
-                            Screen.AppList.route,
-                            Screen.InstalledApps.route,
-                            Screen.AppUpdates.route ->
+                        val dest = targetState.destination
+                        when {
+                            dest.hasRoute<Route.AllApps>() ||
+                                    dest.hasRoute<Route.InstalledApps>() ||
+                                    dest.hasRoute<Route.UpdatableApps>() ->
                                 slideOutVertically(animationSpec = tween(600)) { it } +
                                         fadeOut(animationSpec = tween(400))
 
@@ -350,21 +343,23 @@ fun MainContent(
                 ) {
                     AppDetailsScreen(snackbarHostState)
                 }
-                composable(Screen.Settings.route, enterTransition = {
-                    when (initialState.destination.route) {
-                        Screen.AppList.route,
-                        Screen.InstalledApps.route,
-                        Screen.AppUpdates.route ->
+                composable<Route.Settings>(enterTransition = {
+                    val dest = initialState.destination
+                    when {
+                        dest.hasRoute<Route.AllApps>() ||
+                                dest.hasRoute<Route.InstalledApps>() ||
+                                dest.hasRoute<Route.UpdatableApps>() ->
                             slideInVertically(animationSpec = tween(400)) { -it } +
                                     fadeIn(animationSpec = tween(400))
 
                         else -> null
                     }
                 }, exitTransition = {
-                    when (targetState.destination.route) {
-                        Screen.AppList.route,
-                        Screen.InstalledApps.route,
-                        Screen.AppUpdates.route ->
+                    val dest = targetState.destination
+                    when {
+                        dest.hasRoute<Route.AllApps>() ||
+                                dest.hasRoute<Route.InstalledApps>() ||
+                                dest.hasRoute<Route.UpdatableApps>() ->
                             slideOutVertically(animationSpec = tween(600)) { -it } +
                                     fadeOut(animationSpec = tween(400))
 
