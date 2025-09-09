@@ -10,7 +10,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
@@ -138,15 +137,15 @@ fun MainContent(
             // solution once Compose 1.3.0 becomes stable.
             AnimatedVisibility(
                 visible = currentDestination?.hasRoute<Route.AppDetails>() == true,
-                enter = fadeIn(animationSpec = tween(400)),
-                exit = fadeOut(animationSpec = tween(400)),
+                enter = fadeIn(),
+                exit = fadeOut(),
             ) {
                 CenterAlignedTopAppBar(title = {})
             }
             AnimatedVisibility(
                 visible = currentDestination?.hasRoute<Route.Settings>() == true,
-                enter = fadeIn(animationSpec = tween(400)),
-                exit = fadeOut(animationSpec = tween(400)),
+                enter = fadeIn(),
+                exit = fadeOut(),
             ) {
                 LargeTopAppBar(
                     title = { Text(stringResource(R.string.settings)) },
@@ -161,8 +160,8 @@ fun MainContent(
             AnimatedVisibility(
                 visible = currentDestination?.hasRoute<Route.AppDetails>() != true
                         && currentDestination?.hasRoute<Route.Settings>() != true,
-                enter = fadeIn(animationSpec = tween(400)),
-                exit = fadeOut(animationSpec = tween(400)),
+                enter = fadeIn(),
+                exit = fadeOut(),
             ) {
                 CenterAlignedTopAppBar(
                     title = {},
@@ -180,8 +179,8 @@ fun MainContent(
         bottomBar = {
             AnimatedVisibility(
                 visible = showBottomBar,
-                enter = slideInVertically(animationSpec = tween(400)) { it },
-                exit = slideOutVertically(animationSpec = tween(400)) { it },
+                enter = slideInVertically { it },
+                exit = slideOutVertically { it },
             ) {
                 NavigationBar {
                     routes.forEach { route ->
@@ -226,21 +225,18 @@ fun MainContent(
                     val dest = initialState.destination
                     when {
                         dest.hasRoute<Route.InstalledApps>() || dest.hasRoute<Route.UpdatableApps>() ->
-                            slideInHorizontally(animationSpec = tween(350)) { -it }
+                            slideInHorizontally { -it }
 
                         else -> null
                     }
                 }, exitTransition = {
                     val dest = targetState.destination
                     when {
-                        dest.hasRoute<Route.AppDetails>() ->
-                            fadeOut(animationSpec = tween(350))
-
+                        dest.hasRoute<Route.AppDetails>() -> fadeOut()
                         dest.hasRoute<Route.InstalledApps>() ||
-                                dest.hasRoute<Route.UpdatableApps>() ->
-                            slideOutHorizontally(animationSpec = tween(350)) { -it }
+                                dest.hasRoute<Route.UpdatableApps>() -> slideOutHorizontally { -it }
 
-                        dest.hasRoute<Route.Settings>() -> fadeOut(animationSpec = tween(350))
+                        dest.hasRoute<Route.Settings>() -> fadeOut()
                         else -> null
                     }
                 }) {
@@ -252,25 +248,17 @@ fun MainContent(
                 composable<Route.InstalledApps>(enterTransition = {
                     val dest = initialState.destination
                     when {
-                        dest.hasRoute<Route.AllApps>() ->
-                            slideInHorizontally(animationSpec = tween(350)) { it }
-
-                        dest.hasRoute<Route.UpdatableApps>() ->
-                            slideInHorizontally(animationSpec = tween(350)) { -it }
-
+                        dest.hasRoute<Route.AllApps>() -> slideInHorizontally { it }
+                        dest.hasRoute<Route.UpdatableApps>() -> slideInHorizontally { -it }
                         else -> null
                     }
                 }, exitTransition = {
                     val dest = targetState.destination
                     when {
-                        dest.hasRoute<Route.AppDetails>() -> fadeOut(animationSpec = tween(350))
-                        dest.hasRoute<Route.AllApps>() ->
-                            slideOutHorizontally(animationSpec = tween(350)) { it }
-
-                        dest.hasRoute<Route.UpdatableApps>() ->
-                            slideOutHorizontally(animationSpec = tween(350)) { -it }
-
-                        dest.hasRoute<Route.Settings>() -> fadeOut(animationSpec = tween(350))
+                        dest.hasRoute<Route.AppDetails>() -> fadeOut()
+                        dest.hasRoute<Route.AllApps>() -> slideOutHorizontally { it }
+                        dest.hasRoute<Route.UpdatableApps>() -> slideOutHorizontally { -it }
+                        dest.hasRoute<Route.Settings>() -> fadeOut()
                         else -> null
                     }
                 }) {
@@ -288,20 +276,18 @@ fun MainContent(
                     val dest = initialState.destination
                     when {
                         dest.hasRoute<Route.InstalledApps>() ||
-                                dest.hasRoute<Route.AllApps>() ->
-                            slideInHorizontally(animationSpec = tween(350)) { it }
+                                dest.hasRoute<Route.AllApps>() -> slideInHorizontally { it }
 
                         else -> null
                     }
                 }, exitTransition = {
                     val dest = targetState.destination
                     when {
-                        dest.hasRoute<Route.AppDetails>() -> fadeOut(animationSpec = tween(350))
+                        dest.hasRoute<Route.AppDetails>() -> fadeOut()
                         dest.hasRoute<Route.AllApps>() ||
-                                dest.hasRoute<Route.InstalledApps>() ->
-                            slideOutHorizontally(animationSpec = tween(350)) { it }
+                                dest.hasRoute<Route.InstalledApps>() -> slideOutHorizontally { it }
 
-                        dest.hasRoute<Route.Settings>() -> fadeOut(animationSpec = tween(350))
+                        dest.hasRoute<Route.Settings>() -> fadeOut()
                         else -> null
                     }
                 }) {
@@ -322,8 +308,7 @@ fun MainContent(
                             dest.hasRoute<Route.AllApps>() ||
                                     dest.hasRoute<Route.InstalledApps>() ||
                                     dest.hasRoute<Route.UpdatableApps>() ->
-                                slideInVertically(animationSpec = tween(400)) { it } +
-                                        fadeIn(animationSpec = tween(400))
+                                slideInVertically { it } + fadeIn()
 
                             else -> null
                         }
@@ -334,8 +319,7 @@ fun MainContent(
                             dest.hasRoute<Route.AllApps>() ||
                                     dest.hasRoute<Route.InstalledApps>() ||
                                     dest.hasRoute<Route.UpdatableApps>() ->
-                                slideOutVertically(animationSpec = tween(600)) { it } +
-                                        fadeOut(animationSpec = tween(400))
+                                slideOutVertically { it } + fadeOut()
 
                             else -> null
                         }
@@ -349,8 +333,7 @@ fun MainContent(
                         dest.hasRoute<Route.AllApps>() ||
                                 dest.hasRoute<Route.InstalledApps>() ||
                                 dest.hasRoute<Route.UpdatableApps>() ->
-                            slideInVertically(animationSpec = tween(400)) { -it } +
-                                    fadeIn(animationSpec = tween(400))
+                            slideInVertically { -it } + fadeIn()
 
                         else -> null
                     }
@@ -360,8 +343,7 @@ fun MainContent(
                         dest.hasRoute<Route.AllApps>() ||
                                 dest.hasRoute<Route.InstalledApps>() ||
                                 dest.hasRoute<Route.UpdatableApps>() ->
-                            slideOutVertically(animationSpec = tween(600)) { -it } +
-                                    fadeOut(animationSpec = tween(400))
+                            slideOutVertically { -it } + fadeOut()
 
                         else -> null
                     }
