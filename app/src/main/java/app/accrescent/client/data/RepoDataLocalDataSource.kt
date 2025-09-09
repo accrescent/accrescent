@@ -4,7 +4,7 @@ import app.accrescent.client.data.db.App
 import app.accrescent.client.data.db.AppDao
 import app.accrescent.client.data.db.SigningCert
 import app.accrescent.client.data.db.SigningCertDao
-import javax.inject.Inject
+import jakarta.inject.Inject
 
 class RepoDataLocalDataSource @Inject constructor(
     private val appDao: AppDao,

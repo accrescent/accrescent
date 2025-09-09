@@ -8,7 +8,7 @@ import app.accrescent.client.data.Theme
 import app.accrescent.client.workers.AutoUpdateWorker
 import app.accrescent.client.workers.RepositoryRefreshWorker
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
+import jakarta.inject.Inject
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor(private val preferencesManager: PreferencesManager) :

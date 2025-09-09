@@ -9,10 +9,10 @@ import app.accrescent.client.R
 import app.accrescent.client.data.db.App
 import app.accrescent.client.data.db.SigningCert
 import dagger.hilt.android.qualifiers.ApplicationContext
+import jakarta.inject.Inject
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import java.security.GeneralSecurityException
-import javax.inject.Inject
 import kotlin.math.max
 
 class RepoDataRepository @Inject constructor(

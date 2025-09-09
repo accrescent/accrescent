@@ -14,6 +14,7 @@ import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.getPackageInstallStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import jakarta.inject.Inject
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -22,7 +23,6 @@ import java.io.FileNotFoundException
 import java.net.ConnectException
 import java.net.UnknownHostException
 import java.security.GeneralSecurityException
-import javax.inject.Inject
 
 @HiltViewModel
 class AppListViewModel @Inject constructor(

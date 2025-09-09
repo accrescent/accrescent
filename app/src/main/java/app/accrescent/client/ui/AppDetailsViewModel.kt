@@ -21,6 +21,7 @@ import app.accrescent.client.util.UserRestrictionException
 import app.accrescent.client.util.getPackageInstallStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import jakarta.inject.Inject
 import kotlinx.coroutines.launch
 import kotlinx.serialization.SerializationException
 import java.io.FileNotFoundException
@@ -28,7 +29,6 @@ import java.io.InvalidObjectException
 import java.net.ConnectException
 import java.net.UnknownHostException
 import java.security.GeneralSecurityException
-import javax.inject.Inject
 
 @HiltViewModel
 class AppDetailsViewModel @Inject constructor(

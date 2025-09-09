@@ -13,12 +13,12 @@ import app.accrescent.client.data.REPOSITORY_URL
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.data.net.AppRepoData
 import dagger.hilt.android.qualifiers.ApplicationContext
+import jakarta.inject.Inject
 import java.io.InvalidObjectException
 import java.net.URL
 import java.security.GeneralSecurityException
 import java.security.MessageDigest
 import java.util.Locale
-import javax.inject.Inject
 
 private const val TAG = "ApkDownloader"
 

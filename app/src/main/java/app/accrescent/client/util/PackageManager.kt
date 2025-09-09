@@ -15,11 +15,11 @@ import app.accrescent.client.di.IoDispatcher
 import app.accrescent.client.receivers.AppInstallBroadcastReceiver
 import app.accrescent.client.receivers.AppUninstallBroadcastReceiver
 import dagger.hilt.android.qualifiers.ApplicationContext
+import jakarta.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import java.io.FileInputStream
 import java.io.InvalidObjectException
-import javax.inject.Inject
 
 class UserRestrictionException(message: String) : Exception(message)
 

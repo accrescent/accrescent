@@ -19,8 +19,8 @@ import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.NotificationUtil
 import app.accrescent.client.util.getParcelableExtraCompat
 import dagger.hilt.android.AndroidEntryPoint
+import jakarta.inject.Inject
 import kotlinx.coroutines.runBlocking
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class AppInstallBroadcastReceiver : BroadcastReceiver() {

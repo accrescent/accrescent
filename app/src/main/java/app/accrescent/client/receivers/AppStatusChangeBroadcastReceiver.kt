@@ -7,10 +7,10 @@ import app.accrescent.client.data.AppInstallStatuses
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.getPackageInstallStatus
 import dagger.hilt.android.AndroidEntryPoint
+import jakarta.inject.Inject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class AppStatusChangeBroadcastReceiver : BroadcastReceiver() {

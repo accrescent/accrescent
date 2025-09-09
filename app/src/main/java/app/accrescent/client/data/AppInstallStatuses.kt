@@ -1,8 +1,8 @@
 package app.accrescent.client.data
 
 import androidx.compose.runtime.mutableStateMapOf
-import javax.inject.Inject
-import javax.inject.Singleton
+import jakarta.inject.Inject
+import jakarta.inject.Singleton
 
 @Singleton
 class AppInstallStatuses @Inject constructor() {

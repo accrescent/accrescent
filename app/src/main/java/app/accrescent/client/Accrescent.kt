@@ -15,9 +15,9 @@ import app.accrescent.client.util.registerReceiverNotExported
 import app.accrescent.client.workers.AutoUpdateWorker
 import app.accrescent.client.workers.RepositoryRefreshWorker
 import dagger.hilt.android.HiltAndroidApp
+import jakarta.inject.Inject
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.runBlocking
-import javax.inject.Inject
 
 @HiltAndroidApp
 class Accrescent : Application(), Configuration.Provider {

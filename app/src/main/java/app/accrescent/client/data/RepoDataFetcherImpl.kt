@@ -6,13 +6,13 @@ import app.accrescent.client.data.net.AppRepoData
 import app.accrescent.client.data.net.RepoData
 import app.accrescent.client.util.verifySignature
 import dagger.hilt.android.qualifiers.ApplicationContext
+import jakarta.inject.Inject
 import kotlinx.serialization.json.Json
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.net.URL
 import java.security.GeneralSecurityException
-import javax.inject.Inject
 
 private val format = Json { ignoreUnknownKeys = true }
 

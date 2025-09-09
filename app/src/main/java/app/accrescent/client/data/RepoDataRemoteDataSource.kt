@@ -1,9 +1,9 @@
 package app.accrescent.client.data
 
 import app.accrescent.client.di.IoDispatcher
+import jakarta.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 class RepoDataRemoteDataSource @Inject constructor(
     private val repoDataFetcher: RepoDataFetcher,
