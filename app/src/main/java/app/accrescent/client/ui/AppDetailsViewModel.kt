@@ -11,6 +11,7 @@ import androidx.core.net.toUri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.toRoute
 import app.accrescent.client.Accrescent
 import app.accrescent.client.R
 import app.accrescent.client.data.AppInstallStatuses
@@ -38,7 +39,7 @@ class AppDetailsViewModel @Inject constructor(
     private val packageManager: PackageManager,
     savedStateHandle: SavedStateHandle
 ) : AndroidViewModel(context as Application) {
-    private val appId = savedStateHandle.get<String>("appId")!!
+    private val appId = savedStateHandle.toRoute<Route.AppDetails>().appId
     val installStatuses = appInstallStatuses.statuses
     var downloadProgresses = appInstallStatuses.downloadProgresses
     var uiState by mutableStateOf(AppDetailsUiState(appId = appId))
