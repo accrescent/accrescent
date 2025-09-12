@@ -5,8 +5,10 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.longPreferencesKey
+import androidx.room.withTransaction
 import app.accrescent.client.R
 import app.accrescent.client.data.db.App
+import app.accrescent.client.data.db.AppDatabase
 import app.accrescent.client.data.db.SigningCert
 import dagger.hilt.android.qualifiers.ApplicationContext
 import jakarta.inject.Inject
@@ -16,6 +18,7 @@ import java.security.GeneralSecurityException
 import kotlin.math.max
 
 class RepoDataRepository @Inject constructor(
+    private val appDatabase: AppDatabase,
     @ApplicationContext private val context: Context,
     private val repoDataRemoteDataSource: RepoDataRemoteDataSource,
     private val repoDataLocalDataSource: RepoDataLocalDataSource,
@@ -38,15 +41,15 @@ class RepoDataRepository @Inject constructor(
         val apps = repoData
             .apps
             .map { (appId, app) -> App(appId, app.name, app.minVersionCode) }
-        repoDataLocalDataSource.saveApps(*apps.toTypedArray())
-        repoDataLocalDataSource.deleteRemovedApps(apps.map { it.id })
-
         val signingCerts = repoData.apps.map { (appId, app) ->
             app.signingCertHashes.map { SigningCert(appId, it) }
         }.flatten()
-        repoDataLocalDataSource.saveSigningCerts(*signingCerts.toTypedArray())
-        repoData.apps.map { (appId, app) -> Pair(appId, app.signingCertHashes) }
-            .forEach { repoDataLocalDataSource.deleteRemovedSigningCerts(it.first, it.second) }
+
+        appDatabase.withTransaction {
+            repoDataLocalDataSource.deleteAllApps()
+            repoDataLocalDataSource.saveApps(*apps.toTypedArray())
+            repoDataLocalDataSource.saveSigningCerts(*signingCerts.toTypedArray())
+        }
     }
 
     suspend fun getApp(appId: String) = repoDataLocalDataSource.getApp(appId)

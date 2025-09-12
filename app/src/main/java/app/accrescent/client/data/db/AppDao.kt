@@ -23,6 +23,6 @@ interface AppDao {
     @Query("SELECT EXISTS (SELECT 1 FROM apps WHERE id = :appId)")
     suspend fun exists(appId: String): Boolean
 
-    @Query("DELETE FROM apps WHERE id NOT IN (:idsToKeep)")
-    suspend fun deleteRemoved(idsToKeep: List<String>)
+    @Query("DELETE FROM apps")
+    suspend fun deleteAll()
 }

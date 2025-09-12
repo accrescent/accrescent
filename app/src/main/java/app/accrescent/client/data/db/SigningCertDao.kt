@@ -12,7 +12,4 @@ interface SigningCertDao {
 
     @Query("SELECT cert_hash FROM signing_certs WHERE app_id = :appId")
     fun getSignersForApp(appId: String): List<String>
-
-    @Query("DELETE FROM signing_certs WHERE app_id = :appId AND cert_hash NOT IN (:hashesToKeep)")
-    suspend fun deleteRemoved(appId: String, hashesToKeep: List<String>)
 }

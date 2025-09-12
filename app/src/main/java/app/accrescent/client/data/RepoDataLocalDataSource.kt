@@ -24,11 +24,7 @@ class RepoDataLocalDataSource @Inject constructor(
 
     suspend fun appExists(appId: String) = appDao.exists(appId)
 
-    suspend fun deleteRemovedApps(idsToKeep: List<String>) = appDao.deleteRemoved(idsToKeep)
-
-    suspend fun deleteRemovedSigningCerts(appId: String, hashesToKeep: List<String>) {
-        signingCertDao.deleteRemoved(appId, hashesToKeep)
-    }
+    suspend fun deleteAllApps() = appDao.deleteAll()
 
     fun getAppSigners(appId: String) = signingCertDao.getSignersForApp(appId)
 }
