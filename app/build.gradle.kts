@@ -185,7 +185,6 @@ dependencies {
     implementation(libs.navcompose)
     implementation(libs.okhttp)
     implementation(libs.paging.compose)
-    implementation(libs.room.ktx)
     implementation(libs.room.runtime)
     implementation(libs.serialization)
     implementation(libs.work.runtime)
