@@ -12,9 +12,10 @@ import androidx.room.migration.AutoMigrationSpec
     autoMigrations = [
         AutoMigration(from = 1, to = 2, spec = AppDatabase.OneToTwo::class),
         AutoMigration(from = 2, to = 3, spec = AppDatabase.TwoToThree::class),
+        AutoMigration(from = 3, to = 4, spec = AppDatabase.ThreeToFour::class),
     ],
     entities = [App::class, SigningCert::class],
-    version = 3,
+    version = 4,
 )
 abstract class AppDatabase : RoomDatabase() {
     @RenameColumn(
@@ -27,6 +28,9 @@ abstract class AppDatabase : RoomDatabase() {
 
     @DeleteColumn(tableName = "apps", columnName = "icon_hash")
     class TwoToThree : AutoMigrationSpec
+
+    @DeleteColumn(tableName = "apps", columnName = "name")
+    class ThreeToFour : AutoMigrationSpec
 
     abstract fun appDao(): AppDao
     abstract fun signingCertDao(): SigningCertDao

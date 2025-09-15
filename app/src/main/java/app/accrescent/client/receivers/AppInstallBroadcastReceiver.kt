@@ -20,7 +20,6 @@ import app.accrescent.client.util.NotificationUtil
 import app.accrescent.client.util.getParcelableExtraCompat
 import dagger.hilt.android.AndroidEntryPoint
 import jakarta.inject.Inject
-import kotlinx.coroutines.runBlocking
 
 @AndroidEntryPoint
 class AppInstallBroadcastReceiver : BroadcastReceiver() {
@@ -30,7 +29,11 @@ class AppInstallBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val sessionId = intent.getIntExtra(PackageInstaller.EXTRA_SESSION_ID, -999)
         val packageName = intent.getCharSequenceExtra(PackageInstaller.EXTRA_PACKAGE_NAME).toString()
-        val appName = runBlocking { repoDataRepository.getApp(packageName) }?.name
+        val appName = try {
+            context.packageManager.getApplicationInfo(packageName, 0).name
+        } catch (_: PackageManager.NameNotFoundException) {
+            null
+        }
 
         val notificationManager = context.getSystemService<NotificationManager>()!!
 

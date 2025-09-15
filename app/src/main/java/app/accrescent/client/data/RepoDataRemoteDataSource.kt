@@ -10,7 +10,4 @@ class RepoDataRemoteDataSource @Inject constructor(
     @IoDispatcher private val dispatcher: CoroutineDispatcher
 ) {
     suspend fun fetchRepoData() = withContext(dispatcher) { repoDataFetcher.fetchRepoData() }
-    suspend fun fetchAppRepoData(appId: String) = withContext(dispatcher) {
-        repoDataFetcher.fetchAppRepoData(appId)
-    }
 }

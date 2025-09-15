@@ -16,10 +16,6 @@ class RepoDataLocalDataSource @Inject constructor(
         signingCertDao.insertSigningCerts(*signingCerts)
     }
 
-    suspend fun getApp(appId: String) = appDao.get(appId)
-
-    fun getApps() = appDao.getAll()
-
     suspend fun getAppMinVersionCode(appId: String) = appDao.getMinVersionCode(appId)
 
     suspend fun appExists(appId: String) = appDao.exists(appId)

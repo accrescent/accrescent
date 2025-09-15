@@ -18,11 +18,12 @@ import app.accrescent.client.R
 import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.PreferencesManager
 import app.accrescent.client.data.RepoDataRepository
-import app.accrescent.client.data.net.AppRepoData
 import app.accrescent.client.util.NotificationUtil
 import app.accrescent.client.util.PackageManager
 import app.accrescent.client.util.getInstalledPackagesCompat
 import app.accrescent.client.util.getPackageInstallStatus
+import build.buf.gen.accrescent.directory.v1.DirectoryServiceGrpcKt
+import build.buf.gen.accrescent.directory.v1.getAppPackageInfoRequest
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.first
@@ -31,6 +32,7 @@ import java.time.Duration
 @HiltWorker
 class AutoUpdateWorker @AssistedInject constructor(
     @Assisted context: Context,
+    private val directoryService: DirectoryServiceGrpcKt.DirectoryServiceCoroutineStub,
     @Assisted workerParams: WorkerParameters,
     private val preferencesManager: PreferencesManager,
     private val repoDataRepository: RepoDataRepository,
@@ -47,8 +49,9 @@ class AutoUpdateWorker @AssistedInject constructor(
                     ) != InstallStatus.INSTALLED_FROM_ANOTHER_SOURCE
                 }
                 .filter {
-                    repoDataRepository
-                        .getAppRepoData(it.packageName)
+                    directoryService
+                        .getAppPackageInfo(getAppPackageInfoRequest { appId = it.packageName })
+                        .packageInfo
                         .versionCode > it.longVersionCode
                 }
 
@@ -56,8 +59,12 @@ class AutoUpdateWorker @AssistedInject constructor(
                 packagesToUpdate.forEach { packageManager.downloadAndInstall(it.packageName) }
             } else {
                 packagesToUpdate.forEachIndexed { index, packageInfo ->
-                    val repoData = repoDataRepository.getAppRepoData(packageInfo.packageName)
-                    showUpdateNotification(index, packageInfo, repoData)
+                    val request = getAppPackageInfoRequest { appId = packageInfo.packageName }
+                    val newVersionName = directoryService
+                        .getAppPackageInfo(request)
+                        .packageInfo
+                        .versionName
+                    showUpdateNotification(index, packageInfo, newVersionName)
                 }
             }
         } catch (e: Exception) {
@@ -67,7 +74,7 @@ class AutoUpdateWorker @AssistedInject constructor(
         return Result.success()
     }
 
-    private fun showUpdateNotification(index: Int, packageInfo: PackageInfo, repoData: AppRepoData) {
+    private fun showUpdateNotification(index: Int, packageInfo: PackageInfo, newVersionName: String) {
         val notificationManager = applicationContext.getSystemService<NotificationManager>()!!
 
         val packageLabel = packageInfo.applicationInfo
@@ -77,7 +84,7 @@ class AutoUpdateWorker @AssistedInject constructor(
             .createPendingIntentForAppId(applicationContext, packageInfo.packageName)
         val notification = NotificationCompat.Builder(applicationContext, UPDATE_AVAILABLE_CHANNEL)
             .setContentTitle(packageLabel)
-            .setContentText("${packageInfo.versionName} -> ${repoData.version}")
+            .setContentText("${packageInfo.versionName} -> $newVersionName")
             .setSmallIcon(R.drawable.ic_baseline_update_24)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
