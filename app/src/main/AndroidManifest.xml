@@ -6,6 +6,11 @@
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
     <uses-feature android:name="android.software.leanback" android:required="false" />
 
+    <!--
+    Used by AndroidChannelBuilder as per
+    https://github.com/grpc/grpc-java/blob/v1.75.0/android/src/main/java/io/grpc/android/AndroidChannelBuilder.java
+    -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ENFORCE_UPDATE_OWNERSHIP" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />

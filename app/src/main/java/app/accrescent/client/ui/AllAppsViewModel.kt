@@ -7,11 +7,18 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
+import androidx.paging.map
 import app.accrescent.client.Accrescent
 import app.accrescent.client.R
 import app.accrescent.client.data.AppInstallStatuses
+import app.accrescent.client.data.AppListingPagingSource
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.getPackageInstallStatus
+import build.buf.gen.accrescent.directory.v1.DirectoryServiceGrpcKt
+import build.buf.gen.accrescent.directory.v1.getAppPackageInfoRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import jakarta.inject.Inject
@@ -24,25 +31,36 @@ import java.net.ConnectException
 import java.net.UnknownHostException
 import java.security.GeneralSecurityException
 
+private const val PAGE_SIZE = 50
+
 @HiltViewModel
-class AppListViewModel @Inject constructor(
+class AllAppsViewModel @Inject constructor(
     @ApplicationContext context: Context,
+    private val directoryService: DirectoryServiceGrpcKt.DirectoryServiceCoroutineStub,
     private val repoDataRepository: RepoDataRepository,
     appInstallStatuses: AppInstallStatuses,
 ) : AndroidViewModel(context as Application) {
-    val apps = repoDataRepository.getApps()
+    val appListings = Pager(
+        config = PagingConfig(pageSize = PAGE_SIZE, enablePlaceholders = false),
+        pagingSourceFactory = { AppListingPagingSource(directoryService) }
+    )
+        .flow
+        .cachedIn(viewModelScope)
 
     // Initialize install status for apps as they're added
     init {
-        val flow = apps.onEach { apps ->
-            for (app in apps) {
+        val flow = appListings.onEach { listings ->
+            listings.map { listing ->
                 val latestVersionCode = try {
-                    repoDataRepository.getAppRepoData(app.id).versionCode
+                    directoryService
+                        .getAppPackageInfo(getAppPackageInfoRequest { appId = listing.appId })
+                        .packageInfo
+                        .versionCode
                 } catch (e: Exception) {
                     null
                 }
-                appInstallStatuses.statuses[app.id] =
-                    context.packageManager.getPackageInstallStatus(app.id, latestVersionCode)
+                appInstallStatuses.statuses[listing.appId] =
+                    context.packageManager.getPackageInstallStatus(listing.appId, latestVersionCode)
             }
         }
         viewModelScope.launch {
@@ -50,7 +68,6 @@ class AppListViewModel @Inject constructor(
         }
     }
 
-    val installStatuses = appInstallStatuses.statuses
     var isRefreshing by mutableStateOf(false)
         private set
     var error: String? by mutableStateOf(null)

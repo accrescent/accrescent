@@ -19,7 +19,6 @@ import jakarta.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import java.io.FileInputStream
-import java.io.InvalidObjectException
 
 class UserRestrictionException(message: String) : Exception(message)
 
@@ -71,15 +70,10 @@ class PackageManager @Inject constructor(
 
         val packageInstaller = context.packageManager.packageInstaller
 
-        // We assume base.apk is always the first APK passed
-        val pkgInfo = context.packageManager.getPackageArchiveInfoForFd(apks[0].file.getFd(), 0)
-            ?: throw InvalidObjectException(context.getString(R.string.base_apk_not_valid))
-
         val sessionParams = SessionParams(SessionParams.MODE_FULL_INSTALL)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             sessionParams.setRequireUserAction(SessionParams.USER_ACTION_NOT_REQUIRED)
         }
-        sessionParams.setInstallLocation(pkgInfo.installLocation)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             sessionParams.setPackageSource(PackageInstaller.PACKAGE_SOURCE_STORE)
         }

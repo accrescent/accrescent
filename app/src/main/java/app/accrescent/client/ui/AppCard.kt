@@ -13,11 +13,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun AppCard(appId: String, name: String, modifier: Modifier = Modifier) {
+fun AppCard(name: String, iconUrl: String, modifier: Modifier = Modifier) {
     Card(modifier) {
         Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             AppIcon(
-                appId,
+                iconUrl,
                 Modifier
                     .padding(horizontal = 12.dp, vertical = 8.dp)
                     .size(48.dp),

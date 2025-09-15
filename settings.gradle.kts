@@ -3,6 +3,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven {
+            name = "buf"
+            url = uri("https://buf.build/gen/maven")
+        }
     }
 }
 pluginManagement {

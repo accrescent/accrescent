@@ -2,7 +2,6 @@ package app.accrescent.client.data
 
 import android.content.Context
 import app.accrescent.client.R
-import app.accrescent.client.data.net.AppRepoData
 import app.accrescent.client.data.net.RepoData
 import app.accrescent.client.util.verifySignature
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -29,12 +28,6 @@ class RepoDataFetcherImpl @Inject constructor(
         if (!verifySignature(REPODATA_PUBKEY, repoDataFile.toByteArray(), signature)) {
             throw GeneralSecurityException(context.getString(R.string.sig_verify_failed))
         }
-
-        return format.decodeFromString(repoDataFile)
-    }
-
-    override fun fetchAppRepoData(appId: String): AppRepoData {
-        val repoDataFile = fetchFileString(URL("$REPOSITORY_URL/apps/$appId/repodata.json"))
 
         return format.decodeFromString(repoDataFile)
     }

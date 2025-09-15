@@ -3,6 +3,7 @@ package app.accrescent.client.ui
 import android.app.Application
 import android.content.Context
 import android.content.Intent
+import android.os.LocaleList
 import android.provider.Settings
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -20,6 +21,9 @@ import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.PackageManager
 import app.accrescent.client.util.UserRestrictionException
 import app.accrescent.client.util.getPackageInstallStatus
+import build.buf.gen.accrescent.directory.v1.DirectoryServiceGrpcKt
+import build.buf.gen.accrescent.directory.v1.getAppListingRequest
+import build.buf.gen.accrescent.directory.v1.getAppPackageInfoRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import jakarta.inject.Inject
@@ -34,6 +38,7 @@ import java.security.GeneralSecurityException
 @HiltViewModel
 class AppDetailsViewModel @Inject constructor(
     @ApplicationContext context: Context,
+    private val directoryService: DirectoryServiceGrpcKt.DirectoryServiceCoroutineStub,
     private val repoDataRepository: RepoDataRepository,
     appInstallStatuses: AppInstallStatuses,
     private val packageManager: PackageManager,
@@ -49,30 +54,31 @@ class AppDetailsViewModel @Inject constructor(
         viewModelScope.launch {
             uiState = uiState.copy(isFetchingData = true, error = null)
 
-            val trustedInfo = repoDataRepository.getApp(appId)
-            if (trustedInfo == null) {
-                uiState = uiState.copy(appExists = false, isFetchingData = false)
-                return@launch
-            } else {
-                uiState = uiState.copy(appName = trustedInfo.name)
-            }
-
             uiState = try {
-                val untrustedInfo = repoDataRepository.getAppRepoData(appId)
+                val viewModelAppId = appId
+                val getAppListingRequest = getAppListingRequest {
+                    appId = viewModelAppId
+                    preferredLanguages.addAll(LocaleList.getDefault().toLanguageTags().split(','))
+                }
+                val getPackageInfoRequest = getAppPackageInfoRequest { appId = viewModelAppId }
+                val listing = directoryService.getAppListing(getAppListingRequest).listing
+                val packageInfo = directoryService.getAppPackageInfo(getPackageInfoRequest).packageInfo
+
                 if (appInstallStatuses.statuses[appId] == null) {
                     appInstallStatuses.statuses[appId] =
                         try {
                             context
                                 .packageManager
-                                .getPackageInstallStatus(appId, untrustedInfo.versionCode)
+                                .getPackageInstallStatus(appId, packageInfo.versionCode)
                         } catch (e: Exception) {
                             InstallStatus.UNKNOWN
                         }
                 }
                 uiState.copy(
-                    versionName = untrustedInfo.version,
-                    versionCode = untrustedInfo.versionCode,
-                    shortDescription = untrustedInfo.shortDescription
+                    appName = listing.name,
+                    versionName = packageInfo.versionName,
+                    versionCode = packageInfo.versionCode,
+                    shortDescription = listing.shortDescription
                         ?: context.getString(R.string.no_description_provided),
                 )
             } catch (e: ConnectException) {

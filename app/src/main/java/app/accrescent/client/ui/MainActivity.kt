@@ -58,7 +58,6 @@ import androidx.navigation.navDeepLink
 import app.accrescent.client.R
 import app.accrescent.client.data.BLOG_FUTURE_OF_ACCRESCENT_URL
 import app.accrescent.client.data.DONATE_URL
-import app.accrescent.client.data.InstallStatus
 import app.accrescent.client.data.ROOT_DOMAIN
 import app.accrescent.client.data.Theme
 import app.accrescent.client.ui.theme.AccrescentTheme
@@ -240,7 +239,7 @@ fun MainContent(
                         else -> null
                     }
                 }) {
-                    AppList(
+                    AllAppsScreen(
                         onClickApp = { navController.navigate(Route.AppDetails(appId = it)) },
                         snackbarHostState = snackbarHostState,
                     )
@@ -262,14 +261,9 @@ fun MainContent(
                         else -> null
                     }
                 }) {
-                    AppList(
+                    InstalledAppsScreen(
                         onClickApp = { navController.navigate(Route.AppDetails(appId = it)) },
                         snackbarHostState = snackbarHostState,
-                        filter = {
-                            it == InstallStatus.INSTALLED || it == InstallStatus.UPDATABLE
-                                    || it == InstallStatus.DISABLED
-                        },
-                        noFilterResultsText = stringResource(R.string.no_apps_installed),
                     )
                 }
                 composable<Route.UpdatableApps>(enterTransition = {
@@ -291,11 +285,9 @@ fun MainContent(
                         else -> null
                     }
                 }) {
-                    AppList(
+                    UpdatableAppsScreen(
                         onClickApp = { navController.navigate(Route.AppDetails(appId = it)) },
                         snackbarHostState = snackbarHostState,
-                        filter = { it == InstallStatus.UPDATABLE },
-                        noFilterResultsText = stringResource(R.string.up_to_date),
                     )
                 }
                 composable<Route.AppDetails>(

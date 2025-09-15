@@ -40,7 +40,7 @@ class RepoDataRepository @Inject constructor(
         // updating them
         val apps = repoData
             .apps
-            .map { (appId, app) -> App(appId, app.name, app.minVersionCode) }
+            .map { (appId, app) -> App(appId, app.minVersionCode) }
         val signingCerts = repoData.apps.map { (appId, app) ->
             app.signingCertHashes.map { SigningCert(appId, it) }
         }.flatten()
@@ -52,15 +52,9 @@ class RepoDataRepository @Inject constructor(
         }
     }
 
-    suspend fun getApp(appId: String) = repoDataLocalDataSource.getApp(appId)
-
-    fun getApps() = repoDataLocalDataSource.getApps()
-
     suspend fun getAppMinVersionCode(appId: String): Long {
         return repoDataLocalDataSource.getAppMinVersionCode(appId)
     }
-
-    suspend fun getAppRepoData(appId: String) = repoDataRemoteDataSource.fetchAppRepoData(appId)
 
     suspend fun appExists(appId: String) = repoDataLocalDataSource.appExists(appId)
 
