@@ -78,4 +78,6 @@
     <string name="donate_card_info_btn">معرفة المزيد</string>
     <string name="donate_card_heading">تبرّع الآن</string>
     <string name="donate_card_dismiss_btn">أغلق</string>
+    <string name="app_incompatible_with_device">التطبيق غير متوافق مع الجهاز</string>
+    <string name="app_up_to_date">التطبيق محدَّث</string>
 </resources>
