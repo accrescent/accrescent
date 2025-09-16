@@ -78,4 +78,6 @@
     <string name="donate_card_dismiss_btn">Sluiten</string>
     <string name="donate_card_donate_btn">Doneren</string>
     <string name="donate_card_heading">Vandaag doneren</string>
+    <string name="app_incompatible_with_device">app is incompatibel met het apparaat</string>
+    <string name="app_up_to_date">app is up-to-date</string>
 </resources>
