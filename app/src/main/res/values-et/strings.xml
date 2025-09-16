@@ -76,4 +76,6 @@
     <string name="donate_card_info_btn">Lisateave</string>
     <string name="donate_card_donate_btn">Toeta meid rahaliselt</string>
     <string name="donate_card_desc">Jätkamiseks vajab Accrescent sinu toetust.</string>
+    <string name="app_incompatible_with_device">rakendus ei ühildu selle seadmega</string>
+    <string name="app_up_to_date">rakendus on uuendatud</string>
 </resources>
