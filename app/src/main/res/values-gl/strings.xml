@@ -76,4 +76,6 @@
     <string name="donate_card_donate_btn">Doar</string>
     <string name="donate_card_dismiss_btn">Fechar</string>
     <string name="donate_card_info_btn">Saber máis</string>
+    <string name="app_incompatible_with_device">a app non é compatible co dispositivo</string>
+    <string name="app_up_to_date">a app está actualizada</string>
 </resources>
