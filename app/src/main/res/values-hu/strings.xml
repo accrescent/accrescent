@@ -78,4 +78,6 @@
     <string name="donate_card_info_btn">Tudjon meg többet</string>
     <string name="donate_card_heading">Adományozzon még ma</string>
     <string name="donate_card_dismiss_btn">Bezárás</string>
+    <string name="app_incompatible_with_device">az alkalmazás nem kompatibilis az eszközzel</string>
+    <string name="app_up_to_date">alkalmazás naprakész</string>
 </resources>
