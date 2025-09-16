@@ -76,4 +76,6 @@
     <string name="donate_card_dismiss_btn">Затваряне</string>
     <string name="donate_card_info_btn">Научете повече</string>
     <string name="donate_card_desc">За да продължи Accrescent се нуждае от вашата подкрепа.</string>
+    <string name="app_incompatible_with_device">Приложението е несъвместимо с устройството</string>
+    <string name="app_up_to_date">Приложението е последно издание</string>
 </resources>
