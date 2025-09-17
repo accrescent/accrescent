@@ -78,4 +78,6 @@
     <string name="donate_card_donate_btn">捐赠</string>
     <string name="donate_card_dismiss_btn">关闭</string>
     <string name="donate_card_info_btn">了解更多</string>
+    <string name="app_incompatible_with_device">应用不兼容设备</string>
+    <string name="app_up_to_date">应用是最新的</string>
 </resources>
