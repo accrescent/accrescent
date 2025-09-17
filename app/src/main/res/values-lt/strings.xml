@@ -76,4 +76,6 @@
     <string name="donate_card_info_btn">Sužinoti daugiau</string>
     <string name="donate_card_desc">Accrescent reikalinga jūsų parama, kad galėtų tęsti.</string>
     <string name="donate_card_donate_btn">Paremti</string>
+    <string name="app_up_to_date">programėlės versija naujausia</string>
+    <string name="app_incompatible_with_device">programėlė nesuderinama su šiuo įrenginiu</string>
 </resources>
