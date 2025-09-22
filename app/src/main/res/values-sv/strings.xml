@@ -73,4 +73,11 @@
     <string name="dark">Mörk</string>
     <string name="light">Ljus</string>
     <string name="system">System</string>
+    <string name="app_incompatible_with_device">appen är oförenlig med enheten</string>
+    <string name="app_up_to_date">appen är aktuell</string>
+    <string name="donate_card_heading">Donera idag</string>
+    <string name="donate_card_desc">Accrescent behöver ditt stöd för vidare utveckling.</string>
+    <string name="donate_card_donate_btn">Donera</string>
+    <string name="donate_card_dismiss_btn">Stäng</string>
+    <string name="donate_card_info_btn">Mer info.</string>
 </resources>
