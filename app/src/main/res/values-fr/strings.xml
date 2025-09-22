@@ -77,4 +77,7 @@
     <string name="donate_card_donate_btn">Faire un don</string>
     <string name="donate_card_dismiss_btn">Fermer</string>
     <string name="donate_card_info_btn">En savoir plus</string>
+    <string name="donate_card_heading">Faire un don aujourd\'hui</string>
+    <string name="app_incompatible_with_device">l\'application est incompatible avec l\'appareil</string>
+    <string name="app_up_to_date">l\'application est à jour</string>
 </resources>
