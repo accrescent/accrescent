@@ -46,7 +46,6 @@
     <string name="enable">സജ്ജമാക്കുക</string>
     <string name="swipe_refreshing">ഉള്ളടക്കം പുതുക്കുന്നു…</string>
     <string name="couldnt_open_appinfo">പ്രയോഗ വിവരം തുറക്കാൻ കഴിഞ്ഞില്ല</string>
-    <string name="no_description_provided">(വിവരണം നൽകിയിട്ടില്ല)</string>
     <string name="back_button">തിരികെ</string>
     <string name="system">സംവിധാനം</string>
     <string name="version_code">പതിപ്പ് ചട്ടം: %1$d</string>

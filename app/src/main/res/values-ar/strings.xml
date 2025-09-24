@@ -32,7 +32,6 @@
     <string name="install">ثبِّت</string>
     <string name="no_apps_installed">لا توجد تطبيقات مُثبتة</string>
     <string name="unknown_host_error">خطأ مضيف غير معروف: %1$s</string>
-    <string name="no_description_provided">(لم يقدم أي وصف)</string>
     <string name="uninstall_blocked">ألغِ الحظر من قِبل المُشرف</string>
     <string name="automatic_updates">التحديثات التلقائية</string>
     <string name="app_id_mismatch">معرّف التطبيق %1$s لا يطابق المعرّف المتوقع %2$s</string>

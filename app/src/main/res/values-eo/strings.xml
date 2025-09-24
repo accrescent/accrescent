@@ -65,7 +65,6 @@
     <string name="install_blocked">instalo blokita de administranto</string>
     <string name="unknown_host_error">Eraro de nekonita ĉefkomputilo: %1$s</string>
     <string name="app_id_mismatch">ID de la aplikaĵo %1$s ne kongruas kun la anticipita ID %2$s</string>
-    <string name="no_description_provided">(neniu priskribo provizita)</string>
     <string name="dark">Malhela</string>
     <string name="system">Sistema</string>
     <string name="theme">Etoso</string>

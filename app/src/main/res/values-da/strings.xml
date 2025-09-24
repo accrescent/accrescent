@@ -49,7 +49,6 @@
     <string name="yes">Ja</string>
     <string name="no">Nej</string>
     <string name="search">Søg</string>
-    <string name="no_description_provided">(ingen beskrivelse givet)</string>
     <string name="network_condition">Netværkstilstand</string>
     <string name="updater">Opdaterer</string>
     <string name="any">Alle</string>

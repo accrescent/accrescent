@@ -65,7 +65,6 @@
     <string name="back_button">Bakåt</string>
     <string name="enable">Aktivera</string>
     <string name="couldnt_open_appinfo">Kunde inte öppna AppInfo</string>
-    <string name="no_description_provided">(ingen beskrivning finns)</string>
     <string name="donate">Donera</string>
     <string name="donate_desc">Donera för att stödja Accrescent</string>
     <string name="installed_from_another_source">App installerad från annan källa</string>

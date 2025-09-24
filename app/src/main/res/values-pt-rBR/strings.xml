@@ -63,7 +63,6 @@
     <string name="automatic_updates_desc">Se apps devem ser atualizados automaticamente. Mostra uma notificação caso esteja desativado.</string>
     <string name="back_button">Voltar</string>
     <string name="enable">Ativar</string>
-    <string name="no_description_provided">(nenhuma descrição foi fornecida)</string>
     <string name="dark">Escuro</string>
     <string name="theme">Tema</string>
     <string name="light">Claro</string>

@@ -65,7 +65,6 @@
     <string name="back_button">Назад</string>
     <string name="enable">Увімкнути</string>
     <string name="couldnt_open_appinfo">Не вдалося відкрити AppInfo</string>
-    <string name="no_description_provided">(опис не надано)</string>
     <string name="installed_from_another_source">Застосунок установлено з іншого джерела</string>
     <string name="theme">Тема</string>
     <string name="dark">Темна</string>

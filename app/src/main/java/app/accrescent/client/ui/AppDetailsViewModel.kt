@@ -76,8 +76,7 @@ class AppDetailsViewModel @Inject constructor(
                     appName = listing.name,
                     versionName = packageInfo.versionName,
                     versionCode = packageInfo.versionCode,
-                    shortDescription = listing.shortDescription
-                        ?: context.getString(R.string.no_description_provided),
+                    shortDescription = listing.shortDescription,
                     iconUrl = listing.icon.url,
                 )
             } catch (e: ConnectException) {

@@ -65,7 +65,6 @@
     <string name="back_button">Recuar</string>
     <string name="enable">Ativar</string>
     <string name="couldnt_open_appinfo">Não foi possível abrir \'AppInfo\'</string>
-    <string name="no_description_provided">(descrição indisponível)</string>
     <string name="donate">Contribuir</string>
     <string name="donate_desc">Contribuir para apoiar o Accrescent</string>
     <string name="installed_from_another_source">Aplicação instalada de outra fonte</string>

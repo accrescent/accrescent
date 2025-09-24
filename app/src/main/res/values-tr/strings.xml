@@ -62,7 +62,6 @@
     <string name="update_finished">Güncelleme tamamlandı</string>
     <string name="update_failure">Güncelleme hatası</string>
     <string name="update_success">%1$s başarıyla güncellendi.</string>
-    <string name="no_description_provided">(herhangi bir açıklama yok)</string>
     <string name="back_button">Geri</string>
     <string name="enable">Etkinleştir</string>
     <string name="couldnt_open_appinfo">AppInfo açılamadı</string>

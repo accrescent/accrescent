@@ -44,7 +44,6 @@
     <string name="update_failure">Грешка при обновяване</string>
     <string name="update_success">Приложението %1$s е обновено.</string>
     <string name="back_button">Назад</string>
-    <string name="no_description_provided">(липсва описание)</string>
     <string name="enable">Включване</string>
     <string name="app_list">Приложения</string>
     <string name="app_doesnt_support_device">Приложението не поддържа това устройство: %1$s</string>

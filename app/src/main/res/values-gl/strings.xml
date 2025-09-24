@@ -52,7 +52,6 @@
     <string name="update_failure">Fallou a actualización</string>
     <string name="update_success">%1$s actualizouse correctamente.</string>
     <string name="back_button">Volver</string>
-    <string name="no_description_provided">(sen descrición)</string>
     <string name="unmetered">Non limitada</string>
     <string name="not_roaming">Non itinerancia</string>
     <string name="app_list">Aplicacións</string>

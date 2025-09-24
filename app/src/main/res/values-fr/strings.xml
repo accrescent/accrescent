@@ -65,7 +65,6 @@
     <string name="back_button">Retour</string>
     <string name="couldnt_open_appinfo">Impossible d’ouvrir AppInfo</string>
     <string name="enable">Activer</string>
-    <string name="no_description_provided">(aucune description fournie)</string>
     <string name="installed_from_another_source">Application installée à partir d\'une autre source</string>
     <string name="dark">Sombre</string>
     <string name="light">Clair</string>

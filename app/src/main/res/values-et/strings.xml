@@ -63,7 +63,6 @@
     <string name="update_failure">Uuendamine ei õnnestunud</string>
     <string name="update_success">%1$s uuendamine õnenstus.</string>
     <string name="back_button">Tagasi</string>
-    <string name="no_description_provided">(kirjeldus on lisamata)</string>
     <string name="open">Ava</string>
     <string name="donate_desc">Toeta Accrescenti arendust</string>
     <string name="version_downgrade">versioon %1$d on väiksem, kui minimaalselt nõutav %2$d</string>

@@ -65,7 +65,6 @@
     <string name="back_button">Indietro</string>
     <string name="enable">Attiva</string>
     <string name="couldnt_open_appinfo">Impossibile aprire le informazioni dell\'app</string>
-    <string name="no_description_provided">(nessuna descrizione fornita)</string>
     <string name="donate">Dona</string>
     <string name="installed_from_another_source">App installata da un\'altra fonte</string>
     <string name="donate_desc">Fai una donazione per sostenere Accrescent</string>

@@ -60,7 +60,6 @@
     <string name="version_mismatch">várt verzió: %1$s, jelenlegi verzió: %2$s</string>
     <string name="version_code_mismatch">várt verziókód: %1$d, jelenlegi verziókód: %2$d</string>
     <string name="back_button">Vissza</string>
-    <string name="no_description_provided">(nincs leírás)</string>
     <string name="app_list">Alkalmazások</string>
     <string name="donate">Adományozás</string>
     <string name="theme">Téma</string>

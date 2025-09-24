@@ -65,7 +65,6 @@
     <string name="back_button">返回</string>
     <string name="enable">启用</string>
     <string name="couldnt_open_appinfo">无法打开应用信息</string>
-    <string name="no_description_provided">(未提供描述)</string>
     <string name="installed_from_another_source">从另一来源安装的应用</string>
     <string name="donate">捐赠</string>
     <string name="donate_desc">捐赠支持 Accrescent</string>

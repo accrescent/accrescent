@@ -33,7 +33,6 @@
     <string name="update_finished">Naujinimas baigtas</string>
     <string name="update_failure">Naujinimas nepavyko</string>
     <string name="back_button">Atgal</string>
-    <string name="no_description_provided">(aprašymas nepateiktas)</string>
     <string name="app_list">Programėlės</string>
     <string name="installed">Įdiegta</string>
     <string name="app_updates">Naujinimai</string>

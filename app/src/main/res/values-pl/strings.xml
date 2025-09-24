@@ -72,7 +72,6 @@
     <string name="update_failure">Aktualizacja nie powiodła się</string>
     <string name="update_success">%1$s zostało pomyślnie zaktualizowane.</string>
     <string name="back_button">Wróć</string>
-    <string name="no_description_provided">(bez opisu)</string>
     <string name="donate_card_heading">Wesprzyj nas dziś</string>
     <string name="donate_card_desc">Accrescent potrzebuje Twojego wsparcia aby kontynuować.</string>
     <string name="donate_card_donate_btn">Przekaż</string>

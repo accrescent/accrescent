@@ -60,7 +60,6 @@
     <string name="system">跟隨系統</string>
     <string name="no">否</string>
     <string name="search">搜尋</string>
-    <string name="no_description_provided">（未提供描述）</string>
     <string name="about">關於</string>
     <string name="automatic_updates_desc">是否自動更新應用程式。若停用則改為顯示通知。</string>
     <string name="dark">深色</string>

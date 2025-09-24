@@ -47,7 +47,6 @@
     <string name="update_failure">Posodobitev je spodletela</string>
     <string name="update_success">%1$s je bila uspešno posodobljena.</string>
     <string name="back_button">Nazaj</string>
-    <string name="no_description_provided">(brez opisa)</string>
     <string name="automatic_updates_desc">Ali naj posodobi aplikacije samodejno. V nasprotnem primeru pokaže obvestilo.</string>
     <string name="dark">Temna</string>
     <string name="app_list">Aplikacije</string>

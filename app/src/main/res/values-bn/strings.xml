@@ -62,7 +62,6 @@
     <string name="update_finished">হালনাগাদ শেষ</string>
     <string name="update_success">%1$s সফলভাবে হালনাগাদকৃত।</string>
     <string name="back_button">পিছনে</string>
-    <string name="no_description_provided">(বর্ণনা দেওয়া হয়নি)</string>
     <string name="source_code">উৎস কোড</string>
     <string name="no">না</string>
     <string name="automatic_updates">স্বয়ংক্রিয় হালনাগাদ</string>
