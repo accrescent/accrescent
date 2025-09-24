@@ -9,4 +9,5 @@ data class AppDetailsUiState(
     val versionName: String = "",
     val versionCode: Long = 0,
     val shortDescription: String = "",
+    val iconUrl: String = "",
 )

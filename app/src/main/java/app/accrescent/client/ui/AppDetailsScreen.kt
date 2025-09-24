@@ -63,6 +63,7 @@ fun AppDetailsScreen(
             versionName = viewModel.uiState.versionName,
             versionCode = viewModel.uiState.versionCode,
             shortDescription = viewModel.uiState.shortDescription,
+            iconUrl = viewModel.uiState.iconUrl,
             installStatus = installStatus ?: InstallStatus.LOADING,
             onInstallClicked = { viewModel.installApp(viewModel.uiState.appId) },
             onUninstallClicked = { viewModel.uninstallApp(viewModel.uiState.appId) },
@@ -90,6 +91,7 @@ fun AppDetails(
     versionName: String,
     versionCode: Long,
     shortDescription: String,
+    iconUrl: String,
     installStatus: InstallStatus,
     onInstallClicked: () -> Unit,
     onUninstallClicked: () -> Unit,
@@ -108,7 +110,7 @@ fun AppDetails(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        AppIcon(id, Modifier.size(128.dp))
+        AppIcon(iconUrl = iconUrl, modifier = Modifier.size(128.dp))
         Spacer(Modifier.size(8.dp))
         Text(name, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.SemiBold)
         Text(

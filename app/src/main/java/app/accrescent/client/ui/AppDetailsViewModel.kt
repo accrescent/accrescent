@@ -80,6 +80,7 @@ class AppDetailsViewModel @Inject constructor(
                     versionCode = packageInfo.versionCode,
                     shortDescription = listing.shortDescription
                         ?: context.getString(R.string.no_description_provided),
+                    iconUrl = listing.icon.url,
                 )
             } catch (e: ConnectException) {
                 uiState.copy(
