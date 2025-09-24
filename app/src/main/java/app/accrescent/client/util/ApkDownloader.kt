@@ -372,10 +372,17 @@ private fun downloadApks(
                 onProgressUpdate(DownloadProgress(totalBytesDownloaded, totalBytesToDownload))
             }
         }
-        apks += Apk(url.toByteArray().toHexString(), apk)
+        apks += Apk(sha256Hash(url.toByteArray()), apk)
     }
 
     return apks
+}
+
+private fun sha256Hash(data: ByteArray): String {
+    return MessageDigest
+        .getInstance("SHA-256")
+        .digest(data)
+        .toHexString()
 }
 
 private fun signatureToCertHash(signature: Signature): String {
