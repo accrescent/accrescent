@@ -53,5 +53,4 @@
     <string name="couldnt_open_app">აპლიკაციის გახსნა ვერ მოხერხდა</string>
     <string name="couldnt_open_appinfo">AppInfo-ს გახსნა ვერ მოხერხდა</string>
     <string name="update_failure">განახლება ვერ მოხერხდა</string>
-    <string name="no_description_provided">(აღწერა ცარიელია)</string>
 </resources>
