@@ -17,7 +17,6 @@ import app.accrescent.client.Accrescent
 import app.accrescent.client.R
 import app.accrescent.client.data.AppInstallStatuses
 import app.accrescent.client.data.InstallStatus
-import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.util.PackageManager
 import app.accrescent.client.util.UserRestrictionException
 import app.accrescent.client.util.getPackageInstallStatus
@@ -39,7 +38,6 @@ import java.security.GeneralSecurityException
 class AppDetailsViewModel @Inject constructor(
     @ApplicationContext context: Context,
     private val directoryService: DirectoryServiceGrpcKt.DirectoryServiceCoroutineStub,
-    private val repoDataRepository: RepoDataRepository,
     appInstallStatuses: AppInstallStatuses,
     private val packageManager: PackageManager,
     savedStateHandle: SavedStateHandle
