@@ -78,4 +78,6 @@
     <string name="donate_card_donate_btn">기부</string>
     <string name="donate_card_dismiss_btn">닫기</string>
     <string name="donate_card_info_btn">더 알아보기</string>
+    <string name="app_incompatible_with_device">앱이 기기와 호환되지 않습니다</string>
+    <string name="app_up_to_date">앱이 최신 상태입니다</string>
 </resources>
