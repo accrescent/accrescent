@@ -5,7 +5,7 @@
     <string name="donate">Khuyên góp</string>
     <string name="donate_desc">Khuyên góp để hỗ trợ Accrescent</string>
     <string name="donate_card_heading">Khuyên góp ngay hôm nay</string>
-    <string name="donate_card_desc">Accrescent cần sự chung tay của bạn để phát triển.</string>
+    <string name="donate_card_desc">Accrescent cần sự chung tay của bạn để tiếp tục phát triển.</string>
     <string name="donate_card_donate_btn">Khuyên góp</string>
     <string name="donate_card_dismiss_btn">Đóng</string>
     <string name="donate_card_info_btn">Tìm hiểu thêm</string>
@@ -68,7 +68,7 @@
     <string name="unmetered">Không đo lường</string>
     <string name="not_roaming">Không chuyển vùng</string>
     <string name="automatic_updates">Tự động cập nhật</string>
-    <string name="automatic_updates_desc">Nếu muốn cập nhật ứng dụng một cách tự động. Sẽ nhận thông báo cập nhật nếu tính năng này bị tắt.</string>
+    <string name="automatic_updates_desc">Nếu muốn cập nhật ứng dụng một cách tự động. Người dùng sẽ được nhận thông báo cập nhật nếu tính năng này bị tắt.</string>
     <string name="update_available">Có phiên bản mới</string>
     <string name="update_finished">Đã hoàn thành cập nhật</string>
     <string name="update_failure">Cập nhật thất bại</string>

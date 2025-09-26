@@ -78,4 +78,6 @@
     <string name="donate_card_donate_btn">Пожертвувати</string>
     <string name="donate_card_dismiss_btn">Закрити</string>
     <string name="donate_card_info_btn">Дізнатися більше</string>
+    <string name="app_incompatible_with_device">додаток несумісний із пристроєм</string>
+    <string name="app_up_to_date">додаток оновлений</string>
 </resources>

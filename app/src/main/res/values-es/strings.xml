@@ -78,4 +78,6 @@
     <string name="donate_card_dismiss_btn">Cerrar</string>
     <string name="donate_card_desc">Accresent necesita tu apoyo para continuar.</string>
     <string name="donate_card_info_btn">Ver más</string>
+    <string name="app_up_to_date">La aplicación está actualizada</string>
+    <string name="app_incompatible_with_device">La aplicación no es compatible con el dispositivo</string>
 </resources>
