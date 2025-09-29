@@ -176,7 +176,7 @@ dependencies {
     implementation(libs.directory.api)
     implementation(libs.grpc.android)
     implementation(libs.grpc.okhttp)
-    implementation(libs.hilt.navcompose)
+    implementation(libs.hilt.lifecycle.viewmodel.compose)
     implementation(libs.hilt.work)
     implementation(libs.immutable)
     implementation(libs.lifecycle.process)
