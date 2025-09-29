@@ -1,6 +1,6 @@
 [versions]
 activity-compose = "1.11.0"
-agp = "8.12.1"
+agp = "8.13.0"
 bouncycastle = "1.81"
 coil = "3.3.0"
 compose-bom = "2025.09.01"
