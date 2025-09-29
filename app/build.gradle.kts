@@ -66,6 +66,7 @@ android {
             "it",
             "iw",
             "ja",
+            "ka",
             "ko",
             "lt",
             "lv",
