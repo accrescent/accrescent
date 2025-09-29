@@ -15,8 +15,6 @@ class HttpConnection(private val connection: HttpURLConnection) : AutoCloseable 
         FileOutputStream(fd).use { this.downloadTo(it, onProgressUpdate) }
     }
 
-    fun getContentLength() = connection.getHeaderField("Content-Length").toLongOrNull() ?: 0
-
     override fun close() = connection.disconnect()
 }
 
