@@ -18,7 +18,6 @@ import app.accrescent.client.data.Apk
 import app.accrescent.client.data.DownloadProgress
 import app.accrescent.client.data.RepoDataRepository
 import build.buf.gen.accrescent.directory.v1.AppDownloadInfo
-import build.buf.gen.accrescent.directory.v1.CompatibilityLevel
 import build.buf.gen.accrescent.directory.v1.DeviceAttributes
 import build.buf.gen.accrescent.directory.v1.DirectoryServiceGrpcKt
 import build.buf.gen.accrescent.directory.v1.PackageInfo
@@ -65,7 +64,7 @@ class ApkDownloader @Inject constructor(
         }
         val response = directoryService.getAppDownloadInfo(request)
 
-        if (response.compatibility.level != CompatibilityLevel.COMPATIBILITY_LEVEL_COMPATIBLE) {
+        if (!response.compatibility.compatible) {
             throw NoSuchElementException(context.getString(R.string.app_incompatible_with_device))
         } else if (!response.hasAppDownloadInfo()) {
             throw NoSuchElementException(context.getString(R.string.app_incompatible_with_device))
