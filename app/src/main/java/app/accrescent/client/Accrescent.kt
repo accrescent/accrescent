@@ -6,12 +6,12 @@ import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import androidx.core.content.ContextCompat
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import androidx.work.NetworkType
 import app.accrescent.client.data.PreferencesManager
 import app.accrescent.client.receivers.AppStatusChangeBroadcastReceiver
-import app.accrescent.client.util.registerReceiverNotExported
 import app.accrescent.client.workers.AutoUpdateWorker
 import app.accrescent.client.workers.RepositoryRefreshWorker
 import dagger.hilt.android.HiltAndroidApp
@@ -65,7 +65,12 @@ class Accrescent : Application(), Configuration.Provider {
             addAction(Intent.ACTION_PACKAGE_FULLY_REMOVED)
             addDataScheme("package")
         }
-        registerReceiverNotExported(br, filter)
+        ContextCompat.registerReceiver(
+            applicationContext,
+            br,
+            filter,
+            ContextCompat.RECEIVER_NOT_EXPORTED,
+        )
     }
 
     override val workManagerConfiguration: Configuration

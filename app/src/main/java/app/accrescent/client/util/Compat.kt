@@ -1,24 +1,11 @@
 package app.accrescent.client.util
 
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Context.RECEIVER_NOT_EXPORTED
 import android.content.Intent
-import android.content.IntentFilter
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
 import app.accrescent.client.BuildConfig
 import app.accrescent.client.data.InstallStatus
-
-fun Context.registerReceiverNotExported(receiver: BroadcastReceiver, filter: IntentFilter) {
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-        @Suppress("UnspecifiedRegisterReceiverFlag")
-        registerReceiver(receiver, filter)
-    } else {
-        registerReceiver(receiver, filter, RECEIVER_NOT_EXPORTED)
-    }
-}
 
 fun <T : Any> Intent.getParcelableExtraCompat(name: String, clazz: Class<T>): T? {
     return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
