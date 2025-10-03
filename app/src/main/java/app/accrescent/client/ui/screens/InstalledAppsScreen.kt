@@ -1,4 +1,4 @@
-package app.accrescent.client.ui
+package app.accrescent.client.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -32,6 +32,9 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import app.accrescent.client.R
+import app.accrescent.client.ui.components.AppCard
+import app.accrescent.client.ui.components.CenteredText
+import app.accrescent.client.ui.state.InstalledAppsViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)

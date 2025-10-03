@@ -1,4 +1,4 @@
-package app.accrescent.client.ui
+package app.accrescent.client.ui.state
 
 import android.app.Application
 import android.content.Context
@@ -17,6 +17,7 @@ import app.accrescent.client.Accrescent
 import app.accrescent.client.R
 import app.accrescent.client.data.AppInstallStatuses
 import app.accrescent.client.data.InstallStatus
+import app.accrescent.client.ui.navigation.Route
 import app.accrescent.client.util.PackageManager
 import app.accrescent.client.util.UserRestrictionException
 import app.accrescent.client.util.getPackageInstallStatus

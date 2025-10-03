@@ -1,4 +1,4 @@
-package app.accrescent.client.ui
+package app.accrescent.client.ui.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

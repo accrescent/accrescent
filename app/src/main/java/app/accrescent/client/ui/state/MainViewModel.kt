@@ -1,4 +1,4 @@
-package app.accrescent.client.ui
+package app.accrescent.client.ui.state
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

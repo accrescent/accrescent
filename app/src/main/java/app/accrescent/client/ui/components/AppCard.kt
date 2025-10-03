@@ -1,4 +1,4 @@
-package app.accrescent.client.ui
+package app.accrescent.client.ui.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth

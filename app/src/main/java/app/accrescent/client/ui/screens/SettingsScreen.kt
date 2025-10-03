@@ -1,4 +1,4 @@
-package app.accrescent.client.ui
+package app.accrescent.client.ui.screens
 
 import android.content.Intent
 import android.os.Build
@@ -49,6 +49,7 @@ import app.accrescent.client.R
 import app.accrescent.client.data.DONATE_URL
 import app.accrescent.client.data.SOURCE_CODE_URL
 import app.accrescent.client.data.Theme
+import app.accrescent.client.ui.state.SettingsViewModel
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.launch

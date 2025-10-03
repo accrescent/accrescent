@@ -1,4 +1,4 @@
-package app.accrescent.client.ui
+package app.accrescent.client.ui.state
 
 import android.app.Application
 import android.content.Context
@@ -38,7 +38,7 @@ import java.security.GeneralSecurityException
 private const val PAGE_SIZE = 50
 
 @HiltViewModel
-class UpdatableAppsViewModel @Inject constructor(
+class InstalledAppsViewModel @Inject constructor(
     @ApplicationContext context: Context,
     private val directoryService: DirectoryServiceGrpcKt.DirectoryServiceCoroutineStub,
     private val repoDataRepository: RepoDataRepository,
@@ -53,7 +53,9 @@ class UpdatableAppsViewModel @Inject constructor(
         .combine(snapshotFlow { appInstallStatuses.statuses.toMap() }) { listings, statuses ->
             listings.filter { listing ->
                 val status = statuses[listing.appId] ?: InstallStatus.LOADING
-                status == InstallStatus.UPDATABLE
+                status == InstallStatus.INSTALLED ||
+                        status == InstallStatus.UPDATABLE ||
+                        status == InstallStatus.DISABLED
             }
         }
 

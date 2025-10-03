@@ -1,4 +1,4 @@
-package app.accrescent.client.ui
+package app.accrescent.client.ui.state
 
 data class AppDetailsUiState(
     val isFetchingData: Boolean = false,

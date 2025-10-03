@@ -60,6 +60,15 @@ import app.accrescent.client.data.BLOG_FUTURE_OF_ACCRESCENT_URL
 import app.accrescent.client.data.DONATE_URL
 import app.accrescent.client.data.ROOT_DOMAIN
 import app.accrescent.client.data.Theme
+import app.accrescent.client.ui.components.DonateRequestCard
+import app.accrescent.client.ui.navigation.Route
+import app.accrescent.client.ui.screens.AllAppsScreen
+import app.accrescent.client.ui.screens.AppDetailsScreen
+import app.accrescent.client.ui.screens.InstalledAppsScreen
+import app.accrescent.client.ui.screens.SettingsScreen
+import app.accrescent.client.ui.screens.UpdatableAppsScreen
+import app.accrescent.client.ui.state.MainViewModel
+import app.accrescent.client.ui.state.SettingsViewModel
 import app.accrescent.client.ui.theme.AccrescentTheme
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -1,4 +1,4 @@
-package app.accrescent.client.ui
+package app.accrescent.client.ui.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
