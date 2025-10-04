@@ -45,4 +45,6 @@
     <string name="donate_card_donate_btn">Bağış</string>
     <string name="donate_card_dismiss_btn">Kapat</string>
     <string name="donate_card_info_btn">Daha fazla bilgi edinin</string>
+    <string name="app_incompatible_with_device">Uygulama aygıt ile uyumsuz</string>
+    <string name="app_up_to_date">Uygulama güncel</string>
 </resources>
