@@ -1,4 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dark">قویو</string>
+    <string name="app_list">ایگولامەلر</string>
+    <string name="donate">باغیش یاپ</string>
+    <string name="donate_card_donate_btn">باغیش</string>
+    <string name="donate_card_dismiss_btn">قاپات</string>
+    <string name="installed">قورولی</string>
+    <string name="light">آچیق</string>
+    <string name="system">سیستەم</string>
+    <string name="theme">تەم</string>
+    <string name="app_updates">گونجەللەمەلر</string>
+    <string name="settings">عیارلر</string>
+    <string name="install">قور</string>
+    <string name="uninstall">قالدر</string>
+    <string name="update">گونجەللە</string>
+    <string name="enable">ایتكینلشدر</string>
+    <string name="open">آچ</string>
+    <string name="customization">كیشیسللشدرمە</string>
+    <string name="about">حقندە</string>
+    <string name="yes">أوت</string>
+    <string name="no">خایر</string>
+    <string name="search">آرا</string>
+    <string name="updater">گونجەللەییجی</string>
+    <string name="any">تومی</string>
+    <string name="unmetered">قوتاسز</string>
+    <string name="back_button">گری</string>
+    <string name="donate_card_heading">باغیش گونی</string>
+    <string name="donate_card_info_btn">دها فضلە بیلگی ایدنڭ</string>
+    <string name="source_code">قایناق قودی</string>
+    <string name="open_link">باغلاندییی آچ</string>
+    <string name="swipe_refreshing">…ایچریك یڭیلەنییور</string>
+    <string name="version">سوروم: %1$s</string>
+    <string name="network_condition">آغ دورومی</string>
+    <string name="not_roaming">دولاشمدە اولمەیەن</string>
+    <string name="automatic_updates">اوتوماتیك گونجەللەمەلر</string>
+    <string name="update_available">گونجەللەمە وار</string>
+    <string name="update_finished">گونجەللەمە تماملاندی</string>
+    <string name="update_failure">گونجەللەمە خطاسی</string>
+    <string name="no_apps_installed">قورولی ایگولامە یوق</string>
+    <string name="user_action_required">قوللانیجی ایلەمی گركلی</string>
+    <string name="network_error">آغ خطاسی: %1$s</string>
+    <string name="version_code">سوروم قودی: %1$d</string>
+    <string name="sig_verify_failed">امضا طوغرولانەمەدی</string>
+    <string name="app_up_to_date">اویگولامە گونجەل</string>
 </resources>
