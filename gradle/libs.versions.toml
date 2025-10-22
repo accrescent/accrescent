@@ -18,7 +18,7 @@ material = "1.13.0"
 nav-compose = "2.9.5"
 okhttp = "5.1.0"
 paging = "3.3.6"
-room = "2.8.1"
+room = "2.8.3"
 serialization = "1.9.0"
 work = "2.10.5"
 
