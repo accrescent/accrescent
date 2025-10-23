@@ -1,69 +1,72 @@
 package app.accrescent.client.workers
 
+import android.app.Notification
 import android.content.Context
-import android.content.pm.PackageInstaller
-import android.content.pm.PackageManager.MATCH_ARCHIVED_PACKAGES
-import android.content.pm.PackageManager.PackageInfoFlags
-import android.os.Build
+import android.content.pm.ServiceInfo
 import android.util.Log
-import androidx.annotation.RequiresApi
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
-import androidx.work.Data
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.WorkManager
+import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
-import app.accrescent.client.data.RepoDataRepository
-import app.accrescent.client.util.PackageManager
+import androidx.work.workDataOf
+import app.accrescent.client.Accrescent
+import app.accrescent.client.R
+import app.accrescent.client.data.appmanager.AppManager
+import app.accrescent.client.data.appmanager.InstallTaskParams
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
-import android.content.pm.PackageManager as AndroidPackageManager
 
-private const val TAG = "UnarchiveWorker"
+private const val LOG_TAG = "UnarchiveWorker"
+private const val UNARCHIVE_ID_UNSET = -999
 
 @HiltWorker
-@RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
 class UnarchiveWorker @AssistedInject constructor(
     @Assisted context: Context,
     @Assisted workerParams: WorkerParameters,
-    private val packageManager: PackageManager,
-    private val repoDataRepository: RepoDataRepository,
+    private val appManager: AppManager,
 ) : CoroutineWorker(context, workerParams) {
     override suspend fun doWork(): Result {
-        val packageName = inputData.getString(PackageInstaller.EXTRA_UNARCHIVE_PACKAGE_NAME) ?: run {
-            Log.e(TAG, "No package name specified. Returning early.")
-            return Result.failure()
+        val appId = inputData.getString(DataKey.APP_ID) ?: run {
+            Log.e(LOG_TAG, "app ID expected in input data but was not found")
+            return Result.failure(workDataOf(DataKey.ERROR_TYPE to ErrorType.INTERNAL))
         }
-        val unarchiveId = inputData.getInt(PackageInstaller.EXTRA_UNARCHIVE_ID, -999)
-
-        try {
-            applicationContext.packageManager
-                .getPackageInfo(packageName, PackageInfoFlags.of(MATCH_ARCHIVED_PACKAGES))
-                .takeIf { repoDataRepository.appExists(it.packageName) }
-                ?.let { packageManager.downloadAndInstall(it.packageName, unarchiveId = unarchiveId) }
-                ?: run {
-                    Log.e(TAG, "Package $packageName not found in repository")
-                    return Result.failure()
-                }
-        } catch (e: AndroidPackageManager.NameNotFoundException) {
-            Log.e(TAG, "Package $packageName not found on device")
-            return Result.failure()
-        } catch (e: Exception) {
-            Log.e(TAG, "Unknown error: ${e.message}")
-            return Result.failure()
+        val unarchiveId = inputData.getInt(DataKey.UNARCHIVE_ID, UNARCHIVE_ID_UNSET)
+        if (unarchiveId == UNARCHIVE_ID_UNSET) {
+            Log.e(LOG_TAG, "unarchive ID expected in input data but was not found")
+            return Result.failure(workDataOf(DataKey.ERROR_TYPE to ErrorType.INTERNAL))
         }
 
-        return Result.success()
+        val result = appManager
+            .downloadAndInstall(
+                params = InstallTaskParams.Unarchive(appId, unarchiveId),
+                onProgress = {
+                    setProgress(
+                        workDataOf(
+                            DataKey.TOTAL_BYTES_TO_DOWNLOAD to it.totalBytes,
+                            DataKey.BYTES_DOWNLOADED to it.downloadedBytes,
+                        )
+                    )
+                },
+            )
+            .mapOrElse({ ResultExt.from(it) }, { Result.success() })
+
+        return result
     }
 
-    companion object {
-        fun enqueue(context: Context, packageName: String, unarchiveId: Int) {
-            val data = Data.Builder()
-                .putString(PackageInstaller.EXTRA_UNARCHIVE_PACKAGE_NAME, packageName)
-                .putInt(PackageInstaller.EXTRA_UNARCHIVE_ID, unarchiveId)
-                .build()
-            val unarchiveRequest = OneTimeWorkRequestBuilder<UnarchiveWorker>().setInputData(data).build()
-            WorkManager.getInstance(context).enqueue(unarchiveRequest)
-        }
+    override suspend fun getForegroundInfo(): ForegroundInfo {
+        val notificationId = id.hashCode()
+        val notification = Notification.Builder(
+            applicationContext,
+            Accrescent.DOWNLOADING_APP_CHANNEL,
+        )
+            .setSmallIcon(R.drawable.ic_baseline_download_24)
+            .setContentTitle(applicationContext.getString(R.string.downloading_app))
+            .build()
+
+        return ForegroundInfo(
+            notificationId,
+            notification,
+            ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC,
+        )
     }
 }

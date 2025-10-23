@@ -20,7 +20,7 @@ class RepoDataFetcherImpl @Inject constructor(
     private val okHttpClient: OkHttpClient,
 ) : RepoDataFetcher {
     override fun fetchRepoData(): RepoData {
-        val repoDataUrl = "$REPOSITORY_URL/repodata.$PUBKEY_VERSION.json"
+        val repoDataUrl = "$REPOSITORY_URL/repodata.$REPODATA_VERSION.json"
 
         val repoDataFile = fetchFileString(URL(repoDataUrl))
         val signature = fetchFileString(URL("$repoDataUrl.sig"))

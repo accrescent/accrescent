@@ -1,8 +1,8 @@
 package app.accrescent.client.di
 
 import android.content.Context
-import app.accrescent.client.data.DIRECTORY_API_DOMAIN
-import build.buf.gen.accrescent.directory.v1.DirectoryServiceGrpcKt
+import app.accrescent.client.data.APP_STORE_API_DOMAIN
+import build.buf.gen.accrescent.appstore.v1.AppServiceGrpcKt
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,17 +13,17 @@ import jakarta.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DirectoryServiceModule {
+object AppServiceModule {
     @Provides
     @Singleton
-    fun provideDirectoryServiceStub(
+    fun provideAppServiceStub(
         @ApplicationContext context: Context,
-    ): DirectoryServiceGrpcKt.DirectoryServiceCoroutineStub {
+    ): AppServiceGrpcKt.AppServiceCoroutineStub {
         val channel = AndroidChannelBuilder
-            .forTarget(DIRECTORY_API_DOMAIN)
+            .forTarget(APP_STORE_API_DOMAIN)
             .context(context)
             .build()
-        val stub = DirectoryServiceGrpcKt.DirectoryServiceCoroutineStub(channel)
+        val stub = AppServiceGrpcKt.AppServiceCoroutineStub(channel)
 
         return stub
     }

@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="device_abi_unsupported">az eszköz architektúrája nem támogatott</string>
-    <string name="yes">Igen</string>
-    <string name="no">Nem</string>
     <string name="update_success">A(z) %1$s sikeresen frissítve lett.</string>
     <string name="dark">Sötét</string>
     <string name="installed">Telepített</string>
     <string name="donate_desc">Adományával támogassa a fejlesztőket</string>
-    <string name="installed_from_another_source">Más forrásból telepített alkalmazás</string>
     <string name="light">Világos</string>
     <string name="system">Rendszer</string>
     <string name="app_updates">Frissítések</string>
@@ -18,29 +14,12 @@
     <string name="open">Megnyitás</string>
     <string name="about">Névjegy</string>
     <string name="open_link">Hivatkozás megnyitása</string>
-    <string name="swipe_refresh">A frissítéshez húzza lefelé</string>
-    <string name="swipe_refreshing">Tartalom frissítése…</string>
     <string name="no_apps_installed">Nincsenek telepített alkalmazások</string>
     <string name="up_to_date">Minden alkalmazás naprakész</string>
     <string name="user_action_required">Felhasználói beavatkozás szükséges</string>
     <string name="cant_find_app">Sajnáljuk, az alkalmazás nem található</string>
-    <string name="couldnt_open_app">Az alkalmazást nem sikerült megnyitni</string>
-    <string name="couldnt_open_appinfo">Az alkalmazásinfót nem sikerült megnyitni</string>
-    <string name="network_error">Hálózati hiba: %1$s</string>
-    <string name="app_verification_failed">Az alkalmazás ellenőrzése sikertelen: %1$s</string>
-    <string name="failed_download_files">Nem sikerült letölteni a szükséges fájlokat: %1$s</string>
-    <string name="failed_download_repodata">A tároló adatainak letöltése sikertelen: %1$s</string>
-    <string name="failed_verify_repodata">A tároló adatainak ellenőrzése sikertelen: %1$s</string>
-    <string name="error_parsing_files">Hiba az alkalmazásfájlok elemzése során: %1$s</string>
-    <string name="unknown_host_error">Ismeretlen kiszolgálóhiba: %1$s</string>
-    <string name="user_restriction">Felhasználói korlátozás hiba: %1$s</string>
     <string name="version">Verzió: %1$s</string>
-    <string name="version_code">Verziókód: %1$d</string>
-    <string name="base_apk_not_valid">a base.apk nem egy érvényes APK</string>
     <string name="sig_verify_failed">az aláírás ellenőrzése sikertelen</string>
-    <string name="install_blocked">a telepítés letiltva az admin által</string>
-    <string name="uninstall_blocked">az eltávolítás letiltva az admin által</string>
-    <string name="search">Keresés</string>
     <string name="updater">Frissítő</string>
     <string name="network_condition">A hálózat állapota</string>
     <string name="any">Bármely</string>
@@ -49,16 +28,7 @@
     <string name="automatic_updates">Automatikus frissítések</string>
     <string name="automatic_updates_desc">Függetlenül attól, hogy frissíti-e az alkalmazásokat automatikusan, akkor is megjelenít egy értesítést, ha le van tiltva.</string>
     <string name="update_finished">A frissítés befejeződött</string>
-    <string name="update_failure">Frissítési hiba</string>
     <string name="update_available">Új frissítés érhető el</string>
-    <string name="device_density_unsupported">az eszköz képernyőfelbontása nem támogatott</string>
-    <string name="app_signer_mismatch">az alkalmazást nem írta(\'k) alá a szükséges aláíró(k).
-\nVárt aláírás: %1$s</string>
-    <string name="no_app_signers">nem található alkalmazás-aláíró.
-\nVárt aláírás: %1$s</string>
-    <string name="app_id_mismatch">a(z) %1$s alkalmazásazonosító nem egyezik a várt %2$s azonosítóval</string>
-    <string name="version_mismatch">várt verzió: %1$s, jelenlegi verzió: %2$s</string>
-    <string name="version_code_mismatch">várt verziókód: %1$d, jelenlegi verziókód: %2$d</string>
     <string name="back_button">Vissza</string>
     <string name="app_list">Alkalmazások</string>
     <string name="donate">Adományozás</string>
@@ -69,15 +39,10 @@
     <string name="dynamic_color_desc">Az alkalmazás témája a rendszer színpalettája alapján</string>
     <string name="source_code">Forráskód</string>
     <string name="source_code_desc">Az Accrescent forráskódjának megtekintése</string>
-    <string name="failed_decode_repodata">A tároló adatainak dekódolása sikertelen: %1$s</string>
-    <string name="app_doesnt_support_device">Az alkalmazás nem támogatja ezt az eszközt: %1$s</string>
-    <string name="version_downgrade">a(z) %1$d verzió korábbi, mint a minimum %2$d</string>
     <string name="repodata_timestamp_less">a tárolóadat időbélyege korábbi, mint a mentett érték</string>
     <string name="donate_card_desc">Az Accrescentnek szüksége van az Ön támogatására a folytatáshoz.</string>
     <string name="donate_card_donate_btn">Adományozás</string>
     <string name="donate_card_info_btn">Tudjon meg többet</string>
     <string name="donate_card_heading">Adományozzon még ma</string>
     <string name="donate_card_dismiss_btn">Bezárás</string>
-    <string name="app_incompatible_with_device">az alkalmazás nem kompatibilis az eszközzel</string>
-    <string name="app_up_to_date">alkalmazás naprakész</string>
 </resources>

@@ -8,4 +8,5 @@ import androidx.room.PrimaryKey
 data class App(
     @PrimaryKey val id: String,
     @ColumnInfo(name = "min_version_code") val minVersionCode: Int,
+    @ColumnInfo(name = "signing_cert_hash") val signingCertHash: String,
 )

@@ -12,6 +12,10 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ENFORCE_UPDATE_OWNERSHIP" />
+    <!--
+    Used by androidx.work for our app installation workers (see their getForegroundInfo() methods)
+    -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
@@ -75,20 +79,28 @@
         </provider>
 
         <receiver
-            android:name=".receivers.AppInstallBroadcastReceiver"
-            android:exported="false" />
-
-        <receiver
             android:name=".receivers.AppUninstallBroadcastReceiver"
             android:exported="false" />
 
         <receiver
-            android:name=".receivers.AppUnarchiveBroadcastReceiver"
-            android:exported="false"
-            tools:targetApi="35">
+            android:name=".receivers.InstallerSessionCommitBroadcastReceiver"
+            android:exported="false" />
+
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:foregroundServiceType="dataSync"
+            tools:node="merge" />
+
+        <receiver
+            android:name=".receivers.UnarchiveRequestBroadcastReceiver"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.UNARCHIVE_PACKAGE" />
             </intent-filter>
         </receiver>
+
+        <receiver
+            android:name=".receivers.UnarchiveResponseBroadcastReceiver"
+            android:exported="false" />
     </application>
 </manifest>

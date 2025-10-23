@@ -5,28 +5,21 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -35,221 +28,197 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import app.accrescent.client.BuildConfig
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.accrescent.client.R
-import app.accrescent.client.data.DownloadProgress
-import app.accrescent.client.data.InstallStatus
+import app.accrescent.client.ui.components.ActionableCard
 import app.accrescent.client.ui.components.AppIcon
+import app.accrescent.client.ui.components.CloseableErrorBox
+import app.accrescent.client.ui.state.AppActionButton
+import app.accrescent.client.ui.state.AppDetailsLoadState
+import app.accrescent.client.ui.state.AppDetailsUiState
 import app.accrescent.client.ui.state.AppDetailsViewModel
+import app.accrescent.client.ui.state.Progress
 
 @Composable
 fun AppDetailsScreen(
-    snackbarHostState: SnackbarHostState,
+    onGoBack: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: AppDetailsViewModel = hiltViewModel(),
 ) {
+    val screenUiState by viewModel.screenUiState.collectAsStateWithLifecycle()
 
-    val installStatus = viewModel.installStatuses[viewModel.uiState.appId]
-    val downloadProgress = viewModel.downloadProgresses[viewModel.uiState.appId]
+    when (val uiState = screenUiState) {
+        is AppDetailsUiState.Loaded -> {
+            Column(
+                modifier = modifier.verticalScroll(rememberScrollState()),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                // App information
+                Box(modifier = Modifier.size(128.dp)) {
+                    AppIcon(
+                        iconUrl = uiState.appDetails.iconUrl,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(8.dp),
+                    )
 
-    when {
-        viewModel.uiState.isFetchingData -> {
-            Box(modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator(Modifier.size(72.dp))
-            }
-        }
+                    when (uiState.progressToShow) {
+                        is Progress.Determinate -> CircularProgressIndicator(
+                            progress = { uiState.progressToShow.progress },
+                            modifier = Modifier.fillMaxSize(),
+                        )
 
-        viewModel.uiState.appExists -> AppDetails(
-            id = viewModel.uiState.appId,
-            name = viewModel.uiState.appName,
-            versionName = viewModel.uiState.versionName,
-            versionCode = viewModel.uiState.versionCode,
-            shortDescription = viewModel.uiState.shortDescription,
-            iconUrl = viewModel.uiState.iconUrl,
-            installStatus = installStatus ?: InstallStatus.LOADING,
-            onInstallClicked = { viewModel.installApp(viewModel.uiState.appId) },
-            onUninstallClicked = { viewModel.uninstallApp(viewModel.uiState.appId) },
-            onOpenClicked = { viewModel.openApp(viewModel.uiState.appId) },
-            onOpenAppInfoClicked = { viewModel.openAppInfo(viewModel.uiState.appId) },
-            downloadProgress = downloadProgress,
-            modifier,
-        )
+                        Progress.Indeterminate ->
+                            CircularProgressIndicator(modifier = Modifier.fillMaxSize())
 
-        else -> AppNotFoundError(modifier)
-    }
+                        null -> Unit
+                    }
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = uiState.appDetails.name,
+                    fontWeight = FontWeight.SemiBold,
+                    style = MaterialTheme.typography.headlineSmall,
+                )
+                Text(
+                    text = uiState.appDetails.shortDescription,
+                    style = MaterialTheme.typography.bodyMedium,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(horizontal = 40.dp)
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    text = stringResource(R.string.version, uiState.appDetails.version),
+                    fontFamily = FontFamily.Monospace,
+                    style = MaterialTheme.typography.titleSmall,
+                )
+                Spacer(modifier = Modifier.height(8.dp))
 
-    if (viewModel.uiState.error != null) {
-        LaunchedEffect(snackbarHostState) {
-            snackbarHostState.showSnackbar(message = viewModel.uiState.error!!)
-            viewModel.uiState.error = null
-        }
-    }
-}
-
-@Composable
-fun AppDetails(
-    id: String,
-    name: String,
-    versionName: String,
-    versionCode: Long,
-    shortDescription: String,
-    iconUrl: String,
-    installStatus: InstallStatus,
-    onInstallClicked: () -> Unit,
-    onUninstallClicked: () -> Unit,
-    onOpenClicked: () -> Unit,
-    onOpenAppInfoClicked: () -> Unit,
-    downloadProgress: DownloadProgress?,
-    modifier: Modifier = Modifier,
-) {
-    var waitingForSize by remember { mutableStateOf(false) }
-    val scrollState = rememberScrollState()
-
-    Column(
-        modifier
-            .fillMaxSize()
-            .verticalScroll(scrollState),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        AppIcon(iconUrl = iconUrl, modifier = Modifier.size(128.dp))
-        Spacer(Modifier.size(8.dp))
-        Text(name, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.SemiBold)
-        Text(
-            text = shortDescription,
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 40.dp),
-        )
-        Column(Modifier.width(256.dp), verticalArrangement = Arrangement.Center) {
-            Spacer(Modifier.height(16.dp))
-            Text(
-                stringResource(R.string.version, versionName),
-                style = MaterialTheme.typography.titleSmall,
-                fontFamily = FontFamily.Monospace,
-            )
-            Text(
-                stringResource(R.string.version_code, versionCode),
-                style = MaterialTheme.typography.titleSmall,
-                fontFamily = FontFamily.Monospace,
-            )
-        }
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(18.dp)
-        ) {
-            when (installStatus) {
-                InstallStatus.INSTALLED,
-                InstallStatus.UPDATABLE,
-                InstallStatus.DISABLED -> OutlinedButton(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f)
-                        .padding(horizontal = 6.dp),
-                    onClick = { onUninstallClicked() },
-                ) {
-                    Text(stringResource(R.string.uninstall))
+                // App status, e.g., errors and download progress
+                uiState.getDisplayText()?.let { Text(text = it) }
+                uiState.getErrorText()?.let { errorText ->
+                    CloseableErrorBox(
+                        errorText = errorText,
+                        onClose = viewModel::clearInstallationResult,
+                        modifier = Modifier.padding(horizontal = 24.dp),
+                    )
                 }
 
-                else -> Unit
-            }
-            if (!(installStatus == InstallStatus.INSTALLED && id == BuildConfig.APPLICATION_ID)) {
-                Button(
+                // Action buttons, e.g., install and update
+                Row(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .padding(18.dp)
+                ) {
+                    val buttonModifier = Modifier
                         .weight(1f)
-                        .padding(horizontal = 6.dp),
-                    enabled = downloadProgress == null &&
-                            !waitingForSize &&
-                            installStatus != InstallStatus.INSTALLED_FROM_ANOTHER_SOURCE,
-                    onClick = {
-                        when (installStatus) {
-                            InstallStatus.INSTALLABLE,
-                            InstallStatus.UPDATABLE -> {
-                                waitingForSize = true
-                                onInstallClicked()
+                        .padding(horizontal = 6.dp)
+
+                    for (button in uiState.buttonsToShow) {
+                        when (button) {
+                            is AppActionButton.Install -> Button(
+                                onClick = viewModel::installApp,
+                                modifier = buttonModifier,
+                                enabled = button.enabled,
+                            ) {
+                                Text(stringResource(R.string.install))
                             }
 
-                            InstallStatus.DISABLED -> onOpenAppInfoClicked()
-                            InstallStatus.INSTALLED -> onOpenClicked()
-                            InstallStatus.INSTALLED_FROM_ANOTHER_SOURCE,
-                            InstallStatus.LOADING,
-                            InstallStatus.UNKNOWN -> Unit
+                            is AppActionButton.Update -> Button(
+                                onClick = viewModel::updateApp,
+                                modifier = buttonModifier,
+                                enabled = button.enabled,
+                            ) {
+                                Text(stringResource(R.string.update))
+                            }
+
+                            is AppActionButton.Open -> Button(
+                                onClick = viewModel::openApp,
+                                modifier = buttonModifier,
+                                enabled = button.enabled,
+                            ) {
+                                Text(stringResource(R.string.open))
+                            }
+
+                            is AppActionButton.Unarchive -> Button(
+                                onClick = viewModel::unarchiveApp,
+                                modifier = buttonModifier,
+                                enabled = button.enabled,
+                            ) {
+                                Text(stringResource(R.string.unarchive))
+                            }
+
+                            is AppActionButton.Enable -> Button(
+                                onClick = viewModel::openAppDetailsSettings,
+                                modifier = buttonModifier,
+                                enabled = button.enabled,
+                            ) {
+                                Text(stringResource(R.string.enable))
+                            }
+
+                            is AppActionButton.Uninstall -> OutlinedButton(
+                                onClick = viewModel::uninstallApp,
+                                modifier = buttonModifier,
+                                enabled = button.enabled,
+                            ) {
+                                Text(stringResource(R.string.uninstall))
+                            }
                         }
-                    },
-                ) {
-                    when (installStatus) {
-                        InstallStatus.INSTALLABLE ->
-                            Text(stringResource(R.string.install))
-
-                        InstallStatus.UPDATABLE ->
-                            Text(stringResource(R.string.update))
-
-                        InstallStatus.DISABLED ->
-                            Text(stringResource(R.string.enable))
-
-                        InstallStatus.INSTALLED ->
-                            Text(stringResource(R.string.open))
-
-                        InstallStatus.INSTALLED_FROM_ANOTHER_SOURCE ->
-                            Text(stringResource(R.string.installed_from_another_source))
-
-                        InstallStatus.LOADING ->
-                            CircularProgressIndicator(
-                                modifier = Modifier.size(24.dp),
-                                color = MaterialTheme.colorScheme.onPrimary,
-                                strokeWidth = 3.dp
-                            )
-
-                        InstallStatus.UNKNOWN ->
-                            Text(stringResource(R.string.unknown))
                     }
                 }
             }
         }
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            if (waitingForSize && downloadProgress == null) {
-                CircularProgressIndicator(modifier = Modifier.size(96.dp))
-                // Spacer to align this indicator with the other when it appears
-                Text("", Modifier.padding(top = 16.dp))
-            } else if (downloadProgress != null) {
-                waitingForSize = false
 
+        AppDetailsUiState.Loading -> {
+            Box(modifier = modifier, contentAlignment = Alignment.Center) {
                 CircularProgressIndicator(
-                    modifier = Modifier.size(96.dp),
-                    progress = { downloadProgress.part.toFloat() / downloadProgress.total },
+                    modifier = Modifier
+                        .fillMaxWidth(0.5f)
+                        .aspectRatio(1f),
                 )
-
-                val partMb = "%.1f".format(downloadProgress.part.toFloat() / 1_000_000)
-                val totalMb = "%.1f".format(downloadProgress.total.toFloat() / 1_000_000)
-
-                Text("$partMb MB / $totalMb MB", Modifier.padding(top = 16.dp))
-            } else {
-                Spacer(modifier = Modifier.size(96.dp))
-                Text("", Modifier.padding(top = 16.dp))
             }
         }
-        Text(id)
-    }
-}
 
-@Composable
-fun AppNotFoundError(modifier: Modifier = Modifier) {
-    Box(modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Card(
-            Modifier
-                .fillMaxWidth()
-                .height(100.dp)
-                .padding(16.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.error,
-            ),
-        ) {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text(
+        is AppDetailsUiState.LoadingError -> {
+            val (message, actionLabel, action) = when (uiState.error) {
+                is AppDetailsLoadState.Error.AppNotFound -> Triple(
                     stringResource(R.string.cant_find_app),
-                    fontWeight = FontWeight.Medium,
+                    stringResource(R.string.go_back),
+                    onGoBack,
+                )
+
+                AppDetailsLoadState.Error.Internal -> Triple(
+                    stringResource(R.string.internal_error),
+                    stringResource(R.string.go_back),
+                    onGoBack,
+                )
+
+                AppDetailsLoadState.Error.Network -> Triple(
+                    stringResource(R.string.app_details_network_error),
+                    stringResource(R.string.retry),
+                    viewModel::loadData,
+                )
+
+                AppDetailsLoadState.Error.Timeout -> Triple(
+                    stringResource(R.string.app_details_timeout_error),
+                    stringResource(R.string.retry),
+                    viewModel::loadData,
+                )
+
+                AppDetailsLoadState.Error.Unknown -> Triple(
+                    stringResource(R.string.app_details_unknown_error),
+                    stringResource(R.string.go_back),
+                    onGoBack,
+                )
+            }
+
+            Box(modifier = modifier, contentAlignment = Alignment.Center) {
+                ActionableCard(
+                    bodyText = message,
+                    actionText = actionLabel,
+                    onActionClicked = action,
+                    modifier = Modifier.padding(horizontal = 8.dp),
                 )
             }
         }

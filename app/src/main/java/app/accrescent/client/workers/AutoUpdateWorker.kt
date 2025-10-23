@@ -1,109 +1,107 @@
 package app.accrescent.client.workers
 
+import android.app.Notification
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageInfo
-import androidx.core.app.NotificationCompat
-import androidx.core.content.getSystemService
 import androidx.hilt.work.HiltWorker
-import androidx.work.Constraints
 import androidx.work.CoroutineWorker
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
-import app.accrescent.client.Accrescent.Companion.UPDATE_AVAILABLE_CHANNEL
+import app.accrescent.client.Accrescent
 import app.accrescent.client.R
-import app.accrescent.client.data.InstallStatus
+import app.accrescent.client.core.Outcome
 import app.accrescent.client.data.PreferencesManager
-import app.accrescent.client.data.RepoDataRepository
-import app.accrescent.client.util.NotificationUtil
-import app.accrescent.client.util.PackageManager
-import app.accrescent.client.util.getInstalledPackagesCompat
-import app.accrescent.client.util.getPackageInstallStatus
-import build.buf.gen.accrescent.directory.v1.DirectoryServiceGrpcKt
-import build.buf.gen.accrescent.directory.v1.getAppPackageInfoRequest
+import app.accrescent.client.data.appmanager.AppManager
+import app.accrescent.client.data.appmanager.InstallWorkRepository
+import app.accrescent.client.ui.MainActivity
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
 import java.time.Duration
 
 @HiltWorker
 class AutoUpdateWorker @AssistedInject constructor(
     @Assisted context: Context,
-    private val directoryService: DirectoryServiceGrpcKt.DirectoryServiceCoroutineStub,
     @Assisted workerParams: WorkerParameters,
+    private val appManager: AppManager,
+    private val installWorkRepository: InstallWorkRepository,
     private val preferencesManager: PreferencesManager,
-    private val repoDataRepository: RepoDataRepository,
-    private val packageManager: PackageManager,
 ) : CoroutineWorker(context, workerParams) {
     override suspend fun doWork(): Result {
-        try {
-            val packagesToUpdate = applicationContext.packageManager.getInstalledPackagesCompat()
-                .filter { repoDataRepository.appExists(it.packageName) }
-                .filter {
-                    applicationContext.packageManager.getPackageInstallStatus(
-                        it.packageName,
-                        null,
-                    ) != InstallStatus.INSTALLED_FROM_ANOTHER_SOURCE
-                }
-                .filter {
-                    directoryService
-                        .getAppPackageInfo(getAppPackageInfoRequest { appId = it.packageName })
-                        .packageInfo
-                        .versionCode > it.longVersionCode
-                }
+        val packagesToCheck = applicationContext
+            .packageManager
+            .getInstalledPackages(0)
+            .filter { appManager.selfResponsibleForUpdatingPackage(it.packageName) }
+        val autoUpdatesEnabled = preferencesManager.automaticUpdates.firstOrNull() ?: true
 
-            if (preferencesManager.automaticUpdates.first()) {
-                packagesToUpdate.forEach { packageManager.downloadAndInstall(it.packageName) }
-            } else {
-                packagesToUpdate.forEachIndexed { index, packageInfo ->
-                    val request = getAppPackageInfoRequest { appId = packageInfo.packageName }
-                    val newVersionName = directoryService
-                        .getAppPackageInfo(request)
-                        .packageInfo
-                        .versionName
-                    showUpdateNotification(index, packageInfo, newVersionName)
+        if (autoUpdatesEnabled) {
+            val networkType = preferencesManager.networkType.firstOrNull()
+                ?.let { NetworkType.valueOf(it) }
+                ?: NetworkType.CONNECTED
+            for (pkg in packagesToCheck) {
+                installWorkRepository.enqueueUpdateWorker(
+                    appId = pkg.packageName,
+                    preferExpedited = false,
+                    networkType = networkType,
+                )
+            }
+        } else {
+            for (pkg in packagesToCheck) {
+                val result = appManager.isUpdateAvailable(pkg.packageName)
+                val isUpdateAvailable = when (result) {
+                    is Outcome.Err -> continue
+                    is Outcome.Ok -> result.value
+                }
+                if (isUpdateAvailable) {
+                    showUpdateNotification(applicationContext, pkg)
                 }
             }
-        } catch (e: Exception) {
-            Result.failure()
         }
 
         return Result.success()
     }
 
-    private fun showUpdateNotification(index: Int, packageInfo: PackageInfo, newVersionName: String) {
-        val notificationManager = applicationContext.getSystemService<NotificationManager>()!!
-
-        val packageLabel = packageInfo.applicationInfo
-            ?.let { applicationContext.packageManager.getApplicationLabel(it) }
+    private fun showUpdateNotification(context: Context, packageInfo: PackageInfo) {
+        val notificationManager = context.getSystemService(NotificationManager::class.java)
+        val packageLabel = packageInfo
+            .applicationInfo
+            ?.loadLabel(context.packageManager)
             ?: packageInfo.packageName
-        val pendingIntent = NotificationUtil
-            .createPendingIntentForAppId(applicationContext, packageInfo.packageName)
-        val notification = NotificationCompat.Builder(applicationContext, UPDATE_AVAILABLE_CHANNEL)
+        val pendingIntent = getAppDetailsIntent(packageInfo.packageName)
+        val notification = Notification.Builder(applicationContext, Accrescent.UPDATE_AVAILABLE_CHANNEL)
             .setContentTitle(packageLabel)
-            .setContentText("${packageInfo.versionName} -> $newVersionName")
+            .setContentText(
+                applicationContext.getString(R.string.update_available_for_app, packageLabel)
+            )
             .setSmallIcon(R.drawable.ic_baseline_update_24)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
+            .build()
 
-        @Suppress("MissingPermission")
-        notificationManager.notify(index + 1000, notification.build())
+        notificationManager.notify(packageInfo.packageName.hashCode(), notification)
+    }
+
+    private fun getAppDetailsIntent(appId: String): PendingIntent {
+        return PendingIntent.getActivity(
+            applicationContext,
+            appId.hashCode(),
+            Intent(applicationContext, MainActivity::class.java)
+                .putExtra(Intent.EXTRA_PACKAGE_NAME, appId),
+            PendingIntent.FLAG_IMMUTABLE,
+        )
     }
 
     companion object {
         private const val UPDATER_WORK_NAME = "UPDATE_APPS"
 
-        fun enqueue(context: Context, networkType: NetworkType) {
-            val constraints = Constraints(
-                requiredNetworkType = networkType,
-                requiresDeviceIdle = true,
-                requiresStorageNotLow = true,
-            )
+        fun enqueue(context: Context) {
             val updateRequest = PeriodicWorkRequestBuilder<AutoUpdateWorker>(Duration.ofHours(4))
-                .setConstraints(constraints)
                 .build()
             WorkManager.getInstance(context).enqueueUniquePeriodicWork(
                 UPDATER_WORK_NAME,

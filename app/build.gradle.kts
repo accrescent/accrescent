@@ -162,11 +162,11 @@ room {
 
 dependencies {
     implementation(libs.activity.compose)
+    implementation(libs.appstore.api)
     implementation(libs.bouncycastle)
     implementation(libs.coil)
     implementation(libs.coil.network.okhttp)
     implementation(platform(libs.compose.bom))
-    implementation(libs.compose.material)
     implementation(libs.compose.material.icons)
     implementation(libs.compose.material3)
     implementation(libs.compose.ui)
@@ -174,7 +174,6 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.dagger)
     implementation(libs.datastore)
-    implementation(libs.directory.api)
     implementation(libs.grpc.android)
     implementation(libs.grpc.okhttp)
     implementation(libs.hilt.lifecycle.viewmodel.compose)
@@ -185,6 +184,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.navcompose)
     implementation(libs.okhttp)
+    implementation(libs.okhttp.coroutines)
     implementation(libs.paging.compose)
     implementation(libs.room.runtime)
     implementation(libs.serialization)
