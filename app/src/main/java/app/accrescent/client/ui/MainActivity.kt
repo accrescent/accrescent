@@ -1,6 +1,7 @@
 package app.accrescent.client.ui
 
 import android.Manifest
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -250,6 +251,10 @@ fun MainContent(
                 }) {
                     AllAppsScreen(
                         onClickApp = { navController.navigate(Route.AppDetails(appId = it)) },
+                        // fillMaxSize() ensures the refresh indicator always appears in the correct
+                        // spot on the screen instead of briefly appearing in, e.g., the top left
+                        // corner
+                        modifier = Modifier.fillMaxSize(),
                         snackbarHostState = snackbarHostState,
                     )
                 }
@@ -272,6 +277,10 @@ fun MainContent(
                 }) {
                     InstalledAppsScreen(
                         onClickApp = { navController.navigate(Route.AppDetails(appId = it)) },
+                        // fillMaxSize() ensures the refresh indicator always appears in the correct
+                        // spot on the screen instead of briefly appearing in, e.g., the top left
+                        // corner
+                        modifier = Modifier.fillMaxSize(),
                         snackbarHostState = snackbarHostState,
                     )
                 }
@@ -296,6 +305,10 @@ fun MainContent(
                 }) {
                     UpdatableAppsScreen(
                         onClickApp = { navController.navigate(Route.AppDetails(appId = it)) },
+                        // fillMaxSize() ensures the refresh indicator always appears in the correct
+                        // spot on the screen instead of briefly appearing in, e.g., the top left
+                        // corner
+                        modifier = Modifier.fillMaxSize(),
                         snackbarHostState = snackbarHostState,
                     )
                 }
@@ -326,7 +339,18 @@ fun MainContent(
                         }
                     }
                 ) {
-                    AppDetailsScreen(snackbarHostState)
+                    val context = LocalContext.current
+
+                    AppDetailsScreen(
+                        onGoBack = {
+                            if (!navController.popBackStack()) {
+                                // If opened via a deep link, copy the behavior of the system back
+                                // gesture by closing the app
+                                (context as? Activity)?.finish()
+                            }
+                        },
+                        modifier = Modifier.fillMaxSize(),
+                    )
                 }
                 composable<Route.Settings>(enterTransition = {
                     val dest = initialState.destination

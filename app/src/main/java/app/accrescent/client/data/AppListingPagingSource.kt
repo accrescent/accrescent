@@ -3,13 +3,13 @@ package app.accrescent.client.data
 import android.os.LocaleList
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import build.buf.gen.accrescent.directory.v1.AppListing
-import build.buf.gen.accrescent.directory.v1.DirectoryServiceGrpcKt
-import build.buf.gen.accrescent.directory.v1.listAppListingsRequest
+import build.buf.gen.accrescent.appstore.v1.AppListing
+import build.buf.gen.accrescent.appstore.v1.AppServiceGrpcKt
+import build.buf.gen.accrescent.appstore.v1.listAppListingsRequest
 import io.grpc.StatusException
 
 class AppListingPagingSource(
-    private val directoryService: DirectoryServiceGrpcKt.DirectoryServiceCoroutineStub,
+    private val appService: AppServiceGrpcKt.AppServiceCoroutineStub,
 ) : PagingSource<String, AppListing>() {
     override fun getRefreshKey(state: PagingState<String, AppListing>): String? {
         return null
@@ -22,7 +22,7 @@ class AppListingPagingSource(
                 params.key?.let { pageToken = it }
                 preferredLanguages.addAll(getPreferredLanguages())
             }
-            val response = directoryService.listAppListings(request)
+            val response = appService.listAppListings(request)
 
             LoadResult.Page(
                 data = response.listingsList,

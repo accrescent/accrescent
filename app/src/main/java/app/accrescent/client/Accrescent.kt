@@ -4,14 +4,11 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
-import androidx.core.content.ContextCompat
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import androidx.work.NetworkType
 import app.accrescent.client.data.PreferencesManager
-import app.accrescent.client.receivers.AppStatusChangeBroadcastReceiver
+import app.accrescent.client.data.appmanager.InstallSessionRepository
 import app.accrescent.client.workers.AutoUpdateWorker
 import app.accrescent.client.workers.RepositoryRefreshWorker
 import dagger.hilt.android.HiltAndroidApp
@@ -27,27 +24,50 @@ class Accrescent : Application(), Configuration.Provider {
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
 
+    @Inject
+    lateinit var installSessionRepository: InstallSessionRepository
+
     override fun onCreate() {
         super.onCreate()
 
-        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager = getSystemService(NotificationManager::class.java)
         notificationManager.createNotificationChannels(
             listOf(
                 NotificationChannel(
-                    USER_ACTION_REQUIRED_CHANNEL,
-                    getString(R.string.user_action_required),
-                    NotificationManager.IMPORTANCE_DEFAULT
+                    DOWNLOADING_APP_CHANNEL,
+                    getString(R.string.downloading_app),
+                    NotificationManager.IMPORTANCE_LOW,
+                ),
+                NotificationChannel(
+                    INSTALLATION_FAILED_CHANNEL,
+                    getString(R.string.installation_failed),
+                    NotificationManager.IMPORTANCE_DEFAULT,
+                ),
+                NotificationChannel(
+                    INSTALLATION_FINISHED_CHANNEL,
+                    getString(R.string.installation_finished),
+                    NotificationManager.IMPORTANCE_LOW,
                 ),
                 NotificationChannel(
                     UPDATE_AVAILABLE_CHANNEL,
                     getString(R.string.update_available),
-                    NotificationManager.IMPORTANCE_DEFAULT
+                    NotificationManager.IMPORTANCE_DEFAULT,
+                ),
+                NotificationChannel(
+                    UPDATE_FAILED_CHANNEL,
+                    getString(R.string.update_failed),
+                    NotificationManager.IMPORTANCE_DEFAULT,
                 ),
                 NotificationChannel(
                     UPDATE_FINISHED_CHANNEL,
                     getString(R.string.update_finished),
                     NotificationManager.IMPORTANCE_LOW,
-                )
+                ),
+                NotificationChannel(
+                    USER_ACTION_REQUIRED_CHANNEL,
+                    getString(R.string.user_action_required),
+                    NotificationManager.IMPORTANCE_DEFAULT,
+                ),
             )
         )
 
@@ -55,22 +75,12 @@ class Accrescent : Application(), Configuration.Provider {
             ?.let { NetworkType.valueOf(it) }
             ?: NetworkType.UNMETERED
         RepositoryRefreshWorker.enqueue(applicationContext, networkType)
-        AutoUpdateWorker.enqueue(applicationContext, networkType)
+        AutoUpdateWorker.enqueue(applicationContext)
+    }
 
-        val br = AppStatusChangeBroadcastReceiver()
-        val filter = IntentFilter().apply {
-            addAction(Intent.ACTION_PACKAGE_ADDED)
-            addAction(Intent.ACTION_PACKAGE_CHANGED)
-            addAction(Intent.ACTION_PACKAGE_REMOVED)
-            addAction(Intent.ACTION_PACKAGE_FULLY_REMOVED)
-            addDataScheme("package")
-        }
-        ContextCompat.registerReceiver(
-            applicationContext,
-            br,
-            filter,
-            ContextCompat.RECEIVER_NOT_EXPORTED,
-        )
+    override fun onTerminate() {
+        super.onTerminate()
+        installSessionRepository.close()
     }
 
     override val workManagerConfiguration: Configuration
@@ -83,8 +93,12 @@ class Accrescent : Application(), Configuration.Provider {
 
     companion object {
         lateinit var appContext: Context
-        const val USER_ACTION_REQUIRED_CHANNEL = "UserActionRequired"
+        const val DOWNLOADING_APP_CHANNEL = "DownloadingApp"
+        const val INSTALLATION_FAILED_CHANNEL = "InstallationFailed"
+        const val INSTALLATION_FINISHED_CHANNEL = "InstallationFinished"
         const val UPDATE_AVAILABLE_CHANNEL = "UpdateAvailable"
+        const val UPDATE_FAILED_CHANNEL = "UpdateFailed"
         const val UPDATE_FINISHED_CHANNEL = "UpdateFinished"
+        const val USER_ACTION_REQUIRED_CHANNEL = "UserActionRequired"
     }
 }

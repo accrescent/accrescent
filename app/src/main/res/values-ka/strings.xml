@@ -5,7 +5,6 @@
     <string name="donate_card_dismiss_btn">დახურვა</string>
     <string name="donate_card_info_btn">გაიგე მეტი</string>
     <string name="installed">დაყენებული</string>
-    <string name="installed_from_another_source">აპლიკაცია დაყენებულია განსხვავებული წყაროდან</string>
     <string name="light">ნათელი</string>
     <string name="system">სისტემის მიხედვით</string>
     <string name="app_updates">განახლებები</string>
@@ -21,28 +20,14 @@
     <string name="up_to_date">ყველა აპლიკაცია განახლებულია</string>
     <string name="user_action_required">საჭიროა მომხმარებლის მოქმედება</string>
     <string name="cant_find_app">აპლიკაცია ვერ იქნა ნაპოვნი</string>
-    <string name="app_verification_failed">აპლიკაციის ვერიფიცირება ვერ მოხერხდა: %1$s</string>
-    <string name="failed_download_files">საჭირო ფაილების გადმოწერა ვერ მოხერხდა: %1$s</string>
-    <string name="error_parsing_files">აპლიკაციის ფაილების წაკითხვა ვერ მოხერხდა: %1$s</string>
     <string name="version">ვერსია: %1$s</string>
-    <string name="version_code">ვერსიის კოდი: %1$d</string>
-    <string name="version_downgrade">ვერსია %1$d მინიმალურზე ნაკლებია %2$d</string>
     <string name="back_button">უკან</string>
     <string name="update_success">%1$s წარმატებით განახლდა.</string>
     <string name="update_finished">განახლება დასრულდა</string>
     <string name="update_available">ხელმისაწვდომია განახლება</string>
     <string name="automatic_updates">ავტომატური განახლება</string>
     <string name="any">ნებისმიერი</string>
-    <string name="search">ძიება</string>
-    <string name="no">არა</string>
-    <string name="yes">კი</string>
-    <string name="uninstall_blocked">წაშლა შეზღუდულია ადმინისტრატორის მიერ</string>
-    <string name="install_blocked">დაყენება შეზღუდულია ადმინისტრატორის მიერ</string>
     <string name="sig_verify_failed">ხელმოწერის ვერიფიცირება ვერ მოხერხდა</string>
-    <string name="base_apk_not_valid">base.apk არ არის ვალიდური APK</string>
-    <string name="device_density_unsupported">თქვენი ეკრანის პიქსელების სიმკვრივე არ არის მხარდაჭერილი</string>
-    <string name="device_abi_unsupported">თქვენი მოწყობილობის არქიტექტურა არ არის მხარდაჭერილი</string>
-    <string name="app_signer_mismatch">აპლიკაცია არ არის ხელმოწერილი აუცილებელი მხარის (მხარეების) მიერ.\nმოლოდინი: %1$s</string>
     <string name="donate_card_desc">Accrescent-ს განვითარების გასაგრძელებლად შენი მხარდაჭერა სჭირდება.</string>
     <string name="donate_desc">შეიტანე წვლილი Accrescent-ის განვითარებაში</string>
     <string name="theme">დიზაინი</string>
@@ -50,7 +35,4 @@
     <string name="settings">პარამეტრები</string>
     <string name="source_code">საწყისი კოდი</string>
     <string name="source_code_desc">იხილეთ Accrescent-ის საწყისი კოდი</string>
-    <string name="couldnt_open_app">აპლიკაციის გახსნა ვერ მოხერხდა</string>
-    <string name="couldnt_open_appinfo">AppInfo-ს გახსნა ვერ მოხერხდა</string>
-    <string name="update_failure">განახლება ვერ მოხერხდა</string>
 </resources>

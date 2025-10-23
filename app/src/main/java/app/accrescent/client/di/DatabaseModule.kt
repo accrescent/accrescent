@@ -15,12 +15,11 @@ import jakarta.inject.Singleton
 object DatabaseModule {
     @Singleton
     @Provides
-    fun provideAppDatabase(@ApplicationContext context: Context) =
-        Room.databaseBuilder(context, AppDatabase::class.java, "accrescent.db").build()
+    fun provideAppDatabase(@ApplicationContext context: Context) = Room
+        .databaseBuilder(context, AppDatabase::class.java, "accrescent.db")
+        .addMigrations(AppDatabase.MIGRATION_4_5)
+        .build()
 
     @Provides
     fun provideAppDao(appDatabase: AppDatabase) = appDatabase.appDao()
-
-    @Provides
-    fun provideSigningCertDao(appDatabase: AppDatabase) = appDatabase.signingCertDao()
 }

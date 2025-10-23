@@ -9,7 +9,6 @@ import androidx.room.withTransaction
 import app.accrescent.client.R
 import app.accrescent.client.data.db.App
 import app.accrescent.client.data.db.AppDatabase
-import app.accrescent.client.data.db.SigningCert
 import dagger.hilt.android.qualifiers.ApplicationContext
 import jakarta.inject.Inject
 import kotlinx.coroutines.flow.first
@@ -40,23 +39,23 @@ class RepoDataRepository @Inject constructor(
         // updating them
         val apps = repoData
             .apps
-            .map { (appId, app) -> App(appId, app.minVersionCode) }
-        val signingCerts = repoData.apps.map { (appId, app) ->
-            app.signingCertHashes.map { SigningCert(appId, it) }
-        }.flatten()
+            .map { (appId, app) ->
+                App(
+                    id = appId,
+                    minVersionCode = app.minVersionCode,
+                    signingCertHash = app.signingCertHash,
+                )
+            }
 
         appDatabase.withTransaction {
             repoDataLocalDataSource.deleteAllApps()
             repoDataLocalDataSource.saveApps(*apps.toTypedArray())
-            repoDataLocalDataSource.saveSigningCerts(*signingCerts.toTypedArray())
         }
     }
 
-    suspend fun getAppMinVersionCode(appId: String): Long {
+    suspend fun getAppMinVersionCode(appId: String): Long? {
         return repoDataLocalDataSource.getAppMinVersionCode(appId)
     }
 
-    suspend fun appExists(appId: String) = repoDataLocalDataSource.appExists(appId)
-
-    fun getAppSigners(appId: String) = repoDataLocalDataSource.getAppSigners(appId)
+    suspend fun getAppSigner(appId: String) = repoDataLocalDataSource.getAppSigner(appId)
 }
