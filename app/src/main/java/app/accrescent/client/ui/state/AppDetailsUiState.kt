@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import app.accrescent.client.BuildConfig
 import app.accrescent.client.R
 import app.accrescent.client.data.appmanager.InstallSessionResult
 import java.text.NumberFormat
@@ -54,10 +55,14 @@ sealed class AppDetailsUiState {
             }
 
             when (installationState) {
-                is AppInstallationState.Installed.UpToDate -> if (installationState.enabled) {
-                    listOf(AppActionButton.Uninstall(enabled), AppActionButton.Open(enabled))
-                } else {
-                    listOf(AppActionButton.Uninstall(enabled), AppActionButton.Enable(enabled))
+                is AppInstallationState.Installed.UpToDate -> when {
+                    installationState.enabled && appDetails.appId == BuildConfig.APPLICATION_ID ->
+                        listOf(AppActionButton.Uninstall(enabled))
+
+                    installationState.enabled ->
+                        listOf(AppActionButton.Uninstall(enabled), AppActionButton.Open(enabled))
+
+                    else -> listOf(AppActionButton.Uninstall(enabled), AppActionButton.Enable(enabled))
                 }
 
                 is AppInstallationState.Installed.UpdateAvailable -> when {
