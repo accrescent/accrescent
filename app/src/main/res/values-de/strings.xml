@@ -45,6 +45,4 @@
     <string name="donate_card_dismiss_btn">Schließen</string>
     <string name="donate_card_info_btn">Erfahren Sie mehr</string>
     <string name="donate_card_desc">Accrescent braucht Ihre Unterstützung um weiterzumachen.</string>
-    <string name="app_incompatible_with_device">Die App ist nicht mit dem Gerät kompatibel</string>
-    <string name="app_up_to_date">Die App ist aktuell</string>
 </resources>
