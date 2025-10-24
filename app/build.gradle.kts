@@ -102,12 +102,6 @@ android {
         versionName = "0.27.0"
     }
 
-    bundle {
-        language {
-            enableSplit = false
-        }
-    }
-
     buildTypes {
         debug {
             applicationIdSuffix = ".dev"
