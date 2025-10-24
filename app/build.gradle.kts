@@ -62,6 +62,7 @@ android {
             "et",
             "fr",
             "gl",
+            "hu",
             "in",
             "it",
             "iw",
