@@ -52,4 +52,9 @@ SPDX-License-Identifier: Apache-2.0
     <string name="donate_card_dismiss_btn">Затваряне</string>
     <string name="donate_card_info_btn">Научете повече</string>
     <string name="donate_card_desc">За да продължи Accrescent се нуждае от вашата подкрепа.</string>
+    <string name="app_details_error_apk_download_failed">Грешка при изтегляне пакета на приложението.</string>
+    <string name="app_details_error_app_incompatible">Приложението е несъвместимо с устройството и не може да бъде инсталирано.</string>
+    <string name="app_details_error_app_not_found">Приложението не може да бъде намерено на сървъра.</string>
+    <string name="app_details_error_app_store_unreachable">Магазинът за приложения не недостъпен. Проверете връзката с интернет и пробвайте отново.</string>
+    <string name="app_details_error_canceled">Заявката за инсталиране е отказана.</string>
 </resources>
