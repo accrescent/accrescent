@@ -120,7 +120,6 @@ fun AppDetailsScreen(
                             is AppActionButton.Install -> Button(
                                 onClick = viewModel::installApp,
                                 modifier = buttonModifier,
-                                enabled = button.enabled,
                             ) {
                                 Text(stringResource(R.string.install))
                             }
@@ -128,7 +127,6 @@ fun AppDetailsScreen(
                             is AppActionButton.Update -> Button(
                                 onClick = viewModel::updateApp,
                                 modifier = buttonModifier,
-                                enabled = button.enabled,
                             ) {
                                 Text(stringResource(R.string.update))
                             }
@@ -136,7 +134,6 @@ fun AppDetailsScreen(
                             is AppActionButton.Open -> Button(
                                 onClick = viewModel::openApp,
                                 modifier = buttonModifier,
-                                enabled = button.enabled,
                             ) {
                                 Text(stringResource(R.string.open))
                             }
@@ -144,7 +141,6 @@ fun AppDetailsScreen(
                             is AppActionButton.Unarchive -> Button(
                                 onClick = viewModel::unarchiveApp,
                                 modifier = buttonModifier,
-                                enabled = button.enabled,
                             ) {
                                 Text(stringResource(R.string.unarchive))
                             }
@@ -152,7 +148,6 @@ fun AppDetailsScreen(
                             is AppActionButton.Enable -> Button(
                                 onClick = viewModel::openAppDetailsSettings,
                                 modifier = buttonModifier,
-                                enabled = button.enabled,
                             ) {
                                 Text(stringResource(R.string.enable))
                             }
@@ -160,9 +155,16 @@ fun AppDetailsScreen(
                             is AppActionButton.Uninstall -> OutlinedButton(
                                 onClick = viewModel::uninstallApp,
                                 modifier = buttonModifier,
-                                enabled = button.enabled,
                             ) {
                                 Text(stringResource(R.string.uninstall))
+                            }
+
+                            is AppActionButton.Cancel -> OutlinedButton(
+                                onClick = viewModel::cancelAppDownload,
+                                modifier = buttonModifier,
+                                enabled = button.enabled,
+                            ) {
+                                Text(stringResource(R.string.cancel))
                             }
                         }
                     }

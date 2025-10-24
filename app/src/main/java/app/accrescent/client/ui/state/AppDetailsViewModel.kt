@@ -201,6 +201,10 @@ class AppDetailsViewModel @Inject constructor(
         appManager.uninstall(appId)
     }
 
+    fun cancelAppDownload() {
+        installWorkRepository.cancelAppInstallWork(appId)
+    }
+
     fun openAppDetailsSettings() {
         val uri = "package:$appId".toUri()
         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, uri)

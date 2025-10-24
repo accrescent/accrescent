@@ -41,48 +41,49 @@ sealed class AppDetailsUiState {
         }
 
         val buttonsToShow: List<AppActionButton> = run {
-            val enabled = when (installTaskState) {
-                is InstallTaskState.Completed -> when (installTaskState.result) {
-                    InstallSessionResult.PendingUserAction -> false
-                    else -> true
-                }
-
-                InstallTaskState.DownloadEnqueued -> false
-                is InstallTaskState.DownloadError -> true
-                is InstallTaskState.DownloadRunning -> false
-                InstallTaskState.Installing -> false
-                InstallTaskState.NotRunning -> true
-            }
-
-            when (installationState) {
+            val whenNotCancelButtons = when (installationState) {
                 is AppInstallationState.Installed.UpToDate -> when {
                     installationState.enabled && appDetails.appId == BuildConfig.APPLICATION_ID ->
-                        listOf(AppActionButton.Uninstall(enabled))
+                        listOf(AppActionButton.Uninstall)
 
-                    installationState.enabled ->
-                        listOf(AppActionButton.Uninstall(enabled), AppActionButton.Open(enabled))
-
-                    else -> listOf(AppActionButton.Uninstall(enabled), AppActionButton.Enable(enabled))
+                    installationState.enabled -> listOf(AppActionButton.Uninstall, AppActionButton.Open)
+                    else -> listOf(AppActionButton.Uninstall, AppActionButton.Enable)
                 }
 
                 is AppInstallationState.Installed.UpdateAvailable -> when {
                     installationState.enabled && installationState.compatible -> listOf(
-                        AppActionButton.Uninstall(enabled),
-                        AppActionButton.Update(enabled),
+                        AppActionButton.Uninstall,
+                        AppActionButton.Update,
                     )
 
-                    installationState.enabled -> listOf(AppActionButton.Uninstall(enabled))
-                    else ->
-                        listOf(AppActionButton.Uninstall(enabled), AppActionButton.Enable(enabled))
+                    installationState.enabled -> listOf(AppActionButton.Uninstall)
+                    else -> listOf(AppActionButton.Uninstall, AppActionButton.Enable)
                 }
 
                 is AppInstallationState.NotInstalled -> when {
                     installationState.compatible && installationState.archived ->
-                        listOf(AppActionButton.Unarchive(enabled))
+                        listOf(AppActionButton.Unarchive)
 
-                    installationState.compatible -> listOf(AppActionButton.Install(enabled))
+                    installationState.compatible -> listOf(AppActionButton.Install)
                     else -> emptyList()
                 }
+            }
+
+            when (installTaskState) {
+                is InstallTaskState.Completed -> when (installTaskState.result) {
+                    InstallSessionResult.PendingUserAction ->
+                        listOf(AppActionButton.Cancel(enabled = false))
+
+                    else -> whenNotCancelButtons
+                }
+
+                InstallTaskState.DownloadEnqueued -> listOf(AppActionButton.Cancel(enabled = true))
+                is InstallTaskState.DownloadError -> whenNotCancelButtons
+                is InstallTaskState.DownloadRunning ->
+                    listOf(AppActionButton.Cancel(enabled = true))
+
+                InstallTaskState.Installing -> listOf(AppActionButton.Cancel(enabled = false))
+                InstallTaskState.NotRunning -> whenNotCancelButtons
             }
         }
 

@@ -79,6 +79,10 @@ class InstallWorkRepository @Inject constructor(@ApplicationContext private val 
         )
     }
 
+    fun cancelAppInstallWork(appId: String) {
+        workManager.cancelUniqueWork(uniqueInstallWorkNameForApp(appId))
+    }
+
     fun clearAppInstallWork(appId: String) {
         // Clear the app install job status with a clever trick: enqueue a no-op one-time work item
         // with the same unique ID, effectively overriding its status. We also give it a special

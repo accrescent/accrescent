@@ -20,6 +20,7 @@
     <string name="app_details_unknown_error">An unknown error has occurred.</string>
     <string name="app_name" translatable="false">Accrescent</string>
     <string name="app_list">Apps</string>
+    <string name="cancel">Cancel</string>
     <string name="close">Close</string>
     <string name="dark">Dark</string>
     <string name="donate">Donate</string>
