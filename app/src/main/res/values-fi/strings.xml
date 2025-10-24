@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_incompatible_with_device">sovellus ei ole yhteensopiva laitteen kanssa</string>
-    <string name="app_up_to_date">sovellus on ajan tasalla</string>
     <string name="app_list">Sovellukset</string>
     <string name="dark">Tumma</string>
     <string name="donate">Lahjoita</string>
@@ -12,7 +10,6 @@
     <string name="donate_card_dismiss_btn">Sulje</string>
     <string name="donate_card_info_btn">Lisätietoja</string>
     <string name="installed">Asennettu</string>
-    <string name="installed_from_another_source">Sovellus asennettu toisesta lähteestä</string>
     <string name="light">Vaalea</string>
     <string name="system">Järjestelmä</string>
     <string name="theme">Teema</string>
@@ -30,42 +27,13 @@
     <string name="source_code">Lähdekoodi</string>
     <string name="source_code_desc">Näytä Accrescentin lähdekoodi</string>
     <string name="open_link">Avaa linkki</string>
-    <string name="swipe_refresh">Pyyhkäise alaspäin päivittääksesi</string>
-    <string name="swipe_refreshing">Päivitetään sisältöä…</string>
     <string name="no_apps_installed">Sovelluksia ei ole asennettu</string>
     <string name="up_to_date">Kaikki sovellukset ovat ajan tasalla</string>
     <string name="user_action_required">Käyttäjän toimia vaaditaan</string>
     <string name="cant_find_app">Valitettavasti emme löytäneet kyseistä sovellusta</string>
-    <string name="couldnt_open_app">Sovellusta ei voitu avata</string>
-    <string name="couldnt_open_appinfo">Sovellustietoja ei voitu avata</string>
-    <string name="network_error">Verkkovirhe: %1$s</string>
-    <string name="app_verification_failed">Sovelluksen vahvistus epäonnistui: %1$s</string>
-    <string name="failed_download_files">Tarvittavien tiedostojen lataaminen epäonnistui: %1$s</string>
-    <string name="failed_download_repodata">Ohjelmalähteen tietojen lataaminen epäonnistui: %1$s</string>
-    <string name="failed_verify_repodata">Ohjelmalähteen tietojen vahvistaminen epäonnistui: %1$s</string>
-    <string name="failed_decode_repodata">Ohjelmalähteen tietojen dekoodaus epäonnistui: %1$s</string>
-    <string name="error_parsing_files">Virhe sovellustiedostojen jäsentämisessä: %1$s</string>
-    <string name="app_doesnt_support_device">Sovellus ei tue laitettasi: %1$s</string>
-    <string name="unknown_host_error">Tuntematon host virhe: %1$s</string>
-    <string name="user_restriction">Käyttäjän rajoitusvirhe: %1$s</string>
     <string name="version">Versio: %1$s</string>
-    <string name="version_code">Versio koodi: %1$d</string>
-    <string name="device_density_unsupported">laitteesi näytön tarkkuutta ei tueta</string>
-    <string name="device_abi_unsupported">laitteesi arkkitehtuuria ei tueta</string>
-    <string name="app_signer_mismatch">sovellusta ei ole allekirjoittanut vaadittu allekirjoittaja (t).\nOdotettu: %1$s</string>
-    <string name="no_app_signers">sovelluksen allekirjoittajia ei löytynyt. \nOdotettu: %1$s</string>
-    <string name="version_downgrade">versio %1$d on pienempi kuin vähimmäisvaatimus %2$d</string>
-    <string name="app_id_mismatch">Sovelluksen ID tunnus %1$s ei vastaa odotettua ID:tä %2$s</string>
-    <string name="version_mismatch">odotettu versio %1$s, todellinen versio on %2$s</string>
-    <string name="version_code_mismatch">odotettu versiokoodi %1$d, todellinen versiokoodi on %2$d</string>
-    <string name="base_apk_not_valid">ase.apk ei ole kelvollinen APK-tiedosto</string>
     <string name="repodata_timestamp_less">ohjelmalähteen tietojen aikaleima pienempi kuin tallennettu arvo</string>
     <string name="sig_verify_failed">allekirjoituksen vahvistus epäonnistui</string>
-    <string name="install_blocked">asennus estetty järjestelmänvalvojan toimesta</string>
-    <string name="uninstall_blocked">poisto estetty järjestelmänvalvojan toimesta</string>
-    <string name="yes">Kyllä</string>
-    <string name="no">Ei</string>
-    <string name="search">Etsi</string>
     <string name="updater">Päivittäjä</string>
     <string name="network_condition">Verkon tila</string>
     <string name="any">Mikä tahansa</string>
@@ -75,7 +43,6 @@
     <string name="automatic_updates_desc">Päivitetäänkö sovellukset automaattisesti. Jos toiminto on pois käytöstä, näytetään sen sijaan ilmoitus.</string>
     <string name="update_available">Päivitys saatavilla</string>
     <string name="update_finished">Päivitys valmis</string>
-    <string name="update_failure">Päivitys epäonnistui</string>
     <string name="update_success">%1$s on päivitetty onnistuneesti.</string>
     <string name="back_button">Takaisin</string>
 </resources>
