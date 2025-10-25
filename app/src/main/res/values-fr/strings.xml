@@ -52,4 +52,15 @@ SPDX-License-Identifier: Apache-2.0
     <string name="donate_card_dismiss_btn">Fermer</string>
     <string name="donate_card_info_btn">En savoir plus</string>
     <string name="donate_card_heading">Faire un don aujourd\'hui</string>
+    <string name="app_details_error_apk_download_failed">Une erreur s\'est produite lors du téléchargement.</string>
+    <string name="app_details_error_app_incompatible">Cette application n\'est pas compatible avec votre appareil.</string>
+    <string name="app_details_error_app_not_found">Cette application n\'est plus disponible sur le serveur et donc ne peut être installée.</string>
+    <string name="app_details_error_app_store_unreachable">Impossible de joindre le magasin d\'application. Veuillez vérifier votre connections internet et re-essayer.</string>
+    <string name="app_details_error_canceled">Installation annulée.</string>
+    <string name="app_details_error_file_open_failed">Téléchargement échoué. Veuillez vérifier l\'espace de stockage disponible puis re-essayer.</string>
+    <string name="app_details_error_install_reqs_not_met">L’installation n’a pas pu avoir lieu avec les paramètres nécessaires. Veuillez libérer de l’espace de stockage et réessayer.</string>
+    <string name="app_details_error_installation_unavailable">Services d’installation indisponibles. Il se peut que votre administrateur ait restreint cette action.</string>
+    <string name="app_details_error_internal">Une erreur interne s’est produite. Vous pouvez envisager de signaler ce bug aux développeurs d’Accrescent.</string>
+    <string name="app_details_error_invalid_server_response">Le serveur a fourni des données invalides. Vous pouvez envisager de signaler ce bug aux développeurs d’Accrescent.</string>
+    <string name="app_details_error_io_error">Téléchargement interrompu. Veuillez vérifier votre connection internet et réessayer.</string>
 </resources>
