@@ -100,4 +100,5 @@ SPDX-License-Identifier: Apache-2.0
     <string name="update_failed">A frissítés sikertelen</string>
     <string name="no_apps_available">Nincsenek elérhető alkalmazások</string>
     <string name="update_available_for_app">Frissítés érhető el a következőhöz: %1$s .</string>
+    <string name="cancel">Mégse</string>
 </resources>
