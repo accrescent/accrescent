@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+SPDX-FileCopyrightText: © 2021 The Accrescent Contributors
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_details_error_apk_download_failed">An error occurred downloading the app\'s APKs.</string>
     <string name="app_details_error_app_incompatible">This app is incompatible with your device and cannot be installed.</string>

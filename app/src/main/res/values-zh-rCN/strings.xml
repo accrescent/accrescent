@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 <resources>
     <string name="app_list">应用列表</string>
     <string name="installed">已安装</string>

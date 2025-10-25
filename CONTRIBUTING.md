@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Contributing Guidelines
 
 Thank you for your interest in contributing to Accrescent! Here are a few

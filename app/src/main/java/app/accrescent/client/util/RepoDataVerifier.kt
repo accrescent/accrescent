@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: © 2021 The Accrescent Contributors
+//
+// SPDX-License-Identifier: Apache-2.0
+
 package app.accrescent.client.util
 
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters

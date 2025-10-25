@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
+//
+// SPDX-License-Identifier: Apache-2.0
+
 package app.accrescent.client.receivers
 
 import android.content.BroadcastReceiver

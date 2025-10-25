@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: © 2025 The Accrescent Contributors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: Check licensing
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  license-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: fsfe/reuse-action@v6

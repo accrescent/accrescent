@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: © 2021 The Accrescent Contributors
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.io.FileInputStream
 import java.util.Properties

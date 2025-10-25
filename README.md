@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 <div align="center">
 
 <img src=".icon-round.png" alt="Accrescent" width="144" height="144">

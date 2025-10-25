@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 <resources>
     <string name="repodata_timestamp_less">мітка часу даних репозиторію менша за збережене значення</string>
     <string name="app_list">Застосунки</string>

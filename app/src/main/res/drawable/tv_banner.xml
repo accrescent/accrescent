@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: © 2023 Logan Magee
+
+SPDX-License-Identifier: LicenseRef-Proprietary
+-->
+
 <vector xmlns:aapt="http://schemas.android.com/aapt" xmlns:android="http://schemas.android.com/apk/res/android" android:height="90dp" android:viewportHeight="180" android:viewportWidth="320" android:width="160dp">
     <path android:fillColor="#1a1a1a" android:pathData="M0,0h320v180h-320z"/>
     <path android:fillColor="#5a008a" android:pathData="m60,50.06a39.94,39.94 135,0 0,-39.94 39.94,39.94 39.94,0 0,0 39.94,39.94 39.94,39.94 45,0 0,39.94 -39.94,39.94 39.94,45 0,0 -39.94,-39.94z" android:strokeWidth="0.4"/>

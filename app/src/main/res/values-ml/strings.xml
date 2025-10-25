@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 <resources>
     <string name="settings">ക്രമീകരണങ്ങൾ</string>
     <string name="app_list">പ്രയോഗങ്ങൾ</string>
