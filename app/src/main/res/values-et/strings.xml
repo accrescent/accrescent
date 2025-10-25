@@ -100,4 +100,5 @@ SPDX-License-Identifier: Apache-2.0
     <string name="internal_error">Tekkis sisemine viga. Midagi on ilmselt valesti. Kui soovid ja saad, siis palun teavita sellest veast Accrescenti arendajaid.</string>
     <string name="unarchive_success_notif_body">Rakenduse arhiivist eemaldamine õnnestus: %1$s.</string>
     <string name="update_available_for_app">Saadaval on rakenduse uuendus: %1$s.</string>
+    <string name="cancel">Katkesta</string>
 </resources>
