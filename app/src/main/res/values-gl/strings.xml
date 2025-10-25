@@ -100,4 +100,5 @@ SPDX-License-Identifier: Apache-2.0
     <string name="update_failed">Fallou a actualización</string>
     <string name="no_apps_available">Sen apps dispoñibles</string>
     <string name="update_available_for_app">Hai unha actualización dispoñible para %1$s.</string>
+    <string name="cancel">Cancelar</string>
 </resources>
