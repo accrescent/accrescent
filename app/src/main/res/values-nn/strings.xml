@@ -52,4 +52,8 @@ SPDX-License-Identifier: Apache-2.0
     <string name="donate_card_donate_btn">Gje ei pengegåve</string>
     <string name="donate_card_dismiss_btn">Lukk</string>
     <string name="donate_card_info_btn">Les meir</string>
+    <string name="app_details_error_apk_download_failed">Feil ved nedlasting av appen sine APK-filer.</string>
+    <string name="app_details_error_app_incompatible">Denne appen er ikkje kompatibel med eininga di og kan ikkje installerast.</string>
+    <string name="app_details_error_canceled">Installeringa vart avbroten.</string>
+    <string name="app_details_error_file_open_failed">Feil ved nedlasting av appen til disk. Frigjer lagringsplass og prøv på nytt.</string>
 </resources>
