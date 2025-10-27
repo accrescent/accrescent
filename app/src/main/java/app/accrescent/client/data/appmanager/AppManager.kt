@@ -40,6 +40,8 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.security.MessageDigest
 
+// 3 days
+private const val GENTLE_UPDATE_CONSTRAINT_TIMEOUT_MILLIS = 259200000L
 private const val LOG_TAG = "AppManager"
 
 class AppManager @Inject constructor(
@@ -128,9 +130,32 @@ class AppManager @Inject constructor(
                         PendingIntent.FLAG_MUTABLE,
                     )
 
-                    // We don't distribute Accrescent via Google Play, so this lint is irrelevant to us
+                    // We don't distribute Accrescent via Google Play, so this lint is irrelevant to
+                    // us
                     @SuppressLint("RequestInstallPackagesPolicy")
-                    session.commit(pendingIntent.intentSender)
+                    if (
+                        params is InstallTaskParams.Update &&
+                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE
+                    ) {
+                        try {
+                            context
+                                .packageManager
+                                .packageInstaller
+                                .commitSessionAfterInstallConstraintsAreMet(
+                                    sessionId,
+                                    pendingIntent.intentSender,
+                                    PackageInstaller.InstallConstraints.GENTLE_UPDATE,
+                                    GENTLE_UPDATE_CONSTRAINT_TIMEOUT_MILLIS,
+                                )
+                        } catch (_: SecurityException) {
+                            // We're not the installer of record, possibly because the app was
+                            // uninstalled before we attempted to update it, so fall back to
+                            // committing the usual way
+                            session.commit(pendingIntent.intentSender)
+                        }
+                    } else {
+                        session.commit(pendingIntent.intentSender)
+                    }
                 } catch (t: Throwable) {
                     session.abandon()
                     throw t
