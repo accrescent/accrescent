@@ -4,14 +4,7 @@
 
 package app.accrescent.client.ui.navigation
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Apps
-import androidx.compose.material.icons.outlined.Download
-import androidx.compose.material.icons.outlined.Update
-import androidx.compose.material.icons.rounded.Apps
-import androidx.compose.material.icons.rounded.Download
-import androidx.compose.material.icons.rounded.Settings
-import androidx.compose.material.icons.rounded.Update
+import androidx.annotation.DrawableRes
 import app.accrescent.client.R
 import kotlinx.serialization.Serializable
 
@@ -21,28 +14,26 @@ sealed interface Route {
 
     @Serializable
     object Settings : Route {
-        val navIcon = Icons.Rounded.Settings
+        @DrawableRes
+        val navIconResId = R.drawable.settings_rounded_24px
         val descriptionResourceId = R.string.settings
     }
 
     @Serializable
     object AllApps : Route, NavBarItem {
-        override val navIcon = Icons.Outlined.Apps
-        override val navIconSelected = Icons.Rounded.Apps
+        override val navIconResId = R.drawable.apps_rounded_24px
         override val descriptionResourceId = R.string.app_list
     }
 
     @Serializable
     object InstalledApps : Route, NavBarItem {
-        override val navIcon = Icons.Outlined.Download
-        override val navIconSelected = Icons.Rounded.Download
+        override val navIconResId = R.drawable.download_rounded_24px
         override val descriptionResourceId = R.string.installed
     }
 
     @Serializable
     object UpdatableApps : Route, NavBarItem {
-        override val navIcon = Icons.Outlined.Update
-        override val navIconSelected = Icons.Rounded.Update
+        override val navIconResId = R.drawable.update_rounded_24px
         override val descriptionResourceId = R.string.app_updates
     }
 }

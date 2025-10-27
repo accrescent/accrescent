@@ -25,8 +25,6 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -47,6 +45,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
@@ -165,7 +164,10 @@ fun MainContent(
                     scrollBehavior = settingsScrollBehavior,
                     navigationIcon = {
                         IconButton(onClick = { navController.popBackStack() }) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(R.string.back_button))
+                            Icon(
+                                painter = painterResource(R.drawable.arrow_back_rounded_24px),
+                                contentDescription = stringResource(R.string.back_button),
+                            )
                         }
                     },
                 )
@@ -181,7 +183,7 @@ fun MainContent(
                     actions = {
                         IconButton(onClick = { navController.navigate(Route.Settings) }) {
                             Icon(
-                                imageVector = Route.Settings.navIcon,
+                                painter = painterResource(Route.Settings.navIconResId),
                                 contentDescription = stringResource(Route.Settings.descriptionResourceId)
                             )
                         }
@@ -204,7 +206,7 @@ fun MainContent(
                         NavigationBarItem(
                             icon = {
                                 Icon(
-                                    if (selected) route.navIconSelected else route.navIcon,
+                                    painter = painterResource(route.navIconResId),
                                     contentDescription = stringResource(route.descriptionResourceId)
                                 )
                             },

@@ -19,8 +19,6 @@ import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.OpenInNew
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -38,6 +36,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.heading
@@ -138,7 +137,10 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
                 }
             }
         ) {
-            Icon(Icons.AutoMirrored.Rounded.OpenInNew, stringResource(R.string.open_link))
+            Icon(
+                painter = painterResource(R.drawable.open_in_new_rounded_24px),
+                contentDescription = stringResource(R.string.open_link),
+            )
         }
         ButtonSetting(
             label = stringResource(R.string.source_code),
@@ -150,7 +152,10 @@ fun SettingsScreen(modifier: Modifier = Modifier, viewModel: SettingsViewModel =
                 }
             },
         ) {
-            Icon(Icons.AutoMirrored.Rounded.OpenInNew, stringResource(R.string.open_link))
+            Icon(
+                painter = painterResource(R.drawable.open_in_new_rounded_24px),
+                contentDescription = stringResource(R.string.open_link),
+            )
         }
     }
 }

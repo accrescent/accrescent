@@ -166,7 +166,6 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.coil.network.okhttp)
     implementation(platform(libs.compose.bom))
-    implementation(libs.compose.material.icons)
     implementation(libs.compose.material3)
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling)

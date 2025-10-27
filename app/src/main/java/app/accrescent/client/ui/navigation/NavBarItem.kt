@@ -4,10 +4,11 @@
 
 package app.accrescent.client.ui.navigation
 
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.annotation.DrawableRes
 
 sealed interface NavBarItem {
-    val navIcon: ImageVector
-    val navIconSelected: ImageVector
+    @get:DrawableRes
+    val navIconResId: Int
+
     val descriptionResourceId: Int
 }
