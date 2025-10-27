@@ -57,7 +57,7 @@ class AppInstallWorker @AssistedInject constructor(
             applicationContext,
             Accrescent.DOWNLOADING_APP_CHANNEL,
         )
-            .setSmallIcon(R.drawable.ic_baseline_download_24)
+            .setSmallIcon(R.drawable.download_rounded_24px)
             .setContentTitle(applicationContext.getString(R.string.downloading_app))
             .build()
 

@@ -279,7 +279,7 @@ class InstallerSessionCommitBroadcastReceiver : BroadcastReceiver() {
             )
         }
         val notification = Notification.Builder(context, channelId)
-            .setSmallIcon(R.drawable.ic_baseline_error_outline_24)
+            .setSmallIcon(R.drawable.error_rounded_24px)
             .setContentTitle(title)
             .setContentText(errorMessage)
             .setContentIntent(getAppDetailsIntent(context, appId))
@@ -301,7 +301,7 @@ class InstallerSessionCommitBroadcastReceiver : BroadcastReceiver() {
             PendingIntent.FLAG_IMMUTABLE,
         )
         val notification = Notification.Builder(context, Accrescent.USER_ACTION_REQUIRED_CHANNEL)
-            .setSmallIcon(R.drawable.ic_baseline_touch_app_24)
+            .setSmallIcon(R.drawable.touch_app_rounded_24px)
             .setContentTitle(context.getString(R.string.user_action_required))
             .setContentIntent(contentIntent)
             .setAutoCancel(true)
@@ -336,7 +336,7 @@ class InstallerSessionCommitBroadcastReceiver : BroadcastReceiver() {
             )
         }
         val notification = Notification.Builder(context, channelId)
-            .setSmallIcon(R.drawable.ic_baseline_file_download_done_24)
+            .setSmallIcon(R.drawable.download_done_rounded_24px)
             .setContentTitle(title)
             .setContentText(text)
             .setContentIntent(getAppDetailsIntent(context, appId))

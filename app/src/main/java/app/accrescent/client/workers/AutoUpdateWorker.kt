@@ -83,7 +83,7 @@ class AutoUpdateWorker @AssistedInject constructor(
             .setContentText(
                 applicationContext.getString(R.string.update_available_for_app, packageLabel)
             )
-            .setSmallIcon(R.drawable.ic_baseline_update_24)
+            .setSmallIcon(R.drawable.update_rounded_24px)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
             .build()
