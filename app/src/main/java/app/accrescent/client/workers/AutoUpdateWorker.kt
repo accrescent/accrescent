@@ -41,7 +41,7 @@ class AutoUpdateWorker @AssistedInject constructor(
         val packagesToCheck = applicationContext
             .packageManager
             .getInstalledPackages(0)
-            .filter { appManager.selfResponsibleForUpdatingPackage(it.packageName) }
+            .filter { appManager.shouldAutoUpdatePackage(it) }
         val autoUpdatesEnabled = preferencesManager.automaticUpdates.firstOrNull() ?: true
 
         if (autoUpdatesEnabled) {

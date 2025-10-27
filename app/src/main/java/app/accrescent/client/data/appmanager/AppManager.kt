@@ -8,6 +8,7 @@ import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageInfo
 import android.content.pm.PackageInstaller
 import android.content.pm.PackageManager
 import android.os.Build
@@ -236,6 +237,20 @@ class AppManager @Inject constructor(
                 || appId == BuildConfig.APPLICATION_ID
     }
 
+    fun shouldAutoUpdatePackage(packageInfo: PackageInfo): Boolean {
+        // Auto update the package if and only if we can do so without implicitly enabling it from a
+        // disabled state. On SDK 34+, we use SessionParams.setApplicationEnabledSettingPersistent()
+        // to update disabled apps without enabling them, but before SDK 34, we must simply not auto
+        // update disabled apps.
+        val wouldReenable = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            false
+        } else {
+            packageInfo.applicationInfo?.enabled == false
+        }
+
+        return !wouldReenable && selfResponsibleForUpdatingPackage(packageInfo.packageName)
+    }
+
     private fun getResponsibleInstaller(appId: String): String? = try {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             context.packageManager.getInstallSourceInfo(appId).installingPackageName
@@ -379,6 +394,8 @@ class AppManager @Inject constructor(
             sessionParams.setPackageSource(PackageInstaller.PACKAGE_SOURCE_STORE)
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            sessionParams.setApplicationEnabledSettingPersistent()
+
             // This call is effectively a no-op for updates, but could be applicable if the user
             // uninstalls the app before this session is commited, in which case it's actually an
             // initial installation.
