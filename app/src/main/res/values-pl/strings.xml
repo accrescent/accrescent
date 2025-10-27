@@ -52,4 +52,12 @@ SPDX-License-Identifier: Apache-2.0
     <string name="donate_card_donate_btn">Przekaż</string>
     <string name="donate_card_dismiss_btn">Zamknij</string>
     <string name="donate_card_info_btn">Dowiedz się więcej</string>
+    <string name="app_details_error_apk_download_failed">Wystąpił błąd podczas pobieraniu plików APK aplikacji.</string>
+    <string name="app_details_error_app_incompatible">Aplikacja nie jest zgodna z Twoim urządzeniem i nie może zostać zainstalowana.</string>
+    <string name="app_details_error_app_not_found">Aplikacja nie może zostać zainstalowana ponieważ nie można już jej znaleźć na serwerze.</string>
+    <string name="app_details_error_app_store_unreachable">Sklep z aplikacjami jest obecnie niedostępny. Sprawdź swoje połączenie internetowe i spróbuj ponownie.</string>
+    <string name="app_details_error_canceled">Żądanie instalacji zostało anulowane.</string>
+    <string name="app_details_error_file_open_failed">Pobieranie aplikacji na dysk nie powiodło się. Zwolnij miejsce na dysku i spróbuj ponownie.</string>
+    <string name="app_details_error_install_reqs_not_met">Instalacja nie mogła się rozpocząć z wymaganymi parametrami. Zwolnij miejsce na dysku i spróbuj ponownie.</string>
+    <string name="app_details_error_installation_unavailable">Usługi instalatora są niedostępne. Może to być spowodowane ograniczeniami po stronie administratora.</string>
 </resources>
