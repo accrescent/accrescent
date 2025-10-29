@@ -29,6 +29,8 @@ import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.firstOrNull
 import java.time.Duration
 
+private const val AUTO_UPDATE_INTERVAL_HOURS = 4L
+
 @HiltWorker
 class AutoUpdateWorker @AssistedInject constructor(
     @Assisted context: Context,
@@ -105,7 +107,9 @@ class AutoUpdateWorker @AssistedInject constructor(
         private const val UPDATER_WORK_NAME = "UPDATE_APPS"
 
         fun enqueue(context: Context) {
-            val updateRequest = PeriodicWorkRequestBuilder<AutoUpdateWorker>(Duration.ofHours(4))
+            val updateRequest = PeriodicWorkRequestBuilder<AutoUpdateWorker>(
+                Duration.ofHours(AUTO_UPDATE_INTERVAL_HOURS)
+            )
                 .build()
             WorkManager.getInstance(context).enqueueUniquePeriodicWork(
                 UPDATER_WORK_NAME,
