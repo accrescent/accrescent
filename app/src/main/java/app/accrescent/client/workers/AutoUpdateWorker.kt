@@ -53,7 +53,7 @@ class AutoUpdateWorker @AssistedInject constructor(
             for (pkg in packagesToCheck) {
                 installWorkRepository.enqueueUpdateWorker(
                     appId = pkg.packageName,
-                    preferExpedited = false,
+                    userInitiated = false,
                     networkType = networkType,
                 )
             }

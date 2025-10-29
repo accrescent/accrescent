@@ -6,4 +6,5 @@ package app.accrescent.client.workers
 
 object WorkerTag {
     const val NOOP = "NOOP"
+    const val USER_INITIATED = "USER_INITIATED"
 }

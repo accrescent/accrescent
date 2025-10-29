@@ -183,7 +183,7 @@ class AppDetailsViewModel @Inject constructor(
     }
 
     fun updateApp() {
-        installWorkRepository.enqueueUpdateWorker(appId, preferExpedited = true)
+        installWorkRepository.enqueueUpdateWorker(appId = appId, userInitiated = true)
     }
 
     fun openApp() {
@@ -303,7 +303,7 @@ class AppDetailsViewModel @Inject constructor(
             // Order of checks:
             //
             // 1. If install result available, show result
-            // 2. If non-noop worker exists:
+            // 2. If user-initiated worker exists:
             //    a. If enqueued or blocked, show download enqueued
             //    b. If running:
             //        i. If progress not available, show download enqueued
@@ -323,7 +323,7 @@ class AppDetailsViewModel @Inject constructor(
                     InstallSessionState.InProgress -> InstallTaskState.Installing
                 }
 
-                workInfo != null && !workInfo.tags.contains(WorkerTag.NOOP) -> when (workInfo.state) {
+                workInfo?.tags?.contains(WorkerTag.USER_INITIATED) == true -> when (workInfo.state) {
                     WorkInfo.State.ENQUEUED,
                     WorkInfo.State.BLOCKED -> InstallTaskState.DownloadEnqueued
 

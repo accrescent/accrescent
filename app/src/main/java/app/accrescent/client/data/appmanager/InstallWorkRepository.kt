@@ -38,6 +38,7 @@ class InstallWorkRepository @Inject constructor(@ApplicationContext private val 
             .setInputData(workDataOf(DataKey.APP_ID to appId))
             .setConstraints(Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build())
             .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
+            .addTag(WorkerTag.USER_INITIATED)
             .build()
 
         workManager.enqueueUniqueWork(
@@ -52,6 +53,7 @@ class InstallWorkRepository @Inject constructor(@ApplicationContext private val 
             .setInputData(workDataOf(DataKey.APP_ID to appId, DataKey.UNARCHIVE_ID to unarchiveId))
             .setConstraints(Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build())
             .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
+            .addTag(WorkerTag.USER_INITIATED)
             .build()
 
         workManager.enqueueUniqueWork(
@@ -63,15 +65,16 @@ class InstallWorkRepository @Inject constructor(@ApplicationContext private val 
 
     fun enqueueUpdateWorker(
         appId: String,
-        preferExpedited: Boolean,
+        userInitiated: Boolean,
         networkType: NetworkType = NetworkType.CONNECTED,
     ) {
         val workRequest = OneTimeWorkRequestBuilder<AppUpdateWorker>()
             .setInputData(workDataOf(DataKey.APP_ID to appId))
             .setConstraints(Constraints.Builder().setRequiredNetworkType(networkType).build())
             .apply {
-                if (preferExpedited) {
+                if (userInitiated) {
                     setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
+                    addTag(WorkerTag.USER_INITIATED)
                 }
             }
             .build()
