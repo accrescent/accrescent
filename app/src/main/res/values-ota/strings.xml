@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="dark">قویو</string>
     <string name="app_list">ایگولامەلر</string>
     <string name="donate">باغیش یاپ</string>
@@ -42,4 +39,38 @@ SPDX-License-Identifier: Apache-2.0
     <string name="no_apps_installed">قورولی ایگولامە یوق</string>
     <string name="user_action_required">قوللانیجی ایلەمی گركلی</string>
     <string name="sig_verify_failed">امضا طوغرولانەمەدی</string>
+    <string name="close">قاپات</string>
+    <string name="installing">یوكلەنییور</string>
+    <string name="pending">بكلەمەدە</string>
+    <string name="retry">یڭیدەن دڭە</string>
+    <string name="cancel">ایپتال ایت</string>
+    <string name="downloading_app">ایغولامە ایندریلییور</string>
+    <string name="go_back">گری دون</string>
+    <string name="installation_failed">یوكلەمە باشاریسز</string>
+    <string name="installation_finished">یوكلەمە باشاریلی.</string>
+    <string name="update_failed">گونجللەمە باشارسز</string>
+    <string name="install_failed_notif_body_aborted">اشلەم ایپتال ایدیلدی.</string>
+    <string name="install_failed_notif_body_timeout">ایشلەم زمان آشیمینە اوغرادی.</string>
+    <string name="donate_desc">آكرەسنت‌ای دستكلەمك ایچین باغیش یاپین</string>
+    <string name="source_code_desc">آكرەسنت قایناق قودینی گوروندیلە</string>
+    <string name="up_to_date">توم ایغولامەلر گونجل</string>
+    <string name="install_failed_notif_body_app_invalid">اویغولامە دوسیەلری گچرسز.</string>
+    <string name="dynamic_color">دگیشكن رنگ / Material You</string>
+    <string name="update_success">%1$s باشارییلا گونجللەندی.</string>
+    <string name="app_details_error_canceled">ایندرمە ایپتال ایدیلدی.</string>
+    <string name="app_details_unknown_error">بیلینمەیەن بر خطا اولوشدی.</string>
+    <string name="downloading_with_progress">%1$s MiB\'این %2$d MiB\'ای ایندریلدی</string>
+    <string name="install_failed_notif_body_conflict_with_package">ایشلەم %1$s اویغولامەسی ایلە چاتیشییور.</string>
+    <string name="install_success_notif_body">%1$s یوكلەندی.</string>
+    <string name="donate_card_desc">آكرەسنت دوام ایدەبیلمك ایچین دستكیڭزە اختیاج دویویور.</string>
+    <string name="cant_find_app">اوزگونوز، بو اویغولامەیی بولامەدق</string>
+    <string name="install_failed_notif_body_generic">بیلینمەیەن بر خطا اولوشدی، یوكلەمە باشاریسز.</string>
+    <string name="install_failed_notif_body_blocked">ایشلەم سیستەم طرفندەن انگللەندی.</string>
+    <string name="install_failed_notif_body_blocked_by_package">ایشلەم %1$s اویغولامەسی طرفیندەن انگللەندی.</string>
+    <string name="install_failed_notif_body_conflict">ایشلەم یوكلی بر اویغولامەیلە چاتیشییور.</string>
+    <string name="install_failed_notif_body_app_incompatible">اویغولامە جهاز ایلە اویومسز.</string>
+    <string name="update_available_for_app">%1$s اویغولامەسی ایچین گونجللەمە موجود.</string>
+    <string name="app_details_error_apk_download_failed">اویغولامەنڭ APK دوسیەسی ایندرلیركن بر خطا اولوشدی.</string>
+    <string name="app_details_error_timeout">زمان آشیمی. لطفاً تكرار دڭەیین.</string>
+    <string name="dynamic_color_desc">سیستەمین رنگ پالەتینە گورە اویغولامە تەماسینی دگیشتیر</string>
 </resources>
