@@ -29,7 +29,7 @@ import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.firstOrNull
 import java.time.Duration
 
-private const val AUTO_UPDATE_INTERVAL_HOURS = 4L
+private const val AUTO_UPDATE_INTERVAL_HOURS = 8L
 
 @HiltWorker
 class AutoUpdateWorker @AssistedInject constructor(
