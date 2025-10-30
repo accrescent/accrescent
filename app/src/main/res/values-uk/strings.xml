@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="repodata_timestamp_less">мітка часу даних репозиторію менша за збережене значення</string>
     <string name="app_list">Застосунки</string>
     <string name="installed">Установлено</string>
@@ -100,4 +97,5 @@ SPDX-License-Identifier: Apache-2.0
     <string name="update_failed">Не вдалося оновити</string>
     <string name="no_apps_available">Немає доступних програм</string>
     <string name="update_available_for_app">Доступне оновлення для %1$s.</string>
+    <string name="cancel">Скасувати</string>
 </resources>
