@@ -136,7 +136,10 @@ class AppManager @Inject constructor(
                     @SuppressLint("RequestInstallPackagesPolicy")
                     if (
                         params is InstallTaskParams.Update &&
-                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE
+                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE &&
+                        // GENTLE_UPDATE is too passive for us to feel safe using it for self
+                        // updates, so commit normally when performing a self update
+                        params.appId != BuildConfig.APPLICATION_ID
                     ) {
                         try {
                             context
