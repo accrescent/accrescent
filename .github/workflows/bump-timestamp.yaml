@@ -22,7 +22,7 @@ jobs:
           FILE: app/src/main/java/app/accrescent/client/data/Constants.kt
           CONSTANT: 'const val MIN_TIMESTAMP: Long'
         run: |
-          TIMESTAMP=$(curl -s https://repo.accrescent.app/repodata.0.json | jq '.timestamp')
+          TIMESTAMP=$(curl -s https://repo.accrescent.app/repodata.1.json | jq '.timestamp')
           sed -i -E "s/^$CONSTANT = [[:digit:]]*$/$CONSTANT = $TIMESTAMP/" $FILE
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7
