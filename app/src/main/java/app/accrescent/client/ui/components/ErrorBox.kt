@@ -23,9 +23,9 @@ import app.accrescent.client.R
 import app.accrescent.client.ui.theme.AccrescentTheme
 
 @Composable
-fun CloseableErrorBox(
+fun ErrorBox(
     errorText: String,
-    onClose: () -> Unit,
+    onClose: (() -> Unit)?,
     modifier: Modifier = Modifier,
 ) {
     Surface(
@@ -42,11 +42,13 @@ fun CloseableErrorBox(
                 color = MaterialTheme.colorScheme.error,
                 style = MaterialTheme.typography.bodyMedium,
             )
-            IconButton(onClick = onClose) {
-                Icon(
-                    painter = painterResource(R.drawable.close_rounded_24px),
-                    contentDescription = stringResource(R.string.close),
-                )
+            if (onClose != null) {
+                IconButton(onClick = onClose) {
+                    Icon(
+                        painter = painterResource(R.drawable.close_rounded_24px),
+                        contentDescription = stringResource(R.string.close),
+                    )
+                }
             }
         }
     }
@@ -54,9 +56,9 @@ fun CloseableErrorBox(
 
 @PreviewLightDark
 @Composable
-private fun CloseableErrorBoxPreviewLightDark() {
+private fun ErrorBoxPreviewLightDark() {
     AccrescentTheme(dynamicColor = false) {
-        CloseableErrorBox(
+        ErrorBox(
             errorText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
             onClose = {},
         )

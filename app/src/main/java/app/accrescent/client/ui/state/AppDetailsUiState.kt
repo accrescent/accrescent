@@ -209,6 +209,13 @@ sealed class AppDetailsUiState {
             InstallTaskState.DownloadError.Unknown ->
                 stringResource(R.string.app_details_error_unknown)
         }
+
+        @Composable
+        fun getPersistentErrorText(): String? = if (buttonsToShow.isEmpty()) {
+            stringResource(R.string.app_details_error_app_incompatible)
+        } else {
+            null
+        }
     }
 
     data object Loading : AppDetailsUiState()

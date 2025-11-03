@@ -36,7 +36,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.accrescent.client.R
 import app.accrescent.client.ui.components.ActionableCard
 import app.accrescent.client.ui.components.AppIcon
-import app.accrescent.client.ui.components.CloseableErrorBox
+import app.accrescent.client.ui.components.ErrorBox
 import app.accrescent.client.ui.state.AppActionButton
 import app.accrescent.client.ui.state.AppDetailsLoadState
 import app.accrescent.client.ui.state.AppDetailsUiState
@@ -102,9 +102,16 @@ fun AppDetailsScreen(
                 // App status, e.g., errors and download progress
                 uiState.getDisplayText()?.let { Text(text = it) }
                 uiState.getErrorText()?.let { errorText ->
-                    CloseableErrorBox(
+                    ErrorBox(
                         errorText = errorText,
                         onClose = viewModel::clearInstallationResult,
+                        modifier = Modifier.padding(horizontal = 24.dp),
+                    )
+                }
+                uiState.getPersistentErrorText()?.let { errorText ->
+                    ErrorBox(
+                        errorText = errorText,
+                        onClose = null,
                         modifier = Modifier.padding(horizontal = 24.dp),
                     )
                 }
