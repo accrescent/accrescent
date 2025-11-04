@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="app_list">Applicazioni</string>
     <string name="installed">Installato</string>
     <string name="app_updates">Aggiornamenti</string>
@@ -52,4 +49,53 @@ SPDX-License-Identifier: Apache-2.0
     <string name="donate_card_donate_btn">Dona</string>
     <string name="donate_card_info_btn">Maggiori informazioni</string>
     <string name="donate_card_dismiss_btn">Chiudi</string>
+    <string name="app_details_error_apk_download_failed">Si è verificato un errore scaricando l\'APK dell\'app.</string>
+    <string name="app_details_error_app_incompatible">Questa app è incompatibile con il dispositivo e non può essere installata.</string>
+    <string name="app_details_error_app_not_found">L\'app non può essere installata perché non può più essere trovata sul server.</string>
+    <string name="app_details_error_app_store_unreachable">L\'app store non è attualmente raggiungibile. Controlla la connessione di rete e riprova.</string>
+    <string name="app_details_error_canceled">La richiesta di installazione è stata annullata.</string>
+    <string name="app_details_error_file_open_failed">Scaricamento dell\'app su disco fallito. Libera un po\' di spazio di archiviazione e riprova.</string>
+    <string name="app_details_error_install_reqs_not_met">L\'installazione non è stata eseguita con i parametri necessari. Libera un po\' di spazio di archiviazione e riprova.</string>
+    <string name="app_details_error_installation_unavailable">Servizi di installazione non disponibili. Potrebbe essere limitato dall\'amministratore.</string>
+    <string name="app_details_error_internal">Si è verificato un errore interno. Puoi segnalarlo come errore agli sviluppatori di Accrescent.</string>
+    <string name="app_details_error_invalid_server_response">Il server ha fornito dati non validi. Puoi segnalarlo come errore agli sviluppatori di Accrescent.</string>
+    <string name="app_details_error_io_error">Lo scaricamento è stato interrotto. Controlla la connessione di rete e riprova.</string>
+    <string name="app_details_error_not_already_installed">È stato tentato un aggiornamento, ma l\'app non era già stata installata.</string>
+    <string name="app_details_error_package_verification_failed">Non è stato possibile verificare l\'app come legittima. Riprova più tardi.</string>
+    <string name="app_details_error_timeout">L\'operazione è scaduta, riprova.</string>
+    <string name="app_details_error_unknown">Si è verificato un errore sconosciuto. Puoi segnalarlo come errore agli sviluppatori di Accrescent.</string>
+    <string name="app_details_network_error">Si è verificato un errore di rete. Controlla la connessione di rete e riprova.</string>
+    <string name="app_details_timeout_error">La richiesta è scaduta. Controlla la connessione di rete e riprova.</string>
+    <string name="app_details_unknown_error">Si è verificato un errore sconosciuto.</string>
+    <string name="cancel">Annulla</string>
+    <string name="close">Chiudi</string>
+    <string name="downloading_with_progress">Scaricamento: %1$s di %2$d MiB</string>
+    <string name="downloading_app">Scaricamento dell\'app</string>
+    <string name="error_while_loading_more_items">Si è verificato un errore durante il caricamento di più elementi. Controlla la connessione di rete e riprova.</string>
+    <string name="error_while_refreshing">Si è verificato un errore durante l\'aggiornamento. Controlla la connessione di rete e riprova.</string>
+    <string name="go_back">Torna indietro</string>
+    <string name="installation_failed">Installazione fallita</string>
+    <string name="install_failed_notif_body_generic">Operazione fallita per un motivo sconosciuto.</string>
+    <string name="install_failed_notif_body_aborted">L\'operazione è stata annullata.</string>
+    <string name="install_failed_notif_body_blocked">L\'operazione è stata bloccata dal sistema.</string>
+    <string name="install_failed_notif_body_blocked_by_package">L\'operazione è stata bloccata dall\'app %1$s.</string>
+    <string name="install_failed_notif_body_conflict">L\'operazione va in conflitto con un\'app esistente.</string>
+    <string name="install_failed_notif_body_conflict_with_package">L\'operazione va in conflitto con l\'app %1$s.</string>
+    <string name="install_failed_notif_body_app_incompatible">L\'app è incompatibile con il dispositivo.</string>
+    <string name="install_failed_notif_body_app_invalid">I file dell\'app non sono validi.</string>
+    <string name="install_failed_notif_body_storage">Riscontrato un problema con l\'archiviazione. Assicurati di avere abbastanza spazio libero.</string>
+    <string name="install_failed_notif_body_timeout">Operazione scaduta.</string>
+    <string name="installation_finished">Installazione finita.</string>
+    <string name="install_success_notif_body">%1$s è stato installato correttamente.</string>
+    <string name="installing">Installazione</string>
+    <string name="internal_error">Si è verificato un errore interno, probabilmente è un bug. Se puoi, segnalalo agli sviluppatori.</string>
+    <string name="pending">In attesa</string>
+    <string name="retry">Riprova</string>
+    <string name="unarchive">De-archivia</string>
+    <string name="unarchive_failed">De-archiviazione fallita</string>
+    <string name="unarchive_finished">De-archiviazione finita</string>
+    <string name="unarchive_success_notif_body">%1$s è stato de-archiviato correttamente.</string>
+    <string name="update_failed">Aggiornamento fallito</string>
+    <string name="no_apps_available">Nessuna app disponibile</string>
+    <string name="update_available_for_app">È disponibile un aggiornamento per %1$s.</string>
 </resources>
