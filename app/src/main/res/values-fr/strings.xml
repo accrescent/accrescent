@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="app_list">Applications</string>
     <string name="installed">Installé</string>
     <string name="app_updates">Mises à jour</string>
@@ -93,4 +90,12 @@ SPDX-License-Identifier: Apache-2.0
     <string name="unarchive">Désarchiver</string>
     <string name="no_apps_available">Aucune application disponible</string>
     <string name="update_available_for_app">Une mise à jour est disponible pour %1$s.</string>
+    <string name="app_details_error_package_verification_failed">L’application n’a pas pu être vérifiée comme légitime. Veuillez réessayer plus tard.</string>
+    <string name="app_details_error_timeout">L’opération a expiré. Veuillez réessayer.</string>
+    <string name="install_failed_notif_body_timeout">L’opération a expiré.</string>
+    <string name="installing">Installation</string>
+    <string name="unarchive_failed">Extraction échouée</string>
+    <string name="unarchive_finished">Extraction terminée</string>
+    <string name="unarchive_success_notif_body">%1$s a été extrait avec succès.</string>
+    <string name="update_failed">Échec de la mise à jour</string>
 </resources>
