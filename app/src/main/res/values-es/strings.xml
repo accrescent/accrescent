@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="app_list">Aplicaciones</string>
     <string name="installed">Instalado</string>
     <string name="app_updates">Actualizaciones</string>
@@ -18,11 +15,11 @@ SPDX-License-Identifier: Apache-2.0
     <string name="no_apps_installed">No hay aplicaciones instaladas</string>
     <string name="up_to_date">Todas las aplicaciones están actualizadas</string>
     <string name="user_action_required">Acción del usuario requerida</string>
-    <string name="cant_find_app">Disculpa, no encontramos esa aplicación</string>
+    <string name="cant_find_app">Disculpe, no pudimos encontrar esa aplicación</string>
     <string name="version">Versión: %1$s</string>
     <string name="repodata_timestamp_less">la marca del tiempo \"repodata\" es menor al valor guardado</string>
-    <string name="sig_verify_failed">la verificacion de firma(s) ha fallado</string>
-    <string name="dynamic_color_desc">Tema la aplicación basada en la paleta de colores del sistema</string>
+    <string name="sig_verify_failed">la verificación de firma(s) ha fallado</string>
+    <string name="dynamic_color_desc">Personalice la aplicación basándose en la paleta de colores del sistema</string>
     <string name="update">Actualizar</string>
     <string name="source_code_desc">Ver código fuente de Accrescent</string>
     <string name="open_link">Abrir enlace</string>
@@ -36,9 +33,9 @@ SPDX-License-Identifier: Apache-2.0
     <string name="automatic_updates">Actualizaciones automáticas</string>
     <string name="update_available">Actualización disponible</string>
     <string name="update_finished">Actualización finalizada</string>
-    <string name="update_success">%1$s se actualizó correctamente.</string>
+    <string name="update_success">%1$s se ha actualizado correctamente.</string>
     <string name="any">Cualquiera</string>
-    <string name="automatic_updates_desc">Indica si se debe actualizar automáticamente la aplicación. Si se desactiva, se muestra una notificación.</string>
+    <string name="automatic_updates_desc">Indica si las aplicaciones deben actualizarse automáticamente. Si se desactiva, se muestra una notificación.</string>
     <string name="back_button">Atrás</string>
     <string name="enable">Habilitar</string>
     <string name="donate_desc">Done para apoyar a Accrescent</string>
@@ -52,4 +49,35 @@ SPDX-License-Identifier: Apache-2.0
     <string name="donate_card_dismiss_btn">Cerrar</string>
     <string name="donate_card_desc">Accresent necesita tu apoyo para continuar.</string>
     <string name="donate_card_info_btn">Ver más</string>
+    <string name="app_details_error_apk_download_failed">Ha ocurrido un error al descargar las APKs de la aplicación.</string>
+    <string name="app_details_error_app_incompatible">Esta aplicación es incompatible con tu dispositivo y no puede ser instalada.</string>
+    <string name="app_details_error_app_not_found">Esta aplicación no se puede instalar porque ya no se encuentra en el servidor.</string>
+    <string name="app_details_error_app_store_unreachable">Actualmente no se puede contactar con la tienda de aplicaciones. Por favor verifique su conexión e inténtelo de nuevo.</string>
+    <string name="app_details_error_canceled">Se ha cancelado la solicitud de instalación.</string>
+    <string name="app_details_error_file_open_failed">La descarga de la aplicación al disco ha fallado. Por favor libere espacio de almacenamiento y vuelva a intentarlo.</string>
+    <string name="app_details_error_install_reqs_not_met">La instalación no ha podido llevarse a cabo con los parámetros necesarios. Por favor libere espacio de almacenamiento e inténtelo de nuevo.</string>
+    <string name="app_details_error_installation_unavailable">Servicios de instalación no disponibles. Puede que esté restringido por su administrador.</string>
+    <string name="app_details_error_internal">Ha ocurrido un error interno. Quizás quieras informar de este error a los desarrolladores de Accrescent.</string>
+    <string name="cancel">Cancelar</string>
+    <string name="close">Cerrar</string>
+    <string name="downloading_with_progress">Descargando: %1$s de %2$d MiB</string>
+    <string name="downloading_app">Descargando aplicación</string>
+    <string name="go_back">Volver</string>
+    <string name="installation_failed">Instalación fallida</string>
+    <string name="install_failed_notif_body_generic">La operación ha fallado por un motivo desconocido.</string>
+    <string name="install_failed_notif_body_aborted">Operación abortada.</string>
+    <string name="install_failed_notif_body_blocked_by_package">Operación bloqueada por la aplicación %1$s.</string>
+    <string name="install_failed_notif_body_conflict">La operación entra en conflicto con una aplicación existente.</string>
+    <string name="install_failed_notif_body_conflict_with_package">Operación en conflicto con la aplicación %1$s.</string>
+    <string name="install_failed_notif_body_app_incompatible">La aplicación es incompatible con el dispositivo.</string>
+    <string name="install_failed_notif_body_app_invalid">Los archivos de la aplicación no son válidos.</string>
+    <string name="install_failed_notif_body_storage">Encontrados problemas de almacenamiento. Asegúrese de que tiene suficiente espacio libre.</string>
+    <string name="installation_finished">Instalación terminada.</string>
+    <string name="install_success_notif_body">%1$s ha sido instalada exitosamente.</string>
+    <string name="installing">Instalando</string>
+    <string name="pending">Pendiente</string>
+    <string name="retry">Volver a intentar</string>
+    <string name="update_failed">Actualización fallida</string>
+    <string name="no_apps_available">No hay aplicaciones disponibles</string>
+    <string name="update_available_for_app">Hay una actualización disponible para %1$s.</string>
 </resources>
