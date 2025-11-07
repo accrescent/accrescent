@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="app_list">Sovellukset</string>
     <string name="dark">Tumma</string>
     <string name="donate">Lahjoita</string>
@@ -52,4 +49,53 @@ SPDX-License-Identifier: Apache-2.0
     <string name="update_finished">Päivitys valmis</string>
     <string name="update_success">%1$s on päivitetty onnistuneesti.</string>
     <string name="back_button">Takaisin</string>
+    <string name="app_details_error_apk_download_failed">Sovelluksen APK:n lataamisessa tapahtui virhe.</string>
+    <string name="app_details_error_app_incompatible">Tämä sovellus ei ole yhteensopiva laitteesi kanssa, eikä sitä voida asentaa.</string>
+    <string name="app_details_error_app_not_found">Sovellusta ei voida asentaa, koska sitä ei enää löydy palvelimelta.</string>
+    <string name="app_details_error_app_store_unreachable">Sovelluskauppaan ei ole tällä hetkellä yhteyttä. Tarkistathan verkkoyhteytesi ja yritä uudelleen.</string>
+    <string name="app_details_error_canceled">Asennuspyyntö peruutettiin.</string>
+    <string name="app_details_error_file_open_failed">Sovelluksen lataaminen levylle epäonnistui. Vapauta tallennustilaa ja yritä uudelleen.</string>
+    <string name="app_details_error_install_reqs_not_met">Asennusta ei voitu suorittaa tarvittavilla parametreilla. Vapauta tallennustilaa ja yritä uudelleen.</string>
+    <string name="app_details_error_installation_unavailable">Asennuspalvelut eivät ole saatavilla. Järjestelmänvalvojasi on saattanut rajoittaa sinua.</string>
+    <string name="app_details_error_internal">Sisäinen virhe on tapahtunut. Voit ilmoittaa tästä vikana Accrescentin kehittäjille.</string>
+    <string name="app_details_error_invalid_server_response">Palvelin antoi virheellisiä tietoja. Voit halutessasi ilmoittaa tästä vikana Accrescentin kehittäjille.</string>
+    <string name="app_details_error_io_error">Lataus keskeytettiin. Tarkistathan verkkoyhteytesi ja yritä uudelleen.</string>
+    <string name="app_details_error_not_already_installed">Päivitystä yritettiin, mutta sovellusta ei ollut vielä asennettu.</string>
+    <string name="app_details_error_package_verification_failed">Sovelluksen aitoutta ei voitu vahvistaa. Yritäthän myöhemmin uudelleen.</string>
+    <string name="app_details_error_timeout">Toiminto aikakatkaistiin. Yritäthän uudelleen.</string>
+    <string name="app_details_error_unknown">Tuntematon virhe tapahtui. Voit halutessasi ilmoittaa tästä vikana Accrescentin kehittäjille.</string>
+    <string name="app_details_network_error">Verkkovirhe tapahtui. Tarkistathan verkkoyhteytesi ja yritä uudelleen.</string>
+    <string name="app_details_timeout_error">Pyyntö on aikakatkaistu. Tarkistathan verkkoyhteytesi ja yritä uudelleen.</string>
+    <string name="app_details_unknown_error">Tuntematon virhe on tapahtunut.</string>
+    <string name="cancel">Peru</string>
+    <string name="close">Sulje</string>
+    <string name="downloading_with_progress">Ladataan: %1$s/%2$d Mit</string>
+    <string name="downloading_app">Ladataan sovellusta</string>
+    <string name="error_while_loading_more_items">Lisää kohteita ladattaessa tapahtui virhe. Tarkistathan verkkoyhteytesi ja yritä uudelleen.</string>
+    <string name="error_while_refreshing">Virkistämisen aikana tapahtui virhe. Tarkistathan verkkoyhteytesi ja yritä uudelleen.</string>
+    <string name="go_back">Palaa takaisin</string>
+    <string name="installation_failed">Asennus epäonnistui</string>
+    <string name="install_failed_notif_body_generic">Toiminto epäonnistui tuntemattomasta syystä.</string>
+    <string name="install_failed_notif_body_aborted">Operaatio keskeytettiin.</string>
+    <string name="install_failed_notif_body_blocked">Järjestelmä esti toiminnan.</string>
+    <string name="install_failed_notif_body_blocked_by_package">Sovellus %1$s esti toiminnon.</string>
+    <string name="install_failed_notif_body_conflict">Toiminto on ristiriidassa olemassa olevan sovelluksen kanssa.</string>
+    <string name="install_failed_notif_body_conflict_with_package">Toiminto on ristiriidassa sovelluksen %1$s kanssa.</string>
+    <string name="install_failed_notif_body_app_incompatible">Sovellus ei ole yhteensopiva laitteen kanssa.</string>
+    <string name="install_failed_notif_body_app_invalid">Sovellustiedostot ovat virheellisiä.</string>
+    <string name="install_failed_notif_body_storage">Tallennustilaongelma ilmeni. Varmistathan, että sinulla on riittävästi vapaata tilaa.</string>
+    <string name="install_failed_notif_body_timeout">Toiminto aikakatkaisttu.</string>
+    <string name="installation_finished">Asennus on valmis.</string>
+    <string name="install_success_notif_body">%1$s:n asennus onnistui.</string>
+    <string name="installing">Asennetaan</string>
+    <string name="internal_error">Sisäinen virhe on tapahtunut. Tämä on luultavasti vika. Jos mahdollista, ilmoita siitä kehittäjille.</string>
+    <string name="pending">Odottava</string>
+    <string name="retry">Yritä uudelleen</string>
+    <string name="unarchive">Palauta arkistosta</string>
+    <string name="unarchive_failed">Arkistosta palauttaminen epäonnistui</string>
+    <string name="unarchive_finished">Arkistosta palauttaminen on valmis</string>
+    <string name="unarchive_success_notif_body">%1$s on palautettu arkistosta.</string>
+    <string name="update_failed">Päivitys epäonnistui</string>
+    <string name="no_apps_available">Ei sovelluksia saatavilla</string>
+    <string name="update_available_for_app">%1$s:lle on saatavilla päivitys.</string>
 </resources>
