@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="enable">সক্রিয়</string>
     <string name="updater">হালনাগাদকারী</string>
     <string name="repodata_timestamp_less">ভাণ্ডারতথ্যের টাইমস্ট্যাম্প সংরক্ষিত মানের চেয়ে কম</string>
@@ -52,4 +49,16 @@ SPDX-License-Identifier: Apache-2.0
     <string name="donate_card_donate_btn">অনুদান</string>
     <string name="donate_card_dismiss_btn">বন্ধ</string>
     <string name="donate_card_info_btn">আরো জানুন</string>
+    <string name="app_details_error_apk_download_failed">অ্যাপস APK ডাউনলোড করার সময় একটি সমস্যা হয়েছে।</string>
+    <string name="app_details_error_app_incompatible">এই অ্যাপ আপনার ডিভাইসের সাথে সঙ্গতিপূর্ণ নয় এবং এটি ইনস্টল করা যাবে না।</string>
+    <string name="app_details_error_app_not_found">অ্যাপটি ইনস্টল করা যাবে না কারণ এটি সার্ভারে আর পাওয়া যাচ্ছে না।</string>
+    <string name="app_details_error_app_store_unreachable">অ্যাপ স্টোর এখনই পাওয়া যাচ্ছে না. অনুগ্রহ করে আপনার নেটওয়ার্ক কানেকশন চেক করুন এবং আবার চেষ্টা করুন।</string>
+    <string name="app_details_error_canceled">ইনস্টলেশন অনুরোধ বাতিল করা হয়েছে।</string>
+    <string name="app_details_error_file_open_failed">অ্যাপ ডাউনলোড করতে পারা যায়নি। অনুগ্রহ করে কিছু স্টোরেজ খালি করুন এবং আবার চেষ্টা করুন।</string>
+    <string name="app_details_error_install_reqs_not_met">প্রয়োজনীয় তথ্য ছাড়া ইনস্টলেশন করা গেল না। দয়া করে কিছু স্টোরেজ খালি করুন এবং আবার চেষ্টা করুন।</string>
+    <string name="app_details_error_installation_unavailable">ইনস্টলেশন সার্ভিস উপলব্ধ নয়। আপনি হয়তো অ্যাডমিন দ্বারা সীমাবদ্ধ।</string>
+    <string name="app_details_error_internal">একটি অভ্যন্তরীণ সমস্যা হয়েছে। আপনি চাইলে এই বাগটি Accrescent ডেভেলপারদের জানাতে পারেন।</string>
+    <string name="app_details_error_invalid_server_response">সার্ভারের ভুল তথ্য পাওয়া গেছে। চাইলে আপনি এই বাগটি Accrescent ডেভেলপারদের জানাতে পারেন।</string>
+    <string name="app_details_error_io_error">ডাউনলোড বন্ধ হয়ে গেছে। অনুগ্রহ করে আপনার নেটওয়ার্ক কানেকশন চেক করুন এবং আবার চেষ্টা করুন।</string>
+    <string name="app_details_error_not_already_installed">আপডেট করার চেষ্টা করা হয়েছিল, কিন্তু অ্যাপটি আগে থেকেই ইনস্টল ছিল না।</string>
 </resources>
