@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="app_list">Appar</string>
     <string name="installed">Installerade</string>
     <string name="app_updates">Uppdateringar</string>
@@ -52,4 +49,23 @@ SPDX-License-Identifier: Apache-2.0
     <string name="donate_card_donate_btn">Donera</string>
     <string name="donate_card_dismiss_btn">Stäng</string>
     <string name="donate_card_info_btn">Mer info.</string>
+    <string name="app_details_error_apk_download_failed">Ett fel inträffade vid nerladdningen av appens APK.</string>
+    <string name="app_details_error_app_incompatible">Denna app är oförenlig med din enhet och kan därför inte installeras.</string>
+    <string name="app_details_error_app_not_found">Appen kan inte installeras för att den inte längre hittas på servern.</string>
+    <string name="app_details_error_app_store_unreachable">Appbutiken kan inte nås just nu. Kolla din internetuppkopplning och försök igen.</string>
+    <string name="app_details_error_canceled">Installationsbegäran avbröts.</string>
+    <string name="app_details_error_io_error">Nerladdningen avbröts. Kolla din internetuppkoppling och försök igen.</string>
+    <string name="installation_failed">Installation misslyckades</string>
+    <string name="app_details_unknown_error">Ett okänt fel har inträffat.</string>
+    <string name="cancel">Avbryt</string>
+    <string name="close">Stäng</string>
+    <string name="no_apps_available">Inga appar tillgängliga</string>
+    <string name="update_available_for_app">En uppdatering är tillgänglig för %1$s.</string>
+    <string name="installation_finished">Installering klar.</string>
+    <string name="installing">Installerar</string>
+    <string name="retry">Försök igen</string>
+    <string name="update_failed">Uppdatering misslyckades</string>
+    <string name="install_failed_notif_body_app_invalid">Appfilerrna är ogiltiga.</string>
+    <string name="downloading_app">Laddar ner app</string>
+    <string name="go_back">Gå tillbaka</string>
 </resources>
