@@ -42,10 +42,11 @@ class AppUpdateWorker @AssistedInject constructor(
                 workDataOf(DataKey.ERROR_TYPE to ErrorType.NOT_ALREADY_INSTALLED)
             )
         }
+        val isGentle = inputData.getBoolean(DataKey.IS_GENTLE_UPDATE, false)
 
         val result = appManager
             .downloadAndInstall(
-                params = InstallTaskParams.Update(appId, currentVersionCode),
+                params = InstallTaskParams.Update(appId, currentVersionCode, isGentle),
                 onProgress = {
                     setProgress(
                         workDataOf(

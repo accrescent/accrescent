@@ -69,7 +69,12 @@ class InstallWorkRepository @Inject constructor(@ApplicationContext private val 
         networkType: NetworkType = NetworkType.CONNECTED,
     ) {
         val workRequest = OneTimeWorkRequestBuilder<AppUpdateWorker>()
-            .setInputData(workDataOf(DataKey.APP_ID to appId))
+            .setInputData(
+                workDataOf(
+                    DataKey.APP_ID to appId,
+                    DataKey.IS_GENTLE_UPDATE to !userInitiated,
+                )
+            )
             .setConstraints(Constraints.Builder().setRequiredNetworkType(networkType).build())
             .apply {
                 if (userInitiated) {
