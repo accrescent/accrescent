@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="dynamic_color_desc">سمّ التطبيق استنادًا إلى لوحة ألوان النظام</string>
     <string name="source_code_desc">عرض الرمز المصدري لAccrescent</string>
     <string name="up_to_date">جميع التطبيقات مُحدثة</string>
@@ -52,4 +49,53 @@ SPDX-License-Identifier: Apache-2.0
     <string name="donate_card_info_btn">معرفة المزيد</string>
     <string name="donate_card_heading">تبرّع الآن</string>
     <string name="donate_card_dismiss_btn">أغلق</string>
+    <string name="app_details_error_apk_download_failed">حدث خطأ أثناء تنزيل ملفات APK الخاصة بالتطبيق.</string>
+    <string name="app_details_error_app_incompatible">هذا التطبيق غير متوافق مع جهازك ولا يمكن تثبيته.</string>
+    <string name="app_details_error_app_not_found">لا يمكن تثبيت التطبيق لأنه لم يعد موجودًا على الخادم.</string>
+    <string name="app_details_error_app_store_unreachable">متجر التطبيقات غير متاح حاليًا. يُرجى التحقق من اتصال الشبكة والمحاولة مرة أخرى.</string>
+    <string name="app_details_error_canceled">أُلغِيَ طلب التثبيت.</string>
+    <string name="app_details_error_file_open_failed">فشل تنزيل التطبيق على القرص. يُرجى إفراغ بعض مساحة التخزين والمحاولة مرة أخرى.</string>
+    <string name="app_details_error_install_reqs_not_met">تعذر إتمام التثبيت بالمعاملات الضرورية. يُرجى إفراغ بعض مساحة التخزين والمحاولة مرة أخرى.</string>
+    <string name="app_details_error_installation_unavailable">خدمات التثبيت غير متوفرة. قد تكون مقيدًا من قبل المسؤول.</string>
+    <string name="app_details_error_internal">حدث خطأ داخلي. قد ترغب في الإبلاغ عن هذا كخطأ لمطوري Accrescent.</string>
+    <string name="app_details_error_invalid_server_response">قدم الخادم بيانات غير صالحة. قد ترغب في الإبلاغ عن هذا كخطأ لمطوري Accrescent.</string>
+    <string name="app_details_error_io_error">قوطعَ التنزيل. يُرجى التحقق من اتصال الشبكة والمحاولة مرة أخرى.</string>
+    <string name="app_details_error_not_already_installed">حاولا التحديث، ولكن التطبيق لم يكن مثبتًا بالفعل.</string>
+    <string name="app_details_error_package_verification_failed">تعذر التحقق من شرعية التطبيق. يُرجى المحاولة مرة أخرى لاحقًا.</string>
+    <string name="app_details_error_timeout">انتهت مهلة العملية. يُرجى المحاولة مرة أخرى.</string>
+    <string name="app_details_error_unknown">حدث خطأ غير معروف. قد ترغب في الإبلاغ عن هذا كخطأ لمطوري Accrescent.</string>
+    <string name="app_details_network_error">حدث خطأ في الشبكة. يُرجى التحقق من اتصالك بالشبكة والمحاولة مرة أخرى.</string>
+    <string name="app_details_timeout_error">انتهت مهلة الطلب. يُرجى التحقق من اتصال الشبكة والمحاولة مرة أخرى.</string>
+    <string name="app_details_unknown_error">حدث خطأ غير معروف.</string>
+    <string name="cancel">ألغِ</string>
+    <string name="close">أغلِق</string>
+    <string name="downloading_with_progress">جارٍ التنزيل: %1$s من %2$d ميجابايت</string>
+    <string name="downloading_app">جارِ تنزيل التطبيق</string>
+    <string name="error_while_loading_more_items">حدث خطأ أثناء تحميل المزيد من العناصر. تحقق من اتصالك بالشبكة وحاول مرة أخرى.</string>
+    <string name="error_while_refreshing">حدث خطأ أثناء التحديث. تحقق من اتصالك بالشبكة وحاول مرة أخرى.</string>
+    <string name="go_back">عُد</string>
+    <string name="installation_failed">فشل التثبيت</string>
+    <string name="install_failed_notif_body_generic">فشلت العملية لسبب غير معروف.</string>
+    <string name="install_failed_notif_body_aborted">ألغِيَ العملية.</string>
+    <string name="install_failed_notif_body_blocked">حُظر العملية بواسطة النظام.</string>
+    <string name="install_failed_notif_body_blocked_by_package">حُظر العملية بواسطة التطبيق %1$s.</string>
+    <string name="install_failed_notif_body_conflict">تتعارض العملية مع تطبيق موجود.</string>
+    <string name="install_failed_notif_body_conflict_with_package">تتعارض العملية مع التطبيق %1$s.</string>
+    <string name="install_failed_notif_body_app_incompatible">التطبيق غير متوافق مع الجهاز.</string>
+    <string name="install_failed_notif_body_app_invalid">ملفات التطبيق غير صالحة.</string>
+    <string name="install_failed_notif_body_storage">وُجِد مشكلة في التخزين. تأكد من توفر مساحة كافية.</string>
+    <string name="install_failed_notif_body_timeout">انتهت مهلة العملية.</string>
+    <string name="installation_finished">اكتمل التثبيت.</string>
+    <string name="install_success_notif_body">ثُبَّت %1$s بنجاح.</string>
+    <string name="installing">جارِ التثبيت</string>
+    <string name="internal_error">حدث خطأ داخلي. هذا على الأرجح خطأ برمجي. إذا أمكن، يُرجى إبلاغ المطورين بذلك.</string>
+    <string name="pending">قيد الانتظار</string>
+    <string name="retry">حاول مجددًا</string>
+    <string name="unarchive">فك الأرشفة</string>
+    <string name="unarchive_failed">فشل فك الأرشفة</string>
+    <string name="unarchive_finished">اكتمل فك الأرشفة</string>
+    <string name="unarchive_success_notif_body">ألغِيَ أرشفة %1$s بنجاح.</string>
+    <string name="update_failed">فشل التحديث</string>
+    <string name="no_apps_available">لا توجد تطبيقات متاحة</string>
+    <string name="update_available_for_app">يتوفر تحديث لـ %1$s.</string>
 </resources>
