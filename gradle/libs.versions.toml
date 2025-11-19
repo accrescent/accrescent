@@ -22,7 +22,7 @@ material = "1.13.0"
 nav-compose = "2.9.6"
 okhttp = "5.3.0"
 paging = "3.3.6"
-room = "2.8.3"
+room = "2.8.4"
 serialization = "1.9.0"
 work = "2.11.0"
 
