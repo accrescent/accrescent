@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="open_link">Ava link</string>
     <string name="up_to_date">Kõik rakendused on uuendatud</string>
     <string name="version">Versioon: %1$s</string>
@@ -41,7 +38,7 @@ SPDX-License-Identifier: Apache-2.0
     <string name="automatic_updates">Uuenda rakendusi automaatselt</string>
     <string name="update_available">Uuendus on saadaval</string>
     <string name="update_finished">Uuendamine on lõppenud</string>
-    <string name="update_success">%1$s uuendamine õnenstus.</string>
+    <string name="update_success">Uuendamine õnnestus: %1$s.</string>
     <string name="back_button">Tagasi</string>
     <string name="open">Ava</string>
     <string name="donate_desc">Toeta Accrescenti arendust</string>
