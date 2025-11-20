@@ -54,14 +54,25 @@ sealed class AppDetailsUiState {
                     else -> listOf(AppActionButton.Uninstall, AppActionButton.Enable)
                 }
 
-                is AppInstallationState.Installed.UpdateAvailable -> when {
-                    installationState.enabled && installationState.compatible -> listOf(
-                        AppActionButton.Uninstall,
-                        AppActionButton.Update,
-                    )
+                is AppInstallationState.Installed.UpdateAvailable -> {
+                    // On SDK 34+, AppManager always calls
+                    // SessionParams.setApplicationEnabledSettingPersistent(), so if we're on SDK
+                    // 34+, we can safely allow updating updating disabled apps without re-enabling
+                    // them
+                    val canUpdateWithoutReenabling = installationState.enabled ||
+                            Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE
 
-                    installationState.enabled -> listOf(AppActionButton.Uninstall)
-                    else -> listOf(AppActionButton.Uninstall, AppActionButton.Enable)
+                    when {
+                        // Prioritize the "update" button over the "enable" button if it's possible
+                        // to update the app without re-enabling it from a disabled state
+                        canUpdateWithoutReenabling && installationState.compatible ->
+                            listOf(AppActionButton.Uninstall, AppActionButton.Update)
+
+                        !installationState.enabled ->
+                            listOf(AppActionButton.Uninstall, AppActionButton.Enable)
+
+                        else -> listOf(AppActionButton.Uninstall)
+                    }
                 }
 
                 is AppInstallationState.NotInstalled -> when {
