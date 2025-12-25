@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="app_list">アプリ</string>
     <string name="app_updates">アップデート</string>
     <string name="settings">設定</string>
@@ -47,4 +44,46 @@ SPDX-License-Identifier: Apache-2.0
     <string name="donate_desc">寄付でAccrescentをサポート</string>
     <string name="theme">テーマ</string>
     <string name="sig_verify_failed">署名を検証できませんでした</string>
+    <string name="cancel">キャンセル</string>
+    <string name="close">とじる</string>
+    <string name="donate_card_heading">今すぐ寄付する</string>
+    <string name="donate_card_desc">Accrescentの存続には皆様のサポートが必要です。</string>
+    <string name="donate_card_donate_btn">寄付</string>
+    <string name="donate_card_dismiss_btn">とじる</string>
+    <string name="donate_card_info_btn">さらに詳しく知る</string>
+    <string name="downloading_app">アプリをダウンロード中</string>
+    <string name="go_back">戻る</string>
+    <string name="installation_failed">インストール失敗</string>
+    <string name="installing">インストール中</string>
+    <string name="pending">保留中</string>
+    <string name="retry">リトライ</string>
+    <string name="unarchive">アーカイブ解除</string>
+    <string name="unarchive_failed">アーカイブ解除に失敗</string>
+    <string name="unarchive_finished">アーカイブ解除が完了</string>
+    <string name="unarchive_success_notif_body">%1$s は正常にアーカイブ解除されました。</string>
+    <string name="update_failed">アップデート失敗</string>
+    <string name="no_apps_available">利用可能なアプリがありません</string>
+    <string name="update_available_for_app">%1$s のアップデートが利用可能です。</string>
+    <string name="app_details_error_apk_download_failed">アプリの APK ダウンロード中にエラーが発生しました。</string>
+    <string name="app_details_error_app_incompatible">このアプリはお使いのデバイスと互換性が無いため、インストールできません。</string>
+    <string name="app_details_error_app_not_found">アプリがサーバー上に存在しないため、インストールできません。</string>
+    <string name="app_details_error_app_store_unreachable">現在、アプリストアにアクセスできません。通信状況を確認して、再度お試し下さい。</string>
+    <string name="app_details_error_canceled">インストールリクエストはキャンセルされました。</string>
+    <string name="app_details_error_file_open_failed">アプリのディスクへのダウンロードに失敗しました。ストレージの空き容量を増やし、再度お試し下さい。</string>
+    <string name="app_details_error_install_reqs_not_met">必要なパラメーターではインストールできませんでした。ストレージの空き容量を増やし、再度お試し下さい。</string>
+    <string name="app_details_error_installation_unavailable">インストールサービスは利用できません。管理者によって制限されている可能性があります。</string>
+    <string name="app_details_error_internal">内部エラーが発生しました。Accrescent開発者にバグとしてレポートしてください。</string>
+    <string name="app_details_error_invalid_server_response">サーバーが無効なデータを提供しました。Accrescent開発者にバグとしてレポートしてください。</string>
+    <string name="app_details_error_io_error">ダウンロードが中断されました。ネットワーク接続を確認して、もう一度お試しください。</string>
+    <string name="app_details_error_not_already_installed">更新を試行しましたが、アプリはまだインストールされていませんでした。</string>
+    <string name="app_details_error_package_verification_failed">アプリが正規のものであることを確認できませんでした。しばらくしてからもう一度お試しください。</string>
+    <string name="app_details_error_timeout">操作がタイムアウトしました。もう一度お試しください。</string>
+    <string name="app_details_error_unknown">不明なエラーが発生しました。Accrescent開発者にバグとしてレポートしてください。</string>
+    <string name="app_details_network_error">ネットワークエラーが発生しました。ネットワーク接続を確認して、もう一度お試しください。</string>
+    <string name="app_details_timeout_error">リクエストがタイムアウトしました。ネットワーク接続を確認して、もう一度お試しください。</string>
+    <string name="app_details_unknown_error">不明なエラーが発生しました。</string>
+    <string name="install_failed_notif_body_app_invalid">アプリファイルが無効です。</string>
+    <string name="installation_finished">インストールが完了しました。</string>
+    <string name="install_success_notif_body">%1$s が正常にインストールされました。</string>
+    <string name="install_failed_notif_body_timeout">操作がタイムアウトしました。</string>
 </resources>
