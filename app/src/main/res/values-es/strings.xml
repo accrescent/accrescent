@@ -52,7 +52,7 @@ SPDX-License-Identifier: Apache-2.0
     <string name="app_details_error_apk_download_failed">Ha ocurrido un error al descargar las APKs de la aplicación.</string>
     <string name="app_details_error_app_incompatible">Esta aplicación es incompatible con tu dispositivo y no puede ser instalada.</string>
     <string name="app_details_error_app_not_found">Esta aplicación no se puede instalar porque ya no se encuentra en el servidor.</string>
-    <string name="app_details_error_app_store_unreachable">Actualmente no se puede contactar con la tienda de aplicaciones. Por favor verifique su conexión e inténtelo de nuevo.</string>
+    <string name="app_details_error_app_store_unreachable">La tienda de aplicaciones no es accesible actualmente. Por favor comprueba tu conexión de red y vuelve a intentarlo.</string>
     <string name="app_details_error_canceled">Se ha cancelado la solicitud de instalación.</string>
     <string name="app_details_error_file_open_failed">La descarga de la aplicación al disco ha fallado. Por favor libere espacio de almacenamiento y vuelva a intentarlo.</string>
     <string name="app_details_error_install_reqs_not_met">La instalación no ha podido llevarse a cabo con los parámetros necesarios. Por favor libere espacio de almacenamiento e inténtelo de nuevo.</string>
@@ -80,4 +80,22 @@ SPDX-License-Identifier: Apache-2.0
     <string name="update_failed">Actualización fallida</string>
     <string name="no_apps_available">No hay aplicaciones disponibles</string>
     <string name="update_available_for_app">Hay una actualización disponible para %1$s.</string>
+    <string name="app_details_error_invalid_server_response">El servidor proporcionó datos inválidos. Puede que desee informar de esto como un error a los desarrolladores de Accrescent.</string>
+    <string name="app_details_error_io_error">La descarga se interrumpió. Compruebe su conexión de red e inténtelo de nuevo.</string>
+    <string name="app_details_error_not_already_installed">Se intentó una actualización, pero la aplicación aún no estaba instalada.</string>
+    <string name="app_details_error_package_verification_failed">No se pudo verificar la legitimidad de la aplicación. Por favor inténtalo de nuevo más tarde.</string>
+    <string name="app_details_error_timeout">Se agotó el tiempo de espera de la operación. Por favor inténtalo de nuevo.</string>
+    <string name="app_details_error_unknown">Se ha producido un error desconocido. Puede que desee informar de ello como un error a los desarrolladores de Accrescent.</string>
+    <string name="app_details_network_error">Se ha producido un error de red. Por favor compruebe su conexión de red y vuelva a intentarlo.</string>
+    <string name="app_details_timeout_error">La solicitud ha expirado. Por favor, compruebe su conexión de red y vuelva a intentarlo.</string>
+    <string name="app_details_unknown_error">Se ha producido un error desconocido.</string>
+    <string name="error_while_loading_more_items">Se produjo un error al cargar más elementos. Compruebe su conexión de red e inténtelo de nuevo.</string>
+    <string name="error_while_refreshing">Se produjo un error al actualizar. Compruebe su conexión de red e inténtelo de nuevo.</string>
+    <string name="install_failed_notif_body_blocked">La operación ha sido bloqueada por el sistema.</string>
+    <string name="install_failed_notif_body_timeout">Tiempo de espera de la operación agotado.</string>
+    <string name="internal_error">Se ha producido un error interno. Probablemente se trate de un error. Si puede, infórmeselo a los desarrolladores.</string>
+    <string name="unarchive">Desarchivar</string>
+    <string name="unarchive_failed">Error al desarchivar</string>
+    <string name="unarchive_finished">Desarchivado finalizado</string>
+    <string name="unarchive_success_notif_body">%1$s se ha desarchivado correctamente.</string>
 </resources>
