@@ -25,7 +25,7 @@ SPDX-License-Identifier: Apache-2.0
     <string name="enable">Bật</string>
     <string name="open">Mở</string>
     <string name="customization">Tùy chỉnh</string>
-    <string name="dynamic_color">Màu tự động / Material You</string>
+    <string name="dynamic_color">Màu linh động / Material You</string>
     <string name="dynamic_color_desc">Thay đổi giao diện của ứng dụng dựa trên bảng màu của hệ thống</string>
     <string name="about">Về Accrescent</string>
     <string name="source_code">Mã nguồn</string>
