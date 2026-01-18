@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="open">Obre</string>
     <string name="customization">Personalització</string>
     <string name="dynamic_color">Color dinàmic / Material You</string>
@@ -15,8 +12,8 @@ SPDX-License-Identifier: Apache-2.0
     <string name="app_list">Aplicacions</string>
     <string name="dark">Fosc</string>
     <string name="settings">Paràmetres</string>
-    <string name="donate">Dona</string>
-    <string name="donate_desc">Dona suport Accrescent</string>
+    <string name="donate">Donar</string>
+    <string name="donate_desc">Fes una donació per donar suport a Accrescent</string>
     <string name="installed">Instal·lat</string>
     <string name="light">Clar</string>
     <string name="app_updates">Actualitzacions</string>
@@ -28,9 +25,77 @@ SPDX-License-Identifier: Apache-2.0
     <string name="uninstall">Desinstal·la</string>
     <string name="about">Quant a</string>
     <string name="source_code">Codi font</string>
-    <string name="source_code_desc">Veure el codi de font de Accrescent</string>
+    <string name="source_code_desc">Veure el codi de font d\'Accrescent</string>
     <string name="open_link">Obre l\'enllaç</string>
     <string name="no_apps_installed">No hi ha aplicacions instal·lades</string>
     <string name="up_to_date">Totes les aplicacions estan actualitzades</string>
     <string name="cant_find_app">Disculpa, no hem pogut trobar aquesta app</string>
+    <string name="app_details_error_apk_download_failed">S\'ha produït un error en la descàrrega.</string>
+    <string name="app_details_error_app_incompatible">Aquesta aplicació no és compatible amb el vostre dispositiu i no es pot instal·lar.</string>
+    <string name="app_details_error_app_not_found">Aquesta aplicació ja no està disponible al servidor i, per tant, no es pot instal·lar.</string>
+    <string name="app_details_error_app_store_unreachable">No es pot accedir a la botiga d\'aplicacions en aquest moment. Si us plau, comproveu la vostra connexió a Internet i torneu a intentar-ho.</string>
+    <string name="app_details_error_canceled">S\'ha anul·lat la instal·lació.</string>
+    <string name="app_details_error_file_open_failed">La descàrrega de l\'aplicació ha fallat. Si us plau, allibereu una mica d\'espai d\'emmagatzematge i torneu a intentar-ho.</string>
+    <string name="app_details_error_install_reqs_not_met">La instal·lació no s\'ha pogut realitzar amb els paràmetres necessaris. Si us plau, allibereu espai d\'emmagatzematge i torneu a intentar-ho.</string>
+    <string name="app_details_error_installation_unavailable">Els serveis d\'instal·lació no estan disponibles. És possible que estigueu restringit pel vostre administrador.</string>
+    <string name="app_details_error_internal">S\'ha produït un error intern. Podeu informar d\'aquest error als desenvolupadors d\'Accrescent.</string>
+    <string name="app_details_error_invalid_server_response">El servidor ha proporcionat dades no vàlides. Podeu informar d\'aquest error als desenvolupadors d\'Accrescent.</string>
+    <string name="app_details_error_io_error">La descàrrega s\'ha interromput. Si us plau, comproveu la vostra connexió de xarxa i torneu a intentar-ho.</string>
+    <string name="app_details_error_not_already_installed">S\'ha intentat una actualització, però l\'aplicació no estava instal·lada prèviament.</string>
+    <string name="app_details_error_package_verification_failed">No s\'ha pogut verificar l\'aplicació com a legítima. Si us plau, torneu a intentar-ho més tard.</string>
+    <string name="app_details_error_timeout">L\'operació ha expirat. Si us plau, torneu a intentar-ho.</string>
+    <string name="app_details_error_unknown">S\'ha produït un error desconegut. Podeu informar d\'aquest error als desenvolupadors d\'Accrescent.</string>
+    <string name="app_details_network_error">S\'ha produït un error de xarxa. Si us plau, comproveu la vostra connexió de xarxa i torneu a intentar-ho.</string>
+    <string name="app_details_timeout_error">La sol·licitud ha expirat. Si us plau, comproveu la vostra connexió de xarxa i torneu a intentar-ho.</string>
+    <string name="app_details_unknown_error">S\'ha produït un error desconegut.</string>
+    <string name="cancel">Cancel·la</string>
+    <string name="close">Tancar</string>
+    <string name="donate_card_heading">Fer una donació avui</string>
+    <string name="donate_card_desc">Accrescent necessita el teu suport per a continuar.</string>
+    <string name="donate_card_donate_btn">Fer una donació</string>
+    <string name="donate_card_dismiss_btn">Tancar</string>
+    <string name="donate_card_info_btn">Saber-ne més</string>
+    <string name="downloading_with_progress">Descarregant: %1$s de %2$d MiB</string>
+    <string name="downloading_app">Descarregant l\'aplicació</string>
+    <string name="error_while_loading_more_items">S\'ha produït un error en carregar més elements. Comproveu la vostra connexió de xarxa i torneu a intentar-ho.</string>
+    <string name="error_while_refreshing">S\'ha produït un error en actualitzar. Comproveu la vostra connexió de xarxa i torneu a intentar-ho.</string>
+    <string name="go_back">Ves enrere</string>
+    <string name="installation_failed">La instal·lació ha fallat</string>
+    <string name="install_failed_notif_body_generic">L\'operació ha fallat per una raó desconeguda.</string>
+    <string name="install_failed_notif_body_aborted">S\'ha interromput l\'operació.</string>
+    <string name="install_failed_notif_body_blocked">L\'operació ha estat bloquejada pel sistema.</string>
+    <string name="install_failed_notif_body_blocked_by_package">L\'operació ha estat bloquejada per l\'aplicació %1$s.</string>
+    <string name="install_failed_notif_body_conflict">L’operació entra en conflicte amb una aplicació existent.</string>
+    <string name="install_failed_notif_body_conflict_with_package">L’operació entra en conflicte amb l\'aplicació %1$s.</string>
+    <string name="install_failed_notif_body_app_incompatible">L\'aplicació no és compatible amb el dispositiu.</string>
+    <string name="install_failed_notif_body_app_invalid">Els fitxers de l\'aplicació no són vàlids.</string>
+    <string name="install_failed_notif_body_storage">S’ha produït un problema d’emmagatzematge. Assegureu-vos que teniu prou espai lliure.</string>
+    <string name="install_failed_notif_body_timeout">L\'operació ha expirat.</string>
+    <string name="installation_finished">La instal·lació ha finalitzat.</string>
+    <string name="install_success_notif_body">%1$s s\'ha instal·lat correctament.</string>
+    <string name="installing">Instal·lant</string>
+    <string name="internal_error">S’ha produït un error intern. Probablement es tracta d’un error del programari. Si pots, informa’n els desenvolupadors.</string>
+    <string name="pending">Pendent</string>
+    <string name="retry">Torna-ho a provar</string>
+    <string name="unarchive">Descomprimir</string>
+    <string name="unarchive_failed">Ha fallat la descompressió</string>
+    <string name="unarchive_finished">La descompressió ha finalitzat</string>
+    <string name="unarchive_success_notif_body">%1$s s\'ha descomprimit correctament.</string>
+    <string name="update_failed">Ha fallat l\'actualització</string>
+    <string name="dynamic_color_desc">Aplica el tema de l’aplicació segons la paleta de colors del sistema</string>
+    <string name="no_apps_available">Cap aplicació disponible</string>
+    <string name="repodata_timestamp_less">La marca temporal de les dades del dipòsit és inferior al valor desat</string>
+    <string name="sig_verify_failed">La verificació de la signatura ha fallat</string>
+    <string name="updater">Actualitzador</string>
+    <string name="network_condition">Condició de xarxa</string>
+    <string name="any">Qualsevol</string>
+    <string name="unmetered">No mesurat</string>
+    <string name="not_roaming">Sense itinerància</string>
+    <string name="automatic_updates">Actualitzacions automàtiques</string>
+    <string name="automatic_updates_desc">Voleu actualitzar les aplicacions automàticament? Es mostrarà una notificació si estan desactivades.</string>
+    <string name="update_available">Hi ha una actualització disponible</string>
+    <string name="update_available_for_app">Hi ha una actualització disponible per a %1$s.</string>
+    <string name="update_finished">L\'actualització ha finalitzat</string>
+    <string name="update_success">%1$s s\'ha actualitzat correctament.</string>
+    <string name="back_button">Enrere</string>
 </resources>
