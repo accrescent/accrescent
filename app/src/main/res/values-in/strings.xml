@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="about">Tentang</string>
     <string name="settings">Pengaturan</string>
     <string name="open_link">Buka tautan</string>
@@ -47,4 +44,20 @@ SPDX-License-Identifier: Apache-2.0
     <string name="light">Cerah</string>
     <string name="donate">Donasi</string>
     <string name="donate_desc">Kirim donasi untuk dukung Accrescent</string>
+    <string name="app_details_error_apk_download_failed">Terjadi kesalahan saat mengunduh berkas APK aplikasi.</string>
+    <string name="app_details_error_app_incompatible">Aplikasi ini tidak kompatibel dengan perangkat Anda dan tidak dapat dipasang.</string>
+    <string name="app_details_error_app_not_found">Aplikasi tidak dapat dipasang karena sudah tidak ditemukan di server.</string>
+    <string name="app_details_error_app_store_unreachable">App store tidak dapat dijangkau saat ini. Periksa koneksi internet Anda dan coba lagi.</string>
+    <string name="app_details_error_canceled">Permintaan instalasi telah dibatalkan.</string>
+    <string name="app_details_error_file_open_failed">Gagal mengunduh aplikasi ke penyimpanan. Silakan kosongkan sebagian ruang penyimpanan dan coba lagi.</string>
+    <string name="app_details_error_install_reqs_not_met">Instalasi tidak dapat dilakukan karena parameter yang diperlukan tidak tersedia. Silakan kosongkan ruang penyimpanan dan coba lagi.</string>
+    <string name="app_details_error_installation_unavailable">Layanan instalasi tidak tersedia. Anda mungkin dibatasi oleh administrator.</string>
+    <string name="app_details_error_internal">Terjadi kesalahan internal. Anda dapat melaporkan ini sebagai bug kepada developer Accrescent.</string>
+    <string name="app_details_error_invalid_server_response">Server memberikan data yang tidak valid. Anda dapat melaporkan ini sebagai bug kepada developer Accrescent.</string>
+    <string name="app_details_error_io_error">Unduhan terhenti. Periksa koneksi internet Anda dan coba lagi.</string>
+    <string name="app_details_error_not_already_installed">Gagal memperbarui karena aplikasi belum terinstal.</string>
+    <string name="app_details_error_package_verification_failed">Aplikasi tidak dapat diverifikasi keasliannya. Silakan coba lagi nanti.</string>
+    <string name="app_details_error_timeout">Proses melebihi batas waktu. Coba lagi.</string>
+    <string name="app_details_error_unknown">Terjadi error yang tidak diketahui. Anda bisa melaporkannya ke developer Accrescent.</string>
+    <string name="app_details_network_error">Terjadi kesalahan jaringan. Periksa koneksi internet Anda dan coba lagi.</string>
 </resources>
