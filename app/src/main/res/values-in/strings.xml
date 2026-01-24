@@ -60,4 +60,14 @@ SPDX-License-Identifier: Apache-2.0
     <string name="app_details_error_timeout">Proses melebihi batas waktu. Coba lagi.</string>
     <string name="app_details_error_unknown">Terjadi error yang tidak diketahui. Anda bisa melaporkannya ke developer Accrescent.</string>
     <string name="app_details_network_error">Terjadi kesalahan jaringan. Periksa koneksi internet Anda dan coba lagi.</string>
+    <string name="app_details_timeout_error">Permintaan telah kedaluwarsa. Silakan periksa koneksi jaringan Anda dan coba lagi.</string>
+    <string name="app_details_unknown_error">Telah terjadi kesalahan yang tidak diketahui.</string>
+    <string name="cancel">Batalkan</string>
+    <string name="close">Tutup</string>
+    <string name="donate_card_heading">Donasi hari ini</string>
+    <string name="donate_card_desc">Accrescent membutuhkan dukungan Anda untuk terus berlanjut.</string>
+    <string name="donate_card_donate_btn">Donasi</string>
+    <string name="donate_card_dismiss_btn">Tutup</string>
+    <string name="donate_card_info_btn">Pelajari lebih lanjut</string>
+    <string name="downloading_with_progress">Unduh: %1$s dari %2$d MiB</string>
 </resources>
