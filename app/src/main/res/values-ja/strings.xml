@@ -68,7 +68,7 @@ SPDX-License-Identifier: Apache-2.0
     <string name="app_details_error_app_incompatible">このアプリはお使いのデバイスと互換性が無いため、インストールできません。</string>
     <string name="app_details_error_app_not_found">アプリがサーバー上に存在しないため、インストールできません。</string>
     <string name="app_details_error_app_store_unreachable">現在、アプリストアにアクセスできません。通信状況を確認して、再度お試し下さい。</string>
-    <string name="app_details_error_canceled">インストールリクエストはキャンセルされました。</string>
+    <string name="app_details_error_canceled">インストールリクエストはキャンセルされました。\n\nインストール要求はキャンセルされました。</string>
     <string name="app_details_error_file_open_failed">アプリのディスクへのダウンロードに失敗しました。ストレージの空き容量を増やし、再度お試し下さい。</string>
     <string name="app_details_error_install_reqs_not_met">必要なパラメーターではインストールできませんでした。ストレージの空き容量を増やし、再度お試し下さい。</string>
     <string name="app_details_error_installation_unavailable">インストールサービスは利用できません。管理者によって制限されている可能性があります。</string>
@@ -86,4 +86,5 @@ SPDX-License-Identifier: Apache-2.0
     <string name="installation_finished">インストールが完了しました。</string>
     <string name="install_success_notif_body">%1$s が正常にインストールされました。</string>
     <string name="install_failed_notif_body_timeout">操作がタイムアウトしました。</string>
+    <string name="downloading_with_progress">ダウンロード中</string>
 </resources>
