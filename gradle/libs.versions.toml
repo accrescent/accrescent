@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 [versions]
-activity-compose = "1.11.0"
+activity-compose = "1.12.4"
 agp = "8.13.1"
 appstore-api = "1.5.0.1.20251027185854.a980a6d649bc"
 bouncycastle = "1.82"
