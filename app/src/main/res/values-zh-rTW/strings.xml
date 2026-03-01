@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="app_list">應用程式</string>
     <string name="installed">已安裝</string>
     <string name="app_updates">更新</string>
@@ -52,4 +49,53 @@ SPDX-License-Identifier: Apache-2.0
     <string name="donate_card_donate_btn">捐贈</string>
     <string name="donate_card_dismiss_btn">關閉</string>
     <string name="donate_card_info_btn">了解更多</string>
+    <string name="app_details_error_apk_download_failed">下載應用程式的 APK 檔案時發生錯誤。</string>
+    <string name="app_details_error_app_incompatible">此應用程式與您的裝置不相容且無法安裝。</string>
+    <string name="app_details_error_app_not_found">無法安裝應用程式，因為伺服器上已找不到它。</string>
+    <string name="app_details_error_app_store_unreachable">應用商店目前無法存取。請檢查您的網路連線並重試。</string>
+    <string name="app_details_error_canceled">安裝請求已取消。</string>
+    <string name="app_details_error_file_open_failed">下載應用程式至磁碟失敗。請清理一些儲存空間並重試。</string>
+    <string name="app_details_error_install_reqs_not_met">無法使用必要參數進行安裝。請清理一些儲存空間並重試。</string>
+    <string name="app_details_error_installation_unavailable">安裝服務不可用。您的管理員可能對您進行了限制。</string>
+    <string name="app_details_error_internal">發生內部錯誤。您可能想將此情況回報為 bug 給 Accrescent 開發人員。</string>
+    <string name="app_details_error_invalid_server_response">伺服器提供了無效資料。您可能想將此情況回報為 bug 給 Accrescent 開發人員。</string>
+    <string name="app_details_error_io_error">下載中斷。請檢查您的網路連線並重試。</string>
+    <string name="app_details_error_not_already_installed">嘗試更新應用程式，但該應用程式尚未安裝。</string>
+    <string name="app_details_error_package_verification_failed">無法驗證應用程式之真實性。請稍後重試。</string>
+    <string name="app_details_error_timeout">作業逾時。請重試。</string>
+    <string name="app_details_error_unknown">發生未知錯誤。您可能想將此情況回報為 bug 給 Accrescent 開發人員。</string>
+    <string name="app_details_network_error">發生網路錯誤。請檢查您的網路連線並重試。</string>
+    <string name="app_details_timeout_error">請求逾時。請檢查您的網路連線並重試。</string>
+    <string name="app_details_unknown_error">發生未知錯誤。</string>
+    <string name="cancel">取消</string>
+    <string name="close">關閉</string>
+    <string name="internal_error">發生內部錯誤。這可能是 bug。如果可以，請回報給開發人員。</string>
+    <string name="pending">待處理</string>
+    <string name="retry">重試</string>
+    <string name="unarchive">解壓縮</string>
+    <string name="unarchive_failed">解壓縮失敗</string>
+    <string name="unarchive_finished">解壓縮完成</string>
+    <string name="unarchive_success_notif_body">%1$s 已成功解壓縮。</string>
+    <string name="update_failed">更新失敗</string>
+    <string name="no_apps_available">沒有可用的應用程式</string>
+    <string name="update_available_for_app">%1$s 有可用的更新。</string>
+    <string name="downloading_with_progress">正在下載：%1$s / %2$d MiB</string>
+    <string name="downloading_app">正在下載應用程式</string>
+    <string name="error_while_loading_more_items">載入更多項目時發生錯誤。請檢查您的網路連線，然後重試。</string>
+    <string name="error_while_refreshing">重新整理時發生錯誤。請檢查您的網路連線，然後重試。</string>
+    <string name="go_back">返回</string>
+    <string name="installation_failed">安裝失敗</string>
+    <string name="install_failed_notif_body_generic">操作失敗，原因不明。</string>
+    <string name="install_failed_notif_body_aborted">操作已中止。</string>
+    <string name="install_failed_notif_body_blocked">操作已被系統封鎖。</string>
+    <string name="install_failed_notif_body_blocked_by_package">操作已被 %1$s 應用程式封鎖。</string>
+    <string name="install_failed_notif_body_conflict">操作與現有應用程式衝突。</string>
+    <string name="install_failed_notif_body_conflict_with_package">操作與 %1$s 應用程式衝突。</string>
+    <string name="install_failed_notif_body_app_incompatible">應用程式與裝置不相容。</string>
+    <string name="install_failed_notif_body_app_invalid">應用程式檔案無效。</string>
+    <string name="install_failed_notif_body_storage">遇到儲存空間問題。請確保您有足夠的可用空間。</string>
+    <string name="install_failed_notif_body_timeout">操作逾時。</string>
+    <string name="installation_finished">安裝完成。</string>
+    <string name="install_success_notif_body">%1$s 已成功安裝。</string>
+    <string name="installing">正在安裝</string>
 </resources>
