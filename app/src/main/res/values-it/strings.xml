@@ -28,7 +28,7 @@ SPDX-License-Identifier: Apache-2.0
     <string name="open_link">Apri il link</string>
     <string name="any">Qualsiasi</string>
     <string name="update_available">Aggiornamento disponibile</string>
-    <string name="updater">Aggiornamenti</string>
+    <string name="updater">Aggiornamento</string>
     <string name="network_condition">Stato della rete</string>
     <string name="not_roaming">Non in roaming</string>
     <string name="automatic_updates">Aggiornamenti automatici</string>
