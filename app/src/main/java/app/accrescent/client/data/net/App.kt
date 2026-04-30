@@ -9,6 +9,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class App(
-    @SerialName("min_version_code") val minVersionCode: Int,
+    @SerialName("min_version_code") val minVersionCode: Long,
     @SerialName("signing_cert_hash") val signingCertHash: String,
 )
