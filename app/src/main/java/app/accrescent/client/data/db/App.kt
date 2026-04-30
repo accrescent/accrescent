@@ -11,6 +11,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "apps")
 data class App(
     @PrimaryKey val id: String,
-    @ColumnInfo(name = "min_version_code") val minVersionCode: Int,
+    @ColumnInfo(name = "min_version_code") val minVersionCode: Long,
     @ColumnInfo(name = "signing_cert_hash") val signingCertHash: String,
 )
