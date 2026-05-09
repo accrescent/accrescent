@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="update_success">A(z) %1$s sikeresen frissítve lett.</string>
     <string name="dark">Sötét</string>
     <string name="installed">Telepített</string>
@@ -28,14 +25,14 @@ SPDX-License-Identifier: Apache-2.0
     <string name="version">Verzió: %1$s</string>
     <string name="sig_verify_failed">az aláírás ellenőrzése sikertelen</string>
     <string name="updater">Frissítő</string>
-    <string name="network_condition">A hálózat állapota</string>
+    <string name="network_condition">Hálózat állapota</string>
     <string name="any">Bármely</string>
     <string name="unmetered">Nem forgalomkorlátos</string>
     <string name="not_roaming">Nem barangoló</string>
     <string name="automatic_updates">Automatikus frissítések</string>
-    <string name="automatic_updates_desc">Függetlenül attól, hogy frissíti-e az alkalmazásokat automatikusan, akkor is megjelenít egy értesítést, ha le van tiltva.</string>
+    <string name="automatic_updates_desc">Alkalmazások automatikus frissítése. Ha le van tiltva, értesítést jelenít meg.</string>
     <string name="update_finished">A frissítés befejeződött</string>
-    <string name="update_available">Új frissítés érhető el</string>
+    <string name="update_available">Frissítés érhető el</string>
     <string name="back_button">Vissza</string>
     <string name="app_list">Alkalmazások</string>
     <string name="donate">Adományozás</string>
@@ -43,9 +40,9 @@ SPDX-License-Identifier: Apache-2.0
     <string name="settings">Beállítások</string>
     <string name="customization">Testreszabás</string>
     <string name="dynamic_color">Dinamikus szín / Material You</string>
-    <string name="dynamic_color_desc">Az alkalmazás témája a rendszer színpalettája alapján</string>
+    <string name="dynamic_color_desc">Alkalmazás témája a rendszer színpalettája alapján</string>
     <string name="source_code">Forráskód</string>
-    <string name="source_code_desc">Az Accrescent forráskódjának megtekintése</string>
+    <string name="source_code_desc">Accrescent forráskódjának megtekintése</string>
     <string name="repodata_timestamp_less">a tárolóadat időbélyege korábbi, mint a mentett érték</string>
     <string name="donate_card_desc">Az Accrescentnek szüksége van az Ön támogatására a folytatáshoz.</string>
     <string name="donate_card_donate_btn">Adományozás</string>
@@ -56,7 +53,7 @@ SPDX-License-Identifier: Apache-2.0
     <string name="app_details_error_app_incompatible">Ez az alkalmazás nem kompatibilis az Ön eszközével, ezért nem telepíthető.</string>
     <string name="app_details_error_app_not_found">Az alkalmazás nem telepíthető, mivel már nem található a kiszolgálón.</string>
     <string name="app_details_error_app_store_unreachable">Az alkalmazásbolt jelenleg nem érhető el. Ellenőrizze a hálózati kapcsolatát, majd próbálja meg újra.</string>
-    <string name="app_details_error_canceled">A telepítési kérelem meg lett szakítva.</string>
+    <string name="app_details_error_canceled">Telepítési kérelem megszakítva.</string>
     <string name="app_details_error_file_open_failed">Az alkalmazás lemezre történő letöltése sikertelen. Szabadítson fel némi tárhelyet, majd próbálja meg újra.</string>
     <string name="app_details_error_install_reqs_not_met">A telepítés nem tudott lefutni a szükséges paraméterekkel. Szabadítson fel némi tárhelyet, majd próbálja meg újra.</string>
     <string name="app_details_error_installation_unavailable">Telepítési szolgáltatások nem elérhetők. Lehet, hogy rendszergazda korlátozta a hozzáférést.</string>
@@ -82,7 +79,7 @@ SPDX-License-Identifier: Apache-2.0
     <string name="install_failed_notif_body_blocked">A műveletet a rendszer letiltotta.</string>
     <string name="install_failed_notif_body_blocked_by_package">A műveletet a(z) %1$s alkalmazás letiltotta.</string>
     <string name="install_failed_notif_body_conflict">A művelet ütközik egy meglévő alkalmazással.</string>
-    <string name="install_failed_notif_body_conflict_with_package">Az művelet ütközik a(z) %1$s alkalmazással.</string>
+    <string name="install_failed_notif_body_conflict_with_package">A művelet ütközik a(z) %1$s alkalmazással.</string>
     <string name="install_failed_notif_body_app_incompatible">Az alkalmazás nem kompatibilis az eszközzel.</string>
     <string name="install_failed_notif_body_app_invalid">Az alkalmazásfájlok érvénytelenek.</string>
     <string name="install_failed_notif_body_storage">Tárhelyhiba merült fel. Győződjön meg arról, hogy elegendő szabad hely áll rendelkezésre.</string>
@@ -95,9 +92,9 @@ SPDX-License-Identifier: Apache-2.0
     <string name="retry">Újrapróbálkozás</string>
     <string name="unarchive">Kibontás</string>
     <string name="unarchive_failed">Kibontás sikertelen</string>
-    <string name="unarchive_finished">A kibontás befejeződött</string>
+    <string name="unarchive_finished">Kibontás befejeződött</string>
     <string name="unarchive_success_notif_body">%1$s kibontása sikeresen megtörtént.</string>
-    <string name="update_failed">A frissítés sikertelen</string>
+    <string name="update_failed">Frissítés sikertelen</string>
     <string name="no_apps_available">Nincsenek elérhető alkalmazások</string>
     <string name="update_available_for_app">Frissítés érhető el a következőhöz: %1$s .</string>
     <string name="cancel">Mégse</string>
