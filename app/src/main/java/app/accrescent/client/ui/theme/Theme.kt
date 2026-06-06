@@ -99,11 +99,3 @@ fun AccrescentTheme(
         content = content
     )
 }
-
-/**
- * Returns whether the app is in dark theme
- */
-@Composable
-fun isAppInDarkTheme(): Boolean {
-    return MaterialTheme.colorScheme.background == DarkColorPalette.background
-}

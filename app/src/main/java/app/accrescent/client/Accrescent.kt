@@ -7,12 +7,10 @@ package app.accrescent.client
 import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.content.Context
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import androidx.work.NetworkType
 import app.accrescent.client.data.PreferencesManager
-import app.accrescent.client.data.appmanager.InstallSessionRepository
 import app.accrescent.client.workers.AutoUpdateWorker
 import app.accrescent.client.workers.RepositoryRefreshWorker
 import dagger.hilt.android.HiltAndroidApp
@@ -27,9 +25,6 @@ class Accrescent : Application(), Configuration.Provider {
 
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
-
-    @Inject
-    lateinit var installSessionRepository: InstallSessionRepository
 
     override fun onCreate() {
         super.onCreate()
@@ -82,21 +77,10 @@ class Accrescent : Application(), Configuration.Provider {
         AutoUpdateWorker.enqueue(applicationContext)
     }
 
-    override fun onTerminate() {
-        super.onTerminate()
-        installSessionRepository.close()
-    }
-
     override val workManagerConfiguration: Configuration
         get() = Configuration.Builder().setWorkerFactory(workerFactory).build()
 
-    override fun attachBaseContext(base: Context) {
-        super.attachBaseContext(base)
-        appContext = base
-    }
-
     companion object {
-        lateinit var appContext: Context
         const val DOWNLOADING_APP_CHANNEL = "DownloadingApp"
         const val INSTALLATION_FAILED_CHANNEL = "InstallationFailed"
         const val INSTALLATION_FINISHED_CHANNEL = "InstallationFinished"

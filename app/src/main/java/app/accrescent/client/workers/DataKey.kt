@@ -9,7 +9,6 @@ object DataKey {
     const val BYTES_DOWNLOADED = "BYTES_DOWNLOADED"
     const val ERROR_TYPE = "ERROR_TYPE"
     const val IS_GENTLE_UPDATE = "IS_GENTLE_UPDATE"
-    const val SUCCESS_CODE = "SUCCESS_CODE"
     const val TOTAL_BYTES_TO_DOWNLOAD = "TOTAL_BYTES_TO_DOWNLOAD"
     const val UNARCHIVE_ID = "UNARCHIVE_ID"
 }

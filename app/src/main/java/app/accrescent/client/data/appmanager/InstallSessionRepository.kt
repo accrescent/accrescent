@@ -36,10 +36,6 @@ class InstallSessionRepository @Inject constructor(
         packageInstaller.registerSessionCallback(sessionCallback)
     }
 
-    fun close() {
-        packageInstaller.unregisterSessionCallback(sessionCallback)
-    }
-
     fun getSessionStateForApp(appId: String): Flow<InstallSessionState?> {
         return combine(sessionInfoMap, sessionResults) { infoMap, results ->
             infoMap
