@@ -48,7 +48,7 @@ android {
 
     namespace = "app.accrescent.client"
     compileSdk = 36
-    buildToolsVersion = "36.0.0"
+    buildToolsVersion = "37.0.0"
 
     androidResources {
         localeFilters.addAll(listOf(
