@@ -47,7 +47,7 @@ android {
     }
 
     namespace = "app.accrescent.client"
-    compileSdk = 36
+    compileSdk = 37
     buildToolsVersion = "37.0.0"
 
     androidResources {
