@@ -16,9 +16,9 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import androidx.paging.filter
-import app.accrescent.client.core.Outcome
 import app.accrescent.client.data.AppListingPagingSource
 import app.accrescent.client.data.appmanager.AppManager
+import arrow.core.Either
 import build.buf.gen.accrescent.appstore.v1.AppServiceGrpcKt
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -108,8 +108,8 @@ class UpdatableAppsViewModel @Inject constructor(
     private suspend fun updateUpdatabilityForApp(appId: String) {
         val isUpdateAvailable = when (val result = appManager.isUpdateAvailable(appId)) {
             // Act as if there is no update available if we encounter an error
-            is Outcome.Err -> false
-            is Outcome.Ok -> result.value
+            is Either.Left -> false
+            is Either.Right -> result.value
         }
         if (isUpdateAvailable) {
             updatableAppIds.update { appIds ->

@@ -6,6 +6,7 @@
 activity-compose = "1.13.0"
 agp = "9.2.1"
 appstore-api = "1.5.0.4.20260421203544.a113a47f23db"
+arrow = "2.2.3"
 bouncycastle = "1.85"
 coil = "3.5.0"
 compose-bom = "2026.06.01"
@@ -29,6 +30,7 @@ work = "2.11.2"
 [libraries]
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
 appstore-api = { module = "build.buf.gen:accrescent_appstore-api_grpc_kotlin_lite", version.ref = "appstore-api" }
+arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
 bouncycastle = { module = "org.bouncycastle:bcprov-jdk18on", version.ref = "bouncycastle" }
 coil = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coil" }

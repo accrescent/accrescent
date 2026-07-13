@@ -52,7 +52,7 @@ class UnarchiveWorker @AssistedInject constructor(
                     )
                 },
             )
-            .mapOrElse({ ResultExt.from(it) }, { Result.success() })
+            .fold({ ResultExt.from(it) }, { Result.success() })
 
         return result
     }

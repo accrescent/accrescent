@@ -162,6 +162,7 @@ room {
 dependencies {
     implementation(libs.activity.compose)
     implementation(libs.appstore.api)
+    implementation(libs.arrow.core)
     implementation(libs.bouncycastle)
     implementation(libs.coil)
     implementation(libs.coil.network.okhttp)

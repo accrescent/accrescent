@@ -19,11 +19,11 @@ import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import app.accrescent.client.Accrescent
 import app.accrescent.client.R
-import app.accrescent.client.core.Outcome
 import app.accrescent.client.data.PreferencesManager
 import app.accrescent.client.data.appmanager.AppManager
 import app.accrescent.client.data.appmanager.InstallWorkRepository
 import app.accrescent.client.ui.MainActivity
+import arrow.core.Either
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.firstOrNull
@@ -61,8 +61,8 @@ class AutoUpdateWorker @AssistedInject constructor(
             for (pkg in packagesToCheck) {
                 val result = appManager.isUpdateAvailable(pkg.packageName)
                 val isUpdateAvailable = when (result) {
-                    is Outcome.Err -> continue
-                    is Outcome.Ok -> result.value
+                    is Either.Left -> continue
+                    is Either.Right -> result.value
                 }
                 if (isUpdateAvailable) {
                     showUpdateNotification(applicationContext, pkg)

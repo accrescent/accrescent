@@ -15,14 +15,15 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import app.accrescent.client.BuildConfig
-import app.accrescent.client.core.Outcome
-import app.accrescent.client.core.outcome
-import app.accrescent.client.core.outcomeSuspending
 import app.accrescent.client.data.RepoDataRepository
 import app.accrescent.client.receivers.AppUninstallBroadcastReceiver
 import app.accrescent.client.receivers.InstallerSessionCommitBroadcastReceiver
 import app.accrescent.client.receivers.UnarchiveResponseBroadcastReceiver
 import app.accrescent.client.util.copyToWithProgress
+import arrow.core.Either
+import arrow.core.left
+import arrow.core.raise.either
+import arrow.core.right
 import build.buf.gen.accrescent.appstore.v1.AppServiceGrpcKt
 import build.buf.gen.accrescent.appstore.v1.appUpdateInfoOrNull
 import build.buf.gen.accrescent.appstore.v1.getAppDownloadInfoRequest
@@ -67,15 +68,16 @@ class AppManager @Inject constructor(
     suspend fun downloadAndInstall(
         params: InstallTaskParams,
         onProgress: suspend (DownloadProgress) -> Unit,
-    ): Outcome<Boolean, InstallTaskError> = outcomeSuspending {
+    ): Either<InstallTaskError, Boolean> = either {
         val appDownloadInfo = when (params) {
             is InstallTaskParams.InitialInstall,
             is InstallTaskParams.Unarchive -> getAppDownloadInfo(params.appId)
 
             is InstallTaskParams.Update -> getAppUpdateInfo(params.appId, params.currentVersionCode)
         }
-            .bindWith { InstallTaskError.DownloadInfoFetch(it) }
-            ?: returnOk(false)
+            .mapLeft { InstallTaskError.DownloadInfoFetch(it) }
+            .bind()
+            ?: return@either false
 
         val totalDownloadSize = appDownloadInfo.splitDownloadInfo.sumOf { it.size }
         val sessionParams = createSessionParams(
@@ -84,7 +86,8 @@ class AppManager @Inject constructor(
             unarchiveId = if (params is InstallTaskParams.Unarchive) params.unarchiveId else null,
         )
         val sessionId = createInstallSession(sessionParams)
-            .bindWith { InstallTaskError.InstallSessionCreation(it) }
+            .mapLeft { InstallTaskError.InstallSessionCreation(it) }
+            .bind()
 
         // Attempt to update signing certificates before installation
         try {
@@ -93,23 +96,25 @@ class AppManager @Inject constructor(
         }
         val requiredSigner = repoDataRepository
             .getAppSigner(params.appId)
-            ?: returnErr(InstallTaskError.NoSignerInfo)
+            ?: raise(InstallTaskError.NoSignerInfo)
         val minVersionCode = repoDataRepository
             .getAppMinVersionCode(params.appId)
-            ?: returnErr(InstallTaskError.NoMinVersionCode)
+            ?: raise(InstallTaskError.NoMinVersionCode)
 
         openInstallSession(sessionId)
-            .bindWith { InstallTaskError.InstallSessionOpen(it) }
+            .mapLeft { InstallTaskError.InstallSessionOpen(it) }
+            .bind()
             .use { session ->
                 try {
                     val apkNames = downloadApksToSession(
                         session,
                         appDownloadInfo.splitDownloadInfo,
                         onProgress,
-                    ).bindWith { InstallTaskError.ApkDownload(it) }
+                    ).mapLeft { InstallTaskError.ApkDownload(it) }.bind()
 
                     verifyPackageInfo(session, apkNames, requiredSigner, minVersionCode)
-                        .bindWith { InstallTaskError.PackageVerification(it) }
+                        .mapLeft { InstallTaskError.PackageVerification(it) }
+                        .bind()
 
                     val pendingIntent = PendingIntent.getBroadcast(
                         context,
@@ -182,7 +187,7 @@ class AppManager @Inject constructor(
     }
 
     @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
-    fun unarchive(appId: String): Outcome<Unit, UnarchiveError> {
+    fun unarchive(appId: String): Either<UnarchiveError, Unit> {
         val pendingIntent = PendingIntent.getBroadcast(
             context,
             0,
@@ -195,11 +200,11 @@ class AppManager @Inject constructor(
                 .packageManager
                 .packageInstaller
                 .requestUnarchive(appId, pendingIntent.intentSender)
-            Outcome.Ok(Unit)
+            Unit.right()
         } catch (_: PackageManager.NameNotFoundException) {
-            Outcome.Err(UnarchiveError.PackageOrInstallerNotFound)
+            UnarchiveError.PackageOrInstallerNotFound.left()
         } catch (_: IOException) {
-            Outcome.Err(UnarchiveError.ParametersUnsatisfiable)
+            UnarchiveError.ParametersUnsatisfiable.left()
         }
 
         return result
@@ -221,11 +226,11 @@ class AppManager @Inject constructor(
 
     suspend fun isUpdateAvailable(
         appId: String,
-    ): Outcome<Boolean, DownloadInfoFetchError> = outcomeSuspending {
+    ): Either<DownloadInfoFetchError, Boolean> = either {
         val currentVersionCode = try {
             context.packageManager.getPackageInfo(appId, 0).longVersionCode
         } catch (_: PackageManager.NameNotFoundException) {
-            returnOk(false)
+            return@either false
         }
         val updateInfo = getAppUpdateInfo(appId, currentVersionCode).bind()
 
@@ -274,10 +279,11 @@ class AppManager @Inject constructor(
         apkNames: List<String>,
         requiredSigner: String,
         minVersionCode: Long,
-    ): Outcome<Unit, PackageVerificationError> = outcome {
+    ): Either<PackageVerificationError, Unit> = either {
         for (apkName in apkNames) {
             openSessionRead(session, apkName)
-                .bindWith { PackageVerificationError.OpenSessionRead(it) }
+                .mapLeft { PackageVerificationError.OpenSessionRead(it) }
+                .bind()
                 .use { apkStream ->
                     // This method will never throw IllegalArgumentException since apkName is a
                     // SHA-256 hash, which is always longer than 2 characters. We can also assume
@@ -288,7 +294,7 @@ class AppManager @Inject constructor(
                     val tmpFile = try {
                         File.createTempFile(apkName, null, context.cacheDir)
                     } catch (_: IOException) {
-                        returnErr(PackageVerificationError.IoError)
+                        raise(PackageVerificationError.IoError)
                     }
                     try {
                         tmpFile.outputStream().use { apkStream.copyTo(it) }
@@ -306,30 +312,30 @@ class AppManager @Inject constructor(
                             ?: continue
                         val signingInfo = packageInfo
                             .signingInfo
-                            ?: returnErr(PackageVerificationError.SigningInfoNotPresent)
+                            ?: raise(PackageVerificationError.SigningInfoNotPresent)
 
                         // First, verify the app's signing certificates
                         if (signingInfo.hasMultipleSigners()) {
-                            returnErr(PackageVerificationError.MultipleSigners)
+                            raise(PackageVerificationError.MultipleSigners)
                         } else {
                             val signedByRequiredCert = signingInfo
                                 .signingCertificateHistory
                                 .map { hexSha256Sum(it.toByteArray()) }
                                 .contains(requiredSigner)
                             if (!signedByRequiredCert) {
-                                returnErr(PackageVerificationError.NotSignedByRequiredSigner)
+                                raise(PackageVerificationError.NotSignedByRequiredSigner)
                             }
                         }
 
                         // Finally, verify the app's minimum version code
                         if (packageInfo.longVersionCode < minVersionCode) {
-                            returnErr(PackageVerificationError.MinimumVersionNotMet)
+                            raise(PackageVerificationError.MinimumVersionNotMet)
                         }
 
                         // Skip processing other APKs once we know one is verified
-                        return@outcome
+                        return@either
                     } catch (_: IOException) {
-                        returnErr(PackageVerificationError.IoError)
+                        raise(PackageVerificationError.IoError)
                     } finally {
                         if (!tmpFile.delete()) {
                             Log.w(LOG_TAG, "failed to delete temporary file $tmpFile")
@@ -338,12 +344,12 @@ class AppManager @Inject constructor(
                 }
         }
 
-        returnErr(PackageVerificationError.PackageParsingFailed)
+        raise(PackageVerificationError.PackageParsingFailed)
     }
 
     suspend fun getAppDownloadInfo(
         appId: String,
-    ): Outcome<AppDownloadInfo, DownloadInfoFetchError> = try {
+    ): Either<DownloadInfoFetchError, AppDownloadInfo> = try {
         val request = getAppDownloadInfoRequest {
             this.appId = appId
             deviceAttributes = deviceAttributesRepository.getDeviceAttributes()
@@ -351,15 +357,15 @@ class AppManager @Inject constructor(
         appService
             .getAppDownloadInfo(request)
             .appDownloadInfo
-            .let { Outcome.Ok(AppDownloadInfo.from(it)) }
+            .let { AppDownloadInfo.from(it).right() }
     } catch (e: StatusException) {
-        Outcome.Err(DownloadInfoFetchError.from(e))
+        DownloadInfoFetchError.from(e).left()
     }
 
     private suspend fun getAppUpdateInfo(
         appId: String,
         baseVersionCode: Long,
-    ): Outcome<AppDownloadInfo?, DownloadInfoFetchError> = try {
+    ): Either<DownloadInfoFetchError, AppDownloadInfo?> = try {
         val request = getAppUpdateInfoRequest {
             this.appId = appId
             deviceAttributes = deviceAttributesRepository.getDeviceAttributes()
@@ -370,13 +376,13 @@ class AppManager @Inject constructor(
             .appUpdateInfoOrNull
             .let { appUpdateInfo ->
                 if (appUpdateInfo == null) {
-                    Outcome.Ok(null)
+                    null.right()
                 } else {
-                    Outcome.Ok(AppDownloadInfo.from(appUpdateInfo))
+                    AppDownloadInfo.from(appUpdateInfo).right()
                 }
             }
     } catch (e: StatusException) {
-        Outcome.Err(DownloadInfoFetchError.from(e))
+        DownloadInfoFetchError.from(e).left()
     }
 
     private fun createSessionParams(
@@ -414,31 +420,31 @@ class AppManager @Inject constructor(
 
     private fun createInstallSession(
         sessionParams: PackageInstaller.SessionParams,
-    ): Outcome<Int, InstallSessionCreationError> = try {
-        Outcome.Ok(context.packageManager.packageInstaller.createSession(sessionParams))
+    ): Either<InstallSessionCreationError, Int> = try {
+        context.packageManager.packageInstaller.createSession(sessionParams).right()
     } catch (_: IOException) {
-        Outcome.Err(InstallSessionCreationError.ParametersUnsatisfiable)
+        InstallSessionCreationError.ParametersUnsatisfiable.left()
     } catch (_: SecurityException) {
-        Outcome.Err(InstallSessionCreationError.InstallationServicesUnavailable)
+        InstallSessionCreationError.InstallationServicesUnavailable.left()
     } catch (_: IllegalArgumentException) {
-        Outcome.Err(InstallSessionCreationError.SessionParamsInvalid)
+        InstallSessionCreationError.SessionParamsInvalid.left()
     }
 
     private fun openInstallSession(
         sessionId: Int,
-    ): Outcome<PackageInstaller.Session, InstallSessionOpenError> = try {
-        Outcome.Ok(context.packageManager.packageInstaller.openSession(sessionId))
+    ): Either<InstallSessionOpenError, PackageInstaller.Session> = try {
+        context.packageManager.packageInstaller.openSession(sessionId).right()
     } catch (_: IOException) {
-        Outcome.Err(InstallSessionOpenError.ParametersUnsatisfiable)
+        InstallSessionOpenError.ParametersUnsatisfiable.left()
     } catch (_: SecurityException) {
-        Outcome.Err(InstallSessionOpenError.SessionInvalidOrNotOwned)
+        InstallSessionOpenError.SessionInvalidOrNotOwned.left()
     }
 
     private suspend fun downloadApksToSession(
         session: PackageInstaller.Session,
         splitDownloadInfo: List<SplitDownloadInfo>,
         onProgress: suspend (DownloadProgress) -> Unit,
-    ): Outcome<List<String>, ApkDownloadError> = outcomeSuspending {
+    ): Either<ApkDownloadError, List<String>> = either {
         val apkNames = mutableListOf<String>()
 
         val totalDownloadSize = splitDownloadInfo.sumOf { it.size }
@@ -448,7 +454,7 @@ class AppManager @Inject constructor(
             val httpUrl = downloadInfo
                 .apkUrl
                 .toHttpUrlOrNull()
-                ?: returnErr(ApkDownloadError.InvalidApkUrl)
+                ?: raise(ApkDownloadError.InvalidApkUrl)
             val apkName = hexSha256Sum(downloadInfo.apkUrl.toByteArray())
             apkNames.add(apkName)
 
@@ -458,12 +464,13 @@ class AppManager @Inject constructor(
                     .executeAsync()
                     .use { response ->
                         if (!response.isSuccessful) {
-                            returnErr(ApkDownloadError.UnsuccessfulResponseCode)
+                            raise(ApkDownloadError.UnsuccessfulResponseCode)
                         }
 
                         response.body.byteStream().use { apkStream ->
                             openSessionWrite(session, apkName, downloadInfo.size)
-                                .bindWith { ApkDownloadError.OpenSessionWrite(it) }
+                                .mapLeft { ApkDownloadError.OpenSessionWrite(it) }
+                                .bind()
                                 .use { sessionStream ->
                                     apkStream
                                         .copyToWithProgress(sessionStream)
@@ -487,7 +494,7 @@ class AppManager @Inject constructor(
                         }
                     }
             } catch (_: IOException) {
-                returnErr(ApkDownloadError.IoException)
+                raise(ApkDownloadError.IoException)
             }
         }
 
@@ -497,24 +504,24 @@ class AppManager @Inject constructor(
     private fun openSessionRead(
         session: PackageInstaller.Session,
         apkName: String,
-    ): Outcome<InputStream, OpenSessionReadError> = try {
-        Outcome.Ok(session.openRead(apkName))
+    ): Either<OpenSessionReadError, InputStream> = try {
+        session.openRead(apkName).right()
     } catch (_: SecurityException) {
-        Outcome.Err(OpenSessionReadError.SessionCommittedOrAbandoned)
+        OpenSessionReadError.SessionCommittedOrAbandoned.left()
     } catch (_: IOException) {
-        Outcome.Err(OpenSessionReadError.IoError)
+        OpenSessionReadError.IoError.left()
     }
 
     private fun openSessionWrite(
         session: PackageInstaller.Session,
         apkName: String,
         apkSize: Long,
-    ): Outcome<OutputStream, OpenSessionWriteError> = try {
-        Outcome.Ok(session.openWrite(apkName, 0, apkSize))
+    ): Either<OpenSessionWriteError, OutputStream> = try {
+        session.openWrite(apkName, 0, apkSize).right()
     } catch (_: IOException) {
-        Outcome.Err(OpenSessionWriteError.FileOpenFailed)
+        OpenSessionWriteError.FileOpenFailed.left()
     } catch (_: SecurityException) {
-        Outcome.Err(OpenSessionWriteError.SessionSealedOrAbandoned)
+        OpenSessionWriteError.SessionSealedOrAbandoned.left()
     }
 
     private fun hexSha256Sum(data: ByteArray): String {
