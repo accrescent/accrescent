@@ -1,10 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
+    <string name="app_details_error_apk_download_failed">ਐਪ ਦੇ APK ਡਾਊਨਲੋਡ ਕਰਨ ਦੌਰਾਨ ਇੱਕ ਗਲਤੀ ਆ ਗਈ।</string>
+    <string name="app_details_error_app_incompatible">ਇਹ ਐਪ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਨਾਲ ਅਨੁਕੂਲ ਨਹੀਂ ਹੈ ਅਤੇ ਇਸਨੂੰ ਇੰਸਟਾਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।</string>
+    <string name="app_details_error_app_not_found">ਐਪ ਇੰਸਟਾਲ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ ਕਿਉਂਕਿ ਹੁਣ ਇਹ ਸਰਵਰ ‘ਤੇ ਨਹੀਂ ਮਿਲ ਰਹੀ।</string>
+    <string name="app_details_error_app_store_unreachable">ਇਸ ਵੇਲੇ ਐਪ ਸਟੋਰ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਹੋ ਰਹੀ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="app_details_error_canceled">ਇੰਸਟਾਲੇਸ਼ਨ ਦੀ ਬੇਨਤੀ ਰੱਦ ਕਰ ਦਿੱਤੀ ਗਈ ਹੈ।</string>
+    <string name="app_details_error_file_open_failed">ਐਪ ਨੂੰ ਡਿਸਕ ‘ਤੇ ਡਾਊਨਲੋਡ ਕਰਨਾ ਅਸਫਲ ਰਹਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਕੁਝ ਸਟੋਰੇਜ ਖਾਲੀ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="app_details_error_install_reqs_not_met">ਇੰਸਟਾਲੇਸ਼ਨ ਲੋੜੀਂਦੇ ਪੈਰਾਮੀਟਰਾਂ ਨਾਲ ਨਹੀਂ ਹੋ ਸਕੀ। ਕਿਰਪਾ ਕਰਕੇ ਕੁਝ ਸਟੋਰੇਜ ਖਾਲੀ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="app_details_error_installation_unavailable">ਇੰਸਟਾਲੇਸ਼ਨ ਸੇਵਾਵਾਂ ਉਪਲਬਧ ਨਹੀਂ ਹਨ। ਸੰਭਵ ਹੈ ਕਿ ਤੁਹਾਡੇ ਪ੍ਰਸ਼ਾਸਕ ਵੱਲੋਂ ਤੁਹਾਡੇ ‘ਤੇ ਪਾਬੰਦੀ ਲਗਾਈ ਗਈ ਹੋਵੇ।</string>
+    <string name="app_details_error_internal">ਇੱਕ ਅੰਦਰੂਨੀ ਗਲਤੀ ਆ ਗਈ ਹੈ। ਤੁਸੀਂ ਇਹ ਬੱਗ Accrescent ਡਿਵੈਲਪਰਾਂ ਨੂੰ ਰਿਪੋਰਟ ਸਕਦੇ ਹੋ।</string>
+    <string name="app_details_error_invalid_server_response">ਸਰਵਰ ਨੇ ਗ਼ਲਤ ਡਾਟਾ ਪ੍ਰਦਾਨ ਕੀਤਾ ਹੈ। ਤੁਸੀਂ ਇਹ ਬੱਗ ਐਕ੍ਰੀਸੈਂਟ ਡਿਵੈਲਪਰਾਂ ਨੂੰ ਰਿਪੋਰਟ ਕਰ ਸਕਦੇ ਹੋ।</string>
+    <string name="app_details_error_io_error">ਡਾਊਨਲੋਡ ਵਿੱਚ ਰੁਕਾਵਟ ਆ ਗਈ ਹੈ| ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="app_details_error_not_already_installed">ਅਪਡੇਟ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ ਗਈ, ਪਰ ਐਪ ਪਹਿਲਾਂ ਹੀ ਇੰਸਟਾਲ ਨਹੀਂ ਸੀ।</string>
+    <string name="app_details_error_package_verification_failed">ਐਪ ਦੀ ਵੈਰੀਫਿਕੇਸ਼ਨ ਨਹੀਂ ਹੋ ਸਕੀ ਕਿ ਇਹ ਅਸਲੀ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="app_details_error_timeout">ਓਪਰੇਸ਼ਨ ਟਾਈਮ ਆਊਟ ਹੋ ਗਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="app_details_error_unknown">ਇੱਕ ਅਗਿਆਤ ਗਲਤੀ ਆ ਗਈ ਹੈ। ਤੁਸੀਂ ਇਹ ਬੱਗ ਐਕ੍ਰੀਸੈਂਟ ਡਿਵੈਲਪਰਾਂ ਨੂੰ ਰਿਪੋਰਟ ਕਰ ਸਕਦੇ ਹੋ।</string>
+    <string name="app_details_network_error">ਨੈੱਟਵਰਕ ਵਿਚ ਗਲਤੀ ਆ ਗਈ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="app_details_timeout_error">ਬੇਨਤੀ ਟਾਈਮ ਆਊਟ ਹੋ ਗਈ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="app_details_unknown_error">ਇੱਕ ਅਗਿਆਤ ਗਲਤੀ ਆ ਗਈ ਹੈ।</string>
+    <string name="app_list">ਐਪਸ</string>
+    <string name="cancel">ਕੈਂਸਲ</string>
+    <string name="close">ਬੰਦ ਕਰੋ</string>
+    <string name="dark">ਡਾਰਕ</string>
+    <string name="donate">ਦਾਨ ਕਰੋ</string>
+    <string name="donate_desc">ਐਕ੍ਰੀਸੈਂਟ ਦੇ ਸਮਰਥਨ ਲਈ ਦਾਨ ਕਰੋ</string>
+    <string name="donate_card_heading">ਅੱਜ ਦਾਨ ਕਰੋ</string>
+    <string name="donate_card_desc">ਐਕ੍ਰੀਸੈਂਟ ਨੂੰ ਜਾਰੀ ਰੱਖਣ ਲਈ ਤੁਹਾਡੇ ਸਮਰਥਨ ਦੀ ਲੋੜ ਹੈ।</string>
+    <string name="donate_card_donate_btn">ਦਾਨ ਕਰੋ</string>
+    <string name="donate_card_dismiss_btn">ਬੰਦ ਕਰੋ</string>
+    <string name="donate_card_info_btn">ਹੋਰ ਸਿੱਖੋ</string>
+    <string name="downloading_with_progress">ਡਾਊਨਲੋਡਿੰਗ: %1$s of %2$d MiB</string>
+    <string name="downloading_app">ਡਾਊਨਲੋਡਿੰਗ ਐੱਪ</string>
+    <string name="error_while_loading_more_items">ਹੋਰ ਆਈਟਮ ਲੋਡ ਕਰਨ ਦੌਰਾਨ ਗਲਤੀ ਆ ਗਈ ਹੈਂ। ਆਪਣੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="error_while_refreshing">ਰਿਫ੍ਰੈਸ਼ ਕਰਨ ਦੌਰਾਨ ਗਲਤੀ ਆ ਗਈ ਹੈ। ਆਪਣੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="go_back">ਪਿੱਛੇ ਜਾਓ</string>
+    <string name="installation_failed">ਇੰਸਟਾਲੇਸ਼ਨ ਅਸਫਲ ਰਹੀ</string>
+    <string name="install_failed_notif_body_generic">ਅਗਿਆਤ ਕਾਰਨ ਕਰਕੇ ਓਪਰੇਸ਼ਨ ਅਸਫਲ ਰਿਹਾ।</string>
+    <string name="install_failed_notif_body_aborted">ਕਾਰਵਾਈ ਬੰਦ ਹੋ ਗਈ।</string>
+    <string name="install_failed_notif_body_blocked">ਸਿਸਟਮ ਵੱਲੋਂ ਕਾਰਵਾਈ ਨੂੰ ਰੋਕ ਦਿੱਤਾ ਗਿਆ।</string>
+    <string name="install_failed_notif_body_blocked_by_package">ਐਪ %1$s ਵੱਲੋਂ ਕਾਰਵਾਈ ਨੂੰ ਰੋਕ ਦਿੱਤਾ ਗਿਆ।</string>
+    <string name="install_failed_notif_body_conflict">ਇਹ ਕਾਰਵਾਈ ਮੌਜੂਦਾ ਐਪ ਨਾਲ ਟਕਰਾਅ ਰਹੀ ਹੈ।</string>
+    <string name="install_failed_notif_body_conflict_with_package">ਇਹ ਕਾਰਵਾਈ ਐਪ %1$s ਨਾਲ ਟਕਰਾਅ ਰਹੀ ਹੈ।</string>
+    <string name="install_failed_notif_body_app_incompatible">ਐਪ ਡਿਵਾਈਸ ਨਾਲ ਅਨੁਕੂਲ ਨਹੀਂ ਹੈ।</string>
+    <string name="install_failed_notif_body_app_invalid">ਐਪ ਫਾਈਲਾਂ ਅਵੈਧ/ਠੀਕ ਨਹੀਂ ਹਨ।</string>
+    <string name="install_failed_notif_body_storage">ਸਟੋਰੇਜ ਵਿੱਚ ਸਮੱਸਿਆ ਆਈ ਹੈ। ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਲੋੜ ਜਿੰਨੀ ਜਗ੍ਹਾ ਖਾਲੀ ਹੈ।</string>
+    <string name="install_failed_notif_body_timeout">ਕਾਰਵਾਈ ਟਾਈਮ ਆਊਟ ਹੋ ਗਈ ਹੈ।</string>
+    <string name="installation_finished">ਸਥਾਪਨਾ ਪੂਰੀ ਹੋ ਗਈ ਹੈ।</string>
+    <string name="install_success_notif_body">%1$s ਸਫਲਤਾਪੂਰਵਕ ਸਥਾਪਿਤ ਹੋ ਗਿਆ ਹੈ।</string>
+    <string name="installed">ਸਥਾਪਿਤ</string>
+    <string name="installing">ਸਥਾਪਨ ਹੋ ਰਿਹਾ ਹੈ</string>
+    <string name="internal_error">ਇੱਕ ਅੰਦਰੂਨੀ ਗਲਤੀ ਵਾਪਰ ਗਈ ਹੈ। ਇਹ ਸ਼ਾਇਦ ਇੱਕ ਬੱਗ ਹੈ। ਜੇ ਤੁਸੀਂ ਕਰ ਸਕਦੇ ਹੋ ਤਾ ਕਿਰਪਾ ਕਰਕੇ ਡਿਵੈਲਪਰਜ਼ ਨੂੰ ਰਿਪੋਰਟ ਕਰੋ।</string>
+    <string name="light">ਹਲਕਾ</string>
+    <string name="pending">ਲਮਕਿਆ ਹੋਇਆ</string>
+    <string name="retry">ਮੁੜ ਕੋਸ਼ਿਸ਼</string>
+    <string name="system">ਸਿਸਟਮ</string>
+    <string name="theme">ਥੀਮ</string>
+    <string name="unarchive">ਅਨਆਰਕਾਇਵ</string>
+    <string name="unarchive_failed">ਅਨਆਰਕਾਇਵ ਅਸਫ਼ਲ ਰਿਹਾ</string>
+    <string name="unarchive_finished">ਅਨਆਰਕਾਇਵ ਖਤਮ ਹੋ ਗਿਆ</string>
+    <string name="unarchive_success_notif_body">%1$s ਨੂੰ ਸਫਲਤਾਪੂਰਵਕ ਅਨਆਰਕਾਇਵ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
+    <string name="update_failed">ਅੱਪਡੇਟ ਅਸਫਲ ਰਿਹਾ</string>
+    <string name="app_updates">ਅੱਪਡੇਟਸ</string>
+    <string name="settings">ਸੈਟਿੰਗਜ਼</string>
+    <string name="install">ਸਥਾਪਨਾ</string>
+    <string name="uninstall">ਅਸਥਾਪਨਾ</string>
+    <string name="update">ਅੱਪਡੇਟ</string>
+    <string name="enable">ਯੋਗ ਕਰੋ</string>
+    <string name="open">ਖੋਲੋ</string>
+    <string name="customization">ਕਸਟਮਾਈਜ਼ੇਸ਼ਨ</string>
+    <string name="dynamic_color">ਡਾਇਨਾਮਿਕ ਰੰਗ / ਮਟੀਰੀਅਲ ਯੂ</string>
+    <string name="dynamic_color_desc">ਸਿਸਟਮ ਪੈਲੇਟ ਦੇ ਰੰਗ ਦੇ ਅਧਾਰ \'ਤੇ ਐਪ ਦੀ ਥੀਮ ਬਦਲੋ</string>
+    <string name="about">ਬਾਰੇ</string>
+    <string name="source_code">ਸਰੋਤ ਕੋਡ</string>
+    <string name="source_code_desc">ਐਕਰੀਸੈਂਟ ਦਾ ਸਰੋਤ ਕੋਡ ਵੇਖੋ</string>
+    <string name="open_link">ਲਿੰਕ ਖੋਲ੍ਹੋ</string>
+    <string name="no_apps_available">ਕੋਈ ਐਪ ਉਪਲਬਧ ਨਹੀਂ ਹੈ</string>
+    <string name="no_apps_installed">ਕੋਈ ਐਪ ਸਥਾਪਿਤ ਨਹੀਂ ਹੈ</string>
+    <string name="up_to_date">ਸਾਰੀਆ ਐਪਾ ਅੱਪ ਟੂ ਡੇਟ ਹਨ</string>
+    <string name="user_action_required">ਉਪਭੋਗਤਾ ਦੀ ਕਿਰਿਆ ਲੋੜ ਹੈ</string>
+    <string name="cant_find_app">ਮਾਫ ਕਰਨਾ, ਅਸੀਂ ਇਹ ਐਪ ਨਹੀਂ ਲੱਭ ਸਕੇ</string>
+    <string name="version">ਵਰਜਨ: %1$s</string>
+    <string name="repodata_timestamp_less">ਰਿਪੋਡਾਟਾ ਦਾ ਟਾਈਮਸਟੈਂਪ ਰੱਖੇ ਹੋਏ ਮੁੱਲ ਨਾਲੋਂ ਘੱਟ ਹੈ</string>
+    <string name="sig_verify_failed">ਦਸਤਖਤ ਦੀ ਤਸਦੀਕ ਅਸਫ਼ਲ ਰਹੀ ਹੈ</string>
+    <string name="updater">ਅਪਡੇਟਰ</string>
+    <string name="network_condition">ਨੈੱਟਵਰਕ ਹਾਲਤ</string>
+    <string name="any">ਕੋਈ</string>
+    <string name="unmetered">ਅਨਮੀਟਰਡ</string>
+    <string name="not_roaming">ਰੋਮਿੰਗ ਵਿੱਚ ਨਹੀ</string>
+    <string name="automatic_updates">ਆਟੋਮੈਟਿਕ ਅਪਡੇਟਸ</string>
+    <string name="automatic_updates_desc">ਜੇਕਰ ਡਿਸੇਬਲ ਹੋਵੇ ਤਾਂ ਨੋਟੀਫਿਕੇਸ਼ਨ ਵਿਖਾਓ ਕਿ ਐਪਾ ਨੂੰ ਆਪਟੋਮੈਟਿਕਲੀ ਅਪਡੇਟ ਕਰਨਾ ਹੈ ਜਾਂ ਨਹੀਂ।</string>
+    <string name="update_available">ਅਪਡੇਟ ਉਪਲਬਧ ਹੈ</string>
+    <string name="update_available_for_app">%1$s ਲਈ ਇੱਕ ਅਪਡੇਟ ਉਪਲਬਧ ਹੈ।</string>
+    <string name="update_finished">ਅਪਡੇਟ ਪੂਰਾ ਹੋ ਗਿਆ ਹੈ</string>
+    <string name="update_success">%1$s ਸਫਲਤਾਪੂਰਵਕ ਅਪਡੇਟ ਹੋ ਗਿਆ ਹੈ।</string>
+    <string name="back_button">ਪਿੱਛੇ</string>
 </resources>

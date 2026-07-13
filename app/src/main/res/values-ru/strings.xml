@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="app_list">Приложения</string>
     <string name="app_updates">Обновления</string>
     <string name="install">Установить</string>
@@ -52,4 +49,53 @@ SPDX-License-Identifier: Apache-2.0
     <string name="donate_card_donate_btn">Пожертвовать</string>
     <string name="donate_card_dismiss_btn">Закрыть</string>
     <string name="donate_card_info_btn">Узнать больше</string>
+    <string name="app_details_error_app_incompatible">Это приложение не совместимо с вашим устройством и не может быть установлено.</string>
+    <string name="app_details_error_app_not_found">Приложение не может быть установлено из-за отсутствия на сервере.</string>
+    <string name="app_details_error_app_store_unreachable">Отсутствует соединение с магазином приложений. Пожалуйста, проверьте ваше соединение и попробуйте снова.</string>
+    <string name="app_details_error_canceled">Запрос на установку был отменён.</string>
+    <string name="app_details_error_file_open_failed">Скачивание приложения на диск завершилось не удачей. Пожалуйста, освободите пространство на диске и попробуйте снова.</string>
+    <string name="app_details_error_install_reqs_not_met">Установка не может произведена с необходимыми параметрами. Пожалуйста, освободите пространство на диске и попробуйте снова.</string>
+    <string name="app_details_error_installation_unavailable">Сервис установки не доступен. Возможно, вы ограничены вашим администратором.</string>
+    <string name="app_details_error_internal">Возникла внутренняя ошибка. Пожалуйста, сообщение о проблеме разработчикам Accrescent.</string>
+    <string name="app_details_error_invalid_server_response">Сервер предоставил некорректные данные. Пожалуйста, сообщите о проблеме разработчикам Accrescent.</string>
+    <string name="app_details_error_io_error">Скачивание было прервано. Пожалуйста, проверьте ваше интернет соединение и попробуйте снова.</string>
+    <string name="app_details_error_not_already_installed">Была произведена попытка обновления, но приложение больше не установлено.</string>
+    <string name="app_details_error_package_verification_failed">Приложение не может быть верифицировано. Пожалуйста, попробуйте позже.</string>
+    <string name="app_details_error_timeout">Время операции истекло. Пожалуйста, попробуйте позже.</string>
+    <string name="app_details_error_unknown">Возникла неизвестная ошибка. Пожалуйста, сообщите о проблеме разработчикам Accrescent.</string>
+    <string name="app_details_network_error">Возникла ошибка соединения. Пожалуйста, проверьте ваше интернет соединение и попробуйте снова.</string>
+    <string name="app_details_timeout_error">Время запроса истекло. Пожалуйста, проверьте ваше интернет соединение и попробуйте снова.</string>
+    <string name="app_details_unknown_error">Возникла неизвестная ошибка.</string>
+    <string name="cancel">Отмена</string>
+    <string name="close">Закрыть</string>
+    <string name="downloading_with_progress">Скачивание %1$s из %2$d MiB</string>
+    <string name="downloading_app">Скачивание приложения</string>
+    <string name="error_while_loading_more_items">Возникла ошибка во время загрузки списка приложений. Пожалуйста, проверьте ваше интернет соединение и попробуйте снова.</string>
+    <string name="error_while_refreshing">Возникла ошибка во время обновления списка приложений. Пожалуйста, проверьте ваше интернет соединения и попробуйте снова.</string>
+    <string name="go_back">Вернуться</string>
+    <string name="installation_failed">Установка завершилась не удачей</string>
+    <string name="install_failed_notif_body_generic">Операция завершилась не удачей по неизвестной причине.</string>
+    <string name="install_failed_notif_body_aborted">Операция была отменена.</string>
+    <string name="install_failed_notif_body_blocked">Операция была заблокирована системой.</string>
+    <string name="install_failed_notif_body_blocked_by_package">Операция была заблокирована приложением %1$s.</string>
+    <string name="install_failed_notif_body_conflict">Операция конфликтует с существующим приложением.</string>
+    <string name="install_failed_notif_body_conflict_with_package">Операция конфликтует с приложением %1$s.</string>
+    <string name="install_failed_notif_body_app_incompatible">Приложение не совместимо с устройством.</string>
+    <string name="install_failed_notif_body_app_invalid">Файлы приложения повреждены.</string>
+    <string name="install_failed_notif_body_storage">Возникли проблемы с местом на диске. Пожалуйста, убедитесь, что у вас достаточно место на диске.</string>
+    <string name="install_failed_notif_body_timeout">Время операции истекло.</string>
+    <string name="installation_finished">Установка завершена.</string>
+    <string name="install_success_notif_body">%1$s успешно установлено.</string>
+    <string name="installing">Установка</string>
+    <string name="internal_error">Возникла внутренняя ошибка. Пожалуйста, сообщите о проблеме разработчикам.</string>
+    <string name="pending">В ожидании</string>
+    <string name="retry">Попробовать снова</string>
+    <string name="unarchive">Разпаковать</string>
+    <string name="unarchive_failed">Распаковки завершилась не удачей</string>
+    <string name="unarchive_finished">Распаковка завершена</string>
+    <string name="unarchive_success_notif_body">%1$s успешно распаковано.</string>
+    <string name="update_failed">Обновление завершилось не удачей</string>
+    <string name="no_apps_available">Нет доступных приложений</string>
+    <string name="update_available_for_app">Обновление доступно для %1$s.</string>
+    <string name="app_details_error_apk_download_failed">Возникла ошибка во время загрузки APK файлов приложения.</string>
 </resources>

@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="dynamic_color">Dynamische Farben / Material You</string>
     <string name="app_list">Apps</string>
     <string name="installed">Installiert</string>
@@ -56,7 +53,7 @@ SPDX-License-Identifier: Apache-2.0
     <string name="app_details_error_app_incompatible">Diese App ist mit deinem Gerät nicht kompatibel und kann nicht installiert werden.</string>
     <string name="app_details_error_app_not_found">Die App kann nicht installiert werden, da sie nicht mehr auf dem Server gefunden werden kann.</string>
     <string name="app_details_error_app_store_unreachable">Der App Store ist derzeit nicht erreichbar. Bitte überprüfe deine Netzwerkverbindung und versuche es erneut.</string>
-    <string name="app_details_error_canceled">Die Installationsanforderung wurde abgebrochen.</string>
+    <string name="app_details_error_canceled">Die Installationsanfrage wurde abgebrochen.</string>
     <string name="app_details_error_file_open_failed">Das Herunterladen der App auf die Festplatte ist fehlgeschlagen. Bitte schaffe Speicherplatz und versuche es erneut.</string>
     <string name="app_details_error_install_reqs_not_met">Die Installation konnte mit den erforderlichen Parametern nicht durchgeführt werden. Bitte schaffe Speicherplatz und versuche es erneut.</string>
     <string name="app_details_error_installation_unavailable">Installationsdienste nicht verfügbar. Möglicherweise unterliegst du Einschränkungen durch deinen Administrator.</string>
