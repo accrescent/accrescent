@@ -9,7 +9,6 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.dagger)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
@@ -146,6 +145,7 @@ android {
     }
 
     lint {
+        baseline = file("lint-baseline.xml")
         enable += "ComposeM2Api"
         error += "ComposeM2Api"
     }
