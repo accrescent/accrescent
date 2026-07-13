@@ -5,14 +5,12 @@
 package app.accrescent.client.data.appmanager
 
 import android.app.ActivityManager
-import android.app.sdksandbox.SdkSandboxManager
 import android.content.Context
 import android.opengl.EGL14
 import android.opengl.EGLConfig
 import android.opengl.GLES20
 import android.opengl.GLUtils
 import android.os.Build
-import android.os.ext.SdkExtensions
 import android.util.Log
 import build.buf.gen.accrescent.appstore.v1.DeviceAttributes
 import build.buf.gen.accrescent.appstore.v1.deviceAttributes
@@ -54,7 +52,11 @@ class DeviceAttributesRepository @Inject constructor(
                 sdkVersion = Build.VERSION.SDK_INT
                 codename = Build.VERSION.CODENAME
                 sdkRuntime = sdkRuntime {
-                    supported = isSdkRuntimeSupported()
+                    // The SDK Runtime is slated for deprecation and removal, so we don't support it.
+                    //
+                    // https://privacysandbox.google.com/overview/status
+                    // https://developer.android.com/reference/android/app/sdksandbox/SdkSandboxManager
+                    supported = false
                 }
                 ramBytes = getDeviceRamBytes()
                 buildBrand = Build.BRAND
@@ -187,19 +189,6 @@ class DeviceAttributesRepository @Inject constructor(
         }
 
         return Result.success(glExtensions)
-    }
-
-    private fun isSdkRuntimeSupported(): Boolean {
-        return if (
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU ||
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.R &&
-            SdkExtensions.getExtensionVersion(SdkExtensions.AD_SERVICES) >= 3
-        ) {
-            SdkSandboxManager.getSdkSandboxState() ==
-                    SdkSandboxManager.SDK_SANDBOX_STATE_ENABLED_PROCESS_ISOLATION
-        } else {
-            false
-        }
     }
 
     private fun getDeviceRamBytes(): Long {
