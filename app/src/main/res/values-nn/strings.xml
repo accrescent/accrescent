@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="app_list">Appar</string>
     <string name="installed">Installerte</string>
     <string name="app_updates">Oppdateringar</string>
@@ -56,4 +53,47 @@ SPDX-License-Identifier: Apache-2.0
     <string name="app_details_error_app_incompatible">Denne appen er ikkje kompatibel med eininga di og kan ikkje installerast.</string>
     <string name="app_details_error_canceled">Installeringa vart avbroten.</string>
     <string name="app_details_error_file_open_failed">Feil ved nedlasting av appen til disk. Frigjer lagringsplass og prøv på nytt.</string>
+    <string name="update_available_for_app">Ei oppdatering til %1$s er tilgjengeleg.</string>
+    <string name="no_apps_available">Ingen appar er tilgjengelege</string>
+    <string name="update_failed">Feil ved oppdatering</string>
+    <string name="app_details_error_app_not_found">Kan ikkje installera appen fordi han ikkje lenger finst på tenaren.</string>
+    <string name="app_details_error_app_store_unreachable">Får ikkje kontakt med appbutikken. Sjå til at du er kopla til internett og prøv på nytt.</string>
+    <string name="app_details_error_install_reqs_not_met">Klarte ikkje installera med kravde parametrar. Sjå til at det er nok ledig plass på disken og prøv på nytt.</string>
+    <string name="app_details_error_installation_unavailable">Installeringstenester er ikkje tilgjengelege. Det kan henda at dette er avgrensa av administratoren.</string>
+    <string name="app_details_error_internal">Det oppstod ein intern feil. Du kan melda frå om feilen til Accrescent-utviklarane.</string>
+    <string name="app_details_error_invalid_server_response">Tenaren gav ugyldige data. Du kan melda frå om feilen til Accrescent-utviklarane.</string>
+    <string name="app_details_error_io_error">Nedlastinga vart avbroten. Sjå til at du er kopla til internett og prøv på nytt.</string>
+    <string name="app_details_error_not_already_installed">Forsøkte å oppdatera, men appen var ikkje installert.</string>
+    <string name="app_details_error_package_verification_failed">Klarte ikkje stadfesta at appen er legitim. Prøv på nytt seinare.</string>
+    <string name="app_details_error_timeout">Tidsavbrot ved operasjon. Prøv på nytt.</string>
+    <string name="app_details_error_unknown">Det oppstod ein ukjend feil. Du kan melda frå om feilen til Accrescent-utviklarane.</string>
+    <string name="app_details_network_error">Det oppstod ein nettverksfeil. Sjå til at du er kopla til internett og prøv på nytt.</string>
+    <string name="app_details_timeout_error">Førespurnaden vart tidsavbroten. Sjå til at du er kopla til internett og prøv på nytt.</string>
+    <string name="app_details_unknown_error">Det oppstod ein ukjend feil.</string>
+    <string name="cancel">Avbryt</string>
+    <string name="close">Lukk</string>
+    <string name="downloading_with_progress">Lastar ned: %1$s av %2$d MiB</string>
+    <string name="downloading_app">Lastar ned app</string>
+    <string name="error_while_loading_more_items">Det oppstod ein feil ved lasting av fleire element. Sjå til at du er kopla til internett og prøv på nytt.</string>
+    <string name="error_while_refreshing">Det oppstod ein feil ved oppfrisking. Sjå til at du er kopla til internett og prøv på nytt.</string>
+    <string name="go_back">Gå tilbake</string>
+    <string name="installation_failed">Feil ved installering</string>
+    <string name="install_failed_notif_body_aborted">Operasjonen vart avbroten.</string>
+    <string name="install_failed_notif_body_blocked">Operasjonen vart blokkert av systemet.</string>
+    <string name="install_failed_notif_body_blocked_by_package">Operasjonen vart blokkert av appen %1$s.</string>
+    <string name="install_failed_notif_body_conflict">Operasjonen er i konflikt med ein app som finst frå før.</string>
+    <string name="install_failed_notif_body_conflict_with_package">Operasjonen er i konflikt med appen %1$s.</string>
+    <string name="install_failed_notif_body_app_incompatible">Appen er ikkje kompatibel med eininga.</string>
+    <string name="install_failed_notif_body_app_invalid">Appfiler er ugyldige.</string>
+    <string name="install_failed_notif_body_storage">Feil ved lagring. Sjå til at det er nok ledig diskplass.</string>
+    <string name="install_failed_notif_body_timeout">Operasjonen vart tidsavbroten.</string>
+    <string name="installation_finished">Installeringa er fullført.</string>
+    <string name="install_success_notif_body">%1$s vart installert.</string>
+    <string name="installing">Installerer</string>
+    <string name="pending">Ventar</string>
+    <string name="retry">Prøv på nytt</string>
+    <string name="unarchive">Gjenopprett</string>
+    <string name="unarchive_failed">Feil ved gjenoppretting</string>
+    <string name="unarchive_finished">Gjenopprettinga er fullført</string>
+    <string name="unarchive_success_notif_body">%1$s er no gjenoppretta.</string>
 </resources>

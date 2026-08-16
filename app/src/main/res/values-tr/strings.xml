@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2022 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="settings">Ayarlar</string>
     <string name="app_list">Uygulamalar</string>
     <string name="app_updates">Güncellemeler</string>
@@ -91,4 +88,5 @@ SPDX-License-Identifier: Apache-2.0
     <string name="retry">Yeniden dene</string>
     <string name="update_failed">Güncelleme başarısız</string>
     <string name="update_available_for_app">%1$s uygulaması için güncelleme mevcut.</string>
+    <string name="app_details_error_app_store_unreachable">Uygulama mağazasına şu anda erişilemiyor. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.</string>
 </resources>
