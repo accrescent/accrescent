@@ -13,4 +13,4 @@ const val BLOG_FUTURE_OF_ACCRESCENT_URL = "https://blog.accrescent.app/posts/the
 
 const val REPODATA_PUBKEY = "RWT8aZ/NdUmXCPqQ0we7UyCe34q1xRfncBFVK5dI3ok9BkL1bFF3mgh3"
 const val REPODATA_VERSION = 1
-const val MIN_TIMESTAMP: Long = 1761251784
+const val MIN_TIMESTAMP: Long = 1772051974
