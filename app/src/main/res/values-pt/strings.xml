@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="app_updates">Atualizações</string>
     <string name="installed">Instalada</string>
     <string name="install">Instalar</string>
@@ -52,4 +49,20 @@ SPDX-License-Identifier: Apache-2.0
     <string name="donate_card_donate_btn">Doe</string>
     <string name="donate_card_dismiss_btn">Fechar</string>
     <string name="donate_card_info_btn">Saiba mais</string>
+    <string name="app_details_error_apk_download_failed">Ocorreu um erro ao transferir o APK da aplicação.</string>
+    <string name="app_details_error_app_incompatible">Esta aplicação é incompativel com o teu dispositivo e não pode ser instalada.</string>
+    <string name="app_details_error_app_not_found">Esta aplicação não pode ser instalada pois não é mais encontrada no servidor.</string>
+    <string name="app_details_error_canceled">O pedido de instalação foi cancelado.</string>
+    <string name="app_details_error_file_open_failed">Transferencia da aplicação para a memória falhou. Faz o favor de limpar algum espaço e tenta de novo.</string>
+    <string name="app_details_error_installation_unavailable">Serviços da instalação indisponíveis. Tu podes ter sido restringido pelo teu administrador.</string>
+    <string name="app_details_error_internal">Um erro interno ocorreu. Tu podes querer reportar este erro para os desenvolvedores do Accrescent.</string>
+    <string name="app_details_error_io_error">A transferencia foi interrumpida. Faz o favor conectar a uma rede e tenta novamente.</string>
+    <string name="app_details_error_package_verification_failed">A aplicação não pude ser verificada como legitima. Por favor tenta mais tarde.</string>
+    <string name="close">Fechar</string>
+    <string name="downloading_with_progress">Transferindo: %1$s de %2$d MiB</string>
+    <string name="downloading_app">Transferindo aplicação</string>
+    <string name="error_while_loading_more_items">Um erro ocorreu ao carregar mais itens. Vê a tua conexão com a rede e tenta de novo.</string>
+    <string name="error_while_refreshing">Um erro ocorreu ao recarregar. Vê a tua conexão com a rede e tenta de novo.</string>
+    <string name="go_back">Retroceder</string>
+    <string name="installation_failed">Erro na instalação</string>
 </resources>

@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="dark">Тъмна</string>
     <string name="donate">Даряване</string>
     <string name="installed">Инсталирани</string>
@@ -57,4 +54,48 @@ SPDX-License-Identifier: Apache-2.0
     <string name="app_details_error_app_not_found">Приложението не може да бъде намерено на сървъра.</string>
     <string name="app_details_error_app_store_unreachable">Магазинът за приложения не недостъпен. Проверете връзката с интернет и пробвайте отново.</string>
     <string name="app_details_error_canceled">Заявката за инсталиране е отказана.</string>
+    <string name="app_details_error_file_open_failed">Грешка при изтеглянето. Моля почистете паметта си и опитайте пак.</string>
+    <string name="app_details_error_install_reqs_not_met">Грешка при инсталирането с нужните параметри. Моля почистете паметта си и провбайте пак.</string>
+    <string name="app_details_error_installation_unavailable">Инсталирането не е налично. Възможно е да сте ограничени от администратора си.</string>
+    <string name="app_details_error_internal">Получи се грешка. Може да я докладвате на разработчиците на Accrescent.</string>
+    <string name="app_details_error_invalid_server_response">Сървърът предостави невалидни данни. Може да го докладвате на разработчиците на Accrescent.</string>
+    <string name="app_details_error_io_error">Грешка при изтеглянето. Моля проверете интернет връзката си и пробвайте пак.</string>
+    <string name="app_details_error_not_already_installed">Неуспешен опит за обновяване: приложението не е инсталирано.</string>
+    <string name="app_details_error_package_verification_failed">Приложението не може да бъде проверено като достоносно. Моля опитайте пак.</string>
+    <string name="app_details_error_timeout">Операцията изтече. Моля пробвайте пак.</string>
+    <string name="app_details_error_unknown">Възникна неочаквана грешка. Можете да докладвате на разработчиците на Accrescent.</string>
+    <string name="app_details_network_error">Грешка с връзката. Моля проверете интернета си.</string>
+    <string name="app_details_timeout_error">Опитът за връзка изтече. Моля проверете връзката си с интернет.</string>
+    <string name="app_details_unknown_error">Възника непозната грешка.</string>
+    <string name="cancel">Откажи</string>
+    <string name="close">Затвори</string>
+    <string name="downloading_with_progress">Изтегляне: %1$s от %2$d MiB</string>
+    <string name="downloading_app">Приложението се тегли</string>
+    <string name="error_while_loading_more_items">Грешка при зараждането на елементи. Проверете интернет връзката си и пробвайте пак.</string>
+    <string name="error_while_refreshing">Грешка при опресняването. Проверете интернет връзката си.</string>
+    <string name="go_back">Върни се</string>
+    <string name="installation_failed">Грешка при инсталацията</string>
+    <string name="install_failed_notif_body_generic">Операцията се провали поради неизвестна причина.</string>
+    <string name="install_failed_notif_body_aborted">Операцията бе прекъсната.</string>
+    <string name="install_failed_notif_body_blocked">Операцията бе прекъсната от системата.</string>
+    <string name="install_failed_notif_body_blocked_by_package">Операцията бе блокирана от приложението %1$s.</string>
+    <string name="install_failed_notif_body_conflict">Операцията е в конфликт със същестуващо приложение.</string>
+    <string name="install_failed_notif_body_conflict_with_package">Операцията е в конфликт с приложението %1$s.</string>
+    <string name="install_failed_notif_body_app_incompatible">Приложението е несъвместимо с устройството.</string>
+    <string name="install_failed_notif_body_app_invalid">Файловете на приложението са невалидни.</string>
+    <string name="install_failed_notif_body_storage">Грешка с паметта. Проверете дали имате достатъчно свободно място.</string>
+    <string name="install_failed_notif_body_timeout">Операцията изтече.</string>
+    <string name="installation_finished">Инсталацията приключи.</string>
+    <string name="install_success_notif_body">%1$s бе инсталирано успешно.</string>
+    <string name="installing">Инсталиране</string>
+    <string name="internal_error">Възникна грешка. Най-вероятно това е бъг. При възможност, моля докладвайте на разработчиците.</string>
+    <string name="pending">В очакване</string>
+    <string name="retry">Повторен опит</string>
+    <string name="unarchive">Деархивирай</string>
+    <string name="unarchive_failed">Грешка при деархивирането</string>
+    <string name="unarchive_finished">Деархивирането приключи</string>
+    <string name="unarchive_success_notif_body">%1$s бе деархивирано успешно.</string>
+    <string name="update_failed">Грешка при обновяването</string>
+    <string name="no_apps_available">Не са налични приложения</string>
+    <string name="update_available_for_app">Има нова версия за %1$s.</string>
 </resources>
