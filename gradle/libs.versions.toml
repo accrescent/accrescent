@@ -5,7 +5,7 @@
 [versions]
 activity-compose = "1.13.0"
 agp = "9.2.1"
-appstore-api = "1.5.0.4.20260421203544.a113a47f23db"
+appstore-api = "1.5.0.4.20260925233938.cd9cbc3ac813"
 arrow = "2.2.3"
 bouncycastle = "1.85"
 coil = "3.5.0"
