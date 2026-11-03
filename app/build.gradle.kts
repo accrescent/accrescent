@@ -105,8 +105,8 @@ android {
         applicationId = "app.accrescent.client"
         minSdk = 29
         targetSdk = 37
-        versionCode = 55
-        versionName = "0.28.1"
+        versionCode = 56
+        versionName = "0.29.0"
     }
 
     buildTypes {
