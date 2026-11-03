@@ -1,0 +1,9 @@
+version = 1
+
+# Since Hosted Weblate creates new translation files without license headers, provide their
+# licensing information here to avoid messing with Weblate commits directly since that can easily
+# break Weblate
+[[annotations]]
+path = "app/src/main/res/values-*/strings.xml"
+SPDX-FileCopyrightText = "The Accrescent Contributors"
+SPDX-License-Identifier = "Apache-2.0"
