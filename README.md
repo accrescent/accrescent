@@ -28,11 +28,11 @@ Currently in early alpha.
 
 |   Home Page  |  App Details |
 | ------------ | ------------ |
-| ![Img 1](https://accrescent.app/meta/screenshots/home.jpeg) | ![Img 2](https://accrescent.app/meta/screenshots/app-details.jpeg) |
+| ![Img 1](.screenshots/home.jpeg) | ![Img 2](.screenshots/app-details.jpeg) |
 
 | Settings Menu | Material You |
 | ------------- | ------------ |
-| ![Img 3](https://accrescent.app/meta/screenshots/settings.jpeg) | ![Img 4](https://accrescent.app/meta/screenshots/settings-material-you.jpeg) |
+| ![Img 3](.screenshots/settings.jpeg) | ![Img 4](.screenshots/settings-material-you.jpeg) |
 
 ## About
 
