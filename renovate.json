@@ -4,6 +4,13 @@
     "config:recommended",
     ":disableDependencyDashboard"
   ],
+  "automerge": true,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    }
+  ],
   "lockFileMaintenance": {
     "enabled": true,
     "commitMessageAction": "Update lock file"
