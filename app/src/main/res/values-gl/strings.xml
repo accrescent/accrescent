@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 SPDX-FileCopyrightText: © 2023 The Accrescent Contributors
 
 SPDX-License-Identifier: Apache-2.0
--->
-
-<resources>
+--><resources>
     <string name="dark">Escuro</string>
     <string name="donate_desc">Doa para axudar a Accrescent</string>
     <string name="installed">Instalada</string>
@@ -21,7 +18,7 @@ SPDX-License-Identifier: Apache-2.0
     <string name="source_code">Código fonte</string>
     <string name="source_code_desc">Ver o código fonte de Accrescent</string>
     <string name="no_apps_installed">Sen apps instaladas</string>
-    <string name="up_to_date">Todas as app están ao día</string>
+    <string name="up_to_date">Todas as apps están ao día</string>
     <string name="user_action_required">Require que a usuaria actúe</string>
     <string name="version">Versión: %1$s</string>
     <string name="repodata_timestamp_less">a marca de hora do repositorio é menor que o valor gardado</string>
@@ -88,7 +85,7 @@ SPDX-License-Identifier: Apache-2.0
     <string name="install_failed_notif_body_storage">Hai un problema coa almacenaxe. Comproba que tes espazo abondo.</string>
     <string name="install_failed_notif_body_timeout">A operación caducou.</string>
     <string name="installation_finished">Rematou a instalación.</string>
-    <string name="install_success_notif_body">%1$s instalouse correctamente.</string>
+    <string name="install_success_notif_body">Instalouse %1$s correctamente.</string>
     <string name="installing">Instalando</string>
     <string name="internal_error">Houbo un erro interno. Probablemente sexa fallo noso, se podes informa ás desenvolvedoras.</string>
     <string name="pending">Pendente</string>
