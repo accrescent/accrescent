@@ -1,3 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_details_error_app_store_unreachable">ขณะนี้ไม่สามารถเข้าถึง App Store ได้ กรุณาตรวจสอบการเชื่อมต่อเครื่อข่ายของคุณแล้วลองใหม่อีกครั้ง</string>
+    <string name="app_details_error_canceled">คำขอติดตั้งถูกยกเลิก</string>
+    <string name="app_details_error_file_open_failed">ดาวน์โหลดแอปไปยังดิสก์ล้มเหลว กรุณาล้างพื้นที่จัดเก็บข้อมูลแล้วลองใหม่อีกครั้ง</string>
+    <string name="app_details_error_apk_download_failed">เกิดข้อผิดพลาดขณะดาวน์โหลด APKs</string>
+    <string name="app_details_error_app_incompatible">แอปนี้ไม่รองรับอุปกรณ์ของคุณและไม่สามารถติดตั้งได้</string>
+    <string name="app_details_error_app_not_found">แอปนี้ไม่สามารถติดตั้งได้เนื่องจากไม่ได้อยู่บนเซิร์ฟเวอร์อีกต่อไป</string>
+    <string name="app_details_error_install_reqs_not_met">ไม่สามารถติดตั้งได้ด้วยตัวแปรที่จำเป็น กรุณาล้างพื้นที่จัดเก็บข้อมูลแล้วลองใหม่อีกครั้ง</string>
+    <string name="app_details_error_installation_unavailable">ไม่สามารถให้บริการติดตั้งได้คุณอาจถูกจํากัดโดยผู้ดูแลระบบของคุณ</string>
+    <string name="app_details_error_internal">เกิดข้อผิดพลาดภายใน คุณสามารถรายงานปัญหานี้ต่อผู้พัฒนา Accrescent ได้</string>
+    <string name="app_details_error_invalid_server_response">เซิร์ฟเวอร์ให้ข้อมูลที่ไม่ถูกต้อง คุณสามารถรายงานปัญหานี้ต่อผู้พัฒนา Accrescent ได้</string>
 </resources>
