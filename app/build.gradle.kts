@@ -93,6 +93,7 @@ android {
             "sr",
             "sv",
             "ta",
+            "th",
             "tr",
             "uk",
             "vi",
