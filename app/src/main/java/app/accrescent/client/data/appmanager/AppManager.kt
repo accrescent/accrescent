@@ -85,9 +85,6 @@ class AppManager @Inject constructor(
             sessionSize = totalDownloadSize,
             unarchiveId = if (params is InstallTaskParams.Unarchive) params.unarchiveId else null,
         )
-        val sessionId = createInstallSession(sessionParams)
-            .mapLeft { InstallTaskError.InstallSessionCreation(it) }
-            .bind()
 
         // Attempt to update signing certificates before installation
         try {
@@ -101,76 +98,86 @@ class AppManager @Inject constructor(
             .getAppMinVersionCode(params.appId)
             ?: raise(InstallTaskError.NoMinVersionCode)
 
-        openInstallSession(sessionId)
-            .mapLeft { InstallTaskError.InstallSessionOpen(it) }
+        val sessionId = createInstallSession(sessionParams)
+            .mapLeft { InstallTaskError.InstallSessionCreation(it) }
             .bind()
-            .use { session ->
-                try {
-                    val apkNames = downloadApksToSession(
-                        session,
-                        appDownloadInfo.splitDownloadInfo,
-                        onProgress,
-                    ).mapLeft { InstallTaskError.ApkDownload(it) }.bind()
 
-                    verifyPackageInfo(session, apkNames, requiredSigner, minVersionCode)
-                        .mapLeft { InstallTaskError.PackageVerification(it) }
-                        .bind()
+        val session = when (val result = openInstallSession(sessionId)) {
+            is Either.Right -> result.value
+            is Either.Left -> {
+                context.packageManager.packageInstaller.abandonSession(sessionId)
+                raise(InstallTaskError.InstallSessionOpen(result.value))
+            }
+        }
 
-                    val pendingIntent = PendingIntent.getBroadcast(
-                        context,
-                        sessionId,
-                        Intent(context, InstallerSessionCommitBroadcastReceiver::class.java)
-                            .putExtra(
-                                EXTRA_INSTALL_APP_REQUEST_BUNDLE,
-                                InstallAppRequest(
-                                    appId = params.appId,
-                                    sessionId = sessionId,
-                                    installType = when (params) {
-                                        is InstallTaskParams.InitialInstall -> InstallType.INSTALL
-                                        is InstallTaskParams.Unarchive -> InstallType.UNARCHIVE
-                                        is InstallTaskParams.Update -> InstallType.UPDATE
-                                    },
-                                ).toBundle(),
-                            ),
-                        // Required by PackageInstaller.Session.commit()
-                        PendingIntent.FLAG_MUTABLE,
-                    )
+        session.use { session ->
+            try {
+                val apkNames = downloadApksToSession(
+                    session,
+                    appDownloadInfo.splitDownloadInfo,
+                    onProgress,
+                ).mapLeft { InstallTaskError.ApkDownload(it) }.bind()
 
-                    // We don't distribute Accrescent via Google Play, so this lint is irrelevant to
-                    // us
-                    @SuppressLint("RequestInstallPackagesPolicy")
-                    if (
-                        params is InstallTaskParams.Update &&
-                        params.isGentle &&
-                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE &&
-                        // GENTLE_UPDATE is too passive for us to feel safe using it for self
-                        // updates, so commit normally when performing a self update
-                        params.appId != BuildConfig.APPLICATION_ID
-                    ) {
-                        try {
-                            context
-                                .packageManager
-                                .packageInstaller
-                                .commitSessionAfterInstallConstraintsAreMet(
-                                    sessionId,
-                                    pendingIntent.intentSender,
-                                    PackageInstaller.InstallConstraints.GENTLE_UPDATE,
-                                    GENTLE_UPDATE_CONSTRAINT_TIMEOUT_MILLIS,
-                                )
-                        } catch (_: SecurityException) {
-                            // We're not the installer of record, possibly because the app was
-                            // uninstalled before we attempted to update it, so fall back to
-                            // committing the usual way
-                            session.commit(pendingIntent.intentSender)
-                        }
-                    } else {
+                verifyPackageInfo(session, apkNames, requiredSigner, minVersionCode)
+                    .mapLeft { InstallTaskError.PackageVerification(it) }
+                    .bind()
+
+                val pendingIntent = PendingIntent.getBroadcast(
+                    context,
+                    sessionId,
+                    Intent(context, InstallerSessionCommitBroadcastReceiver::class.java)
+                        .putExtra(
+                            EXTRA_INSTALL_APP_REQUEST_BUNDLE,
+                            InstallAppRequest(
+                                appId = params.appId,
+                                sessionId = sessionId,
+                                installType = when (params) {
+                                    is InstallTaskParams.InitialInstall -> InstallType.INSTALL
+                                    is InstallTaskParams.Unarchive -> InstallType.UNARCHIVE
+                                    is InstallTaskParams.Update -> InstallType.UPDATE
+                                },
+                            ).toBundle(),
+                        ),
+                    // Required by PackageInstaller.Session.commit()
+                    PendingIntent.FLAG_MUTABLE,
+                )
+
+                // We don't distribute Accrescent via Google Play, so this lint is irrelevant to
+                // us
+                @SuppressLint("RequestInstallPackagesPolicy")
+                if (
+                    params is InstallTaskParams.Update &&
+                    params.isGentle &&
+                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE &&
+                    // GENTLE_UPDATE is too passive for us to feel safe using it for self
+                    // updates, so commit normally when performing a self update
+                    params.appId != BuildConfig.APPLICATION_ID
+                ) {
+                    try {
+                        context
+                            .packageManager
+                            .packageInstaller
+                            .commitSessionAfterInstallConstraintsAreMet(
+                                sessionId,
+                                pendingIntent.intentSender,
+                                PackageInstaller.InstallConstraints.GENTLE_UPDATE,
+                                GENTLE_UPDATE_CONSTRAINT_TIMEOUT_MILLIS,
+                            )
+                    } catch (_: SecurityException) {
+                        // We're not the installer of record, possibly because the app was
+                        // uninstalled before we attempted to update it, so fall back to
+                        // committing the usual way
                         session.commit(pendingIntent.intentSender)
                     }
-                } catch (t: Throwable) {
-                    session.abandon()
-                    throw t
+                } else {
+                    session.commit(pendingIntent.intentSender)
                 }
+            } catch (t: Throwable) {
+                session.abandon()
+                throw t
             }
+        }
+
 
         true
     }
