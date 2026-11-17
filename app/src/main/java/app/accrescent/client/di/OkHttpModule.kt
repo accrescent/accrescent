@@ -13,6 +13,7 @@ import dagger.hilt.components.SingletonComponent
 import jakarta.inject.Singleton
 import okhttp3.Cache
 import okhttp3.OkHttpClient
+import okhttp3.android.AndroidDns
 import java.io.File
 
 // The cache size in bytes
@@ -25,6 +26,7 @@ object OkHttpModule {
     @Singleton
     fun getOkHttpClient(@ApplicationContext context: Context) = OkHttpClient()
         .newBuilder()
+        .dns(AndroidDns())
         .cache(
             Cache(
                 directory = File(context.cacheDir.toURI()),
