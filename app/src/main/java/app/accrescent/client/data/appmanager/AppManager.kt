@@ -246,6 +246,39 @@ class AppManager @Inject constructor(
                 || appId == BuildConfig.APPLICATION_ID
     }
 
+    /**
+     * Returns whether the installed copy of the given app is signed by the signer Accrescent
+     * requires for it, or null if this can't be determined (e.g., the app isn't installed or no
+     * signer information is available yet)
+     */
+    suspend fun isInstalledAppSignedByRequiredSigner(appId: String): Boolean? {
+        val requiredSigner = repoDataRepository.getAppSigner(appId)
+            ?: run {
+                // Signer information may not have been fetched yet
+                try {
+                    repoDataRepository.fetchRepoData()
+                } catch (_: Throwable) {
+                }
+                repoDataRepository.getAppSigner(appId)
+            }
+            ?: return null
+        val signingInfo = try {
+            context.packageManager
+                .getPackageInfo(appId, PackageManager.GET_SIGNING_CERTIFICATES)
+                .signingInfo
+        } catch (_: PackageManager.NameNotFoundException) {
+            null
+        } ?: return null
+
+        val signers = if (signingInfo.hasMultipleSigners()) {
+            signingInfo.apkContentsSigners
+        } else {
+            signingInfo.signingCertificateHistory
+        }
+
+        return signers.map { hexSha256Sum(it.toByteArray()) }.contains(requiredSigner)
+    }
+
     fun shouldAutoUpdatePackage(packageInfo: PackageInfo): Boolean {
         // Auto update the package if and only if we can do so without implicitly enabling it from a
         // disabled state. On SDK 34+, we use SessionParams.setApplicationEnabledSettingPersistent()

@@ -278,9 +278,20 @@ class AppDetailsViewModel @Inject constructor(
                 }
 
                 if (updateAvailable) {
+                    val source = when {
+                        appManager.selfResponsibleForUpdatingPackage(appId) ->
+                            AppInstallationState.UpdateSource.Accrescent
+
+                        appManager.isInstalledAppSignedByRequiredSigner(appId) == false ->
+                            AppInstallationState.UpdateSource.OtherInstallerDifferentSigner
+
+                        else -> AppInstallationState.UpdateSource.OtherInstaller
+                    }
+
                     AppInstallationState.Installed.UpdateAvailable(
                         enabled = packageInfo.applicationInfo?.enabled == true,
                         compatible = updateCompatible,
+                        source = source,
                     )
                 } else {
                     AppInstallationState.Installed.UpToDate(
