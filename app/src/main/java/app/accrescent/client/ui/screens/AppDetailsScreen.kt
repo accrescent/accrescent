@@ -17,13 +17,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -50,9 +55,33 @@ fun AppDetailsScreen(
     viewModel: AppDetailsViewModel = hiltViewModel(),
 ) {
     val screenUiState by viewModel.screenUiState.collectAsStateWithLifecycle()
+    var showTakeOverUpdatesDialog by remember { mutableStateOf(false) }
 
     when (val uiState = screenUiState) {
         is AppDetailsUiState.Loaded -> {
+            if (showTakeOverUpdatesDialog) {
+                AlertDialog(
+                    onDismissRequest = { showTakeOverUpdatesDialog = false },
+                    title = { Text(stringResource(R.string.take_over_updates_dialog_title)) },
+                    text = { Text(stringResource(R.string.take_over_updates_dialog_body)) },
+                    confirmButton = {
+                        TextButton(
+                            onClick = {
+                                showTakeOverUpdatesDialog = false
+                                viewModel.updateApp()
+                            },
+                        ) {
+                            Text(stringResource(R.string.continue_action))
+                        }
+                    },
+                    dismissButton = {
+                        TextButton(onClick = { showTakeOverUpdatesDialog = false }) {
+                            Text(stringResource(R.string.cancel))
+                        }
+                    },
+                )
+            }
+
             Column(
                 modifier = modifier.verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.Center,
@@ -101,6 +130,14 @@ fun AppDetailsScreen(
 
                 // App status, e.g., errors and download progress
                 uiState.getDisplayText()?.let { Text(text = it) }
+                uiState.getInstallSourceText()?.let {
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodyMedium,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.padding(horizontal = 24.dp),
+                    )
+                }
                 uiState.getErrorText()?.let { errorText ->
                     ErrorBox(
                         errorText = errorText,
@@ -140,6 +177,13 @@ fun AppDetailsScreen(
                                 modifier = buttonModifier,
                             ) {
                                 Text(stringResource(R.string.update))
+                            }
+
+                            is AppActionButton.TakeOverUpdates -> Button(
+                                onClick = { showTakeOverUpdatesDialog = true },
+                                modifier = buttonModifier,
+                            ) {
+                                Text(stringResource(R.string.get_updates_here))
                             }
 
                             is AppActionButton.Open -> Button(

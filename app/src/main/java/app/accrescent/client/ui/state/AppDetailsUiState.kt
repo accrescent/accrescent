@@ -63,10 +63,21 @@ sealed class AppDetailsUiState {
                             Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE
 
                     when {
+                        // Accrescent can't update an app signed by a different key, so only offer
+                        // to uninstall it
+                        installationState.source ==
+                                AppInstallationState.UpdateSource.OtherInstallerDifferentSigner ->
+                            listOf(AppActionButton.Uninstall)
+
                         // Prioritize the "update" button over the "enable" button if it's possible
                         // to update the app without re-enabling it from a disabled state
                         canUpdateWithoutReenabling && installationState.compatible ->
-                            listOf(AppActionButton.Uninstall, AppActionButton.Update)
+                            when (installationState.source) {
+                                AppInstallationState.UpdateSource.OtherInstaller ->
+                                    listOf(AppActionButton.Uninstall, AppActionButton.TakeOverUpdates)
+
+                                else -> listOf(AppActionButton.Uninstall, AppActionButton.Update)
+                            }
 
                         !installationState.enabled ->
                             listOf(AppActionButton.Uninstall, AppActionButton.Enable)
@@ -222,11 +233,27 @@ sealed class AppDetailsUiState {
         }
 
         @Composable
-        fun getPersistentErrorText(): String? = if (buttonsToShow.isEmpty()) {
-            stringResource(R.string.app_details_error_app_incompatible)
-        } else {
-            null
+        fun getPersistentErrorText(): String? = when {
+            buttonsToShow.isEmpty() -> stringResource(R.string.app_details_error_app_incompatible)
+            installationState is AppInstallationState.Installed.UpdateAvailable &&
+                    installationState.source ==
+                    AppInstallationState.UpdateSource.OtherInstallerDifferentSigner ->
+                stringResource(R.string.app_details_error_different_signer)
+
+            else -> null
         }
+
+        @Composable
+        fun getInstallSourceText(): String? =
+            if (
+                installationState is AppInstallationState.Installed.UpdateAvailable &&
+                installationState.source == AppInstallationState.UpdateSource.OtherInstaller &&
+                AppActionButton.TakeOverUpdates in buttonsToShow
+            ) {
+                stringResource(R.string.installed_from_other_source)
+            } else {
+                null
+            }
     }
 
     data object Loading : AppDetailsUiState()
