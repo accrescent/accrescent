@@ -84,7 +84,11 @@ class AppDetailsViewModel @Inject constructor(
                 Intent.ACTION_PACKAGE_FULLY_REMOVED,
                 Intent.ACTION_PACKAGE_REMOVED,
                 Intent.ACTION_PACKAGE_REPLACED -> viewModelScope.launch {
-                    appInstallationState.value = getAppInstallationState()
+                    try {
+                        appInstallationState.value = getAppInstallationState()
+                    } catch (e: StatusException) {
+                        appDetailsLoadState.value = statusExceptionToLoadError(e)
+                    }
                 }
             }
         }
@@ -147,21 +151,7 @@ class AppDetailsViewModel @Inject constructor(
 
                 Triple(listing, packageInfo, installationState)
             } catch (e: StatusException) {
-                appDetailsLoadState.value = when (e.status.code) {
-                    Status.Code.DEADLINE_EXCEEDED -> AppDetailsLoadState.Error.Timeout
-                    Status.Code.NOT_FOUND -> AppDetailsLoadState.Error.AppNotFound(appId)
-                    Status.Code.UNIMPLEMENTED,
-                    Status.Code.INTERNAL -> {
-                        Log.e(LOG_TAG, "internal status code received", e)
-                        AppDetailsLoadState.Error.Internal
-                    }
-
-                    Status.Code.UNAVAILABLE -> AppDetailsLoadState.Error.Network
-                    else -> {
-                        Log.e(LOG_TAG, "unexpected status code received", e)
-                        AppDetailsLoadState.Error.Unknown
-                    }
-                }
+                appDetailsLoadState.value = statusExceptionToLoadError(e)
                 return@launch
             }
 
@@ -220,6 +210,24 @@ class AppDetailsViewModel @Inject constructor(
         installWorkRepository.clearAppInstallWork(appId)
         installSessionRepository.clearSessionsForApp(appId)
         installSessionRepository.clearSessionResultsForApp(appId)
+    }
+
+    private fun statusExceptionToLoadError(e: StatusException): AppDetailsLoadState.Error {
+        return when (e.status.code) {
+            Status.Code.DEADLINE_EXCEEDED -> AppDetailsLoadState.Error.Timeout
+            Status.Code.NOT_FOUND -> AppDetailsLoadState.Error.AppNotFound(appId)
+            Status.Code.UNIMPLEMENTED,
+            Status.Code.INTERNAL -> {
+                Log.e(LOG_TAG, "internal status code received", e)
+                AppDetailsLoadState.Error.Internal
+            }
+
+            Status.Code.UNAVAILABLE -> AppDetailsLoadState.Error.Network
+            else -> {
+                Log.e(LOG_TAG, "unexpected status code received", e)
+                AppDetailsLoadState.Error.Unknown
+            }
+        }
     }
 
     private fun getPreferredLanguages(): List<String> {
